@@ -174,14 +174,14 @@ function cardHTML(d){
     </div>
     <audio id="au-${d.id}" preload="none" src="audio/${d.id}.mp3"></audio>
     <div class="readwrap">
-      <span class="rlbl">🔁 原声播放</span>
+      <span class="rlbl">🔁 朗读</span>
       <select id="rp-${d.id}" class="repsSel">
         <option value="2">2 遍</option>
         <option value="3" selected>3 遍</option>
         <option value="5">5 遍</option>
         <option value="8">8 遍</option>
       </select>
-      <button id="rb-${d.id}" class="readBtn" onclick="loopRead('${d.id}')">▶ 开始</button>
+      <button id="rb-${d.id}" class="readBtn" onclick="loopSpeak('${d.id}')">▶ 开始</button>
       <span class="spdlbl">语速</span>
       <select class="spdSel" onchange="setCardSpeed('${d.id}',this.value)">
         <option value="1">1.0x</option>
@@ -218,7 +218,7 @@ function setCardDetails(id, show){ const el=document.getElementById('dt-'+id); i
   const btn=document.getElementById('db-'+id); if(btn) btn.textContent = show ? '📁 收起详情（变体 / 场景 / 语法 / 发音）' : '📂 展开详情（变体 / 场景 / 语法 / 发音）';
   try{ localStorage.setItem('vocab_details_'+id, show?'open':'closed'); }catch(e){} }
 function toggleDetails(id){ const el=document.getElementById('dt-'+id); if(el) setCardDetails(id, el.classList.contains('collapsed')); }
-function toggleAllDetails(){ const anyCollapsed = !!document.querySelector('.details.collapsed'); const show = !anyCollapsed;
+function toggleAllDetails(){ const anyCollapsed = !!document.querySelector('.details.collapsed'); const show = anyCollapsed;
   document.querySelectorAll('.details').forEach(el=>setCardDetails(el.id.replace('dt-',''), show));
   const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = show ? '📁 收起全部详情' : '📂 展开全部详情'; }
 function applyStoredDetails(){ DATA.forEach(d=>{ let st=null; try{ st=localStorage.getItem('vocab_details_'+d.id); }catch(e){}
@@ -233,24 +233,18 @@ function playAudio(id){ const a=document.getElementById('au-'+id);
   a.playbackRate = cardSpeed[id]||speed;
   a.onerror=()=>speak(encodeURIComponent(DATA.find(d=>d.id===id).en));
   a.currentTime=0; a.play().catch(()=>speak(encodeURIComponent(DATA.find(d=>d.id===id).en))); }
-let loopAudio=null, loopBtn=null, loopRemain=0;
-function loopRead(id){ const a=document.getElementById('au-'+id); const btn=document.getElementById('rb-'+id);
-  if(!a||!btn) return;
-  if(loopBtn===btn && loopRemain>0){ stopLoop(); a.pause(); return; }
-  stopLoop();
+function loopSpeak(id){ const btn=document.getElementById('rb-'+id); if(!btn) return;
+  const d=DATA.find(x=>x.id===id); if(!d) return;
+  if(btn.classList.contains('run')){ speechSynthesis.cancel(); btn.classList.remove('run'); btn.textContent='▶ 开始'; return; }
   const reps=parseInt(document.getElementById('rp-'+id).value,10)||3;
-  loopRemain=reps; loopAudio=a; loopBtn=btn;
-  btn.textContent='⏹ 停止'; btn.classList.add('run');
-  a.playbackRate=cardSpeed[id]||speed;
-  a.addEventListener('ended', onLoopEnd);
-  a.currentTime=0; a.play().catch(()=>{}); }
-function onLoopEnd(){ loopRemain--; if(loopRemain>0 && loopBtn){ loopAudio.currentTime=0; loopAudio.play().catch(()=>{}); } else stopLoop(); }
-function stopLoop(){ if(loopAudio) loopAudio.removeEventListener('ended', onLoopEnd);
-  if(loopBtn){ loopBtn.textContent='▶ 开始'; loopBtn.classList.remove('run'); }
-  loopAudio=null; loopBtn=null; loopRemain=0; }
+  let remain=reps; btn.classList.add('run'); btn.textContent='⏹ 停止';
+  function say(){ const u=new SpeechSynthesisUtterance(d.en); u.lang='en-US'; u.rate=cardSpeed[id]||speed;
+    const v=speechSynthesis.getVoices().find(x=>x.lang&&x.lang.startsWith('en')); if(v)u.voice=v;
+    u.onend=()=>{ remain--; if(remain>0 && btn.classList.contains('run')){ say(); } else { btn.classList.remove('run'); btn.textContent='▶ 开始'; } };
+    speechSynthesis.cancel(); speechSynthesis.speak(u); }
+  say(); }
 function setCardSpeed(id,v){ cardSpeed[id]=parseFloat(v);
-  try{ localStorage.setItem('vocab_speed_'+String(id).replace('s',''), v); }catch(e){}
-  if(loopAudio && document.getElementById('rb-'+id)===loopBtn) loopAudio.playbackRate=cardSpeed[id]||speed; }
+  try{ localStorage.setItem('vocab_speed_'+String(id).replace('s',''), v); }catch(e){} }
 function speak(t){ const u=new SpeechSynthesisUtterance(decodeURIComponent(t));
   u.lang='en-US'; u.rate=speed;
   const v=speechSynthesis.getVoices().find(x=>x.lang&&x.lang.startsWith('en')); if(v)u.voice=v;
