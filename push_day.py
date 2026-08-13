@@ -171,6 +171,13 @@ TEMPLATE = r"""<!DOCTYPE html>
   .readBtn{border:1px solid var(--accent2);background:var(--accent2);color:#fff;border-radius:8px;padding:5px 14px;font-size:13px;cursor:pointer}
   .readBtn:hover{filter:brightness(1.05)}
   .readBtn.run{background:#dc2626;border-color:#dc2626}
+  .block.collapsible{position:relative}
+  .block.collapsible>.h{cursor:pointer;user-select:none}
+  .block.collapsible>.h .caret{margin-left:auto;font-size:11px;transition:transform .15s;display:inline-block}
+  .block.collapsible.collapsed>.body{display:none}
+  .block.collapsible:not(.collapsed)>.h .caret{transform:rotate(90deg)}
+  .mbar{width:96px;height:9px;border-radius:5px;background:#e5e7eb;overflow:hidden;flex:none}
+  .mbar .mfill{height:100%;border-radius:5px;transition:width .25s,background .25s}
 </style>
 </head>
 <body>
@@ -234,7 +241,7 @@ async function assess(sid, action, btn){
     nv = action==='clear'?Math.min(5,cur+1):action==='unknown'?Math.max(0,cur-1):cur;
     if(st) st.textContent = '已本地记录（启动本地服务后可回写）';
   }
-  if(el) el.textContent = nv+'/5';
+  setMbar(sid, nv);
   try{ localStorage.setItem('vocab_mastery_'+id, String(nv)); }catch(e){}
   if(btn) btn.blur();
 }
@@ -262,7 +269,10 @@ function cardHTML(d){
     <div class="block var"><div class="h">🔹 简化 / 口语变体</div><ul>${v}</ul></div>
     <div class="block scene"><div class="h">🎭 场景化表达 + 不同回答</div><ul>${sc}</ul></div>
     <div class="block gram"><div class="h">📝 语法提示</div><div>${d.grammar}</div></div>
-    <div class="block pr"><div class="h">🔤 发音提示（连读/同化/滑音/浊化/失去爆破/闪音/弱读/缩读）</div><div>${d.pron}</div></div>
+    <div class="block pr collapsible collapsed" id="pr-${d.id}">
+      <div class="h" onclick="toggleBlock('pr-${d.id}')">🔤 发音提示（连读/同化/滑音/浊化/失去爆破/闪音/弱读/缩读）<span class="caret">▸</span></div>
+      <div class="body">${d.pron}</div>
+    </div>
     <audio id="au-${d.id}" preload="none" src="audio/${d.id}.mp3"></audio>
     <div class="readwrap">
       <span class="rlbl">🔁 跟读</span>
@@ -282,7 +292,9 @@ function cardHTML(d){
       </select>
     </div>
     <div class="assess">
-      <span class="lbl">自评掌握度：<span class="mbadge" id="mb-${d.id}">${d.mastery}/5</span></span>
+      <span class="lbl">自评掌握度：</span>
+      <div class="mbar" id="mbar-${d.id}"><div class="mfill" style="width:${d.mastery*20}%;background:${d.mastery<=2?'#dc2626':d.mastery<=4?'#d97706':'#16a34a'}"></div></div>
+      <span class="mbadge" id="mb-${d.id}">${d.mastery}/5</span>
       <button class="c" onclick="assess('${d.id}','clear',this)">✅ 认识 +1</button>
       <button class="f" onclick="assess('${d.id}','fuzzy',this)">🟡 模糊</button>
       <button class="u" onclick="assess('${d.id}','unknown',this)">🔴 不认识 -1</button>
@@ -302,6 +314,11 @@ if(DATA.some(d=>d.type==='long')){
   st.innerHTML=`<span class="tag">长句</span> Long sentences（${n}）`; document.querySelector('.wrap').insertBefore(st, document.getElementById('long'));
   document.getElementById('long').innerHTML=DATA.filter(d=>d.type==='long').map(cardHTML).join('');
 }
+function toggleBlock(id){ const el=document.getElementById(id); if(el) el.classList.toggle('collapsed'); }
+function mColor(v){ return v<=2?'#dc2626':(v<=4?'#d97706':'#16a34a'); }
+function setMbar(sid,v){ const bar=document.getElementById('mbar-'+sid);
+  if(bar){ const f=bar.querySelector('.mfill'); f.style.width=(v*20)+'%'; f.style.background=mColor(v); }
+  const b=document.getElementById('mb-'+sid); if(b) b.textContent=v+'/5'; }
 function playAudio(id){ const a=document.getElementById('au-'+id);
   if(!a){ speak(encodeURIComponent(DATA.find(d=>d.id===id).en)); return; }
   a.playbackRate = cardSpeed[id]||speed;
