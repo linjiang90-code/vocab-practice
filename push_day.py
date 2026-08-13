@@ -1,0 +1,364 @@
+# -*- coding: utf-8 -*-
+"""每日正式推送脚本：复用 day1.html 卡片模板，按 master.json 逻辑出当日 5 句。
+python push_day.py [YYYY-MM-DD]  # 不传日期则默认今天(手动跑用 2026-08-13)
+"""
+import json, datetime, os, sys
+
+BASE = r"C:/Users/Win10/WorkBuddy/2026-08-13-11-34-42/vocab-practice"
+master_path = os.path.join(BASE, "master.json")
+
+TODAY_STR = sys.argv[1] if len(sys.argv) > 1 else "2026-08-13"
+today = datetime.date.fromisoformat(TODAY_STR)
+
+with open(master_path, encoding="utf-8") as f:
+    data = json.load(f)
+meta = data["meta"]
+start = datetime.date.fromisoformat(meta["startDate"])
+dayIndex = (today - start).days + 1
+if dayIndex < 1:
+    dayIndex = 1
+
+# 当日句的增强内容（复用 day1.html 成品，并补 fullIpa 整句音标）
+ENH = {
+  1: {"fullIpa":"/wɛr ɪz ðə ˈnɪrɪst ˈsʌbweɪ ˈsteɪʃən/",
+      "variants":[["Where's the nearest metro station?","更口语，metro 在欧陆常用"],["Which way to the subway?","极简指路问法"]],
+      "scenes":[["问路人/酒店前台","Where's the nearest subway station?","对方指路或说 Go straight and turn left."],["请对方在地图上标","Can you pin the station on my map?","对方帮你定位"],["分不清地铁叫法","Is it the tube or the metro here?","英式 tube / 美式 subway / 欧陆 metro"]],
+      "grammar":"nearest 是 near 的最高级，the nearest + 名词 = 最近的…。subway（美）/ underground（英）/ metro（欧陆）同义，到当地用当地词更地道。",
+      "pron":"连读：Where is→/wɛə rɪz/（r 与 ɪ 连读）；is the→/ɪ zðə/（z 与 ð 连读）；the nearest 元音顺接。同化/滑音：无典型。弱读：is→/z/（功能词弱读省 /ɪ/）；the→/ðə/（弱读）。浊化：无（句首 Where 后接元音，无清→浊语境）。失去爆破/闪音：本句无（注：含 good boy/sit down 等相邻爆破音标失去爆破；含 better/water/party/city 等元音间 /t/ 标闪音 /ɾ/）。缩读：无。"},
+  2: {"fullIpa":"/kʊd ju seɪ ðæt əˈɡɛn pliz/",
+      "variants":[["Say that again?","轻松，朋友间"],["What? / Huh?","很随意，仅限熟人，慎对长辈/客户"],["Come again?","地道口语，偏英式"]],
+      "scenes":[["英式日常","Sorry? / Pardon?","英式最地道，朋友间"],["美式日常","Excuse me? / What was that?","美式更自然，不易误会"],["职场/客服","Could you repeat that, please?","比 say again 更职业"],["电话听不清","Sorry, I didn't catch that. / You're breaking up.","信号差时"]],
+      "grammar":"Could you + 动词原形 比 Can you 更礼貌（could 表委婉，不是过去式）。say 过去式是 said，但 say that again 用原形；again 重音在第二音节 /əˈɡɛn/。",
+      "pron":"同化：Could you→/kʊdʒu/（d+j 同化为 dʒ，关键！）。连读：that again→/ðæ təˈɡɛn/（t 与 a 连读）。浊化：that again 快读 t→d：/ðæ dəˈɡɛn/。弱读：you 此处因同化保留 /ju/，弱读时可作 /jə/。失去爆破/闪音：无典型。缩读：无。"},
+  3: {"fullIpa":"/aɪd laɪk tə bʊk ə ˈteɪbəl fɔr tu/",
+      "variants":[["I'd like to reserve a table for two.","reserve 更正式，餐厅常用"],["Table for two, please.","极简，前台直接说"]],
+      "scenes":[["电话订位","I'd like to book a table for two at 7.","加时间；对方回 Sure, window or inside?"],["现场有没有位","Do you have a table for two?","对方回 It's fully booked.(满座) / Your name, please?"],["等位","Can we put our name down?","留名等位"]],
+      "grammar":"I'd like to… = I would like to…，比 I want 礼貌，点单/预订万能句。book/reserve 在餐厅酒店都表预订；for two 表两人份。",
+      "pron":"连读：like to→/laɪk tə/（可连成 /laɪktə/）；book a→/bʊ kə/（k 与 a 连读）；table for→/ˈteɪbə wɔr/（l 后加 w 滑音）。滑音：table for 中 /l/ 与 /ɔ/ 间插入 /w/。弱读：to→/tə/、a→/ə/、for→/fər/（功能词均弱读）。缩读：I'd = I would（/aɪd/，'d 为 would 缩读）。浊化：like to 快读 t→d：/laɪ də/。失去爆破：无（无爆破音相邻）。闪音：无。"},
+  4: {"fullIpa":"/ɪts naɪs tə miːt ju/",
+      "variants":[["Nice to meet you.","省略 It's，最常用"],["Great to meet you.","更热情"],["Pleasure to meet you.","偏正式/商务"]],
+      "scenes":[["初次见面","Nice to meet you.","对方回 Nice to meet you too."],["经人介绍","This is my friend Tom. — Nice to meet you, Tom.","带名字更自然"],["道别时","Hope to see you again.","期待再见"]],
+      "grammar":"It's + adj. + to do 是形式主语结构；meet 过去式 met，但寒暄用原形 meet。回句固定加 too（也很高兴认识你）。",
+      "pron":"同化：meet you→/miː tʃu/（t+j 同化为 tʃ，关键！）。连读：It's nice→/ɪ tsnaɪs/（ts 连读）；nice to→/naɪs tə/（s 与 t 连读）；to meet→/tə wmiːt/（加 w 滑音）。滑音：to meet 中 /tə/ 与 /miːt/ 间插入 /w/。弱读：to→/tə/；you 句末常弱读 /ju/（此处保留）。缩读：It's = It is（/ɪts/，'s 为 is 缩读）。浊化：无典型。失去爆破/闪音：无典型。"},
+  5: {"fullIpa":"/haʊ mʌtʃ dʌz ðɪs kɔst/",
+      "variants":[["How much is this?","最简，口语最常用"],["What's the price?","偏正式"],["How much are these?","复数/多个时"]],
+      "scenes":[["砍价前问价","How much is it?","对方报价，可接 That's a bit much.(有点贵)"],["问单位价","How much per kilo / each?","按斤/个计价"],["自由市场","Is the price negotiable?","问能否议价"]],
+      "grammar":"How much + do/does + 主语 + cost? cost 此处作动词花费；this 单数用 does。口语更常省去 cost 直接说 How much is this?",
+      "pron":"连读：How much→/haʊ mʌtʃ/（w 与 m 连读）；much does→/mʌtʃ dʌz/（tʃ 与 d）；does this→/dʌz ðɪs/（z 与 ð）。弱读：does→/dʌz/（弱读形式 /dəz/）；this 此处重读 /ðɪs/。浊化：this cost 中 s 后接清 k，保持清音（无浊化）。失去爆破/闪音：无典型（注：含 that thing / hot day 等相邻爆破或 /t/+/θ/ 时标失去爆破）。缩读：无。"},
+}
+
+# 1) 选句：优先取「今日已引入」的句；否则取前 dailyCount 个未学（干净启动 20 天学完 100 句）
+already = [s for s in data["sentences"] if s["learn"]["introducedDay"] == dayIndex]
+if already:
+    selected = already[:meta["dailyCount"]]
+else:
+    pool = [s for s in data["sentences"] if not s["learn"]["introduced"]]
+    selected = pool[:meta["dailyCount"]]
+
+# 3) 写回增强内容 + 标记
+introduced_today = 0
+for s in selected:
+    e = ENH.get(s["id"])
+    if e:
+        s["learn"]["enh"].update(e)
+    if s["learn"]["introducedDay"] != dayIndex:
+        s["learn"]["introduced"] = True
+        s["learn"]["introducedDay"] = dayIndex
+        s["learn"]["lastReviewed"] = today.isoformat()
+        s["learn"]["reviewCount"] = (s["learn"]["reviewCount"] or 0) + 1
+        s["learn"]["mastery"] = min(5, (s["learn"]["mastery"] or 0) + 1)
+        s["learn"]["dueDate"] = (today + datetime.timedelta(days=meta["reviewIntervals"][0])).isoformat()
+        introduced_today += 1
+
+with open(master_path, "w", encoding="utf-8") as f:
+    json.dump(data, f, ensure_ascii=False, indent=2)
+
+# 4) 生成当日练习页 HTML（复用 day1.html 模板）
+js_data = []
+for s in selected:
+    enh = s["learn"]["enh"]
+    kw = [[k["term"], k["ipa"], (k.get("pos", "") or "") + (k["zh"] if k.get("zh") else "")] for k in s["keyvocab"]]
+    js_data.append({
+        "id": "s%d" % s["id"],
+        "type": s["length"],
+        "topic": s["theme"],
+        "en": s["en"],
+        "ipa": enh.get("fullIpa") or "",
+        "zh": s["zh"],
+        "kw": kw,
+        "variants": enh.get("variants") or [],
+        "scenes": enh.get("scenes") or [],
+        "grammar": enh.get("grammar") or "",
+        "pron": enh.get("pron") or "",
+        "mastery": s["learn"]["mastery"],
+    })
+
+total_introduced = sum(1 for s in data["sentences"] if s["learn"]["introduced"])
+n_short = sum(1 for s in selected if s["length"] == "short")
+n_long = sum(1 for s in selected if s["length"] == "long")
+
+# 卡片 CSS / JS 直接沿用 day1.html，仅注入 DATA 与标题/统计
+TEMPLATE = r"""<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>英语口语 Day __DAY__ · 增强版</title>
+<style>
+  :root{
+    --bg:#f5f7fa; --card:#ffffff; --text:#1f2329; --sub:#6b7280;
+    --line:#e5e7eb; --accent:#2f6fed; --accent2:#0e9f6e; --warn:#b45309; --pron:#0369a1;
+    --travel:#eef4ff; --daily:#eafaf3; --chip:#fff4e5;
+    --var:#f3f0ff; --scene:#eafaf3; --gram:#fff7ed; --pr:#eaf4ff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",Segoe UI,Roboto,sans-serif;
+    background:var(--bg);color:var(--text);line-height:1.65;padding:24px 16px 60px}
+  .wrap{max-width:820px;margin:0 auto}
+  header{text-align:center;margin-bottom:14px}
+  header h1{font-size:22px;font-weight:700}
+  header p{color:var(--sub);font-size:13.5px;margin-top:6px}
+  .summary{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:14px 0 4px}
+  .summary .box{background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 14px;text-align:center;min-width:96px}
+  .summary .box b{display:block;font-size:18px;color:var(--accent)}
+  .summary .box span{font-size:12px;color:var(--sub)}
+  .legend{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;font-size:12px;color:var(--sub);margin:14px 0 18px}
+  .legend b{color:var(--text)}
+  .toolbar{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:0 0 22px}
+  .btn{border:1px solid var(--line);background:#fff;color:var(--text);border-radius:999px;
+    padding:7px 16px;font-size:14px;cursor:pointer;transition:.15s}
+  .btn:hover{border-color:var(--accent);color:var(--accent)}
+  .btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .sec-title{font-size:15px;font-weight:700;color:var(--sub);margin:24px 4px 12px;display:flex;align-items:center;gap:8px}
+  .sec-title .tag{background:var(--accent);color:#fff;font-size:12px;padding:2px 9px;border-radius:6px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:14px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+  .card .top{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+  .num{width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex:none}
+  .pill{font-size:12px;padding:2px 10px;border-radius:999px;font-weight:600}
+  .pill.travel{background:var(--travel);color:#2f6fed}
+  .pill.daily{background:var(--daily);color:#0e9f6e}
+  .play{margin-left:auto;display:flex;gap:6px}
+  .ic{border:1px solid var(--line);background:#fff;border-radius:8px;width:34px;height:30px;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center}
+  .ic:hover{border-color:var(--accent);background:#f0f6ff}
+  .en{font-size:19px;font-weight:600;letter-spacing:.2px}
+  .ipa{color:var(--sub);font-size:13px;margin:4px 0 6px;font-style:italic}
+  .zh{font-size:15px;color:#374151}
+  .block{margin-top:12px;border-radius:10px;padding:10px 12px;font-size:13.5px}
+  .block .h{font-weight:700;font-size:13px;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+  .var{background:var(--var)} .scene{background:var(--scene)} .gram{background:var(--gram)} .pr{background:var(--pr)}
+  .var .h{color:#6d28d9} .scene .h{color:#0e9f6e} .gram .h{color:var(--warn)} .pr .h{color:var(--pron)}
+  .kw{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+  .kw .chip{background:var(--chip);border-radius:8px;padding:5px 10px;font-size:13px}
+  .kw .chip b{color:#b45309} .kw .chip .p{color:#9a3412;font-style:italic;margin-left:4px}
+  .block ul{margin:0;padding-left:18px} .block li{margin:3px 0}
+  .block li .ex{font-weight:600} .block li .nt{color:#6b7280}
+  .scene li .occ{color:#0e9f6e;font-weight:600} .scene li .resp{color:#6b7280}
+  footer{text-align:center;color:var(--sub);font-size:12px;margin-top:24px}
+  .assess{display:flex;align-items:center;gap:8px;margin-top:12px;flex-wrap:wrap;border-top:1px dashed var(--line);padding-top:10px}
+  .assess .lbl{font-size:13px;color:var(--sub)}
+  .assess button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:5px 12px;font-size:13px;cursor:pointer}
+  .assess button:hover{filter:brightness(.97)}
+  .assess .c{color:#16a34a}.assess .f{color:#d97706}.assess .u{color:#dc2626}
+  .astat{font-size:12px;color:var(--sub);margin-left:auto}
+  .mbadge{font-size:12px;font-weight:600;padding:2px 8px;border-radius:6px;background:#f1f5f9;color:#475569}
+  .spd{font-size:14px;color:var(--sub);display:flex;align-items:center;gap:6px}
+  .spd select{padding:6px 8px;border:1px solid var(--line);border-radius:8px;background:#fff;font-size:13px;color:var(--text);cursor:pointer}
+  .readwrap{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:12px 0 2px;font-size:13px;color:var(--sub)}
+  .readwrap audio{width:100%;height:32px;margin-bottom:2px}
+  .readwrap select{padding:5px 8px;border:1px solid var(--line);border-radius:8px;background:#fff;font-size:13px;color:var(--text);cursor:pointer}
+  .readwrap .rlbl{font-weight:600;color:#475569}
+  .readwrap .spdlbl{color:var(--sub)}
+  .readBtn{border:1px solid var(--accent2);background:var(--accent2);color:#fff;border-radius:8px;padding:5px 14px;font-size:13px;cursor:pointer}
+  .readBtn:hover{filter:brightness(1.05)}
+  .readBtn.run{background:#dc2626;border-color:#dc2626}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>🗣 英语口语 · Day __DAY__（增强版）</h1>
+    <p>旅游 + 日常混合 · __N__ 句/天 · 中英对照 + 生词音标 + 原声伴读 + 变体 + 场景俚语 + 语法 + 发音提示</p>
+  </header>
+  <div class="summary">
+    <div class="box"><b>第 __DAY__ 天</b><span>连续学习</span></div>
+    <div class="box"><b>__INTRO__ 句</b><span>今日新学</span></div>
+    <div class="box"><b>__TOTAL__/__POOL__</b><span>累计已学</span></div>
+    <div class="box"><b>__POOL__ 句</b><span>当前总池</span></div>
+  </div>
+  <div class="legend">
+    <span>🔹 <b>简化/口语变体</b></span>
+    <span>🎭 <b>场景化表达 + 不同回答</b></span>
+    <span>📝 <b>语法提示</b></span>
+    <span>🔤 <b>发音提示(连读/同化/滑音/浊化/失去爆破/闪音/弱读/缩读)</b></span>
+  </div>
+  <div class="toolbar">
+    <button class="btn primary" onclick="playAll()">▶ 全部伴读</button>
+    <label class="spd">语速(批量预设)
+      <select id="speedSel" onchange="setSpeed(this.value)" title="设为统一语速并应用到全部句子">
+        <option value="1">1.0x</option>
+        <option value="0.75">0.75x</option>
+        <option value="0.5">0.5x</option>
+        <option value="0.4">0.4x</option>
+      </select>
+    </label>
+    <button class="btn" onclick="stopAll()">⏹ 停止</button>
+  </div>
+  <div id="short"></div>
+  <div id="long"></div>
+  <footer>每天 10:00 自动推送新一批（同款增强版）· 进度本地保存，不外传</footer>
+</div>
+<script>
+const DATA = __DATA__;
+let speed = 1;
+let cardSpeed = {};
+try { DATA.forEach(d => { const sv = localStorage.getItem('vocab_speed_'+String(d.id).replace('s','')); if(sv) cardSpeed[d.id]=parseFloat(sv); }); } catch(e){}
+const API_PORT = 8765;
+try { const sv = localStorage.getItem('vocab_speed'); if (sv) { speed = parseFloat(sv); document.getElementById('speedSel').value = sv; } } catch(e){}
+async function apiFetch(path, opts){
+  for(const b of ['', 'http://127.0.0.1:'+API_PORT]){
+    try{ const r = await fetch(b+path, opts); if(r && r.ok) return r; }catch(e){}
+  }
+  return null;
+}
+async function assess(sid, action, btn){
+  const id = parseInt(String(sid).replace('s',''),10);
+  const r = await apiFetch('/api/mastery', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({id, action})});
+  const el = document.getElementById('mb-'+sid);
+  const st = document.getElementById('as-'+sid);
+  const cur = parseInt((el?el.textContent:'0/5').replace('/5',''),10)||0;
+  let nv = cur;
+  if(r){
+    const j = await r.json(); nv = j.mastery;
+    if(st) st.textContent = (action==='clear'?'已 +1':action==='unknown'?'已 -1':'已记录')+' · 已回写 ✓';
+  } else {
+    nv = action==='clear'?Math.min(5,cur+1):action==='unknown'?Math.max(0,cur-1):cur;
+    if(st) st.textContent = '已本地记录（启动本地服务后可回写）';
+  }
+  if(el) el.textContent = nv+'/5';
+  try{ localStorage.setItem('vocab_mastery_'+id, String(nv)); }catch(e){}
+  if(btn) btn.blur();
+}
+function setSpeed(v){ speed=parseFloat(v); try{ localStorage.setItem('vocab_speed', String(speed)); }catch(e){}
+  document.querySelectorAll('.card audio').forEach(a=>a.playbackRate=speed);
+  document.querySelectorAll('.spdSel').forEach(s=>s.value=v);
+  DATA.forEach(d=>{ const sid=String(d.id).replace('s',''); cardSpeed[d.id]=speed; try{ localStorage.setItem('vocab_speed_'+sid, v); }catch(e){} }); }
+function cardHTML(d){
+  const kw=d.kw.map(k=>`<span class="chip"><b>${k[0]}</b><span class="p">${k[1]}</span> ${k[2]}</span>`).join('');
+  const v=d.variants.map(x=>`<li><span class="ex">${x[0]}</span> <span class="nt">— ${x[1]}</span></li>`).join('');
+  const sc=d.scenes.map(x=>`<li><span class="occ">【${x[0]}】</span> ${x[1]} <span class="resp">→ ${x[2]}</span></li>`).join('');
+  return `<div class="card">
+    <div class="top">
+      <span class="num">${d.id.replace('s','')}</span>
+      <span class="pill ${d.topic}">${d.topic==='travel'?'旅游':'日常'}</span>
+      <span class="play">
+        <span class="ic" title="原声伴读" onclick="playAudio('${d.id}')">🔊</span>
+        <span class="ic" title="慢速朗读" onclick="speak('${encodeURIComponent(d.en)}')">🐢</span>
+      </span>
+    </div>
+    <div class="en">${d.en}</div>
+    <div class="ipa">${d.ipa}</div>
+    <div class="zh">${d.zh}</div>
+    <div class="kw">${kw}</div>
+    <div class="block var"><div class="h">🔹 简化 / 口语变体</div><ul>${v}</ul></div>
+    <div class="block scene"><div class="h">🎭 场景化表达 + 不同回答</div><ul>${sc}</ul></div>
+    <div class="block gram"><div class="h">📝 语法提示</div><div>${d.grammar}</div></div>
+    <div class="block pr"><div class="h">🔤 发音提示（连读/同化/滑音/浊化/失去爆破/闪音/弱读/缩读）</div><div>${d.pron}</div></div>
+    <audio id="au-${d.id}" preload="none" src="audio/${d.id}.mp3"></audio>
+    <div class="readwrap">
+      <span class="rlbl">🔁 跟读</span>
+      <select id="rp-${d.id}" class="repsSel">
+        <option value="2">2 遍</option>
+        <option value="3" selected>3 遍</option>
+        <option value="5">5 遍</option>
+        <option value="8">8 遍</option>
+      </select>
+      <button id="rb-${d.id}" class="readBtn" onclick="loopRead('${d.id}')">▶ 开始</button>
+      <span class="spdlbl">语速</span>
+      <select class="spdSel" onchange="setCardSpeed('${d.id}',this.value)">
+        <option value="1">1.0x</option>
+        <option value="0.75">0.75x</option>
+        <option value="0.5">0.5x</option>
+        <option value="0.4">0.4x</option>
+      </select>
+    </div>
+    <div class="assess">
+      <span class="lbl">自评掌握度：<span class="mbadge" id="mb-${d.id}">${d.mastery}/5</span></span>
+      <button class="c" onclick="assess('${d.id}','clear',this)">✅ 认识 +1</button>
+      <button class="f" onclick="assess('${d.id}','fuzzy',this)">🟡 模糊</button>
+      <button class="u" onclick="assess('${d.id}','unknown',this)">🔴 不认识 -1</button>
+      <span class="astat" id="as-${d.id}"></span>
+    </div>
+  </div>`;
+}
+if(DATA.some(d=>d.type==='short')){
+  const n=DATA.filter(d=>d.type==='short').length;
+  const st=document.createElement('div'); st.className='sec-title';
+  st.innerHTML=`<span class="tag">短句</span> Short sentences（${n}）`; document.querySelector('.wrap').insertBefore(st, document.getElementById('short'));
+  document.getElementById('short').innerHTML=DATA.filter(d=>d.type==='short').map(cardHTML).join('');
+}
+if(DATA.some(d=>d.type==='long')){
+  const n=DATA.filter(d=>d.type==='long').length;
+  const st=document.createElement('div'); st.className='sec-title';
+  st.innerHTML=`<span class="tag">长句</span> Long sentences（${n}）`; document.querySelector('.wrap').insertBefore(st, document.getElementById('long'));
+  document.getElementById('long').innerHTML=DATA.filter(d=>d.type==='long').map(cardHTML).join('');
+}
+function playAudio(id){ const a=document.getElementById('au-'+id);
+  if(!a){ speak(encodeURIComponent(DATA.find(d=>d.id===id).en)); return; }
+  a.playbackRate = cardSpeed[id]||speed;
+  a.onerror=()=>speak(encodeURIComponent(DATA.find(d=>d.id===id).en));
+  a.currentTime=0; a.play().catch(()=>speak(encodeURIComponent(DATA.find(d=>d.id===id).en))); }
+let loopAudio=null, loopBtn=null, loopRemain=0;
+function loopRead(id){ const a=document.getElementById('au-'+id); const btn=document.getElementById('rb-'+id);
+  if(!a||!btn) return;
+  if(loopBtn===btn && loopRemain>0){ stopLoop(); a.pause(); return; }
+  stopLoop();
+  const reps=parseInt(document.getElementById('rp-'+id).value,10)||3;
+  loopRemain=reps; loopAudio=a; loopBtn=btn;
+  btn.textContent='⏹ 停止'; btn.classList.add('run');
+  a.playbackRate=cardSpeed[id]||speed;
+  a.addEventListener('ended', onLoopEnd);
+  a.currentTime=0; a.play().catch(()=>{}); }
+function onLoopEnd(){ loopRemain--; if(loopRemain>0 && loopBtn){ loopAudio.currentTime=0; loopAudio.play().catch(()=>{}); } else stopLoop(); }
+function stopLoop(){ if(loopAudio) loopAudio.removeEventListener('ended', onLoopEnd);
+  if(loopBtn){ loopBtn.textContent='▶ 开始'; loopBtn.classList.remove('run'); }
+  loopAudio=null; loopBtn=null; loopRemain=0; }
+function setCardSpeed(id,v){ cardSpeed[id]=parseFloat(v);
+  try{ localStorage.setItem('vocab_speed_'+String(id).replace('s',''), v); }catch(e){}
+  if(loopAudio && document.getElementById('rb-'+id)===loopBtn) loopAudio.playbackRate=cardSpeed[id]||speed; }
+function speak(t){ const u=new SpeechSynthesisUtterance(decodeURIComponent(t));
+  u.lang='en-US'; u.rate=speed;
+  const v=speechSynthesis.getVoices().find(x=>x.lang&&x.lang.startsWith('en')); if(v)u.voice=v;
+  speechSynthesis.cancel(); speechSynthesis.speak(u); }
+let queue=[]; function playAll(){ stopAll(); queue=DATA.map(d=>d.en); next(); }
+function next(){ if(!queue.length)return; const u=new SpeechSynthesisUtterance(queue.shift());
+  u.lang='en-US'; u.rate=speed;
+  const v=speechSynthesis.getVoices().find(x=>x.lang&&x.lang.startsWith('en')); if(v)u.voice=v;
+  u.onend=next; speechSynthesis.speak(u); }
+function stopAll(){ speechSynthesis.cancel(); queue=[]; }
+</script>
+</body>
+</html>"""
+
+html = (TEMPLATE
+        .replace("__DAY__", str(dayIndex))
+        .replace("__N__", str(meta["dailyCount"]))
+        .replace("__INTRO__", str(introduced_today))
+        .replace("__TOTAL__", str(total_introduced))
+        .replace("__POOL__", str(len(data["sentences"])))
+        .replace("__DATA__", json.dumps(js_data, ensure_ascii=False)))
+
+out_path = os.path.join(BASE, "day%s.html" % today.isoformat())
+with open(out_path, "w", encoding="utf-8") as f:
+    f.write(html)
+
+# 5) 自动重生成总览页 master.html，保持与 master.json 同步
+import subprocess
+venv_py = r"C:/Users/Win10/.workbuddy/binaries/python/envs/default/Scripts/python.exe"
+gen_script = os.path.join(BASE, "gen_master_html.py")
+try:
+    r = subprocess.run([venv_py, gen_script], cwd=BASE, capture_output=True, text=True)
+    print("REGEN_MASTER:", r.stdout.strip().replace("\n", " "), r.stderr.strip().replace("\n", " "))
+except Exception as e:
+    print("REGEN_MASTER_ERR:", e)
+
+print("PUSH_DONE day=%d selected=%d introduced_total=%d out=%s" % (dayIndex, len(selected), total_introduced, out_path))

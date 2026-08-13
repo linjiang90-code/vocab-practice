@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>英语口语学习 · 一键预览入口</title>
+<style>
+  :root{--bg:#f5f7fa;--card:#fff;--ink:#1f2933;--sub:#6b7280;--line:#e5e7eb;--accent:#2f6fed;--accent2:#0e9f6e;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",Segoe UI,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+  .box{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:30px 32px;max-width:520px;width:100%;box-shadow:0 4px 18px rgba(0,0,0,.06)}
+  h1{font-size:22px;margin-bottom:6px}
+  p.desc{color:var(--sub);font-size:13.5px;margin-bottom:22px}
+  .btns{display:flex;flex-direction:column;gap:12px}
+  a.btn{display:block;text-decoration:none;border:1px solid var(--line);border-radius:12px;padding:16px 18px;font-size:16px;font-weight:600;color:var(--ink);background:#fff;transition:.15s;display:flex;align-items:center;gap:12px}
+  a.btn:hover{border-color:var(--accent);background:#f0f6ff}
+  a.btn .ic{font-size:22px}
+  a.btn .sub{font-size:12px;color:var(--sub);font-weight:400;margin-top:2px}
+  .status{margin-top:20px;font-size:12.5px;color:var(--sub);text-align:center}
+  .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#cbd5e1;margin-right:6px}
+  .dot.on{background:#16a34a}.dot.off{background:#dc2626}
+  .tip{margin-top:16px;font-size:11.5px;color:#94a3b8;line-height:1.6}
+  code{background:#f1f5f9;padding:1px 5px;border-radius:4px}
+</style>
+</head>
+<body>
+<div class="box">
+  <h1>🗣 英语口语 · 一键预览</h1>
+  <p class="desc">旅游 + 日常混合 · 100 范式滚动学习系统</p>
+  <div class="btns">
+    <a class="btn" id="todayLink" href="#"><span class="ic">📅</span><span><span id="todayLabel">今日练习</span><br><span class="sub" id="todaySub">加载中…</span></span></a>
+    <a class="btn" href="master.html"><span class="ic">📚</span><span>100 句总览<br><span class="sub">全部句式 · 发音详情 · 掌握度进度</span></span></a>
+  </div>
+  <div class="status"><span class="dot" id="dot"></span><span id="statText">检测回写服务中…</span></div>
+  <div class="tip">提示：练习页内的「✅认识 / 🟡模糊 / 🔴不认识」按钮会直接回写掌握度到数据库；若状态显示「未连接」，请先运行 <code>python serve.py</code> 启动本地服务（端口 8765）。</div>
+</div>
+<script>
+  const t = new Date();
+  const iso = t.toISOString().slice(0,10);
+  document.getElementById('todayLink').href = 'day' + iso + '.html';
+  document.getElementById('todayLabel').textContent = '今日练习（' + iso + '）';
+  document.getElementById('todaySub').textContent = '每天 10:00 自动推送的 5 句';
+  // 检测回写服务
+  async function check(){
+    const dot = document.getElementById('dot'), txt = document.getElementById('statText');
+    for(const base of ['', 'http://127.0.0.1:8765']){
+      try{ const r = await fetch(base + '/api/status'); if(r.ok){ dot.className='dot on'; txt.textContent='回写服务已连接 ✓ 自评可同步'; return; } }catch(e){}
+    }
+    dot.className='dot off'; txt.textContent='回写服务未连接（自评仅本地记录）';
+  }
+  check();
+</script>
+</body>
+</html>

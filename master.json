@@ -1,0 +1,3772 @@
+{
+  "meta": {
+    "systemName": "旅游+日常英语100范式 · 滚动扩展学习系统",
+    "dailyCount": 5,
+    "baseCount": 100,
+    "expandCount": 50,
+    "expandIntervalDays": 30,
+    "introDays": 20,
+    "startDate": "2026-08-13",
+    "reviewIntervals": [
+      1,
+      2,
+      4,
+      7,
+      15,
+      30
+    ],
+    "voice": "en-US-AriaNeural",
+    "voiceRate": "-10%",
+    "audioDir": "audio/",
+    "audioPattern": "audio/s{id}.mp3",
+    "expansionsDone": 0,
+    "nextExpansionDay": 31,
+    "cumulativeTargetNote": "100 -> (+50 每30天) -> 150 -> 200 -> 250 ... 随机反复学习"
+  },
+  "sentences": [
+    {
+      "id": 1,
+      "en": "Where is the nearest subway station?",
+      "zh": "最近的地铁站在哪里？",
+      "theme": "travel",
+      "category": "交通/问路",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "subway",
+          "ipa": "/ˈsʌbweɪ/",
+          "pos": "n.",
+          "zh": "地铁"
+        },
+        {
+          "term": "station",
+          "ipa": "/ˈsteɪʃən/",
+          "pos": "n.",
+          "zh": "车站"
+        }
+      ],
+      "audio": "audio/s1.mp3",
+      "learn": {
+        "introduced": true,
+        "introducedDay": 1,
+        "mastery": 1,
+        "reviewCount": 2,
+        "lastReviewed": "2026-08-13",
+        "dueDate": "2026-08-14",
+        "enh": {
+          "fullIpa": "/wɛr ɪz ðə ˈnɪrɪst ˈsʌbweɪ ˈsteɪʃən/",
+          "variants": [
+            [
+              "Where's the nearest metro station?",
+              "更口语，metro 在欧陆常用"
+            ],
+            [
+              "Which way to the subway?",
+              "极简指路问法"
+            ]
+          ],
+          "scenes": [
+            [
+              "问路人/酒店前台",
+              "Where's the nearest subway station?",
+              "对方指路或说 Go straight and turn left."
+            ],
+            [
+              "请对方在地图上标",
+              "Can you pin the station on my map?",
+              "对方帮你定位"
+            ],
+            [
+              "分不清地铁叫法",
+              "Is it the tube or the metro here?",
+              "英式 tube / 美式 subway / 欧陆 metro"
+            ]
+          ],
+          "grammar": "nearest 是 near 的最高级，the nearest + 名词 = 最近的…。subway（美）/ underground（英）/ metro（欧陆）同义，到当地用当地词更地道。",
+          "pron": "连读：Where is→/wɛə rɪz/（r 与 ɪ 连读）；is the→/ɪ zðə/（z 与 ð 连读）；the nearest 元音顺接。同化/滑音：无典型。弱读：is→/z/（功能词弱读省 /ɪ/）；the→/ðə/（弱读）。浊化：无（句首 Where 后接元音，无清→浊语境）。失去爆破/闪音：本句无（注：含 good boy/sit down 等相邻爆破音标失去爆破；含 better/water/party/city 等元音间 /t/ 标闪音 /ɾ/）。缩读：无。"
+        }
+      }
+    },
+    {
+      "id": 2,
+      "en": "Could you say that again, please?",
+      "zh": "你能再说一遍吗？",
+      "theme": "daily",
+      "category": "沟通/没听清",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "again",
+          "ipa": "/əˈɡɛn/",
+          "pos": "adv.",
+          "zh": "再，又一次"
+        },
+        {
+          "term": "say",
+          "ipa": "/seɪ/",
+          "pos": "v.",
+          "zh": "说"
+        }
+      ],
+      "audio": "audio/s2.mp3",
+      "learn": {
+        "introduced": true,
+        "introducedDay": 1,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-08-13",
+        "dueDate": "2026-08-14",
+        "enh": {
+          "fullIpa": "/kʊd ju seɪ ðæt əˈɡɛn pliz/",
+          "variants": [
+            [
+              "Say that again?",
+              "轻松，朋友间"
+            ],
+            [
+              "What? / Huh?",
+              "很随意，仅限熟人，慎对长辈/客户"
+            ],
+            [
+              "Come again?",
+              "地道口语，偏英式"
+            ]
+          ],
+          "scenes": [
+            [
+              "英式日常",
+              "Sorry? / Pardon?",
+              "英式最地道，朋友间"
+            ],
+            [
+              "美式日常",
+              "Excuse me? / What was that?",
+              "美式更自然，不易误会"
+            ],
+            [
+              "职场/客服",
+              "Could you repeat that, please?",
+              "比 say again 更职业"
+            ],
+            [
+              "电话听不清",
+              "Sorry, I didn't catch that. / You're breaking up.",
+              "信号差时"
+            ]
+          ],
+          "grammar": "Could you + 动词原形 比 Can you 更礼貌（could 表委婉，不是过去式）。say 过去式是 said，但 say that again 用原形；again 重音在第二音节 /əˈɡɛn/。",
+          "pron": "同化：Could you→/kʊdʒu/（d+j 同化为 dʒ，关键！）。连读：that again→/ðæ təˈɡɛn/（t 与 a 连读）。浊化：that again 快读 t→d：/ðæ dəˈɡɛn/。弱读：you 此处因同化保留 /ju/，弱读时可作 /jə/。失去爆破/闪音：无典型。缩读：无。"
+        }
+      }
+    },
+    {
+      "id": 3,
+      "en": "I'd like to book a table for two.",
+      "zh": "我想订一张两人桌。",
+      "theme": "travel",
+      "category": "餐厅/预订",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "book",
+          "ipa": "/bʊk/",
+          "pos": "v.",
+          "zh": "预订"
+        },
+        {
+          "term": "table",
+          "ipa": "/ˈteɪbəl/",
+          "pos": "n.",
+          "zh": "餐桌"
+        }
+      ],
+      "audio": "audio/s3.mp3",
+      "learn": {
+        "introduced": true,
+        "introducedDay": 1,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-08-13",
+        "dueDate": "2026-08-14",
+        "enh": {
+          "fullIpa": "/aɪd laɪk tə bʊk ə ˈteɪbəl fɔr tu/",
+          "variants": [
+            [
+              "I'd like to reserve a table for two.",
+              "reserve 更正式，餐厅常用"
+            ],
+            [
+              "Table for two, please.",
+              "极简，前台直接说"
+            ]
+          ],
+          "scenes": [
+            [
+              "电话订位",
+              "I'd like to book a table for two at 7.",
+              "加时间；对方回 Sure, window or inside?"
+            ],
+            [
+              "现场有没有位",
+              "Do you have a table for two?",
+              "对方回 It's fully booked.(满座) / Your name, please?"
+            ],
+            [
+              "等位",
+              "Can we put our name down?",
+              "留名等位"
+            ]
+          ],
+          "grammar": "I'd like to… = I would like to…，比 I want 礼貌，点单/预订万能句。book/reserve 在餐厅酒店都表预订；for two 表两人份。",
+          "pron": "连读：like to→/laɪk tə/（可连成 /laɪktə/）；book a→/bʊ kə/（k 与 a 连读）；table for→/ˈteɪbə wɔr/（l 后加 w 滑音）。滑音：table for 中 /l/ 与 /ɔ/ 间插入 /w/。弱读：to→/tə/、a→/ə/、for→/fər/（功能词均弱读）。缩读：I'd = I would（/aɪd/，'d 为 would 缩读）。浊化：like to 快读 t→d：/laɪ də/。失去爆破：无（无爆破音相邻）。闪音：无。"
+        }
+      }
+    },
+    {
+      "id": 4,
+      "en": "It's nice to meet you.",
+      "zh": "很高兴认识你。",
+      "theme": "daily",
+      "category": "寒暄/初次见面",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "nice",
+          "ipa": "/naɪs/",
+          "pos": "adj.",
+          "zh": "高兴的"
+        },
+        {
+          "term": "meet",
+          "ipa": "/mit/",
+          "pos": "v.",
+          "zh": "认识，遇见"
+        }
+      ],
+      "audio": "audio/s4.mp3",
+      "learn": {
+        "introduced": true,
+        "introducedDay": 1,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-08-13",
+        "dueDate": "2026-08-14",
+        "enh": {
+          "fullIpa": "/ɪts naɪs tə miːt ju/",
+          "variants": [
+            [
+              "Nice to meet you.",
+              "省略 It's，最常用"
+            ],
+            [
+              "Great to meet you.",
+              "更热情"
+            ],
+            [
+              "Pleasure to meet you.",
+              "偏正式/商务"
+            ]
+          ],
+          "scenes": [
+            [
+              "初次见面",
+              "Nice to meet you.",
+              "对方回 Nice to meet you too."
+            ],
+            [
+              "经人介绍",
+              "This is my friend Tom. — Nice to meet you, Tom.",
+              "带名字更自然"
+            ],
+            [
+              "道别时",
+              "Hope to see you again.",
+              "期待再见"
+            ]
+          ],
+          "grammar": "It's + adj. + to do 是形式主语结构；meet 过去式 met，但寒暄用原形 meet。回句固定加 too（也很高兴认识你）。",
+          "pron": "同化：meet you→/miː tʃu/（t+j 同化为 tʃ，关键！）。连读：It's nice→/ɪ tsnaɪs/（ts 连读）；nice to→/naɪs tə/（s 与 t 连读）；to meet→/tə wmiːt/（加 w 滑音）。滑音：to meet 中 /tə/ 与 /miːt/ 间插入 /w/。弱读：to→/tə/；you 句末常弱读 /ju/（此处保留）。缩读：It's = It is（/ɪts/，'s 为 is 缩读）。浊化：无典型。失去爆破/闪音：无典型。"
+        }
+      }
+    },
+    {
+      "id": 5,
+      "en": "How much does this cost?",
+      "zh": "这个多少钱？",
+      "theme": "travel",
+      "category": "购物/问价",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "cost",
+          "ipa": "/kɔst/",
+          "pos": "v.",
+          "zh": "花费，价格为"
+        },
+        {
+          "term": "much",
+          "ipa": "/mʌtʃ/",
+          "pos": "adv.",
+          "zh": "多少"
+        }
+      ],
+      "audio": "audio/s5.mp3",
+      "learn": {
+        "introduced": true,
+        "introducedDay": 1,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-08-13",
+        "dueDate": "2026-08-14",
+        "enh": {
+          "fullIpa": "/haʊ mʌtʃ dʌz ðɪs kɔst/",
+          "variants": [
+            [
+              "How much is this?",
+              "最简，口语最常用"
+            ],
+            [
+              "What's the price?",
+              "偏正式"
+            ],
+            [
+              "How much are these?",
+              "复数/多个时"
+            ]
+          ],
+          "scenes": [
+            [
+              "砍价前问价",
+              "How much is it?",
+              "对方报价，可接 That's a bit much.(有点贵)"
+            ],
+            [
+              "问单位价",
+              "How much per kilo / each?",
+              "按斤/个计价"
+            ],
+            [
+              "自由市场",
+              "Is the price negotiable?",
+              "问能否议价"
+            ]
+          ],
+          "grammar": "How much + do/does + 主语 + cost? cost 此处作动词花费；this 单数用 does。口语更常省去 cost 直接说 How much is this?",
+          "pron": "连读：How much→/haʊ mʌtʃ/（w 与 m 连读）；much does→/mʌtʃ dʌz/（tʃ 与 d）；does this→/dʌz ðɪs/（z 与 ð）。弱读：does→/dʌz/（弱读形式 /dəz/）；this 此处重读 /ðɪs/。浊化：this cost 中 s 后接清 k，保持清音（无浊化）。失去爆破/闪音：无典型（注：含 that thing / hot day 等相邻爆破或 /t/+/θ/ 时标失去爆破）。缩读：无。"
+        }
+      }
+    },
+    {
+      "id": 6,
+      "en": "What do you usually do on weekends?",
+      "zh": "你周末通常做什么？",
+      "theme": "daily",
+      "category": "闲聊/周末",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "usually",
+          "ipa": "/ˈjuʒuəli/",
+          "pos": "adv.",
+          "zh": "通常"
+        },
+        {
+          "term": "weekends",
+          "ipa": "/ˈwikɛndz/",
+          "pos": "n.",
+          "zh": "周末"
+        }
+      ],
+      "audio": "audio/s6.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 7,
+      "en": "Is breakfast included in the price?",
+      "zh": "房价包含早餐吗？",
+      "theme": "travel",
+      "category": "酒店/预订",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "breakfast",
+          "ipa": "/ˈbrɛkfəst/",
+          "pos": "n.",
+          "zh": "早餐"
+        },
+        {
+          "term": "included",
+          "ipa": "/ɪnˈkludɪd/",
+          "pos": "adj.",
+          "zh": "包含在内的"
+        }
+      ],
+      "audio": "audio/s7.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 8,
+      "en": "Could you recommend a good local restaurant that's not too expensive and within walking distance?",
+      "zh": "你能推荐一家不太贵、步行就能到的本地好餐厅吗？",
+      "theme": "travel",
+      "category": "餐厅/推荐",
+      "length": "long",
+      "keyvocab": [
+        {
+          "term": "recommend",
+          "ipa": "/ˌrekəˈmend/",
+          "pos": "v.",
+          "zh": "推荐"
+        },
+        {
+          "term": "distance",
+          "ipa": "/ˈdɪstəns/",
+          "pos": "n.",
+          "zh": "距离"
+        }
+      ],
+      "audio": "audio/s8.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 9,
+      "en": "I was wondering if you'd like to grab a coffee with me sometime this week.",
+      "zh": "我想问你这周有没有空跟我喝杯咖啡。",
+      "theme": "daily",
+      "category": "邀约/喝咖啡",
+      "length": "long",
+      "keyvocab": [
+        {
+          "term": "wondering",
+          "ipa": "/ˈwʌndərɪŋ/",
+          "pos": "v.",
+          "zh": "想知道"
+        },
+        {
+          "term": "coffee",
+          "ipa": "/ˈkɔfi/",
+          "pos": "n.",
+          "zh": "咖啡"
+        }
+      ],
+      "audio": "audio/s9.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 10,
+      "en": "I seem to have lost my way — could you tell me how to get to the city center from here?",
+      "zh": "我好像迷路了，你能告诉我从这里怎么去市中心吗？",
+      "theme": "travel",
+      "category": "问路/迷路",
+      "length": "long",
+      "keyvocab": [
+        {
+          "term": "lost",
+          "ipa": "/lɔst/",
+          "pos": "adj.",
+          "zh": "迷路的"
+        },
+        {
+          "term": "center",
+          "ipa": "/ˈsɛntər/",
+          "pos": "n.",
+          "zh": "中心"
+        }
+      ],
+      "audio": "audio/s10.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 11,
+      "en": "Where can I buy a ticket to the city center?",
+      "zh": "我在哪里可以买到去市中心的票？",
+      "theme": "travel",
+      "category": "交通/购票",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "ticket",
+          "ipa": "/ˈtɪkɪt/",
+          "pos": "n.",
+          "zh": "票"
+        },
+        {
+          "term": "city",
+          "ipa": "/ˈsɪti/",
+          "pos": "n.",
+          "zh": "城市"
+        }
+      ],
+      "audio": "audio/s11.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 12,
+      "en": "How long does it take to get there?",
+      "zh": "到那里要花多长时间？",
+      "theme": "travel",
+      "category": "交通/时长",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "take",
+          "ipa": "/teɪk/",
+          "pos": "v.",
+          "zh": "花费（时间）"
+        },
+        {
+          "term": "there",
+          "ipa": "/ðɛr/",
+          "pos": "adv.",
+          "zh": "那里"
+        }
+      ],
+      "audio": "audio/s12.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 13,
+      "en": "Is this seat taken?",
+      "zh": "这个座位有人坐吗？",
+      "theme": "travel",
+      "category": "交通/座位",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "seat",
+          "ipa": "/sit/",
+          "pos": "n.",
+          "zh": "座位"
+        },
+        {
+          "term": "taken",
+          "ipa": "/ˈteɪkən/",
+          "pos": "adj.",
+          "zh": "被占用的"
+        }
+      ],
+      "audio": "audio/s13.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 14,
+      "en": "I'd like a window seat, please.",
+      "zh": "我想要一个靠窗的座位，谢谢。",
+      "theme": "travel",
+      "category": "机场/选座",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "window",
+          "ipa": "/ˈwɪndoʊ/",
+          "pos": "n.",
+          "zh": "窗户"
+        },
+        {
+          "term": "seat",
+          "ipa": "/sit/",
+          "pos": "n.",
+          "zh": "座位"
+        }
+      ],
+      "audio": "audio/s14.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 15,
+      "en": "Where is the baggage claim?",
+      "zh": "行李领取处在哪里？",
+      "theme": "travel",
+      "category": "机场/行李",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "baggage",
+          "ipa": "/ˈbæɡɪdʒ/",
+          "pos": "n.",
+          "zh": "行李"
+        },
+        {
+          "term": "claim",
+          "ipa": "/kleɪm/",
+          "pos": "n.",
+          "zh": "领取"
+        }
+      ],
+      "audio": "audio/s15.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 16,
+      "en": "My luggage didn't arrive.",
+      "zh": "我的行李没有到。",
+      "theme": "travel",
+      "category": "机场/行李",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "luggage",
+          "ipa": "/ˈlʌɡɪdʒ/",
+          "pos": "n.",
+          "zh": "行李"
+        },
+        {
+          "term": "arrive",
+          "ipa": "/əˈraɪv/",
+          "pos": "v.",
+          "zh": "到达"
+        }
+      ],
+      "audio": "audio/s16.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 17,
+      "en": "Do I need a visa for this country?",
+      "zh": "去这个国家需要签证吗？",
+      "theme": "travel",
+      "category": "出入境/签证",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "visa",
+          "ipa": "/ˈvizə/",
+          "pos": "n.",
+          "zh": "签证"
+        },
+        {
+          "term": "country",
+          "ipa": "/ˈkʌntri/",
+          "pos": "n.",
+          "zh": "国家"
+        }
+      ],
+      "audio": "audio/s17.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 18,
+      "en": "Where should I go for passport control?",
+      "zh": "我该去哪里办护照查验？",
+      "theme": "travel",
+      "category": "机场/出入境",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "passport",
+          "ipa": "/ˈpæspɔrt/",
+          "pos": "n.",
+          "zh": "护照"
+        },
+        {
+          "term": "control",
+          "ipa": "/kənˈtroʊl/",
+          "pos": "n.",
+          "zh": "检查，管制"
+        }
+      ],
+      "audio": "audio/s18.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 19,
+      "en": "Could you call me a taxi, please?",
+      "zh": "你能帮我叫辆出租车吗？",
+      "theme": "travel",
+      "category": "交通/打车",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "taxi",
+          "ipa": "/ˈtæksi/",
+          "pos": "n.",
+          "zh": "出租车"
+        },
+        {
+          "term": "call",
+          "ipa": "/kɔl/",
+          "pos": "v.",
+          "zh": "叫，打电话"
+        }
+      ],
+      "audio": "audio/s19.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 20,
+      "en": "Please drop me off at the train station.",
+      "zh": "请在火车站让我下车。",
+      "theme": "travel",
+      "category": "交通/打车",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "drop",
+          "ipa": "/drɑp/",
+          "pos": "v.",
+          "zh": "放下，卸下"
+        },
+        {
+          "term": "station",
+          "ipa": "/ˈsteɪʃən/",
+          "pos": "n.",
+          "zh": "车站"
+        }
+      ],
+      "audio": "audio/s20.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 21,
+      "en": "How far is it from here?",
+      "zh": "离这里有多远？",
+      "theme": "travel",
+      "category": "问路/距离",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "far",
+          "ipa": "/fɑr/",
+          "pos": "adj.",
+          "zh": "远的"
+        }
+      ],
+      "audio": "audio/s21.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 22,
+      "en": "Can you show me on the map?",
+      "zh": "你能在地图上指给我看吗？",
+      "theme": "travel",
+      "category": "问路/地图",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "map",
+          "ipa": "/mæp/",
+          "pos": "n.",
+          "zh": "地图"
+        },
+        {
+          "term": "show",
+          "ipa": "/ʃoʊ/",
+          "pos": "v.",
+          "zh": "展示，指给"
+        }
+      ],
+      "audio": "audio/s22.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 23,
+      "en": "Turn left at the next corner.",
+      "zh": "在下一个拐角左转。",
+      "theme": "travel",
+      "category": "问路/方向",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "turn",
+          "ipa": "/tɜrn/",
+          "pos": "v.",
+          "zh": "转向"
+        },
+        {
+          "term": "corner",
+          "ipa": "/ˈkɔrnər/",
+          "pos": "n.",
+          "zh": "拐角"
+        }
+      ],
+      "audio": "audio/s23.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 24,
+      "en": "Is there a pharmacy nearby?",
+      "zh": "这附近有药房吗？",
+      "theme": "travel",
+      "category": "问路/便民",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "pharmacy",
+          "ipa": "/ˈfɑrməsi/",
+          "pos": "n.",
+          "zh": "药房"
+        },
+        {
+          "term": "nearby",
+          "ipa": "/ˈnɪrbaɪ/",
+          "pos": "adj.",
+          "zh": "附近的"
+        }
+      ],
+      "audio": "audio/s24.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 25,
+      "en": "I'd like to check in, please.",
+      "zh": "我想办理入住，谢谢。",
+      "theme": "travel",
+      "category": "酒店/入住",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "check in",
+          "ipa": "/tʃɛk ɪn/",
+          "pos": "phr.",
+          "zh": "办理入住"
+        }
+      ],
+      "audio": "audio/s25.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 26,
+      "en": "I have a reservation under the name Lee.",
+      "zh": "我用李这个名字预订了房间。",
+      "theme": "travel",
+      "category": "酒店/预订",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "reservation",
+          "ipa": "/ˌrɛzərˈveɪʃən/",
+          "pos": "n.",
+          "zh": "预订"
+        },
+        {
+          "term": "name",
+          "ipa": "/neɪm/",
+          "pos": "n.",
+          "zh": "名字"
+        }
+      ],
+      "audio": "audio/s26.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 27,
+      "en": "What time is breakfast served?",
+      "zh": "早餐几点开始供应？",
+      "theme": "travel",
+      "category": "酒店/餐饮",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "served",
+          "ipa": "/sɜrvd/",
+          "pos": "adj.",
+          "zh": "被供应的"
+        },
+        {
+          "term": "breakfast",
+          "ipa": "/ˈbrɛkfəst/",
+          "pos": "n.",
+          "zh": "早餐"
+        }
+      ],
+      "audio": "audio/s27.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 28,
+      "en": "Could I have a room with a better view?",
+      "zh": "我能换一间视野更好的房间吗？",
+      "theme": "travel",
+      "category": "酒店/换房",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "view",
+          "ipa": "/vju/",
+          "pos": "n.",
+          "zh": "景色，视野"
+        }
+      ],
+      "audio": "audio/s28.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 29,
+      "en": "The air conditioning doesn't work.",
+      "zh": "空调坏了。",
+      "theme": "travel",
+      "category": "酒店/报修",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "air conditioning",
+          "ipa": "/ɛr kənˈdɪʃənɪŋ/",
+          "pos": "n.",
+          "zh": "空调"
+        },
+        {
+          "term": "work",
+          "ipa": "/wɜrk/",
+          "pos": "v.",
+          "zh": "工作，运转"
+        }
+      ],
+      "audio": "audio/s29.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 30,
+      "en": "What's the Wi-Fi password?",
+      "zh": "Wi-Fi 密码是多少？",
+      "theme": "travel",
+      "category": "酒店/网络",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "password",
+          "ipa": "/ˈpæswɜrd/",
+          "pos": "n.",
+          "zh": "密码"
+        },
+        {
+          "term": "Wi-Fi",
+          "ipa": "/ˈwaɪ faɪ/",
+          "pos": "n.",
+          "zh": "无线网"
+        }
+      ],
+      "audio": "audio/s30.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 31,
+      "en": "Could we have the menu, please?",
+      "zh": "请把菜单给我们，谢谢。",
+      "theme": "travel",
+      "category": "餐厅/点餐",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "menu",
+          "ipa": "/ˈmɛnju/",
+          "pos": "n.",
+          "zh": "菜单"
+        }
+      ],
+      "audio": "audio/s31.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 32,
+      "en": "I'm allergic to peanuts.",
+      "zh": "我对花生过敏。",
+      "theme": "travel",
+      "category": "餐厅/忌口",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "allergic",
+          "ipa": "/əˈlɜrdʒɪk/",
+          "pos": "adj.",
+          "zh": "过敏的"
+        },
+        {
+          "term": "peanuts",
+          "ipa": "/ˈpinʌts/",
+          "pos": "n.",
+          "zh": "花生"
+        }
+      ],
+      "audio": "audio/s32.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 33,
+      "en": "Could you bring me the bill, please?",
+      "zh": "请把账单拿给我，谢谢。",
+      "theme": "travel",
+      "category": "餐厅/结账",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "bill",
+          "ipa": "/bɪl/",
+          "pos": "n.",
+          "zh": "账单"
+        },
+        {
+          "term": "bring",
+          "ipa": "/brɪŋ/",
+          "pos": "v.",
+          "zh": "拿来"
+        }
+      ],
+      "audio": "audio/s33.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 34,
+      "en": "Is the tip included?",
+      "zh": "小费包含在内吗？",
+      "theme": "travel",
+      "category": "餐厅/结账",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "tip",
+          "ipa": "/tɪp/",
+          "pos": "n.",
+          "zh": "小费"
+        },
+        {
+          "term": "included",
+          "ipa": "/ɪnˈkludɪd/",
+          "pos": "adj.",
+          "zh": "包含在内的"
+        }
+      ],
+      "audio": "audio/s34.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 35,
+      "en": "Do you have this in a larger size?",
+      "zh": "这个有更大号的吗？",
+      "theme": "travel",
+      "category": "购物/尺码",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "size",
+          "ipa": "/saɪz/",
+          "pos": "n.",
+          "zh": "尺码"
+        },
+        {
+          "term": "larger",
+          "ipa": "/ˈlɑrdʒər/",
+          "pos": "adj.",
+          "zh": "更大的"
+        }
+      ],
+      "audio": "audio/s35.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 36,
+      "en": "Can I try this on?",
+      "zh": "我可以试穿这件吗？",
+      "theme": "travel",
+      "category": "购物/试穿",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "try on",
+          "ipa": "/traɪ ɑn/",
+          "pos": "phr.",
+          "zh": "试穿"
+        }
+      ],
+      "audio": "audio/s36.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 37,
+      "en": "That's a bit expensive for me.",
+      "zh": "那对我来说有点贵。",
+      "theme": "travel",
+      "category": "购物/议价",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "expensive",
+          "ipa": "/ɪkˈspɛnsɪv/",
+          "pos": "adj.",
+          "zh": "贵的"
+        }
+      ],
+      "audio": "audio/s37.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 38,
+      "en": "Do you accept credit cards?",
+      "zh": "你们收信用卡吗？",
+      "theme": "travel",
+      "category": "购物/支付",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "credit",
+          "ipa": "/ˈkrɛdɪt/",
+          "pos": "n.",
+          "zh": "信用"
+        },
+        {
+          "term": "card",
+          "ipa": "/kɑrd/",
+          "pos": "n.",
+          "zh": "卡"
+        }
+      ],
+      "audio": "audio/s38.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 39,
+      "en": "Can I get a refund?",
+      "zh": "我可以退款吗？",
+      "theme": "travel",
+      "category": "购物/退换",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "refund",
+          "ipa": "/ˈrifʌnd/",
+          "pos": "n.",
+          "zh": "退款"
+        }
+      ],
+      "audio": "audio/s39.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 40,
+      "en": "Where are the changing rooms?",
+      "zh": "试衣间在哪里？",
+      "theme": "travel",
+      "category": "购物/试穿",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "changing rooms",
+          "ipa": "/ˈtʃeɪndʒɪŋ rumz/",
+          "pos": "n.",
+          "zh": "试衣间"
+        }
+      ],
+      "audio": "audio/s40.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 41,
+      "en": "I'm looking for a souvenir for my friend.",
+      "zh": "我在给我的朋友找一件纪念品。",
+      "theme": "travel",
+      "category": "购物/纪念品",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "souvenir",
+          "ipa": "/ˌsuvəˈnɪr/",
+          "pos": "n.",
+          "zh": "纪念品"
+        },
+        {
+          "term": "friend",
+          "ipa": "/frɛnd/",
+          "pos": "n.",
+          "zh": "朋友"
+        }
+      ],
+      "audio": "audio/s41.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 42,
+      "en": "Is there a discount for students?",
+      "zh": "学生有折扣吗？",
+      "theme": "travel",
+      "category": "购物/优惠",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "discount",
+          "ipa": "/ˈdɪskaʊnt/",
+          "pos": "n.",
+          "zh": "折扣"
+        },
+        {
+          "term": "students",
+          "ipa": "/ˈstudənts/",
+          "pos": "n.",
+          "zh": "学生"
+        }
+      ],
+      "audio": "audio/s42.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 43,
+      "en": "What time does the museum open?",
+      "zh": "博物馆几点开门？",
+      "theme": "travel",
+      "category": "观光/时间",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "museum",
+          "ipa": "/mjuˈziəm/",
+          "pos": "n.",
+          "zh": "博物馆"
+        },
+        {
+          "term": "open",
+          "ipa": "/ˈoʊpən/",
+          "pos": "v.",
+          "zh": "开门"
+        }
+      ],
+      "audio": "audio/s43.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 44,
+      "en": "Are there any guided tours?",
+      "zh": "有带导游的游览吗？",
+      "theme": "travel",
+      "category": "观光/导览",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "guided",
+          "ipa": "/ˈɡaɪdɪd/",
+          "pos": "adj.",
+          "zh": "带导游的"
+        },
+        {
+          "term": "tours",
+          "ipa": "/tʊrz/",
+          "pos": "n.",
+          "zh": "游览"
+        }
+      ],
+      "audio": "audio/s44.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 45,
+      "en": "Can I take a photo here?",
+      "zh": "我可以在这里拍照吗？",
+      "theme": "travel",
+      "category": "观光/拍照",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "photo",
+          "ipa": "/ˈfoʊtoʊ/",
+          "pos": "n.",
+          "zh": "照片"
+        }
+      ],
+      "audio": "audio/s45.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 46,
+      "en": "Where is the nearest restroom?",
+      "zh": "最近的洗手间在哪里？",
+      "theme": "travel",
+      "category": "应急/便民",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "restroom",
+          "ipa": "/ˈrɛstrum/",
+          "pos": "n.",
+          "zh": "洗手间"
+        },
+        {
+          "term": "nearest",
+          "ipa": "/ˈnɪrɪst/",
+          "pos": "adj.",
+          "zh": "最近的"
+        }
+      ],
+      "audio": "audio/s46.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 47,
+      "en": "I lost my wallet.",
+      "zh": "我的钱包丢了。",
+      "theme": "travel",
+      "category": "应急/遗失",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "wallet",
+          "ipa": "/ˈwɑlɪt/",
+          "pos": "n.",
+          "zh": "钱包"
+        },
+        {
+          "term": "lost",
+          "ipa": "/lɔst/",
+          "pos": "adj.",
+          "zh": "丢失的"
+        }
+      ],
+      "audio": "audio/s47.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 48,
+      "en": "I need to see a doctor.",
+      "zh": "我需要看医生。",
+      "theme": "travel",
+      "category": "应急/就医",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "doctor",
+          "ipa": "/ˈdɑktər/",
+          "pos": "n.",
+          "zh": "医生"
+        }
+      ],
+      "audio": "audio/s48.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 49,
+      "en": "Call the police, please.",
+      "zh": "请报警。",
+      "theme": "travel",
+      "category": "应急/安全",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "police",
+          "ipa": "/pəˈlis/",
+          "pos": "n.",
+          "zh": "警察"
+        }
+      ],
+      "audio": "audio/s49.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 50,
+      "en": "I've missed my flight.",
+      "zh": "我误了航班。",
+      "theme": "travel",
+      "category": "应急/误机",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "missed",
+          "ipa": "/mɪst/",
+          "pos": "adj.",
+          "zh": "错过的"
+        },
+        {
+          "term": "flight",
+          "ipa": "/flaɪt/",
+          "pos": "n.",
+          "zh": "航班"
+        }
+      ],
+      "audio": "audio/s50.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 51,
+      "en": "Can you speak more slowly, please?",
+      "zh": "你能说慢一点吗？",
+      "theme": "travel",
+      "category": "沟通/语速",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "slowly",
+          "ipa": "/ˈsloʊli/",
+          "pos": "adv.",
+          "zh": "慢地"
+        },
+        {
+          "term": "speak",
+          "ipa": "/spik/",
+          "pos": "v.",
+          "zh": "说"
+        }
+      ],
+      "audio": "audio/s51.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 52,
+      "en": "I don't understand.",
+      "zh": "我不明白。",
+      "theme": "travel",
+      "category": "沟通/理解",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "understand",
+          "ipa": "/ˌʌndərˈstænd/",
+          "pos": "v.",
+          "zh": "理解"
+        }
+      ],
+      "audio": "audio/s52.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 53,
+      "en": "Does anyone here speak English?",
+      "zh": "这里有人会说英语吗？",
+      "theme": "travel",
+      "category": "沟通/求助",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "anyone",
+          "ipa": "/ˈeniwʌn/",
+          "pos": "pron.",
+          "zh": "任何人"
+        },
+        {
+          "term": "English",
+          "ipa": "/ˈɪŋɡlɪʃ/",
+          "pos": "n.",
+          "zh": "英语"
+        }
+      ],
+      "audio": "audio/s53.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 54,
+      "en": "Thank you so much for your help.",
+      "zh": "非常感谢你的帮助。",
+      "theme": "daily",
+      "category": "礼貌/道谢",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "help",
+          "ipa": "/hɛlp/",
+          "pos": "n./v.",
+          "zh": "帮助"
+        }
+      ],
+      "audio": "audio/s54.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 55,
+      "en": "Have a nice day!",
+      "zh": "祝你今天愉快！",
+      "theme": "daily",
+      "category": "礼貌/祝福",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "nice",
+          "ipa": "/naɪs/",
+          "pos": "adj.",
+          "zh": "美好的"
+        },
+        {
+          "term": "day",
+          "ipa": "/deɪ/",
+          "pos": "n.",
+          "zh": "一天"
+        }
+      ],
+      "audio": "audio/s55.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 56,
+      "en": "I was wondering if you could help me find the nearest hospital, as I'm not feeling well.",
+      "zh": "我想问你能否帮我找最近的医院，因为我有点不舒服。",
+      "theme": "travel",
+      "category": "应急/就医",
+      "length": "long",
+      "keyvocab": [
+        {
+          "term": "hospital",
+          "ipa": "/ˈhɑspɪtl/",
+          "pos": "n.",
+          "zh": "医院"
+        },
+        {
+          "term": "feeling",
+          "ipa": "/ˈfilɪŋ/",
+          "pos": "v.",
+          "zh": "感觉"
+        }
+      ],
+      "audio": "audio/s56.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 57,
+      "en": "If it's not too much trouble, could you let me know when we arrive at the museum?",
+      "zh": "如果不麻烦的话，到了博物馆请告诉我一声好吗？",
+      "theme": "travel",
+      "category": "交通/提醒",
+      "length": "long",
+      "keyvocab": [
+        {
+          "term": "trouble",
+          "ipa": "/ˈtrʌbəl/",
+          "pos": "n.",
+          "zh": "麻烦"
+        },
+        {
+          "term": "arrive",
+          "ipa": "/əˈraɪv/",
+          "pos": "v.",
+          "zh": "到达"
+        }
+      ],
+      "audio": "audio/s57.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 58,
+      "en": "I'd like to extend my stay by two nights if that's possible.",
+      "zh": "如果可能的话，我想把住宿延长两晚。",
+      "theme": "travel",
+      "category": "酒店/续住",
+      "length": "long",
+      "keyvocab": [
+        {
+          "term": "extend",
+          "ipa": "/ɪkˈstɛnd/",
+          "pos": "v.",
+          "zh": "延长"
+        },
+        {
+          "term": "stay",
+          "ipa": "/steɪ/",
+          "pos": "n.",
+          "zh": "停留"
+        }
+      ],
+      "audio": "audio/s58.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 59,
+      "en": "How are you doing today?",
+      "zh": "你今天过得怎么样？",
+      "theme": "daily",
+      "category": "寒暄/问候",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "doing",
+          "ipa": "/ˈduɪŋ/",
+          "pos": "v.",
+          "zh": "过（日子）"
+        },
+        {
+          "term": "today",
+          "ipa": "/təˈdeɪ/",
+          "pos": "adv.",
+          "zh": "今天"
+        }
+      ],
+      "audio": "audio/s59.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 60,
+      "en": "Long time no see!",
+      "zh": "好久不见！",
+      "theme": "daily",
+      "category": "寒暄/重逢",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "long time no see",
+          "ipa": "/lɔŋ taɪm no si/",
+          "pos": "idiom",
+          "zh": "好久不见"
+        }
+      ],
+      "audio": "audio/s60.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 61,
+      "en": "What's your name again?",
+      "zh": "你叫什么名字来着？",
+      "theme": "daily",
+      "category": "寒暄/问名",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "name",
+          "ipa": "/neɪm/",
+          "pos": "n.",
+          "zh": "名字"
+        },
+        {
+          "term": "again",
+          "ipa": "/əˈɡɛn/",
+          "pos": "adv.",
+          "zh": "再一次"
+        }
+      ],
+      "audio": "audio/s61.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 62,
+      "en": "Where are you from?",
+      "zh": "你来自哪里？",
+      "theme": "daily",
+      "category": "寒暄/来源",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "from",
+          "ipa": "/frʌm/",
+          "pos": "prep.",
+          "zh": "来自"
+        }
+      ],
+      "audio": "audio/s62.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 63,
+      "en": "Nice talking to you.",
+      "zh": "很高兴和你聊天。",
+      "theme": "daily",
+      "category": "寒暄/道别",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "talking",
+          "ipa": "/ˈtɔkɪŋ/",
+          "pos": "v.",
+          "zh": "交谈"
+        }
+      ],
+      "audio": "audio/s63.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 64,
+      "en": "Could I get your phone number?",
+      "zh": "我可以要你的电话号码吗？",
+      "theme": "daily",
+      "category": "社交/联系方式",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "phone",
+          "ipa": "/foʊn/",
+          "pos": "n.",
+          "zh": "电话"
+        },
+        {
+          "term": "number",
+          "ipa": "/ˈnʌmbər/",
+          "pos": "n.",
+          "zh": "号码"
+        }
+      ],
+      "audio": "audio/s64.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 65,
+      "en": "Let's keep in touch.",
+      "zh": "我们保持联系吧。",
+      "theme": "daily",
+      "category": "社交/联系",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "touch",
+          "ipa": "/tʌtʃ/",
+          "pos": "n.",
+          "zh": "联系"
+        },
+        {
+          "term": "keep in touch",
+          "ipa": "/kip ɪn tʌtʃ/",
+          "pos": "phr.",
+          "zh": "保持联系"
+        }
+      ],
+      "audio": "audio/s65.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 66,
+      "en": "Are you free this weekend?",
+      "zh": "你这个周末有空吗？",
+      "theme": "daily",
+      "category": "邀约/周末",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "free",
+          "ipa": "/fri/",
+          "pos": "adj.",
+          "zh": "有空的"
+        },
+        {
+          "term": "weekend",
+          "ipa": "/ˈwikɛnd/",
+          "pos": "n.",
+          "zh": "周末"
+        }
+      ],
+      "audio": "audio/s66.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 67,
+      "en": "Sorry, I can't make it.",
+      "zh": "抱歉，我去不了。",
+      "theme": "daily",
+      "category": "邀约/婉拒",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "sorry",
+          "ipa": "/ˈsɑri/",
+          "pos": "adj.",
+          "zh": "抱歉的"
+        },
+        {
+          "term": "make it",
+          "ipa": "/meɪk ɪt/",
+          "pos": "phr.",
+          "zh": "能到场"
+        }
+      ],
+      "audio": "audio/s67.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 68,
+      "en": "Maybe another time.",
+      "zh": "也许改天吧。",
+      "theme": "daily",
+      "category": "邀约/改期",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "maybe",
+          "ipa": "/ˈmeɪbi/",
+          "pos": "adv.",
+          "zh": "也许"
+        },
+        {
+          "term": "another",
+          "ipa": "/əˈnʌðər/",
+          "pos": "adj.",
+          "zh": "另一个"
+        }
+      ],
+      "audio": "audio/s68.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 69,
+      "en": "What's the weather like today?",
+      "zh": "今天天气怎么样？",
+      "theme": "daily",
+      "category": "闲聊/天气",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "weather",
+          "ipa": "/ˈwɛðər/",
+          "pos": "n.",
+          "zh": "天气"
+        }
+      ],
+      "audio": "audio/s69.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 70,
+      "en": "It's raining cats and dogs.",
+      "zh": "外面下着倾盆大雨。",
+      "theme": "daily",
+      "category": "闲聊/天气",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "raining",
+          "ipa": "/ˈreɪnɪŋ/",
+          "pos": "v.",
+          "zh": "下雨"
+        },
+        {
+          "term": "cats and dogs",
+          "ipa": "/kæts ənd dɔɡz/",
+          "pos": "idiom",
+          "zh": "倾盆大雨"
+        }
+      ],
+      "audio": "audio/s70.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 71,
+      "en": "I'm stuck in traffic, so I might be a few minutes late.",
+      "zh": "我堵车了，所以可能会晚几分钟。",
+      "theme": "daily",
+      "category": "闲聊/交通",
+      "length": "long",
+      "keyvocab": [
+        {
+          "term": "stuck",
+          "ipa": "/stʌk/",
+          "pos": "adj.",
+          "zh": "卡住的"
+        },
+        {
+          "term": "traffic",
+          "ipa": "/ˈtræfɪk/",
+          "pos": "n.",
+          "zh": "交通"
+        }
+      ],
+      "audio": "audio/s71.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 72,
+      "en": "How was your day?",
+      "zh": "你今天过得怎么样？",
+      "theme": "daily",
+      "category": "闲聊/问候",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "day",
+          "ipa": "/deɪ/",
+          "pos": "n.",
+          "zh": "一天"
+        }
+      ],
+      "audio": "audio/s72.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 73,
+      "en": "I had a long day at work.",
+      "zh": "我今天工作了一整天，挺累的。",
+      "theme": "daily",
+      "category": "闲聊/工作",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "work",
+          "ipa": "/wɜrk/",
+          "pos": "n.",
+          "zh": "工作"
+        }
+      ],
+      "audio": "audio/s73.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 74,
+      "en": "Could you do me a favor?",
+      "zh": "你能帮我个忙吗？",
+      "theme": "daily",
+      "category": "请求/帮忙",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "favor",
+          "ipa": "/ˈfeɪvər/",
+          "pos": "n.",
+          "zh": "恩惠"
+        },
+        {
+          "term": "do me a favor",
+          "ipa": "/du mi ə ˈfeɪvər/",
+          "pos": "phr.",
+          "zh": "帮我个忙"
+        }
+      ],
+      "audio": "audio/s74.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 75,
+      "en": "Sure, no problem.",
+      "zh": "当然，没问题。",
+      "theme": "daily",
+      "category": "答应/爽快",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "sure",
+          "ipa": "/ʃʊr/",
+          "pos": "adj.",
+          "zh": "当然"
+        },
+        {
+          "term": "problem",
+          "ipa": "/ˈprɑbləm/",
+          "pos": "n.",
+          "zh": "问题"
+        }
+      ],
+      "audio": "audio/s75.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 76,
+      "en": "I'm really sorry to hear that; is there anything I can do to help?",
+      "zh": "听到这个我很难过，有什么我能帮忙的吗？",
+      "theme": "daily",
+      "category": "安慰/关心",
+      "length": "long",
+      "keyvocab": [
+        {
+          "term": "sorry",
+          "ipa": "/ˈsɑri/",
+          "pos": "adj.",
+          "zh": "难过的"
+        },
+        {
+          "term": "hear",
+          "ipa": "/hɪr/",
+          "pos": "v.",
+          "zh": "听说"
+        }
+      ],
+      "audio": "audio/s76.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 77,
+      "en": "Congratulations on your promotion!",
+      "zh": "恭喜你升职！",
+      "theme": "daily",
+      "category": "祝贺/职场",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "congratulations",
+          "ipa": "/kənˌɡrætʃəˈleɪʃənz/",
+          "pos": "n.",
+          "zh": "祝贺"
+        },
+        {
+          "term": "promotion",
+          "ipa": "/prəˈmoʊʃən/",
+          "pos": "n.",
+          "zh": "升职"
+        }
+      ],
+      "audio": "audio/s77.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 78,
+      "en": "Thank you for inviting me.",
+      "zh": "谢谢你邀请我。",
+      "theme": "daily",
+      "category": "礼貌/道谢",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "inviting",
+          "ipa": "/ɪnˈvaɪtɪŋ/",
+          "pos": "v.",
+          "zh": "邀请"
+        }
+      ],
+      "audio": "audio/s78.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 79,
+      "en": "You're welcome.",
+      "zh": "不客气。",
+      "theme": "daily",
+      "category": "礼貌/回应",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "welcome",
+          "ipa": "/ˈwɛlkəm/",
+          "pos": "adj.",
+          "zh": "受欢迎的"
+        }
+      ],
+      "audio": "audio/s79.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 80,
+      "en": "Excuse me, could you pass the salt?",
+      "zh": "不好意思，能把盐递给我吗？",
+      "theme": "daily",
+      "category": "餐桌/礼貌",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "pass",
+          "ipa": "/pæs/",
+          "pos": "v.",
+          "zh": "递"
+        },
+        {
+          "term": "salt",
+          "ipa": "/sɔlt/",
+          "pos": "n.",
+          "zh": "盐"
+        }
+      ],
+      "audio": "audio/s80.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 81,
+      "en": "This food is delicious!",
+      "zh": "这食物真好吃！",
+      "theme": "daily",
+      "category": "餐桌/夸赞",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "delicious",
+          "ipa": "/dɪˈlɪʃəs/",
+          "pos": "adj.",
+          "zh": "美味的"
+        }
+      ],
+      "audio": "audio/s81.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 82,
+      "en": "I'm on a diet.",
+      "zh": "我在节食。",
+      "theme": "daily",
+      "category": "健康/饮食",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "diet",
+          "ipa": "/ˈdaɪət/",
+          "pos": "n.",
+          "zh": "节食"
+        },
+        {
+          "term": "on a diet",
+          "ipa": "/ɑn ə ˈdaɪət/",
+          "pos": "phr.",
+          "zh": "在节食"
+        }
+      ],
+      "audio": "audio/s82.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 83,
+      "en": "I feel a bit under the weather.",
+      "zh": "我有点不舒服。",
+      "theme": "daily",
+      "category": "健康/状态",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "under the weather",
+          "ipa": "/ˈʌndər ðə ˈwɛðər/",
+          "pos": "idiom",
+          "zh": "身体不适"
+        }
+      ],
+      "audio": "audio/s83.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 84,
+      "en": "Can you believe it?",
+      "zh": "你能相信吗？",
+      "theme": "daily",
+      "category": "感叹/惊讶",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "believe",
+          "ipa": "/bɪˈliv/",
+          "pos": "v.",
+          "zh": "相信"
+        }
+      ],
+      "audio": "audio/s84.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 85,
+      "en": "That sounds great!",
+      "zh": "听起来很棒！",
+      "theme": "daily",
+      "category": "回应/赞同",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "sounds",
+          "ipa": "/saʊndz/",
+          "pos": "v.",
+          "zh": "听起来"
+        },
+        {
+          "term": "great",
+          "ipa": "/ɡreɪt/",
+          "pos": "adj.",
+          "zh": "棒极了"
+        }
+      ],
+      "audio": "audio/s85.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 86,
+      "en": "I couldn't agree more.",
+      "zh": "我完全同意。",
+      "theme": "daily",
+      "category": "回应/赞同",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "agree",
+          "ipa": "/əˈɡri/",
+          "pos": "v.",
+          "zh": "同意"
+        },
+        {
+          "term": "couldn't agree more",
+          "ipa": "/ˈkʊdənt əˈɡri mɔr/",
+          "pos": "idiom",
+          "zh": "完全同意"
+        }
+      ],
+      "audio": "audio/s86.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 87,
+      "en": "Let me think about it.",
+      "zh": "让我想想。",
+      "theme": "daily",
+      "category": "犹豫/思考",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "think",
+          "ipa": "/θɪŋk/",
+          "pos": "v.",
+          "zh": "想"
+        }
+      ],
+      "audio": "audio/s87.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 88,
+      "en": "I'll get back to you as soon as I confirm the details with my manager.",
+      "zh": "我一和经理确认好细节就回复你。",
+      "theme": "daily",
+      "category": "回应/回复",
+      "length": "long",
+      "keyvocab": [
+        {
+          "term": "get back",
+          "ipa": "/ɡɛt bæk/",
+          "pos": "phr.",
+          "zh": "回复"
+        },
+        {
+          "term": "confirm",
+          "ipa": "/kənˈfɜrm/",
+          "pos": "v.",
+          "zh": "确认"
+        }
+      ],
+      "audio": "audio/s88.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 89,
+      "en": "Could you speak up, please?",
+      "zh": "你能大声一点吗？",
+      "theme": "daily",
+      "category": "沟通/音量",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "speak up",
+          "ipa": "/spik ʌp/",
+          "pos": "phr.",
+          "zh": "大声说"
+        }
+      ],
+      "audio": "audio/s89.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 90,
+      "en": "I didn't catch your name.",
+      "zh": "我没听清你的名字。",
+      "theme": "daily",
+      "category": "沟通/没听清",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "catch",
+          "ipa": "/kætʃ/",
+          "pos": "v.",
+          "zh": "听清，赶上"
+        },
+        {
+          "term": "name",
+          "ipa": "/neɪm/",
+          "pos": "n.",
+          "zh": "名字"
+        }
+      ],
+      "audio": "audio/s90.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 91,
+      "en": "What do you mean by that?",
+      "zh": "你那么说是什么意思？",
+      "theme": "daily",
+      "category": "沟通/澄清",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "mean",
+          "ipa": "/min/",
+          "pos": "v.",
+          "zh": "意思是"
+        }
+      ],
+      "audio": "audio/s91.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 92,
+      "en": "Just to be clear...",
+      "zh": "只是说明白一点……",
+      "theme": "daily",
+      "category": "沟通/澄清",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "clear",
+          "ipa": "/klɪr/",
+          "pos": "adj.",
+          "zh": "清楚的"
+        }
+      ],
+      "audio": "audio/s92.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 93,
+      "en": "I'm afraid I have to go now.",
+      "zh": "恐怕我现在得走了。",
+      "theme": "daily",
+      "category": "告别/离开",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "afraid",
+          "ipa": "/əˈfreɪd/",
+          "pos": "adj.",
+          "zh": "恐怕"
+        },
+        {
+          "term": "I'm afraid",
+          "ipa": "/aɪm əˈfreɪd/",
+          "pos": "phr.",
+          "zh": "恐怕（委婉）"
+        }
+      ],
+      "audio": "audio/s93.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 94,
+      "en": "See you later!",
+      "zh": "回头见！",
+      "theme": "daily",
+      "category": "告别/道别",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "later",
+          "ipa": "/ˈleɪtər/",
+          "pos": "adv.",
+          "zh": "之后"
+        }
+      ],
+      "audio": "audio/s94.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 95,
+      "en": "Take care!",
+      "zh": "保重！",
+      "theme": "daily",
+      "category": "告别/道别",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "take care",
+          "ipa": "/teɪk kɛr/",
+          "pos": "phr.",
+          "zh": "保重"
+        }
+      ],
+      "audio": "audio/s95.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 96,
+      "en": "Have a great weekend!",
+      "zh": "周末愉快！",
+      "theme": "daily",
+      "category": "告别/祝福",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "weekend",
+          "ipa": "/ˈwikɛnd/",
+          "pos": "n.",
+          "zh": "周末"
+        }
+      ],
+      "audio": "audio/s96.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 97,
+      "en": "Talk to you soon.",
+      "zh": "很快再聊。",
+      "theme": "daily",
+      "category": "告别/道别",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "soon",
+          "ipa": "/sun/",
+          "pos": "adv.",
+          "zh": "很快"
+        }
+      ],
+      "audio": "audio/s97.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 98,
+      "en": "It was great seeing you again.",
+      "zh": "很高兴又见到你。",
+      "theme": "daily",
+      "category": "寒暄/重逢",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "seeing",
+          "ipa": "/ˈsiɪŋ/",
+          "pos": "v.",
+          "zh": "见到"
+        }
+      ],
+      "audio": "audio/s98.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 99,
+      "en": "I'm not sure I follow you.",
+      "zh": "我不太确定我听懂了你的意思。",
+      "theme": "daily",
+      "category": "沟通/没听懂",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "follow",
+          "ipa": "/ˈfɑloʊ/",
+          "pos": "v.",
+          "zh": "跟上（思路）"
+        },
+        {
+          "term": "not sure",
+          "ipa": "/nɑt ʃʊr/",
+          "pos": "phr.",
+          "zh": "不确定"
+        }
+      ],
+      "audio": "audio/s99.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    },
+    {
+      "id": 100,
+      "en": "Let's grab lunch sometime.",
+      "zh": "我们改天一起共进午餐吧。",
+      "theme": "daily",
+      "category": "邀约/吃饭",
+      "length": "short",
+      "keyvocab": [
+        {
+          "term": "grab",
+          "ipa": "/ɡræb/",
+          "pos": "v.",
+          "zh": "抓紧（吃）"
+        },
+        {
+          "term": "lunch",
+          "ipa": "/lʌntʃ/",
+          "pos": "n.",
+          "zh": "午餐"
+        }
+      ],
+      "audio": "audio/s100.mp3",
+      "learn": {
+        "introduced": false,
+        "introducedDay": null,
+        "mastery": 0,
+        "reviewCount": 0,
+        "lastReviewed": null,
+        "dueDate": null,
+        "enh": {
+          "fullIpa": "",
+          "variants": [],
+          "scenes": [],
+          "grammar": "",
+          "pron": ""
+        }
+      }
+    }
+  ]
+}
