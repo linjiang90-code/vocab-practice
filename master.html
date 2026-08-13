@@ -3593,6 +3593,12 @@
     const spdSel = card.querySelector('.spdSel');
     const readBtn = card.querySelector('.readBtn');
     if(!audio || !spdSel) return;
+    function audSrc() {
+      if(location.protocol === 'file:') return 'audio/s'+sid+'.mp3';
+      if(location.hostname === '127.0.0.1' && location.port === '8765') return 'audio/s'+sid+'.mp3';
+      return location.origin + '/audio/s'+sid+'.mp3';
+    }
+    audio.src = audSrc();
     let defSp = '1';
     try { defSp = localStorage.getItem('vocab_speed') || '1'; } catch(e){}
     let sp = defSp;
@@ -3606,20 +3612,26 @@
       audio.dataset.speed = v;
       try { localStorage.setItem('vocab_speed_'+sid, v); } catch(e){}
     };
+    function speakFallback() {
+      const enEl = card.querySelector('.en'); const txt = enEl ? enEl.textContent : '';
+      if(!txt || !('speechSynthesis' in window)) return;
+      try { const u = new SpeechSynthesisUtterance(txt); u.lang = 'en-US'; u.rate = parseFloat(audio.dataset.speed || '1'); window.speechSynthesis.cancel(); window.speechSynthesis.speak(u); } catch(e){}
+    }
     let playing = false, remaining = 0;
     function onEnd() {
       remaining--;
-      if(remaining > 0 && playing) { audio.currentTime = 0; audio.play().catch(()=>{}); }
+      if(remaining > 0 && playing) { audio.currentTime = 0; audio.play().catch(()=>speakFallback()); }
       else stop();
     }
     function stop() {
       playing = false; remaining = 0;
       audio.removeEventListener('ended', onEnd);
+      try { window.speechSynthesis.cancel(); } catch(e){}
       readBtn.textContent = '▶ 开始';
       readBtn.classList.remove('run');
     }
     readBtn.addEventListener('click', () => {
-      if(playing) { stop(); audio.pause(); return; }
+      if(playing) { stop(); audio.pause(); audio.currentTime = 0; return; }
       const reps = parseInt(repsSel ? repsSel.value : '3', 10) || 3;
       playing = true; remaining = reps;
       readBtn.textContent = '⏹ 停止';
@@ -3627,7 +3639,11 @@
       audio.playbackRate = parseFloat(audio.dataset.speed || defSp);
       audio.addEventListener('ended', onEnd);
       audio.currentTime = 0;
-      audio.play().catch(()=>{});
+      const pr = audio.play();
+      if(pr && pr.catch) pr.catch(() => {
+        audio.src = 'http://127.0.0.1:8765/audio/s'+sid+'.mp3';
+        audio.play().catch(() => speakFallback());
+      });
     });
   }
   cards.forEach(bindCard);
