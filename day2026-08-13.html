@@ -71,11 +71,9 @@
   .readBtn{border:1px solid var(--accent2);background:var(--accent2);color:#fff;border-radius:8px;padding:5px 14px;font-size:13px;cursor:pointer}
   .readBtn:hover{filter:brightness(1.05)}
   .readBtn.run{background:#dc2626;border-color:#dc2626}
-  .block.collapsible{position:relative}
-  .block.collapsible>.h{cursor:pointer;user-select:none}
-  .block.collapsible>.h .caret{margin-left:auto;font-size:11px;transition:transform .15s;display:inline-block}
-  .block.collapsible.collapsed>.body{display:none}
-  .block.collapsible:not(.collapsed)>.h .caret{transform:rotate(90deg)}
+  .detailsBtn{width:100%;text-align:left;border:1px solid var(--line);background:#f8fafc;color:var(--sub);border-radius:10px;padding:8px 12px;font-size:13px;font-weight:600;cursor:pointer;margin-top:12px}
+  .detailsBtn:hover{border-color:var(--accent);color:var(--accent)}
+  .details.collapsed>.block{display:none}
   .mbar{width:96px;height:9px;border-radius:5px;background:#e5e7eb;overflow:hidden;flex:none}
   .mbar .mfill{height:100%;border-radius:5px;transition:width .25s,background .25s}
 </style>
@@ -109,6 +107,7 @@
       </select>
     </label>
     <button class="btn" onclick="stopAll()">⏹ 停止</button>
+    <button class="btn" id="allDetBtn" onclick="toggleAllDetails()">📂 展开全部详情</button>
   </div>
   <div id="short"></div>
   <div id="long"></div>
@@ -166,12 +165,12 @@ function cardHTML(d){
     <div class="ipa">${d.ipa}</div>
     <div class="zh">${d.zh}</div>
     <div class="kw">${kw}</div>
-    <div class="block var"><div class="h">🔹 简化 / 口语变体</div><ul>${v}</ul></div>
-    <div class="block scene"><div class="h">🎭 场景化表达 + 不同回答</div><ul>${sc}</ul></div>
-    <div class="block gram"><div class="h">📝 语法提示</div><div>${d.grammar}</div></div>
-    <div class="block pr collapsible collapsed" id="pr-${d.id}">
-      <div class="h" onclick="toggleBlock('pr-${d.id}')">🔤 发音提示（连读/同化/滑音/浊化/失去爆破/闪音/弱读/缩读）<span class="caret">▸</span></div>
-      <div class="body">${d.pron}</div>
+    <button class="detailsBtn" id="db-${d.id}" onclick="toggleDetails('${d.id}')">📂 展开详情（变体 / 场景 / 语法 / 发音）</button>
+    <div class="details collapsed" id="dt-${d.id}">
+      <div class="block var"><div class="h">🔹 简化 / 口语变体</div><ul>${v}</ul></div>
+      <div class="block scene"><div class="h">🎭 场景化表达 + 不同回答</div><ul>${sc}</ul></div>
+      <div class="block gram"><div class="h">📝 语法提示</div><div>${d.grammar}</div></div>
+      <div class="block pr"><div class="h">🔤 发音提示（连读/同化/滑音/浊化/失去爆破/闪音/弱读/缩读）</div><div>${d.pron}</div></div>
     </div>
     <audio id="au-${d.id}" preload="none" src="audio/${d.id}.mp3"></audio>
     <div class="readwrap">
@@ -214,7 +213,12 @@ if(DATA.some(d=>d.type==='long')){
   st.innerHTML=`<span class="tag">长句</span> Long sentences（${n}）`; document.querySelector('.wrap').insertBefore(st, document.getElementById('long'));
   document.getElementById('long').innerHTML=DATA.filter(d=>d.type==='long').map(cardHTML).join('');
 }
-function toggleBlock(id){ const el=document.getElementById(id); if(el) el.classList.toggle('collapsed'); }
+function setCardDetails(id, show){ const el=document.getElementById('dt-'+id); if(!el) return; el.classList.toggle('collapsed', !show);
+  const btn=document.getElementById('db-'+id); if(btn) btn.textContent = show ? '📁 收起详情（变体 / 场景 / 语法 / 发音）' : '📂 展开详情（变体 / 场景 / 语法 / 发音）'; }
+function toggleDetails(id){ const el=document.getElementById('dt-'+id); if(el) setCardDetails(id, el.classList.contains('collapsed')); }
+function toggleAllDetails(){ const anyCollapsed = !!document.querySelector('.details.collapsed'); const show = !anyCollapsed;
+  document.querySelectorAll('.details').forEach(el=>setCardDetails(el.id.replace('dt-',''), show));
+  const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = show ? '📁 收起全部详情' : '📂 展开全部详情'; }
 function mColor(v){ return v<=2?'#dc2626':(v<=4?'#d97706':'#16a34a'); }
 function setMbar(sid,v){ const bar=document.getElementById('mbar-'+sid);
   if(bar){ const f=bar.querySelector('.mfill'); f.style.width=(v*20)+'%'; f.style.background=mColor(v); }
