@@ -39,7 +39,7 @@ def render_detail(s):
         parts.append(f'<div class="d-row"><div class="d-k">语法提示</div><div class="d-v">{esc(gm)}</div></div>')
     if not parts:
         return ('<div class="d-empty">完整音变 / 变体 / 场景 / 语法标注将在该句被每日推送学习时自动生成 ✨'
-                '<br>目前可先用上方 🔊 原声 + 生词音标学习。</div>', False)
+                '<br>目前可先用 🔁 朗读 + 生词音标学习。</div>', False)
     return "\n".join(parts), True
 
 cards = ""
@@ -89,7 +89,6 @@ for s in S:
       <div class="en">{esc(s['en'])}</div>
       <div class="zh">{esc(s['zh'])}</div>
       <div class="kvbox">{kv}</div>
-      <audio controls preload="none" src="{esc(s['audio'])}"></audio>
       {readwrap}
       {mastery_html}
       <button class="{toggle_cls}" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">{toggle_label}</button>
@@ -379,35 +378,19 @@ html = f'''<!DOCTYPE html>
   function bindCard(card) {{
     const sidEl = card.querySelector('.sid');
     const sid = sidEl ? sidEl.textContent.replace('#','') : '';
-    const audio = card.querySelector('audio');
     const repsSel = card.querySelector('.repsSel');
     const spdSel = card.querySelector('.spdSel');
     const readBtn = card.querySelector('.readBtn');
-    if(!audio || !spdSel) return;
-    function audSrc() {{
-      if(location.protocol === 'file:') return 'audio/s'+sid+'.mp3';
-      if(location.hostname === '127.0.0.1' && location.port === '8765') return 'audio/s'+sid+'.mp3';
-      return location.origin + '/audio/s'+sid+'.mp3';
-    }}
-    audio.src = audSrc();
+    if(!spdSel || !readBtn) return;
     let defSp = '1';
     try {{ defSp = localStorage.getItem('vocab_speed') || '1'; }} catch(e){{}}
-    let sp = defSp;
-    try {{ sp = localStorage.getItem('vocab_speed_'+sid) || defSp; }} catch(e){{}}
-    spdSel.value = sp;
-    audio.playbackRate = parseFloat(sp);
-    audio.dataset.speed = sp;
+    let curSpeed = defSp;
+    try {{ curSpeed = localStorage.getItem('vocab_speed_'+sid) || defSp; }} catch(e){{}}
+    spdSel.value = curSpeed;
     spdSel.onchange = () => {{
-      const v = spdSel.value;
-      audio.playbackRate = parseFloat(v);
-      audio.dataset.speed = v;
-      try {{ localStorage.setItem('vocab_speed_'+sid, v); }} catch(e){{}}
+      curSpeed = spdSel.value;
+      try {{ localStorage.setItem('vocab_speed_'+sid, curSpeed); }} catch(e){{}}
     }};
-    function speakFallback() {{
-      const enEl = card.querySelector('.en'); const txt = enEl ? enEl.textContent : '';
-      if(!txt || !('speechSynthesis' in window)) return;
-      try {{ const u = new SpeechSynthesisUtterance(txt); u.lang = 'en-US'; u.rate = parseFloat(audio.dataset.speed || '1'); window.speechSynthesis.cancel(); window.speechSynthesis.speak(u); }} catch(e){{}}
-    }}
     let speaking = false, remain = 0;
     function getEn() {{ const e = card.querySelector('.en'); return e ? e.textContent.trim() : ''; }}
     function speakRep() {{
@@ -416,7 +399,7 @@ html = f'''<!DOCTYPE html>
       try {{
         const u = new SpeechSynthesisUtterance(txt);
         u.lang = 'en-US';
-        u.rate = parseFloat(audio.dataset.speed || defSp);
+        u.rate = parseFloat(curSpeed);
         u.onend = () => {{ remain--; if(remain > 0 && speaking) speakRep(); else stop(); }};
         u.onerror = () => {{ stop(); }};
         window.speechSynthesis.cancel();
@@ -442,10 +425,8 @@ html = f'''<!DOCTYPE html>
 
   const speedSel = document.getElementById('speedSel');
   function applySpeed(v) {{
-    const rate = parseFloat(v);
     cards.forEach(c => {{
-      const a = c.querySelector('audio'); const s = c.querySelector('.spdSel');
-      if(a) a.playbackRate = rate;
+      const s = c.querySelector('.spdSel');
       if(s) s.value = v;
       const se = c.querySelector('.sid'); const sid = se ? se.textContent.replace('#','') : '';
       try {{ if(sid) localStorage.setItem('vocab_speed_'+sid, v); }} catch(e){{}}
