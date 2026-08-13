@@ -46,7 +46,7 @@ cards = ""
 for s in S:
     readwrap = f'''
       <div class="readwrap">
-        <span class="rlbl">🔁 跟读</span>
+        <span class="rlbl">🔁 朗读</span>
         <select class="repsSel" data-id="{s['id']}">
           <option value="2">2 遍</option>
           <option value="3" selected>3 遍</option>
@@ -408,33 +408,34 @@ html = f'''<!DOCTYPE html>
       if(!txt || !('speechSynthesis' in window)) return;
       try {{ const u = new SpeechSynthesisUtterance(txt); u.lang = 'en-US'; u.rate = parseFloat(audio.dataset.speed || '1'); window.speechSynthesis.cancel(); window.speechSynthesis.speak(u); }} catch(e){{}}
     }}
-    let playing = false, remaining = 0;
-    function onEnd() {{
-      remaining--;
-      if(remaining > 0 && playing) {{ audio.currentTime = 0; audio.play().catch(()=>speakFallback()); }}
-      else stop();
+    let speaking = false, remain = 0;
+    function getEn() {{ const e = card.querySelector('.en'); return e ? e.textContent.trim() : ''; }}
+    function speakRep() {{
+      const txt = getEn();
+      if(!txt || !('speechSynthesis' in window)) {{ stop(); return; }}
+      try {{
+        const u = new SpeechSynthesisUtterance(txt);
+        u.lang = 'en-US';
+        u.rate = parseFloat(audio.dataset.speed || defSp);
+        u.onend = () => {{ remain--; if(remain > 0 && speaking) speakRep(); else stop(); }};
+        u.onerror = () => {{ stop(); }};
+        window.speechSynthesis.cancel();
+        window.speechSynthesis.speak(u);
+      }} catch(e) {{ stop(); }}
     }}
     function stop() {{
-      playing = false; remaining = 0;
-      audio.removeEventListener('ended', onEnd);
+      speaking = false; remain = 0;
       try {{ window.speechSynthesis.cancel(); }} catch(e){{}}
       readBtn.textContent = '▶ 开始';
       readBtn.classList.remove('run');
     }}
     readBtn.addEventListener('click', () => {{
-      if(playing) {{ stop(); audio.pause(); audio.currentTime = 0; return; }}
+      if(speaking) {{ stop(); return; }}
       const reps = parseInt(repsSel ? repsSel.value : '3', 10) || 3;
-      playing = true; remaining = reps;
+      speaking = true; remain = reps;
       readBtn.textContent = '⏹ 停止';
       readBtn.classList.add('run');
-      audio.playbackRate = parseFloat(audio.dataset.speed || defSp);
-      audio.addEventListener('ended', onEnd);
-      audio.currentTime = 0;
-      const pr = audio.play();
-      if(pr && pr.catch) pr.catch(() => {{
-        audio.src = 'http://127.0.0.1:8765/audio/s'+sid+'.mp3';
-        audio.play().catch(() => speakFallback());
-      }});
+      speakRep();
     }});
   }}
   cards.forEach(bindCard);
