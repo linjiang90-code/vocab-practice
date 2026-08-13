@@ -1,0 +1,5 @@
+# 让 Git 忽略文本文件的换行符差异，避免 Windows CRLF 误标整文件修改
+* text=auto
+
+# 明确二进制资产（原声 mp3 不按文本处理）
+*.mp3 binary
