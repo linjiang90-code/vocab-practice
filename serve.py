@@ -47,6 +47,11 @@ def save_master(d):
     os.replace(tmp, MASTER)
 
 class H(SimpleHTTPRequestHandler):
+    def setup(self):
+        super().setup()
+        # 防止客户端半开/慢速连接永久阻塞线程、拖垮整个服务（曾出现占端口却不响应）
+        self.connection.settimeout(60)
+
     def _send(self, code, body=b"", ctype="application/json"):
         if isinstance(body, str):
             body = body.encode("utf-8")
