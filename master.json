@@ -51,7 +51,7 @@
         "introducedDay": 1,
         "mastery": 1,
         "reviewCount": 2,
-        "lastReviewed": "2026-08-13",
+        "lastReviewed": "2026-08-17",
         "dueDate": "2026-08-14",
         "enh": {
           "fullIpa": "/wɛr ɪz ðə ˈnɪrɪst ˈsʌbweɪ ˈsteɪʃən/",
@@ -907,8 +907,8 @@
       "learn": {
         "introduced": true,
         "introducedDay": 5,
-        "mastery": 1,
-        "reviewCount": 1,
+        "mastery": 4,
+        "reviewCount": 5,
         "lastReviewed": "2026-08-17",
         "dueDate": "2026-08-18",
         "enh": {
