@@ -20,16 +20,25 @@
   .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#cbd5e1;margin-right:6px}
   .dot.on{background:#16a34a}.dot.off{background:#dc2626}
   .tip{margin-top:16px;font-size:11.5px;color:#94a3b8;line-height:1.6}
+  .pagenav{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+  .pagenav a{text-decoration:none;font-size:13px;color:#475569;border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-weight:600;transition:.15s}
+  .pagenav a:hover{border-color:var(--accent);color:var(--accent);background:#f0f6ff}
+  .pagenav a.cur{background:var(--accent);color:#fff;border-color:var(--accent)}
   code{background:#f1f5f9;padding:1px 5px;border-radius:4px}
 </style>
 </head>
 <body>
+<nav class="pagenav">
+  <a class="cur" href="index.html">🏠 首页</a>
+  <a href="master.html">📚 总览</a>
+  <a class="today-nav" href="#">📅 今日练习</a>
+</nav>
 <div class="box">
   <h1>🗣 英语口语 · 一键预览</h1>
-  <p class="desc">旅游 + 日常混合 · 100 范式滚动学习系统</p>
+  <p class="desc">旅游 + 日常混合 · 句式滚动学习系统</p>
   <div class="btns">
     <a class="btn" id="todayLink" href="#"><span class="ic">📅</span><span><span id="todayLabel">今日练习</span><br><span class="sub" id="todaySub">加载中…</span></span></a>
-    <a class="btn" href="master.html"><span class="ic">📚</span><span>100 句总览<br><span class="sub">全部句式 · 发音详情 · 掌握度进度</span></span></a>
+    <a class="btn" href="master.html"><span class="ic">📚</span><span><span id="masterLabel">全部句式总览</span><br><span class="sub">全部句式 · 发音详情 · 掌握度进度</span></span></a>
   </div>
   <div class="status"><span class="dot" id="dot"></span><span id="statText">检测回写服务中…</span></div>
   <div class="tip">提示：练习页内的「✅认识 / 🟡模糊 / 🔴不认识」按钮会直接回写掌握度到数据库；若状态显示「未连接」，请先运行 <code>python serve.py</code> 启动本地服务（端口 3279）。</div>
@@ -39,7 +48,19 @@
   const iso = t.toISOString().slice(0,10);
   document.getElementById('todayLink').href = 'day' + iso + '.html';
   document.getElementById('todayLabel').textContent = '今日练习（' + iso + '）';
-  document.getElementById('todaySub').textContent = '每天 10:00 自动推送的 5 句';
+  document.getElementById('todaySub').textContent = '每天 9:00 自动推送的 5 句';
+  document.querySelectorAll('.today-nav').forEach(a => a.href = 'day' + iso + '.html');
+  (async () => {
+    try {
+      const r = await fetch('master.json');
+      if (r.ok) {
+        const j = await r.json();
+        const n = (j.sentences || []).length;
+        const el = document.getElementById('masterLabel');
+        if (el) el.textContent = n + ' 句总览';
+      }
+    } catch (e) {}
+  })();
   // 检测回写服务
   async function check(){
     const dot = document.getElementById('dot'), txt = document.getElementById('statText');

@@ -111,9 +111,18 @@
   .d-occ { color:#7c3aed; font-weight:600; }
   .d-empty { color:var(--sub); font-size:12px; }
   footer { text-align:center; color:var(--sub); font-size:12px; padding:18px; }
+  .pagenav { display:flex; gap:8px; padding:12px 24px 0; flex-wrap:wrap; }
+  .pagenav a { text-decoration:none; font-size:13px; color:#475569; border:1px solid var(--line); border-radius:999px; padding:6px 14px; font-weight:600; transition:.15s; }
+  .pagenav a:hover { border-color:var(--travel); color:var(--travel); background:#eef4ff; }
+  .pagenav a.cur { background:var(--travel); color:#fff; border-color:var(--travel); }
 </style>
 </head>
 <body>
+<nav class="pagenav">
+  <a href="index.html">🏠 首页</a>
+  <a class="cur" href="master.html">📚 总览</a>
+  <a class="today-nav" href="#">📅 今日练习</a>
+</nav>
 <header>
   <h1>旅游 + 日常英语 · 100 句范式总览</h1>
   <p>每天 5 句随机推送 · 每 30 天 +50 新句（100→150→200…）· 点击 ▶ 听原声（en-US-Aria 真人音色）· 点「🔤 发音详情」看完整音变标注</p>
@@ -126,7 +135,7 @@
 </details>
   <div class="stats">
       <div class="stat"><span class="num" id="stLearned">15</span><span class="lbl">/ <span id="stTotal">100</span> 已学句数</span></div>
-      <div class="stat"><span class="num" id="stAvg">1.0</span><span class="lbl">/ 5 平均掌握度<span class="hint">（已学句口径）</span></span></div>
+      <div class="stat"><span class="num" id="stAvg">1.1</span><span class="lbl">/ 5 平均掌握度<span class="hint">（已学句口径）</span></span></div>
       <div class="gbarwrap"><div class="gbar"><i id="stBar" style="width:3%;background:#dc2626"></i></div><span class="glbl" id="stPct">总掌握度 3%</span></div>
     </div>
   <div class="bar">
@@ -154,7 +163,7 @@
     <span class="count" id="count"></span>
   </div>
 <div class="grid" id="grid">
-    <div class="card" data-theme="travel" data-cat="交通/问路" data-learned="yes" data-mastery="1">
+    <div class="card" data-theme="travel" data-cat="交通/问路" data-learned="yes" data-mastery="0">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -182,7 +191,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">1/5</span></div>
+      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/wɛr ɪz ðə ˈnɪrɪst ˈsʌbweɪ ˈsteɪʃən/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：Where is→/wɛə rɪz/（r 与 ɪ 连读）；is the→/ɪ zðə/（z 与 ð 连读）；the nearest 元音顺接。同化/滑音：无典型。弱读：is→/z/（功能词弱读省 /ɪ/）；the→/ðə/（弱读）。浊化：无（句首 Where 后接元音，无清→浊语境）。失去爆破/闪音：本句无（注：含 good boy/sit down 等相邻爆破音标失去爆破；含 better/water/party/city 等元音间 /t/ 标闪音 /ɾ/）。缩读：无。</div></div>
@@ -190,7 +199,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">问路人/酒店前台</span> · <b>Where's the nearest subway station?</b> → <span class="dn">对方指路或说 Go straight and turn left.</span></li><li><span class="d-occ">请对方在地图上标</span> · <b>Can you pin the station on my map?</b> → <span class="dn">对方帮你定位</span></li><li><span class="d-occ">分不清地铁叫法</span> · <b>Is it the tube or the metro here?</b> → <span class="dn">英式 tube / 美式 subway / 欧陆 metro</span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">nearest 是 near 的最高级，the nearest + 名词 = 最近的…。subway（美）/ underground（英）/ metro（欧陆）同义，到当地用当地词更地道。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="沟通/没听清" data-learned="yes" data-mastery="1">
+    <div class="card" data-theme="daily" data-cat="沟通/没听清" data-learned="yes" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -218,7 +227,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">1/5</span></div>
+      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/kʊd ju seɪ ðæt əˈɡɛn pliz/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">同化：Could you→/kʊdʒu/（d+j 同化为 dʒ，关键！）。连读：that again→/ðæ təˈɡɛn/（t 与 a 连读）。浊化：that again 快读 t→d：/ðæ dəˈɡɛn/。弱读：you 此处因同化保留 /ju/，弱读时可作 /jə/。失去爆破/闪音：无典型。缩读：无。</div></div>
@@ -622,7 +631,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">车上找座</span> · <b>Excuse me, is this seat taken?</b> → <span class="dn">对方回 No, go ahead.(没人，请坐) / Yes, sorry.(有人)</span></li><li><span class="d-occ">放行李</span> · <b>Is this spot free?</b> → <span class="dn">问地方是否被占</span></li><li><span class="d-occ">不同回答</span> · <b>It's free. / Someone's coming back. / I'm saving it for a friend.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">be + 过去分词 表状态；take 的过去分词 taken 在此作形容词『被占用的』。this seat 单数用 is。比 Can I sit here 更礼貌且常用。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="机场/选座" data-learned="yes" data-mastery="1">
+    <div class="card" data-theme="travel" data-cat="机场/选座" data-learned="yes" data-mastery="4">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -650,7 +659,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">1/5</span></div>
+      <div class="mwrap lvl-yellow"><span class="mlbl">掌握度</span><span class="mbar lvl-yellow"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="mnum">4/5</span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/aɪd laɪk ə ˈwɪndoʊ sit pliz/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">缩读：I'd = I would（/aɪd/，'d 为 would 缩读）。连读：like a→/laɪ kə/（k 与 ə）；a window→/ə ˈwɪndoʊ/；window seat→/ˈwɪndoʊ sit/（oʊ 与 s）；seat please→/sit pliz/（t 与 p）。弱读：a→/ə/。失去爆破：window seat /ˈwɪndoʊ(s) sit/（w 轻微）；seat please /si(t) pliz/（t 在 p 前不完全爆破）。浊化：无典型。同化/滑音/闪音：无典型。</div></div>
@@ -3926,6 +3935,7 @@
   try { speedSel.value = localStorage.getItem('vocab_speed') || '1'; } catch(e){ speedSel.value = '1'; }
   speedSel.onchange = () => applySpeed(speedSel.value);
   apply();
+  (function(){ const d=new Date().toISOString().slice(0,10); document.querySelectorAll('.today-nav').forEach(a=>a.href='day'+d+'.html'); })();
 </script>
 </body>
 </html>

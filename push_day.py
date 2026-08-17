@@ -176,9 +176,18 @@ TEMPLATE = r"""<!DOCTYPE html>
   .details.collapsed>.block{display:none}
   .mbar{width:96px;height:9px;border-radius:5px;background:#e5e7eb;overflow:hidden;flex:none}
   .mbar .mfill{height:100%;border-radius:5px;transition:width .25s,background .25s}
+  .pagenav{display:flex;gap:8px;padding:14px 16px 0;flex-wrap:wrap}
+  .pagenav a{text-decoration:none;font-size:13px;color:#475569;border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-weight:600;transition:.15s}
+  .pagenav a:hover{border-color:var(--accent);color:var(--accent);background:#f0f6ff}
+  .pagenav a.cur{background:var(--accent);color:#fff;border-color:var(--accent)}
 </style>
 </head>
 <body>
+<nav class="pagenav">
+  <a href="index.html">🏠 首页</a>
+  <a href="master.html">📚 总览</a>
+  <a class="today-nav" href="#">📅 今日练习</a>
+</nav>
 <div class="wrap">
   <header>
     <h1>🗣 英语口语 · Day __DAY__（增强版）</h1>
@@ -211,9 +220,10 @@ TEMPLATE = r"""<!DOCTYPE html>
   </div>
   <div id="short"></div>
   <div id="long"></div>
-  <footer>每天 10:00 自动推送新一批（同款增强版）· 进度本地保存，不外传</footer>
+  <footer>每天 9:00 自动推送新一批（同款增强版）· 进度本地保存，不外传</footer>
 </div>
 <script>
+(function(){ const d=new Date().toISOString().slice(0,10); document.querySelectorAll('.today-nav').forEach(a=>a.href='day'+d+'.html'); })();
 const DATA = __DATA__;
 let speed = 1;
 let cardSpeed = {};

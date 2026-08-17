@@ -117,7 +117,7 @@ html = f'''<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>旅游+日常英语 100 范式 · 总览</title>
+<title>旅游+日常英语 {total} 范式 · 总览</title>
 <style>
   :root {{
     --bg:#f5f7fa; --card:#ffffff; --ink:#1f2933; --sub:#6b7280;
@@ -225,12 +225,21 @@ html = f'''<!DOCTYPE html>
   .d-occ {{ color:#7c3aed; font-weight:600; }}
   .d-empty {{ color:var(--sub); font-size:12px; }}
   footer {{ text-align:center; color:var(--sub); font-size:12px; padding:18px; }}
+  .pagenav {{ display:flex; gap:8px; padding:12px 24px 0; flex-wrap:wrap; }}
+  .pagenav a {{ text-decoration:none; font-size:13px; color:#475569; border:1px solid var(--line); border-radius:999px; padding:6px 14px; font-weight:600; transition:.15s; }}
+  .pagenav a:hover {{ border-color:var(--travel); color:var(--travel); background:#eef4ff; }}
+  .pagenav a.cur {{ background:var(--travel); color:#fff; border-color:var(--travel); }}
 </style>
 </head>
 <body>
+<nav class="pagenav">
+  <a href="index.html">🏠 首页</a>
+  <a class="cur" href="master.html">📚 总览</a>
+  <a class="today-nav" href="#">📅 今日练习</a>
+</nav>
 <header>
-  <h1>旅游 + 日常英语 · 100 句范式总览</h1>
-  <p>每天 5 句随机推送 · 每 30 天 +50 新句（100→150→200…）· 点击 ▶ 听原声（en-US-Aria 真人音色）· 点「🔤 发音详情」看完整音变标注</p>
+  <h1>旅游 + 日常英语 · {total} 句范式总览</h1>
+  <p>每天 5 句随机推送 · 每 30 天 +50 新句（{total}→{total+50}→{total+100}…）· 点击 ▶ 听原声（en-US-Aria 真人音色）· 点「🔤 发音详情」看完整音变标注</p>
 </header>
 <details class="legend-box">
   <summary>🔤 发音详情说明（覆盖 8 类语流音变 · 点击展开/收起）</summary>
@@ -436,6 +445,7 @@ html = f'''<!DOCTYPE html>
   try {{ speedSel.value = localStorage.getItem('vocab_speed') || '1'; }} catch(e){{ speedSel.value = '1'; }}
   speedSel.onchange = () => applySpeed(speedSel.value);
   apply();
+  (function(){{ const d=new Date().toISOString().slice(0,10); document.querySelectorAll('.today-nav').forEach(a=>a.href='day'+d+'.html'); }})();
 </script>
 </body>
 </html>'''
