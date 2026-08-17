@@ -10,7 +10,7 @@
 跨域（CORS）已放开，因此从 WorkBuddy 预览页(其他端口)打开也能回写。
 """
 import json, os, threading, datetime
-from http.server import HTTPServer, SimpleHTTPRequestHandler
+from http.server import HTTPServer, ThreadingHTTPServer, SimpleHTTPRequestHandler
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 MASTER = os.path.join(BASE, "master.json")
@@ -101,6 +101,7 @@ class H(SimpleHTTPRequestHandler):
 
 if __name__ == "__main__":
     os.chdir(BASE)
-    srv = HTTPServer(("127.0.0.1", PORT), H)
-    print("vocab serve on http://127.0.0.1:%d" % PORT)
+    srv = ThreadingHTTPServer(("127.0.0.1", PORT), H)
+    srv.daemon_threads = True
+    print("vocab serve on http://127.0.0.1:%d (threading)" % PORT)
     srv.serve_forever()
