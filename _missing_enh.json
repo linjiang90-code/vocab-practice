@@ -1,0 +1,542 @@
+[
+  {
+    "id": 11,
+    "en": "Where can I buy a ticket to the city center?",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 12,
+    "en": "How long does it take to get there?",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 13,
+    "en": "Is this seat taken?",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 14,
+    "en": "I'd like a window seat, please.",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 15,
+    "en": "Where is the baggage claim?",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 16,
+    "en": "My luggage didn't arrive.",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 17,
+    "en": "Do I need a visa for this country?",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 18,
+    "en": "Where should I go for passport control?",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 19,
+    "en": "Could you call me a taxi, please?",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 20,
+    "en": "Please drop me off at the train station.",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 21,
+    "en": "How far is it from here?",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 22,
+    "en": "Can you show me on the map?",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 23,
+    "en": "Turn left at the next corner.",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 24,
+    "en": "Is there a pharmacy nearby?",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 25,
+    "en": "I'd like to check in, please.",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 26,
+    "en": "I have a reservation under the name Lee.",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 27,
+    "en": "What time is breakfast served?",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 28,
+    "en": "Could I have a room with a better view?",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 29,
+    "en": "The air conditioning doesn't work.",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 30,
+    "en": "What's the Wi-Fi password?",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 31,
+    "en": "Could we have the menu, please?",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 32,
+    "en": "I'm allergic to peanuts.",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 33,
+    "en": "Could you bring me the bill, please?",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 34,
+    "en": "Is the tip included?",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 35,
+    "en": "Do you have this in a larger size?",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 36,
+    "en": "Can I try this on?",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 37,
+    "en": "That's a bit expensive for me.",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 38,
+    "en": "Do you accept credit cards?",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 39,
+    "en": "Can I get a refund?",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 40,
+    "en": "Where are the changing rooms?",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 41,
+    "en": "I'm looking for a souvenir for my friend.",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 42,
+    "en": "Is there a discount for students?",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 43,
+    "en": "What time does the museum open?",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 44,
+    "en": "Are there any guided tours?",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 45,
+    "en": "Can I take a photo here?",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 46,
+    "en": "Where is the nearest restroom?",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 47,
+    "en": "I lost my wallet.",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 48,
+    "en": "I need to see a doctor.",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 49,
+    "en": "Call the police, please.",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 50,
+    "en": "I've missed my flight.",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 51,
+    "en": "Can you speak more slowly, please?",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 52,
+    "en": "I don't understand.",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 53,
+    "en": "Does anyone here speak English?",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 54,
+    "en": "Thank you so much for your help.",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 55,
+    "en": "Have a nice day!",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 56,
+    "en": "I was wondering if you could help me find the nearest hospital, as I'm not feeling well.",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 57,
+    "en": "If it's not too much trouble, could you let me know when we arrive at the museum?",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 58,
+    "en": "I'd like to extend my stay by two nights if that's possible.",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 59,
+    "en": "How are you doing today?",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 60,
+    "en": "Long time no see!",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 61,
+    "en": "What's your name again?",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 62,
+    "en": "Where are you from?",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 63,
+    "en": "Nice talking to you.",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 64,
+    "en": "Could I get your phone number?",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 65,
+    "en": "Let's keep in touch.",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 66,
+    "en": "Are you free this weekend?",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 67,
+    "en": "Sorry, I can't make it.",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 68,
+    "en": "Maybe another time.",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 69,
+    "en": "What's the weather like today?",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 70,
+    "en": "It's raining cats and dogs.",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 71,
+    "en": "I'm stuck in traffic, so I might be a few minutes late.",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 72,
+    "en": "How was your day?",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 73,
+    "en": "I had a long day at work.",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 74,
+    "en": "Could you do me a favor?",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 75,
+    "en": "Sure, no problem.",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 76,
+    "en": "I'm really sorry to hear that; is there anything I can do to help?",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 77,
+    "en": "Congratulations on your promotion!",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 78,
+    "en": "Thank you for inviting me.",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 79,
+    "en": "You're welcome.",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 80,
+    "en": "Excuse me, could you pass the salt?",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 81,
+    "en": "This food is delicious!",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 82,
+    "en": "I'm on a diet.",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 83,
+    "en": "I feel a bit under the weather.",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 84,
+    "en": "Can you believe it?",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 85,
+    "en": "That sounds great!",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 86,
+    "en": "I couldn't agree more.",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 87,
+    "en": "Let me think about it.",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 88,
+    "en": "I'll get back to you as soon as I confirm the details with my manager.",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 89,
+    "en": "Could you speak up, please?",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 90,
+    "en": "I didn't catch your name.",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 91,
+    "en": "What do you mean by that?",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 92,
+    "en": "Just to be clear...",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 93,
+    "en": "I'm afraid I have to go now.",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 94,
+    "en": "See you later!",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 95,
+    "en": "Take care!",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 96,
+    "en": "Have a great weekend!",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 97,
+    "en": "Talk to you soon.",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 98,
+    "en": "It was great seeing you again.",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 99,
+    "en": "I'm not sure I follow you.",
+    "cn": "",
+    "type": ""
+  },
+  {
+    "id": 100,
+    "en": "Let's grab lunch sometime.",
+    "cn": "",
+    "type": ""
+  }
+]
