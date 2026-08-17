@@ -32,7 +32,7 @@
     <a class="btn" href="master.html"><span class="ic">📚</span><span>100 句总览<br><span class="sub">全部句式 · 发音详情 · 掌握度进度</span></span></a>
   </div>
   <div class="status"><span class="dot" id="dot"></span><span id="statText">检测回写服务中…</span></div>
-  <div class="tip">提示：练习页内的「✅认识 / 🟡模糊 / 🔴不认识」按钮会直接回写掌握度到数据库；若状态显示「未连接」，请先运行 <code>python serve.py</code> 启动本地服务（端口 8765）。</div>
+  <div class="tip">提示：练习页内的「✅认识 / 🟡模糊 / 🔴不认识」按钮会直接回写掌握度到数据库；若状态显示「未连接」，请先运行 <code>python serve.py</code> 启动本地服务（端口 3279）。</div>
 </div>
 <script>
   const t = new Date();
@@ -43,7 +43,7 @@
   // 检测回写服务
   async function check(){
     const dot = document.getElementById('dot'), txt = document.getElementById('statText');
-    for(const base of ['', 'http://127.0.0.1:8765']){
+    for(const base of ['', 'http://127.0.0.1:3279']){
       try{ const r = await fetch(base + '/api/status'); if(r.ok){ dot.className='dot on'; txt.textContent='回写服务已连接 ✓ 自评可同步'; return; } }catch(e){}
     }
     dot.className='dot off'; txt.textContent='回写服务未连接（自评仅本地记录）';

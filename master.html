@@ -3828,7 +3828,7 @@
     ea.textContent = open ? '🔤 收起全部发音详情' : '🔤 展开全部发音详情';
     document.querySelectorAll('.detail').forEach(d => d.classList.toggle('open', open));
   };
-  const API_PORT = 8765;
+  const API_PORT = 3279;
   async function apiFetch(path){
     for(const b of ['', 'http://127.0.0.1:'+API_PORT]){
       try{ const r = await fetch(b+path); if(r && r.ok) return r; }catch(e){}

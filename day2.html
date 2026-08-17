@@ -128,7 +128,7 @@ function next(){ if(!queue.length)return; const u=new SpeechSynthesisUtterance(q
   const v=speechSynthesis.getVoices().find(x=>x.lang&&x.lang.startsWith('en')); if(v)u.voice=v;
   u.onend=next; speechSynthesis.speak(u); }
 function stopAll(){ speechSynthesis.cancel(); queue=[]; }
-const PORT=8765;
+const PORT=3279;
 async function apiPost(path,body){ try{ const r=await fetch('http://127.0.0.1:'+PORT+path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}); return await r.json(); }catch(e){ return null; } }
 async function rate(nid,action){
   const el=document.getElementById('rstat-'+nid);

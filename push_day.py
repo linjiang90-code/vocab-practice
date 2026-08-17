@@ -218,7 +218,7 @@ const DATA = __DATA__;
 let speed = 1;
 let cardSpeed = {};
 try { DATA.forEach(d => { const sv = localStorage.getItem('vocab_speed_'+String(d.id).replace('s','')); if(sv) cardSpeed[d.id]=parseFloat(sv); }); } catch(e){}
-const API_PORT = 8765;
+const API_PORT = 3279;
 try { const sv = localStorage.getItem('vocab_speed'); if (sv) { speed = parseFloat(sv); document.getElementById('speedSel').value = sv; } } catch(e){}
 async function apiFetch(path, opts){
   for(const b of ['', 'http://127.0.0.1:'+API_PORT]){

@@ -14,3 +14,6 @@ Thumbs.db
 
 # WorkBuddy runtime (project-local, never track)
 .workbuddy/
+
+# Auth secret (NEVER commit — repo is public on GitHub!)
+serve_auth.json
