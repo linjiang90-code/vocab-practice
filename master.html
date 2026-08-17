@@ -125,9 +125,9 @@
   </div>
 </details>
   <div class="stats">
-      <div class="stat"><span class="num" id="stLearned">5</span><span class="lbl">/ <span id="stTotal">100</span> 已学句数</span></div>
+      <div class="stat"><span class="num" id="stLearned">15</span><span class="lbl">/ <span id="stTotal">100</span> 已学句数</span></div>
       <div class="stat"><span class="num" id="stAvg">1.0</span><span class="lbl">/ 5 平均掌握度<span class="hint">（已学句口径）</span></span></div>
-      <div class="gbarwrap"><div class="gbar"><i id="stBar" style="width:1%;background:#dc2626"></i></div><span class="glbl" id="stPct">总掌握度 1%</span></div>
+      <div class="gbarwrap"><div class="gbar"><i id="stBar" style="width:3%;background:#dc2626"></i></div><span class="glbl" id="stPct">总掌握度 3%</span></div>
     </div>
   <div class="bar">
     <button class="tbtn" id="filterToggle" onclick="toggleFilters()">🔍 筛选条件（已折叠 ▸）</button>
@@ -334,7 +334,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">砍价前问价</span> · <b>How much is it?</b> → <span class="dn">对方报价，可接 That's a bit much.(有点贵)</span></li><li><span class="d-occ">问单位价</span> · <b>How much per kilo / each?</b> → <span class="dn">按斤/个计价</span></li><li><span class="d-occ">自由市场</span> · <b>Is the price negotiable?</b> → <span class="dn">问能否议价</span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">How much + do/does + 主语 + cost? cost 此处作动词花费；this 单数用 does。口语更常省去 cost 直接说 How much is this?</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="闲聊/周末" data-learned="no" data-mastery="0">
+    <div class="card" data-theme="daily" data-cat="闲聊/周末" data-learned="yes" data-mastery="1">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -362,11 +362,15 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
-      <button class="toggle wait" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 完整增强（待生成）▾</button>
-      <div class="detail"><div class="d-empty">完整音变 / 变体 / 场景 / 语法标注将在该句被每日推送学习时自动生成 ✨<br>目前可先用 🔁 朗读 + 生词音标学习。</div></div>
+      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">1/5</span></div>
+      <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
+      <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/wʌt du ju ˈjuːʒuəli du ɑːn ˈwiːkendz/</div></div>
+<div class="d-row"><div class="d-k">发音提示</div><div class="d-v">同化：do you→/dʒu/（d+j 同化为 dʒ，关键！）。连读：What do→/wʌ dʊ/（t 与 d 连读）；do on→/dʊ wɑn/（元音间加 w 滑音）；on weekends→/ɑːn ˈwiːkendz/（n 与 w 连读）。浊化：What do 快读 /wʌ dʊ/（t→d，极典型）；usually do 顺接 /ˈjuːʒuəli dʊ/。弱读：you 弱读 /jə/（亦可保留 /ju/）；do 作助动词弱读 /də/；on→/ən/。缩读：场景里 wanna = want to（口语缩读）。失去爆破/闪音：本句无典型（参考：better→/bɛɾɚ/、city→/sɪɾi/ 元音间 /t/ 标闪音；good boy→/ɡʊ bɔɪ/ 相邻爆破音标失去爆破）。</div></div>
+<div class="d-row"><div class="d-k">口语变体</div><ul class="d-list"><li><b>What do you do on weekends?</b> <span class="dn">省掉 usually，依然自然</span></li><li><b>Any plans for the weekend?</b> <span class="dn">更偏闲聊，直接问有没有安排</span></li><li><b>How do you usually spend your weekends?</b> <span class="dn">稍正式，spend 表『度过』</span></li></ul></div>
+<div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">破冰闲聊</span> · <b>What do you usually do on weekends?</b> → <span class="dn">对方答 I usually… / Not much.(没啥特别的)</span></li><li><span class="d-occ">约人出去</span> · <b>Do you wanna hang out this weekend?</b> → <span class="dn">wanna = want to，问要不要一起玩</span></li><li><span class="d-occ">不同回答</span> · <b>I just chill at home. / I go hiking. / Work, unfortunately.</b> → <span class="dn">宅家 / 去徒步 / 无奈要加班</span></li></ul></div>
+<div class="d-row"><div class="d-k">语法提示</div><div class="d-v">一般现在时表习惯性动作；usually 放在主语和实义动词之间（do you usually do）。weekend 英式常用 at weekends，美式用 on weekends。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="酒店/预订" data-learned="no" data-mastery="0">
+    <div class="card" data-theme="travel" data-cat="酒店/预订" data-learned="yes" data-mastery="1">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -394,11 +398,15 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
-      <button class="toggle wait" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 完整增强（待生成）▾</button>
-      <div class="detail"><div class="d-empty">完整音变 / 变体 / 场景 / 语法标注将在该句被每日推送学习时自动生成 ✨<br>目前可先用 🔁 朗读 + 生词音标学习。</div></div>
+      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">1/5</span></div>
+      <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
+      <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/ɪz ˈbrekfəst ɪnˈkluːdɪd ɪn ðə praɪs/</div></div>
+<div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：Is breakfast→/ɪz ˈbrekfəst/（z 与 b 连读）；breakfast included→/ˈbrekfəst ɪnˈkluːdɪd/（t 与 ɪ 连读）；included in→/ɪnˈkluːdɪd ɪn/（d 与 ɪ）；in the→/ɪn ðə/（n 与 ð）。失去爆破：breakfast 词尾 /t/ 在 /ɪ/ 前为不完全爆破 /ˈbrekfəs(t) ɪn/；included 词尾 /d/ 在 /ɪn/ 前 /ɪnˈkluːdɪ(d) ɪn/。浊化：breakfast 词尾 t 在 ɪ 前快读可浊化为 d：/ˈbrekfəsd ɪn/。弱读：the→/ðə/；in→/ɪn/。同化/滑音/缩读：无典型。</div></div>
+<div class="d-row"><div class="d-k">口语变体</div><ul class="d-list"><li><b>Does the price include breakfast?</b> <span class="dn">更顺口，主动语态</span></li><li><b>Is breakfast free?</b> <span class="dn">最简，但 free 不如 included 准确表达『含在房费里』</span></li></ul></div>
+<div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">订酒店问含早</span> · <b>Is breakfast included?</b> → <span class="dn">对方回 Yes, it's a buffet. / No, it's extra.(另收费) / Continental breakfast only.(仅欧式简早)</span></li><li><span class="d-occ">顺带问是否含税/服务费</span> · <b>Does it include tax and service?</b> → <span class="dn">延展问法</span></li><li><span class="d-occ">顺带问 wifi</span> · <b>Is Wi-Fi included?</b> → <span class="dn">一并确认网络</span></li></ul></div>
+<div class="d-row"><div class="d-k">语法提示</div><div class="d-v">be included in + 名词 是被动结构，表『被包含在…里』；price 单数用 is。included /ɪnˈkluːdɪd/ 是 include 的过去分词作形容词。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="餐厅/推荐" data-learned="no" data-mastery="0">
+    <div class="card" data-theme="travel" data-cat="餐厅/推荐" data-learned="yes" data-mastery="1">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-long">长句</span>
@@ -426,11 +434,15 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
-      <button class="toggle wait" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 完整增强（待生成）▾</button>
-      <div class="detail"><div class="d-empty">完整音变 / 变体 / 场景 / 语法标注将在该句被每日推送学习时自动生成 ✨<br>目前可先用 🔁 朗读 + 生词音标学习。</div></div>
+      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">1/5</span></div>
+      <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
+      <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/kʊd ju ˌrekəˈmend ə ɡʊd ˈloʊkəl ˈrestərənt ðæts nɑːt tuː ɪkˈspensɪv ənd ˈwɪðɪn ˈwɔːkɪŋ ˈdɪstəns/</div></div>
+<div class="d-row"><div class="d-k">发音提示</div><div class="d-v">同化：Could you→/kʊdʒu/（d+j 同化为 dʒ，关键！）；that's not→/ðæts nɑt/（s 与 n 相邻）。连读：good local→/ɡʊ wˈloʊkəl/（d 后加 w 滑音）；not too→/nɑ tʊ/（两个 t 只读一次，后接元音）；too expensive 顺接 /tuː ɪkˈspensɪv/；and within→/ənd ˈwɪðɪn/（d 与 w）。浊化：not too 快读 /nɑ dʊ/（t→d）。失去爆破：good local /ɡʊ(d) ˈloʊkəl/（d 在 l 前不完全爆破）。弱读：a→/ə/；and→/ən/；that's→/ðæts/。缩读：that's = that is（口语缩读）。闪音：无典型。</div></div>
+<div class="d-row"><div class="d-k">口语变体</div><ul class="d-list"><li><b>Any good local spots around here?</b> <span class="dn">spots = 地点，极口语</span></li><li><b>Where do locals eat?</b> <span class="dn">问本地人去哪吃，更地道</span></li><li><b>Do you know a place that won't break the bank?</b> <span class="dn">break the bank 俚语『花太多钱』</span></li></ul></div>
+<div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">问酒店前台</span> · <b>Can you recommend a good restaurant nearby?</b> → <span class="dn">对方直接给名字</span></li><li><span class="d-occ">问路人</span> · <b>Where's a nice place to eat around here?</b> → <span class="dn">对方指路</span></li><li><span class="d-occ">不同回答</span> · <b>Try the place on 5th St. / It's a bit touristy.(偏游客) / Book ahead, it's popular.(要预定)</b> → <span class="dn"></span></li></ul></div>
+<div class="d-row"><div class="d-k">语法提示</div><div class="d-v">recommend 后接名词或动名词：recommend a restaurant / recommend going there。within walking distance 是固定搭配『步行范围内』；that's = that is 引导定语从句修饰 restaurant。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="邀约/喝咖啡" data-learned="no" data-mastery="0">
+    <div class="card" data-theme="daily" data-cat="邀约/喝咖啡" data-learned="yes" data-mastery="1">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-long">长句</span>
@@ -458,11 +470,15 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
-      <button class="toggle wait" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 完整增强（待生成）▾</button>
-      <div class="detail"><div class="d-empty">完整音变 / 变体 / 场景 / 语法标注将在该句被每日推送学习时自动生成 ✨<br>目前可先用 🔁 朗读 + 生词音标学习。</div></div>
+      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">1/5</span></div>
+      <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
+      <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/aɪ wʌz ˈwʌndərɪŋ ɪf juːd laɪk tə ɡræb ə ˈkɔːfi wɪð miː ˈsʌmtaɪm ðɪs wiːk/</div></div>
+<div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：was wondering→/wʌz ˈwʌndərɪŋ/（z 与 w）；grab a→/ɡræb ə/（b 与 a）；coffee with→/ˈkɔfi wɪð/（i 与 w 滑音）；sometime this→/ˈsʌmtaɪm ðɪs/（m 与 ð）。浊化：like to→/laɪ də/（t→d，同 wanna 规律）；grab a 中 b 保持浊。弱读：to→/tə/；a→/ə/；me→/mi/(可弱读 /mə/)；if→/ɪf/。缩读：you'd = you would（口语缩读）；场景中 wanna = want to。失去爆破：grab a /ɡræ(b) ə/（b 在 a 前轻微不完全爆破）。闪音：无典型。</div></div>
+<div class="d-row"><div class="d-k">口语变体</div><ul class="d-list"><li><b>Want to get a coffee sometime?</b> <span class="dn">最口语，直接用 want</span></li><li><b>Let's grab a coffee.</b> <span class="dn">已默认能成，更熟</span></li><li><b>How about a coffee later?</b> <span class="dn">更轻的提议</span></li></ul></div>
+<div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">委婉邀约(不太熟)</span> · <b>I was wondering if you'd like to…</b> → <span class="dn">最礼貌，给对方余地</span></li><li><span class="d-occ">熟人间</span> · <b>Wanna grab a drink?</b> → <span class="dn">drink 可含咖啡/酒，看语境</span></li><li><span class="d-occ">不同回答</span> · <b>Sure, Tuesday works. / I'd love to but I'm swamped.(想去但忙) / Rain check?(改天呗)</b> → <span class="dn"></span></li></ul></div>
+<div class="d-row"><div class="d-k">语法提示</div><div class="d-v">I was wondering if… 用过去进行时表委婉，比 Do you want 客气得多，是邀约神句。would like to = 想（礼貌）；grab 本义抓，口语常指『快速喝/吃一杯』。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="问路/迷路" data-learned="no" data-mastery="0">
+    <div class="card" data-theme="travel" data-cat="问路/迷路" data-learned="yes" data-mastery="1">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-long">长句</span>
@@ -490,11 +506,15 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
-      <button class="toggle wait" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 完整增强（待生成）▾</button>
-      <div class="detail"><div class="d-empty">完整音变 / 变体 / 场景 / 语法标注将在该句被每日推送学习时自动生成 ✨<br>目前可先用 🔁 朗读 + 生词音标学习。</div></div>
+      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">1/5</span></div>
+      <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
+      <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/aɪ siːm tə hæv lɔst maɪ weɪ kʊd ju tel miː haʊ tə ɡet tə ðə ˈsɪti ˈsentər frəm hɪr/</div></div>
+<div class="d-row"><div class="d-k">发音提示</div><div class="d-v">同化：Could you→/kʊdʒu/（d+j 同化为 dʒ，关键！）。连读：seem to→/siːm p tə/（m 后加 p 滑音）；lost my→/lɔs maɪ/（t 与 m 连读）；my way→/maɪ weɪ/（aɪ 与 w 滑音）；from here→/frəm hɪr/（m 与 h）；tell me→/tɛl mi/（l 与 m）。浊化：lost my 快读 /lɔz maɪ/ 或 /lɔd maɪ/（t→d，典型）；have 的 v 保持浊。失去爆破：lost my /lɔ(s)t maɪ/（s-t，/t/ 在 m 前不完全爆破）；get to /ɡe(t) tə/；center /ˈsɛn(t)ər/（t 在 ər 前不完全爆破）。闪音：city→/ˈsɪɾi/（美式，元音间 /t/ 标闪音 /ɾ/，关键！）。弱读：to→/tə/；the→/ðə/。缩读：无典型。</div></div>
+<div class="d-row"><div class="d-k">口语变体</div><ul class="d-list"><li><b>I'm lost.</b> <span class="dn">最简，最常用</span></li><li><b>I think I'm lost.</b> <span class="dn">更柔和</span></li><li><b>Can you help me find my way?</b> <span class="dn">直接请帮忙指路</span></li></ul></div>
+<div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">问路人</span> · <b>Excuse me, I seem to have lost my way.</b> → <span class="dn">对方指路或 Follow me.(跟我来)</span></li><li><span class="d-occ">用手机</span> · <b>Can you help me find this on Maps?</b> → <span class="dn">请对方帮忙查地图</span></li><li><span class="d-occ">不同回答</span> · <b>Go back to the main road. / I'll walk you there. / You're going the wrong way.(你走反了)</b> → <span class="dn"></span></li></ul></div>
+<div class="d-row"><div class="d-k">语法提示</div><div class="d-v">I seem to have + 过去分词 表『我好像（已经）…了』，比 I'm lost 委婉。lost my way 固定搭配『迷路』；city center（英）/ downtown（美）都表市中心。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="交通/购票" data-learned="no" data-mastery="0">
+    <div class="card" data-theme="travel" data-cat="交通/购票" data-learned="yes" data-mastery="1">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -522,11 +542,11 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">1/5</span></div>
       <button class="toggle wait" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 完整增强（待生成）▾</button>
       <div class="detail"><div class="d-empty">完整音变 / 变体 / 场景 / 语法标注将在该句被每日推送学习时自动生成 ✨<br>目前可先用 🔁 朗读 + 生词音标学习。</div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="交通/时长" data-learned="no" data-mastery="0">
+    <div class="card" data-theme="travel" data-cat="交通/时长" data-learned="yes" data-mastery="1">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -554,11 +574,11 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">1/5</span></div>
       <button class="toggle wait" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 完整增强（待生成）▾</button>
       <div class="detail"><div class="d-empty">完整音变 / 变体 / 场景 / 语法标注将在该句被每日推送学习时自动生成 ✨<br>目前可先用 🔁 朗读 + 生词音标学习。</div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="交通/座位" data-learned="no" data-mastery="0">
+    <div class="card" data-theme="travel" data-cat="交通/座位" data-learned="yes" data-mastery="1">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -586,11 +606,11 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">1/5</span></div>
       <button class="toggle wait" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 完整增强（待生成）▾</button>
       <div class="detail"><div class="d-empty">完整音变 / 变体 / 场景 / 语法标注将在该句被每日推送学习时自动生成 ✨<br>目前可先用 🔁 朗读 + 生词音标学习。</div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="机场/选座" data-learned="no" data-mastery="0">
+    <div class="card" data-theme="travel" data-cat="机场/选座" data-learned="yes" data-mastery="1">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -618,11 +638,11 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">1/5</span></div>
       <button class="toggle wait" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 完整增强（待生成）▾</button>
       <div class="detail"><div class="d-empty">完整音变 / 变体 / 场景 / 语法标注将在该句被每日推送学习时自动生成 ✨<br>目前可先用 🔁 朗读 + 生词音标学习。</div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="机场/行李" data-learned="no" data-mastery="0">
+    <div class="card" data-theme="travel" data-cat="机场/行李" data-learned="yes" data-mastery="1">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -650,7 +670,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">1/5</span></div>
       <button class="toggle wait" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 完整增强（待生成）▾</button>
       <div class="detail"><div class="d-empty">完整音变 / 变体 / 场景 / 语法标注将在该句被每日推送学习时自动生成 ✨<br>目前可先用 🔁 朗读 + 生词音标学习。</div></div>
     </div>
