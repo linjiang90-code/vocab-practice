@@ -13,6 +13,7 @@
 """
 import json, os, threading, datetime, base64
 from http.server import HTTPServer, ThreadingHTTPServer, SimpleHTTPRequestHandler
+import gen_views_html  # 自评回写后重建「已学回顾/学习日历」内嵌数据页
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 MASTER = os.path.join(BASE, "master.json")
@@ -142,6 +143,10 @@ class H(SimpleHTTPRequestHandler):
                         s["learn"]["lastReviewed"] = today
                     s["learn"]["mastery"] = m
                     save_master(d)
+                    try:
+                        gen_views_html.main()
+                    except Exception:
+                        pass
                 return self._send(200, json.dumps({"ok": True, "id": sid, "mastery": m}))
             except Exception as e:
                 return self._send(500, json.dumps({"error": str(e)}))

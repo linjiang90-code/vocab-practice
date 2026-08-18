@@ -79,7 +79,7 @@ for s in S:
     toggle_label = "🔤 发音详情 ▾" if has else "🔤 完整增强（待生成）▾"
     toggle_cls = "toggle ready" if has else "toggle wait"
     cards += f'''
-    <div class="card" data-theme="{s['theme']}" data-cat="{esc(s['category'])}" data-learned="{"yes" if learned else "no"}" data-mastery="{mastery}">
+    <div class="card" id="s{s['id']}" data-theme="{s['theme']}" data-cat="{esc(s['category'])}" data-learned="{"yes" if learned else "no"}" data-mastery="{mastery}">
       <div class="top">
         <span class="badge {s['theme']}">{badge}</span>
         <span class="lng lng-{s['length']}">{lng}</span>
@@ -126,9 +126,9 @@ html = f'''<!DOCTYPE html>
   * {{ box-sizing:border-box; }}
   body {{ margin:0; font-family:-apple-system,"PingFang SC","Microsoft YaHei",Segoe UI,sans-serif;
     background:var(--bg); color:var(--ink); }}
-  header {{ background:linear-gradient(120deg,#2563eb,#0d9488); color:#fff; padding:22px 24px; }}
-  header h1 {{ margin:0 0 6px; font-size:22px; }}
-  header p {{ margin:0; opacity:.92; font-size:13px; }}
+  header {{ background:linear-gradient(120deg,#2563eb,#0d9488); color:#fff; padding:20px 24px; display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; }}
+  .htitle h1 {{ margin:0 0 6px; font-size:22px; }}
+  .htitle p {{ margin:0; opacity:.92; font-size:13px; }}
   details.legend-box {{ background:#fff7ed; border:1px solid #fed7aa; border-radius:8px; color:#9a3412;
     font-size:12px; margin:10px 16px 0; }}
   details.legend-box > summary {{ cursor:pointer; padding:8px 16px; font-weight:600; list-style:none;
@@ -225,21 +225,22 @@ html = f'''<!DOCTYPE html>
   .d-occ {{ color:#7c3aed; font-weight:600; }}
   .d-empty {{ color:var(--sub); font-size:12px; }}
   footer {{ text-align:center; color:var(--sub); font-size:12px; padding:18px; }}
-  .pagenav {{ display:flex; gap:8px; padding:12px 24px 0; flex-wrap:wrap; }}
-  .pagenav a {{ text-decoration:none; font-size:13px; color:#475569; border:1px solid var(--line); border-radius:999px; padding:6px 14px; font-weight:600; transition:.15s; }}
-  .pagenav a:hover {{ border-color:var(--travel); color:var(--travel); background:#eef4ff; }}
-  .pagenav a.cur {{ background:var(--travel); color:#fff; border-color:var(--travel); }}
+  .pagenav {{ display:flex; gap:8px; flex-wrap:wrap; }}
+  .pagenav a {{ text-decoration:none; font-size:13px; color:#fff; border:1px solid rgba(255,255,255,.55); border-radius:999px; padding:6px 14px; font-weight:600; transition:.15s; background:rgba(255,255,255,.15); }}
+  .pagenav a:hover {{ background:rgba(255,255,255,.32); border-color:#fff; }}
 </style>
 </head>
 <body>
-<nav class="pagenav">
-  <a href="index.html">🏠 首页</a>
-  <a class="cur" href="master.html">📚 总览</a>
-  <a class="today-nav" href="#">📅 今日练习</a>
-</nav>
 <header>
-  <h1>旅游 + 日常英语 · {total} 句范式总览</h1>
-  <p>每天 5 句随机推送 · 每 30 天 +50 新句（{total}→{total+50}→{total+100}…）· 点击 ▶ 听原声（en-US-Aria 真人音色）· 点「🔤 发音详情」看完整音变标注</p>
+  <div class="htitle">
+    <h1>旅游 + 日常英语 · {total} 句范式总览</h1>
+    <p>每天 5 句随机推送 · 每 30 天 +50 新句（{total}→{total+50}→{total+100}…）· 点击 ▶ 听原声（en-US-Aria 真人音色）· 点「🔤 发音详情」看完整音变标注</p>
+  </div>
+  <nav class="pagenav">
+    <a href="index.html">🏠 首页</a>
+    <a href="review.html">📚 已学回顾</a>
+    <a href="calendar.html">📅 日历</a>
+  </nav>
 </header>
 <details class="legend-box">
   <summary>🔤 发音详情说明（覆盖 8 类语流音变 · 点击展开/收起）</summary>
@@ -445,7 +446,6 @@ html = f'''<!DOCTYPE html>
   try {{ speedSel.value = localStorage.getItem('vocab_speed') || '1'; }} catch(e){{ speedSel.value = '1'; }}
   speedSel.onchange = () => applySpeed(speedSel.value);
   apply();
-  (function(){{ const d=new Date().toISOString().slice(0,10); document.querySelectorAll('.today-nav').forEach(a=>a.href='day'+d+'.html'); }})();
 </script>
 </body>
 </html>'''

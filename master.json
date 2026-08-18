@@ -1037,12 +1037,12 @@
       ],
       "audio": "audio/s16.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
-        "dueDate": null,
+        "introduced": true,
+        "introducedDay": 6,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-08-18",
+        "dueDate": "2026-08-19",
         "enh": {
           "fullIpa": "/maɪ ˈlʌɡɪdʒ ˈdɪdənt əˈraɪv/",
           "variants": [
@@ -1103,12 +1103,12 @@
       ],
       "audio": "audio/s17.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
-        "dueDate": null,
+        "introduced": true,
+        "introducedDay": 6,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-08-18",
+        "dueDate": "2026-08-19",
         "enh": {
           "fullIpa": "/du aɪ nid ə ˈvizə fɔr ðɪs ˈkʌntri/",
           "variants": [
@@ -1169,12 +1169,12 @@
       ],
       "audio": "audio/s18.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
-        "dueDate": null,
+        "introduced": true,
+        "introducedDay": 6,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-08-18",
+        "dueDate": "2026-08-19",
         "enh": {
           "fullIpa": "/wɛr ʃʊd aɪ ɡoʊ fɔr ˈpæspɔrt kənˈtroʊl/",
           "variants": [
@@ -1235,12 +1235,12 @@
       ],
       "audio": "audio/s19.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
-        "dueDate": null,
+        "introduced": true,
+        "introducedDay": 6,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-08-18",
+        "dueDate": "2026-08-19",
         "enh": {
           "fullIpa": "/kʊd ju kɔl mi ə ˈtæksi pliz/",
           "variants": [
@@ -1301,12 +1301,12 @@
       ],
       "audio": "audio/s20.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
-        "dueDate": null,
+        "introduced": true,
+        "introducedDay": 6,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-08-18",
+        "dueDate": "2026-08-19",
         "enh": {
           "fullIpa": "/pliz drɑp mi ɔf ət ðə treɪn ˈsteɪʃən/",
           "variants": [

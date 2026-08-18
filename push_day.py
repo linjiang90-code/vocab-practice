@@ -176,19 +176,18 @@ TEMPLATE = r"""<!DOCTYPE html>
   .details.collapsed>.block{display:none}
   .mbar{width:96px;height:9px;border-radius:5px;background:#e5e7eb;overflow:hidden;flex:none}
   .mbar .mfill{height:100%;border-radius:5px;transition:width .25s,background .25s}
-  .pagenav{display:flex;gap:8px;padding:14px 16px 0;flex-wrap:wrap}
+  .pagenav{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap;margin-bottom:6px}
   .pagenav a{text-decoration:none;font-size:13px;color:#475569;border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-weight:600;transition:.15s}
   .pagenav a:hover{border-color:var(--accent);color:var(--accent);background:#f0f6ff}
-  .pagenav a.cur{background:var(--accent);color:#fff;border-color:var(--accent)}
 </style>
 </head>
 <body>
+<div class="wrap">
 <nav class="pagenav">
   <a href="index.html">🏠 首页</a>
-  <a href="master.html">📚 总览</a>
-  <a class="today-nav" href="#">📅 今日练习</a>
+  <a href="review.html">📚 已学回顾</a>
+  <a href="calendar.html">📅 日历</a>
 </nav>
-<div class="wrap">
   <header>
     <h1>🗣 英语口语 · Day __DAY__（增强版）</h1>
     <p>旅游 + 日常混合 · __N__ 句/天 · 中英对照 + 生词音标 + 原声伴读 + 变体 + 场景俚语 + 语法 + 发音提示</p>
@@ -381,6 +380,24 @@ out_path = os.path.join(BASE, "day%s.html" % today.isoformat())
 with open(out_path, "w", encoding="utf-8") as f:
     f.write(html)
 
+# 6) 写每日侧车 JSON + 更新 days.json 清单（供「日历 / 已学回顾」页读取）
+day_json = {"date": today.isoformat(), "ids": [s["id"] for s in selected]}
+with open(os.path.join(BASE, "day%s.json" % today.isoformat()), "w", encoding="utf-8") as f:
+    json.dump(day_json, f, ensure_ascii=False, indent=2)
+manifest_path = os.path.join(BASE, "days.json")
+days = []
+if os.path.exists(manifest_path):
+    try:
+        with open(manifest_path, encoding="utf-8") as f:
+            days = json.load(f)
+    except Exception:
+        days = []
+if today.isoformat() not in days:
+    days.append(today.isoformat())
+days = sorted(set(days))
+with open(manifest_path, "w", encoding="utf-8") as f:
+    json.dump(days, f, ensure_ascii=False, indent=2)
+
 # 5) 自动重生成总览页 master.html，保持与 master.json 同步
 import subprocess
 venv_py = r"C:/Users/Win10/.workbuddy/binaries/python/envs/default/Scripts/python.exe"
@@ -390,5 +407,13 @@ try:
     print("REGEN_MASTER:", r.stdout.strip().replace("\n", " "), r.stderr.strip().replace("\n", " "))
 except Exception as e:
     print("REGEN_MASTER_ERR:", e)
+
+# 5b) 自动重生成「已学回顾 / 学习日历」页（内嵌数据，与 master.json / days.json 同步）
+gen_views = os.path.join(BASE, "gen_views_html.py")
+try:
+    r = subprocess.run([venv_py, gen_views], cwd=BASE, capture_output=True, text=True)
+    print("REGEN_VIEWS:", r.stdout.strip().replace("\n", " "), r.stderr.strip().replace("\n", " "))
+except Exception as e:
+    print("REGEN_VIEWS_ERR:", e)
 
 print("PUSH_DONE day=%d selected=%d introduced_total=%d out=%s" % (dayIndex, len(selected), total_introduced, out_path))

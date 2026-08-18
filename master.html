@@ -12,9 +12,9 @@
   * { box-sizing:border-box; }
   body { margin:0; font-family:-apple-system,"PingFang SC","Microsoft YaHei",Segoe UI,sans-serif;
     background:var(--bg); color:var(--ink); }
-  header { background:linear-gradient(120deg,#2563eb,#0d9488); color:#fff; padding:22px 24px; }
-  header h1 { margin:0 0 6px; font-size:22px; }
-  header p { margin:0; opacity:.92; font-size:13px; }
+  header { background:linear-gradient(120deg,#2563eb,#0d9488); color:#fff; padding:20px 24px; display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; }
+  .htitle h1 { margin:0 0 6px; font-size:22px; }
+  .htitle p { margin:0; opacity:.92; font-size:13px; }
   details.legend-box { background:#fff7ed; border:1px solid #fed7aa; border-radius:8px; color:#9a3412;
     font-size:12px; margin:10px 16px 0; }
   details.legend-box > summary { cursor:pointer; padding:8px 16px; font-weight:600; list-style:none;
@@ -111,21 +111,22 @@
   .d-occ { color:#7c3aed; font-weight:600; }
   .d-empty { color:var(--sub); font-size:12px; }
   footer { text-align:center; color:var(--sub); font-size:12px; padding:18px; }
-  .pagenav { display:flex; gap:8px; padding:12px 24px 0; flex-wrap:wrap; }
-  .pagenav a { text-decoration:none; font-size:13px; color:#475569; border:1px solid var(--line); border-radius:999px; padding:6px 14px; font-weight:600; transition:.15s; }
-  .pagenav a:hover { border-color:var(--travel); color:var(--travel); background:#eef4ff; }
-  .pagenav a.cur { background:var(--travel); color:#fff; border-color:var(--travel); }
+  .pagenav { display:flex; gap:8px; flex-wrap:wrap; }
+  .pagenav a { text-decoration:none; font-size:13px; color:#fff; border:1px solid rgba(255,255,255,.55); border-radius:999px; padding:6px 14px; font-weight:600; transition:.15s; background:rgba(255,255,255,.15); }
+  .pagenav a:hover { background:rgba(255,255,255,.32); border-color:#fff; }
 </style>
 </head>
 <body>
-<nav class="pagenav">
-  <a href="index.html">🏠 首页</a>
-  <a class="cur" href="master.html">📚 总览</a>
-  <a class="today-nav" href="#">📅 今日练习</a>
-</nav>
 <header>
-  <h1>旅游 + 日常英语 · 100 句范式总览</h1>
-  <p>每天 5 句随机推送 · 每 30 天 +50 新句（100→150→200…）· 点击 ▶ 听原声（en-US-Aria 真人音色）· 点「🔤 发音详情」看完整音变标注</p>
+  <div class="htitle">
+    <h1>旅游 + 日常英语 · 100 句范式总览</h1>
+    <p>每天 5 句随机推送 · 每 30 天 +50 新句（100→150→200…）· 点击 ▶ 听原声（en-US-Aria 真人音色）· 点「🔤 发音详情」看完整音变标注</p>
+  </div>
+  <nav class="pagenav">
+    <a href="index.html">🏠 首页</a>
+    <a href="review.html">📚 已学回顾</a>
+    <a href="calendar.html">📅 日历</a>
+  </nav>
 </header>
 <details class="legend-box">
   <summary>🔤 发音详情说明（覆盖 8 类语流音变 · 点击展开/收起）</summary>
@@ -134,9 +135,9 @@
   </div>
 </details>
   <div class="stats">
-      <div class="stat"><span class="num" id="stLearned">15</span><span class="lbl">/ <span id="stTotal">100</span> 已学句数</span></div>
+      <div class="stat"><span class="num" id="stLearned">20</span><span class="lbl">/ <span id="stTotal">100</span> 已学句数</span></div>
       <div class="stat"><span class="num" id="stAvg">1.1</span><span class="lbl">/ 5 平均掌握度<span class="hint">（已学句口径）</span></span></div>
-      <div class="gbarwrap"><div class="gbar"><i id="stBar" style="width:3%;background:#dc2626"></i></div><span class="glbl" id="stPct">总掌握度 3%</span></div>
+      <div class="gbarwrap"><div class="gbar"><i id="stBar" style="width:4%;background:#dc2626"></i></div><span class="glbl" id="stPct">总掌握度 4%</span></div>
     </div>
   <div class="bar">
     <button class="tbtn" id="filterToggle" onclick="toggleFilters()">🔍 筛选条件（已折叠 ▸）</button>
@@ -163,7 +164,7 @@
     <span class="count" id="count"></span>
   </div>
 <div class="grid" id="grid">
-    <div class="card" data-theme="travel" data-cat="交通/问路" data-learned="yes" data-mastery="0">
+    <div class="card" id="s1" data-theme="travel" data-cat="交通/问路" data-learned="yes" data-mastery="0">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -199,7 +200,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">问路人/酒店前台</span> · <b>Where's the nearest subway station?</b> → <span class="dn">对方指路或说 Go straight and turn left.</span></li><li><span class="d-occ">请对方在地图上标</span> · <b>Can you pin the station on my map?</b> → <span class="dn">对方帮你定位</span></li><li><span class="d-occ">分不清地铁叫法</span> · <b>Is it the tube or the metro here?</b> → <span class="dn">英式 tube / 美式 subway / 欧陆 metro</span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">nearest 是 near 的最高级，the nearest + 名词 = 最近的…。subway（美）/ underground（英）/ metro（欧陆）同义，到当地用当地词更地道。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="沟通/没听清" data-learned="yes" data-mastery="0">
+    <div class="card" id="s2" data-theme="daily" data-cat="沟通/没听清" data-learned="yes" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -235,7 +236,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">英式日常</span> · <b>Sorry? / Pardon?</b> → <span class="dn">英式最地道，朋友间</span></li><li><span class="d-occ">美式日常</span> · <b>Excuse me? / What was that?</b> → <span class="dn">美式更自然，不易误会</span></li><li><span class="d-occ">职场/客服</span> · <b>Could you repeat that, please?</b> → <span class="dn">比 say again 更职业</span></li><li><span class="d-occ">电话听不清</span> · <b>Sorry, I didn't catch that. / You're breaking up.</b> → <span class="dn">信号差时</span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">Could you + 动词原形 比 Can you 更礼貌（could 表委婉，不是过去式）。say 过去式是 said，但 say that again 用原形；again 重音在第二音节 /əˈɡɛn/。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="餐厅/预订" data-learned="yes" data-mastery="1">
+    <div class="card" id="s3" data-theme="travel" data-cat="餐厅/预订" data-learned="yes" data-mastery="1">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -271,7 +272,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">电话订位</span> · <b>I'd like to book a table for two at 7.</b> → <span class="dn">加时间；对方回 Sure, window or inside?</span></li><li><span class="d-occ">现场有没有位</span> · <b>Do you have a table for two?</b> → <span class="dn">对方回 It's fully booked.(满座) / Your name, please?</span></li><li><span class="d-occ">等位</span> · <b>Can we put our name down?</b> → <span class="dn">留名等位</span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">I'd like to… = I would like to…，比 I want 礼貌，点单/预订万能句。book/reserve 在餐厅酒店都表预订；for two 表两人份。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="寒暄/初次见面" data-learned="yes" data-mastery="1">
+    <div class="card" id="s4" data-theme="daily" data-cat="寒暄/初次见面" data-learned="yes" data-mastery="1">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -307,7 +308,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">初次见面</span> · <b>Nice to meet you.</b> → <span class="dn">对方回 Nice to meet you too.</span></li><li><span class="d-occ">经人介绍</span> · <b>This is my friend Tom. — Nice to meet you, Tom.</b> → <span class="dn">带名字更自然</span></li><li><span class="d-occ">道别时</span> · <b>Hope to see you again.</b> → <span class="dn">期待再见</span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">It's + adj. + to do 是形式主语结构；meet 过去式 met，但寒暄用原形 meet。回句固定加 too（也很高兴认识你）。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="购物/问价" data-learned="yes" data-mastery="1">
+    <div class="card" id="s5" data-theme="travel" data-cat="购物/问价" data-learned="yes" data-mastery="1">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -343,7 +344,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">砍价前问价</span> · <b>How much is it?</b> → <span class="dn">对方报价，可接 That's a bit much.(有点贵)</span></li><li><span class="d-occ">问单位价</span> · <b>How much per kilo / each?</b> → <span class="dn">按斤/个计价</span></li><li><span class="d-occ">自由市场</span> · <b>Is the price negotiable?</b> → <span class="dn">问能否议价</span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">How much + do/does + 主语 + cost? cost 此处作动词花费；this 单数用 does。口语更常省去 cost 直接说 How much is this?</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="闲聊/周末" data-learned="yes" data-mastery="1">
+    <div class="card" id="s6" data-theme="daily" data-cat="闲聊/周末" data-learned="yes" data-mastery="1">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -379,7 +380,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">破冰闲聊</span> · <b>What do you usually do on weekends?</b> → <span class="dn">对方答 I usually… / Not much.(没啥特别的)</span></li><li><span class="d-occ">约人出去</span> · <b>Do you wanna hang out this weekend?</b> → <span class="dn">wanna = want to，问要不要一起玩</span></li><li><span class="d-occ">不同回答</span> · <b>I just chill at home. / I go hiking. / Work, unfortunately.</b> → <span class="dn">宅家 / 去徒步 / 无奈要加班</span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">一般现在时表习惯性动作；usually 放在主语和实义动词之间（do you usually do）。weekend 英式常用 at weekends，美式用 on weekends。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="酒店/预订" data-learned="yes" data-mastery="1">
+    <div class="card" id="s7" data-theme="travel" data-cat="酒店/预订" data-learned="yes" data-mastery="1">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -415,7 +416,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">订酒店问含早</span> · <b>Is breakfast included?</b> → <span class="dn">对方回 Yes, it's a buffet. / No, it's extra.(另收费) / Continental breakfast only.(仅欧式简早)</span></li><li><span class="d-occ">顺带问是否含税/服务费</span> · <b>Does it include tax and service?</b> → <span class="dn">延展问法</span></li><li><span class="d-occ">顺带问 wifi</span> · <b>Is Wi-Fi included?</b> → <span class="dn">一并确认网络</span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">be included in + 名词 是被动结构，表『被包含在…里』；price 单数用 is。included /ɪnˈkluːdɪd/ 是 include 的过去分词作形容词。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="餐厅/推荐" data-learned="yes" data-mastery="1">
+    <div class="card" id="s8" data-theme="travel" data-cat="餐厅/推荐" data-learned="yes" data-mastery="1">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-long">长句</span>
@@ -451,7 +452,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">问酒店前台</span> · <b>Can you recommend a good restaurant nearby?</b> → <span class="dn">对方直接给名字</span></li><li><span class="d-occ">问路人</span> · <b>Where's a nice place to eat around here?</b> → <span class="dn">对方指路</span></li><li><span class="d-occ">不同回答</span> · <b>Try the place on 5th St. / It's a bit touristy.(偏游客) / Book ahead, it's popular.(要预定)</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">recommend 后接名词或动名词：recommend a restaurant / recommend going there。within walking distance 是固定搭配『步行范围内』；that's = that is 引导定语从句修饰 restaurant。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="邀约/喝咖啡" data-learned="yes" data-mastery="1">
+    <div class="card" id="s9" data-theme="daily" data-cat="邀约/喝咖啡" data-learned="yes" data-mastery="1">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-long">长句</span>
@@ -487,7 +488,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">委婉邀约(不太熟)</span> · <b>I was wondering if you'd like to…</b> → <span class="dn">最礼貌，给对方余地</span></li><li><span class="d-occ">熟人间</span> · <b>Wanna grab a drink?</b> → <span class="dn">drink 可含咖啡/酒，看语境</span></li><li><span class="d-occ">不同回答</span> · <b>Sure, Tuesday works. / I'd love to but I'm swamped.(想去但忙) / Rain check?(改天呗)</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">I was wondering if… 用过去进行时表委婉，比 Do you want 客气得多，是邀约神句。would like to = 想（礼貌）；grab 本义抓，口语常指『快速喝/吃一杯』。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="问路/迷路" data-learned="yes" data-mastery="1">
+    <div class="card" id="s10" data-theme="travel" data-cat="问路/迷路" data-learned="yes" data-mastery="1">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-long">长句</span>
@@ -523,7 +524,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">问路人</span> · <b>Excuse me, I seem to have lost my way.</b> → <span class="dn">对方指路或 Follow me.(跟我来)</span></li><li><span class="d-occ">用手机</span> · <b>Can you help me find this on Maps?</b> → <span class="dn">请对方帮忙查地图</span></li><li><span class="d-occ">不同回答</span> · <b>Go back to the main road. / I'll walk you there. / You're going the wrong way.(你走反了)</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">I seem to have + 过去分词 表『我好像（已经）…了』，比 I'm lost 委婉。lost my way 固定搭配『迷路』；city center（英）/ downtown（美）都表市中心。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="交通/购票" data-learned="yes" data-mastery="1">
+    <div class="card" id="s11" data-theme="travel" data-cat="交通/购票" data-learned="yes" data-mastery="1">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -559,7 +560,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">问售票柜台</span> · <b>Where can I buy a ticket to the city center?</b> → <span class="dn">对方指柜台 Over there at the counter.</span></li><li><span class="d-occ">问自助机</span> · <b>Is there a ticket machine around here?</b> → <span class="dn">对方回 Yes, by the entrance.</span></li><li><span class="d-occ">不同回答</span> · <b>Single or return? / It's 3 dollars. / Platform 2 is that way.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">Where can I + 动词原形 用于询问地点/请求信息；buy a ticket to + 地点 表『买去…的票』。city center（英）/ downtown（美）同义。ticket 单数即可泛指『一张票』。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="交通/时长" data-learned="yes" data-mastery="1">
+    <div class="card" id="s12" data-theme="travel" data-cat="交通/时长" data-learned="yes" data-mastery="1">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -595,7 +596,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">问交通时长</span> · <b>How long does it take to get there?</b> → <span class="dn">对方回 About 20 minutes by bus.</span></li><li><span class="d-occ">不同交通对比</span> · <b>Is the train faster than the bus?</b> → <span class="dn">问哪种更快</span></li><li><span class="d-occ">不同回答</span> · <b>It's a 10-minute walk. / Around an hour. / Depends on traffic.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">How long 问时长；It takes + 时间 + to do 是『做某事花多少时间』的固定句型，does 随主语 it 用单数。get there = 到达那里，there 作副词不加 to。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="交通/座位" data-learned="yes" data-mastery="1">
+    <div class="card" id="s13" data-theme="travel" data-cat="交通/座位" data-learned="yes" data-mastery="1">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -631,7 +632,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">车上找座</span> · <b>Excuse me, is this seat taken?</b> → <span class="dn">对方回 No, go ahead.(没人，请坐) / Yes, sorry.(有人)</span></li><li><span class="d-occ">放行李</span> · <b>Is this spot free?</b> → <span class="dn">问地方是否被占</span></li><li><span class="d-occ">不同回答</span> · <b>It's free. / Someone's coming back. / I'm saving it for a friend.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">be + 过去分词 表状态；take 的过去分词 taken 在此作形容词『被占用的』。this seat 单数用 is。比 Can I sit here 更礼貌且常用。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="机场/选座" data-learned="yes" data-mastery="4">
+    <div class="card" id="s14" data-theme="travel" data-cat="机场/选座" data-learned="yes" data-mastery="4">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -667,7 +668,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">值机选座</span> · <b>I'd like a window seat, please.</b> → <span class="dn">对方回 Sure, 14A by the window.</span></li><li><span class="d-occ">在线选座</span> · <b>Is a window seat still available?</b> → <span class="dn">问是否还有靠窗位</span></li><li><span class="d-occ">不同回答</span> · <b>We only have middle seats left. / Aisle okay instead? / No extra charge.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">I'd like to… / I'd like + 名词 表『我想要…』，比 I want 礼貌。window seat / aisle seat 是航班选座固定说法。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="机场/行李" data-learned="yes" data-mastery="1">
+    <div class="card" id="s15" data-theme="travel" data-cat="机场/行李" data-learned="yes" data-mastery="1">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -703,7 +704,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">机场找行李</span> · <b>Excuse me, where is the baggage claim?</b> → <span class="dn">对方指方向 This way, follow the signs.</span></li><li><span class="d-occ">看屏幕</span> · <b>Which carousel is for flight XX?</b> → <span class="dn">问几号转盘</span></li><li><span class="d-occ">不同回答</span> · <b>It's downstairs. / Belt 3 on the left. / Turn right after customs.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">baggage 与 luggage 都表行李，baggage 偏美、luggage 通用且不可数。claim 此处作名词『领取处』；Where is + 地点 问位置。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="机场/行李" data-learned="no" data-mastery="0">
+    <div class="card" id="s16" data-theme="travel" data-cat="机场/行李" data-learned="yes" data-mastery="1">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -731,7 +732,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">1/5</span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/maɪ ˈlʌɡɪdʒ ˈdɪdənt əˈraɪv/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">缩读：didn't = did not（/ˈdɪdənt/）。连读：My luggage→/maɪ ˈlʌɡɪdʒ/（aɪ 与 l）；luggage didn't→/ˈlʌɡɪdʒ ˈdɪdənt/（dʒ 与 d）；didn't arrive→/ˈdɪdənt əˈraɪv/（t 与 ə）。弱读：my→/maɪ/（重读）；didn't 弱读 /ˈdɪdənt/。失去爆破：luggage didn't /ˈlʌɡɪ(dʒ) ˈdɪ/（dʒ 轻微）；didn't arrive /ˈdɪdən(t) ə/（t 在 ə 前不完全爆破）。浊化：无。同化/滑音/闪音：无典型。</div></div>
@@ -739,7 +740,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">行李未到</span> · <b>My luggage didn't arrive.</b> → <span class="dn">对方让你填表 File a lost baggage report.</span></li><li><span class="d-occ">找工作人员</span> · <b>Can you check where my bag is?</b> → <span class="dn">请查行李去向</span></li><li><span class="d-occ">不同回答</span> · <b>It's on the next flight. / Please fill this form. / We'll deliver it to your hotel.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">一般过去时 didn't + 动词原形 arrive（注意否定后接原形，不说 arrived）。luggage 不可数，my luggage 单数。missing / lost 表『遗失的』。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="出入境/签证" data-learned="no" data-mastery="0">
+    <div class="card" id="s17" data-theme="travel" data-cat="出入境/签证" data-learned="yes" data-mastery="1">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -767,7 +768,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">1/5</span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/du aɪ nid ə ˈvizə fɔr ðɪs ˈkʌntri/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：Do I→/du aɪ/（u 与 a）；I need→/aɪ nid/（aɪ 与 n）；need a→/nid ə/（d 与 ə）；visa for→/ˈvizə fɔr/（ə 与 f）；for this→/fɔr ðɪs/（r 与 ð）。弱读：do→/də/；a→/ə/；for→/fər/。失去爆破：need a /ni(d) ə/（d 在 ə 前不完全爆破）。浊化：need a 快读 /ni də/（d 本就浊）。同化/滑音/闪音/缩读：无典型。</div></div>
@@ -775,7 +776,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">查签证要求</span> · <b>Do I need a visa for this country?</b> → <span class="dn">对方回 Citizens of your country do. / No, visa-free for 30 days.</span></li><li><span class="d-occ">问落地签</span> · <b>Can I get a visa on arrival?</b> → <span class="dn">问能否落地办</span></li><li><span class="d-occ">不同回答</span> · <b>You need to apply online. / Just bring your passport. / It's visa-free.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">Do I need + 名词/不定式 问『我是否需要…』；for + 国家 表『去某国』。visa 单数可数，a visa。required 是 require 过去分词作形容词。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="机场/出入境" data-learned="no" data-mastery="0">
+    <div class="card" id="s18" data-theme="travel" data-cat="机场/出入境" data-learned="yes" data-mastery="1">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -803,7 +804,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">1/5</span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/wɛr ʃʊd aɪ ɡoʊ fɔr ˈpæspɔrt kənˈtroʊl/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：Where should→/wɛr ʃʊd/（r 与 ʃ）；should I→/ʃʊ daɪ/（d 与 a）；I go→/aɪ ɡoʊ/；go for→/ɡoʊ fɔr/；for passport→/fɔr ˈpæspɔrt/；passport control→/ˈpæspɔrt kənˈtroʊl/（t 与 k）。弱读：should→/ʃʊd/；I→/aɪ/；for→/fər/。失去爆破：passport /ˈpæs(p)ɔrt/（s-p 相邻，p 轻）；should I /ʃʊ(d) aɪ/。浊化：passport 中 p 在 s 后保持清。同化/滑音/闪音/缩读：无典型。</div></div>
@@ -811,7 +812,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">机场入境</span> · <b>Where should I go for passport control?</b> → <span class="dn">对方指 Go straight, then turn left.</span></li><li><span class="d-occ">转机</span> · <b>Do I need to go through passport control?</b> → <span class="dn">问是否要过关</span></li><li><span class="d-occ">不同回答</span> · <b>Follow the signs. / It's on the second floor. / This line is for transfers.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">should 表『应该』，Where should I go… 礼貌询问去向。for + 名词 表『为了…（的事）』。passport control 是固定搭配『护照查验/出入境检查』。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="交通/打车" data-learned="no" data-mastery="0">
+    <div class="card" id="s19" data-theme="travel" data-cat="交通/打车" data-learned="yes" data-mastery="1">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -839,7 +840,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">1/5</span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/kʊd ju kɔl mi ə ˈtæksi pliz/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">同化：Could you→/kʊdʒu/（d+j 同化为 dʒ，关键！）。连读：call me→/kɔl mi/（l 与 m）；me a→/mi ə/（i 与 ə）；a taxi→/ə ˈtæksi/。弱读：me→/mi/；a→/ə/。失去爆破：call me /kɔ(l) mi/（l 轻微）；无相邻爆破典型。浊化：无。滑音/闪音/缩读：无典型。</div></div>
@@ -847,7 +848,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">酒店代叫车</span> · <b>Could you call me a taxi, please?</b> → <span class="dn">对方回 Sure, I'll get one now.</span></li><li><span class="d-occ">路边拦车</span> · <b>Can you wave down a taxi?</b> → <span class="dn">请招手拦车</span></li><li><span class="d-occ">不同回答</span> · <b>It'll be here in 5 minutes. / App-based only here. / Where to, sir?</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">Could you + 动词原形 委婉请求；call me a taxi 是双宾语结构（call + 间接宾语 me + 直接宾语 a taxi）。taxi / cab 同义，cab 更口语。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="交通/打车" data-learned="no" data-mastery="0">
+    <div class="card" id="s20" data-theme="travel" data-cat="交通/打车" data-learned="yes" data-mastery="1">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -875,7 +876,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">1/5</span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/pliz drɑp mi ɔf ət ðə treɪn ˈsteɪʃən/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：drop me→/drɑp mi/（p 与 m）；me off→/mi ɔf/（i 与 ɔ）；off at→/ɔ fæt/（f 与 æ）；at the→/ət ðə/；the train→/ðə treɪn/；train station→/treɪn ˈsteɪʃən/（n 与 s）。弱读：me→/mi/；at→/ət/；the→/ðə/。失去爆破：drop me /drɑ(p) mi/（p 在 m 前不完全爆破）；train station /treɪ(n) ˈsteɪ/（n 轻微）。浊化：无。同化/滑音/闪音：无典型。缩读：无。</div></div>
@@ -883,7 +884,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">打车报目的地</span> · <b>Please drop me off at the train station.</b> → <span class="dn">司机回 Sure. / Got it.</span></li><li><span class="d-occ">提前提醒</span> · <b>Could you let me know when we're close?</b> → <span class="dn">请快到提醒</span></li><li><span class="d-occ">不同回答</span> · <b>Here we are. / That's 12 dollars. / Watch your step.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">drop off 短语动词『让…下车/卸下』，宾语为代词时必放中间：drop me off。at + 车站 表地点。train station / subway station 表车站。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="问路/距离" data-learned="no" data-mastery="0">
+    <div class="card" id="s21" data-theme="travel" data-cat="问路/距离" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -919,7 +920,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">问距离</span> · <b>How far is it from here?</b> → <span class="dn">对方回 About a 10-minute walk. / It's pretty far, take a bus.</span></li><li><span class="d-occ">问步行</span> · <b>Can I walk there?</b> → <span class="dn">问是否走得到</span></li><li><span class="d-occ">不同回答</span> · <b>Just around the corner. / 2 kilometers away. / Too far to walk.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">How far 问距离；it 代指前文地点；from here 表『离这儿』。is it 单数一致。walkable / far 描述可达性。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="问路/地图" data-learned="no" data-mastery="0">
+    <div class="card" id="s22" data-theme="travel" data-cat="问路/地图" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -955,7 +956,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">问路看地图</span> · <b>Can you show me on the map?</b> → <span class="dn">对方在地图上画圈 Here, this is you.</span></li><li><span class="d-occ">手机导航</span> · <b>Can you pin the location for me?</b> → <span class="dn">请标记位置</span></li><li><span class="d-occ">不同回答</span> · <b>You're right here. / It's this red dot. / Go north two blocks.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">show + 间接宾语 me + 直接宾语（省略 it，指代地点）+ on the map。can 表能力/请求；on the map 表『在地图上』。pin 作动词指『在地图标记』。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="问路/方向" data-learned="no" data-mastery="0">
+    <div class="card" id="s23" data-theme="travel" data-cat="问路/方向" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -991,7 +992,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">指路</span> · <b>Turn left at the next corner.</b> → <span class="dn">对方回 OK, got it. / Thanks!</span></li><li><span class="d-occ">确认</span> · <b>Left at the corner, right?</b> → <span class="dn">确认是否左转</span></li><li><span class="d-occ">不同回答</span> · <b>Then go straight. / It's just after the bank. / You can't miss it.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">祈使句 Turn left 表指令；at + 地点 表『在…处』；next 表『下一个』。turn left / make a left / take a left 都表左转。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="问路/便民" data-learned="no" data-mastery="0">
+    <div class="card" id="s24" data-theme="travel" data-cat="问路/便民" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -1027,7 +1028,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">找药房</span> · <b>Is there a pharmacy nearby?</b> → <span class="dn">对方回 Yes, on the next block. / The one across the street.</span></li><li><span class="d-occ">问营业</span> · <b>Is the pharmacy open now?</b> → <span class="dn">问是否营业中</span></li><li><span class="d-occ">不同回答</span> · <b>It closes at 9. / Turn left, it's there. / Try the supermarket.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">There is + 单数名词 存在句；a pharmacy 单数。nearby 形容词/副词『附近的』，放句末作副词。drugstore（美）/ pharmacy / chemist（英）同义。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="酒店/入住" data-learned="no" data-mastery="0">
+    <div class="card" id="s25" data-theme="travel" data-cat="酒店/入住" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -1063,7 +1064,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">酒店前台</span> · <b>I'd like to check in, please.</b> → <span class="dn">对方回 May I have your name? / ID, please.</span></li><li><span class="d-occ">已订房</span> · <b>I have a reservation under Lee.</b> → <span class="dn">报姓名取房</span></li><li><span class="d-occ">不同回答</span> · <b>Your room is 305. / Here's your key card. / Breakfast is included.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">check in 短语动词『办理入住』，宾语代词放中间 check me in。I'd like to + 动词原形 礼貌表达意愿。反义 check out 表退房。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="酒店/预订" data-learned="no" data-mastery="0">
+    <div class="card" id="s26" data-theme="travel" data-cat="酒店/预订" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -1099,7 +1100,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">报预订</span> · <b>I have a reservation under the name Lee.</b> → <span class="dn">对方查系统 Your room's ready.</span></li><li><span class="d-occ">拼错名</span> · <b>That's L-E-E, like the letter.</b> → <span class="dn">拼写确认</span></li><li><span class="d-occ">不同回答</span> · <b>Found it. / Just a moment. / Can I see your ID?</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">have a reservation 表『有预订』；under the name + 姓 是『以…的名字（预订）』的固定搭配。reservation / booking 同义。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="酒店/餐饮" data-learned="no" data-mastery="0">
+    <div class="card" id="s27" data-theme="travel" data-cat="酒店/餐饮" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -1135,7 +1136,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">问早餐时间</span> · <b>What time is breakfast served?</b> → <span class="dn">对方回 From 7 to 10. / Until 9:30.</span></li><li><span class="d-occ">问地点</span> · <b>Where is breakfast served?</b> → <span class="dn">问在哪儿吃</span></li><li><span class="d-occ">不同回答</span> · <b>Buffet on the 2nd floor. / It starts at 6:30. / Continental only.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">What time + be + 主语 + 过去分词（served）是被动疑问句，表『…几点被供应』。serve 的过去分词 served。breakfast 单数用 is。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="酒店/换房" data-learned="no" data-mastery="0">
+    <div class="card" id="s28" data-theme="travel" data-cat="酒店/换房" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -1171,7 +1172,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">要求换/选房</span> · <b>Could I have a room with a better view?</b> → <span class="dn">对方回 We have one on the 8th floor.</span></li><li><span class="d-occ">升级</span> · <b>Any chance of an upgrade?</b> → <span class="dn">问能否升级</span></li><li><span class="d-occ">不同回答</span> · <b>Garden view or city view? / That's an extra 20. / Sorry, we're full.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">Could I have… 委婉请求；with + 名词 表『带有…』；better 是 good 的比较级。view 名词『景色』。room with a view 是固定搭配。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="酒店/报修" data-learned="no" data-mastery="0">
+    <div class="card" id="s29" data-theme="travel" data-cat="酒店/报修" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -1207,7 +1208,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">报修</span> · <b>The air conditioning doesn't work.</b> → <span class="dn">对方回 I'll send someone up. / Sorry about that.</span></li><li><span class="d-occ">要求换房</span> · <b>Can I change rooms?</b> → <span class="dn">空调修不好就换</span></li><li><span class="d-occ">不同回答</span> · <b>We'll fix it now. / Move you to another room. / It'll be cool in a minute.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">The + 名词 + doesn't work 表『…坏了/不运转』；air conditioning 不可数，用 doesn't（单数）。work 此处作不及物『运转』。broken 是 break 过去分词作形容词。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="酒店/网络" data-learned="no" data-mastery="0">
+    <div class="card" id="s30" data-theme="travel" data-cat="酒店/网络" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -1243,7 +1244,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">问 wifi 密码</span> · <b>What's the Wi-Fi password?</b> → <span class="dn">对方给 A-P-1-2-3 之类</span></li><li><span class="d-occ">问前台</span> · <b>Is the Wi-Fi free?</b> → <span class="dn">问是否免费</span></li><li><span class="d-occ">不同回答</span> · <b>It's on the card. / All lowercase, no spaces. / Network name is 'Hotel_Guest'.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">What's = What is 缩读；the Wi-Fi password 单数用 is。password / code 都表『密码』。Wi-Fi 读作 /ˈwaɪ faɪ/。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="餐厅/点餐" data-learned="no" data-mastery="0">
+    <div class="card" id="s31" data-theme="travel" data-cat="餐厅/点餐" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -1279,7 +1280,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">餐厅要菜单</span> · <b>Could we have the menu, please?</b> → <span class="dn">服务员回 Here you go. / One moment.</span></li><li><span class="d-occ">先点饮料</span> · <b>Can we get some water first?</b> → <span class="dn">先要水</span></li><li><span class="d-occ">不同回答</span> · <b>Here's the menu. / Are you ready to order? / Today's special is…</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">Could we have… 委婉请求（比 Can we 礼貌）；the menu 单数用 have。have 在此表『拿到/拿到看』。order 作动词『点餐』。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="餐厅/忌口" data-learned="no" data-mastery="0">
+    <div class="card" id="s32" data-theme="travel" data-cat="餐厅/忌口" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -1315,7 +1316,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">告知忌口</span> · <b>I'm allergic to peanuts.</b> → <span class="dn">服务员回 I'll note it for the kitchen.</span></li><li><span class="d-occ">点餐强调</span> · <b>Does this have peanuts in it?</b> → <span class="dn">问是否含花生</span></li><li><span class="d-occ">不同回答</span> · <b>We'll avoid it. / It's cooked separately. / Check the label, please.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">be allergic to + 名词 表『对…过敏』，to 是介词后接名词/动名词。peanut 可数，peanuts 复数泛指。allergic 形容词『过敏的』。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="餐厅/结账" data-learned="no" data-mastery="0">
+    <div class="card" id="s33" data-theme="travel" data-cat="餐厅/结账" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -1351,7 +1352,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">餐厅结账</span> · <b>Could you bring me the bill, please?</b> → <span class="dn">服务员回 Sure, right away.</span></li><li><span class="d-occ">分开付</span> · <b>Can we pay separately?</b> → <span class="dn">问能否分开结算</span></li><li><span class="d-occ">不同回答</span> · <b>Here's your bill. / Card or cash? / I'll split it.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">Could you bring me + 名词 双宾语委婉请求；the bill（英）/ the check（美）都表『账单』。receipt 是『收据』，非账单。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="餐厅/结账" data-learned="no" data-mastery="0">
+    <div class="card" id="s34" data-theme="travel" data-cat="餐厅/结账" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -1387,7 +1388,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">确认小费</span> · <b>Is the tip included?</b> → <span class="dn">对方回 Yes, it's on the bill. / No, 10% extra.</span></li><li><span class="d-occ">给现金</span> · <b>I'll leave the tip in cash.</b> → <span class="dn">说留现金小费</span></li><li><span class="d-occ">不同回答</span> · <b>It's already added. / Tip as you like. / 15% is standard.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">be included 被动形容词『被包含』；the tip 单数用 is。tip 名词『小费』；included 是 include 过去分词。service charge 常指『服务费』。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="购物/尺码" data-learned="no" data-mastery="0">
+    <div class="card" id="s35" data-theme="travel" data-cat="购物/尺码" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -1423,7 +1424,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">试衣问尺码</span> · <b>Do you have this in a larger size?</b> → <span class="dn">店员回 Let me check in the back.</span></li><li><span class="d-occ">小了</span> · <b>This is too small, do you have M?</b> → <span class="dn">报具体码</span></li><li><span class="d-occ">不同回答</span> · <b>We only have small left. / The large is over there. / It runs small.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">Do you have + 宾语 + in + 尺寸 问『有没有某尺寸的』；this 单数用 do。larger 是 large 比较级，size 名词『尺码』。in + size 表『以…尺码』。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="购物/试穿" data-learned="no" data-mastery="0">
+    <div class="card" id="s36" data-theme="travel" data-cat="购物/试穿" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -1459,7 +1460,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">试穿</span> · <b>Can I try this on?</b> → <span class="dn">店员回 Sure, the mirror's there.</span></li><li><span class="d-occ">拿进试衣间</span> · <b>I'll take these to the fitting room.</b> → <span class="dn">说拿去试</span></li><li><span class="d-occ">不同回答</span> · <b>Sure. / It looks great on you. / The fitting room is in the back.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">try on 短语动词『试穿』，代词宾语必放中间（try it on），名词可放后（try this on）。can/may 表请求许可；this 单数用 try。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="购物/议价" data-learned="no" data-mastery="0">
+    <div class="card" id="s37" data-theme="travel" data-cat="购物/议价" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -1495,7 +1496,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">觉得贵</span> · <b>That's a bit expensive for me.</b> → <span class="dn">店员回 I can give you a discount.</span></li><li><span class="d-occ">砍价</span> · <b>Is there any flexibility on price?</b> → <span class="dn">问价可否松动</span></li><li><span class="d-occ">不同回答</span> · <b>It's the last one. / I'll take 10% off. / That's our best price.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">That's = That is 缩读；a bit + 形容词 表『有点…』；expensive 形容词『贵的』；for me 表『对我而言』。比较级 cheaper 表『更便宜』。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="购物/支付" data-learned="no" data-mastery="0">
+    <div class="card" id="s38" data-theme="travel" data-cat="购物/支付" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -1531,7 +1532,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">付款前问</span> · <b>Do you accept credit cards?</b> → <span class="dn">店员回 Yes, we do. / Card's fine.</span></li><li><span class="d-occ">问现金</span> · <b>Do you take cash only?</b> → <span class="dn">问是否只收现金</span></li><li><span class="d-occ">不同回答</span> · <b>We take all cards. / There's a 3% fee. / Tap or chip?</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">Do you accept + 名词 问『你们收…吗』；credit cards 复数。accept 动词『接受』；take 口语同义。pay by card / in cash 表支付方式。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="购物/退换" data-learned="no" data-mastery="0">
+    <div class="card" id="s39" data-theme="travel" data-cat="购物/退换" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -1567,7 +1568,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">退货</span> · <b>Can I get a refund?</b> → <span class="dn">店员回 With the receipt, yes. / No, final sale.</span></li><li><span class="d-occ">问条件</span> · <b>Do I need the receipt?</b> → <span class="dn">问要不要小票</span></li><li><span class="d-occ">不同回答</span> · <b>We'll refund to your card. / Store credit only. / Within 7 days, please.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">Can I get + 名词 请求；a refund 单数『退款』。refund 也可作动词 /rɪˈfʌnd/。return 作动词『退』，returnable 形容词『可退的』。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="购物/试穿" data-learned="no" data-mastery="0">
+    <div class="card" id="s40" data-theme="travel" data-cat="购物/试穿" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -1603,7 +1604,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">找试衣间</span> · <b>Where are the changing rooms?</b> → <span class="dn">店员回 In the back, on your left.</span></li><li><span class="d-occ">确认</span> · <b>Are they unisex?</b> → <span class="dn">问是否男女通用</span></li><li><span class="d-occ">不同回答</span> · <b>Just around the corner. / They're occupied. / One moment, I'll open one.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">Where are + 复数名词（rooms）用 are；changing rooms / fitting rooms 同义『试衣间』。dressing room 偏正式/舞台更衣室。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="购物/纪念品" data-learned="no" data-mastery="0">
+    <div class="card" id="s41" data-theme="travel" data-cat="购物/纪念品" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -1639,7 +1640,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">挑纪念品</span> · <b>I'm looking for a souvenir for my friend.</b> → <span class="dn">店员回 These magnets are popular.</span></li><li><span class="d-occ">问特色</span> · <b>What's typical from here?</b> → <span class="dn">问当地特色</span></li><li><span class="d-occ">不同回答</span> · <b>How about this keychain? / Local handicrafts are over there. / That one's handmade.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">look for 短语动词『寻找』，进行时 I'm looking for 表正在找；for + 人 表『给某人』。souvenir 名词『纪念品』；gift / present 同义『礼物』。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="购物/优惠" data-learned="no" data-mastery="0">
+    <div class="card" id="s42" data-theme="travel" data-cat="购物/优惠" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -1675,7 +1676,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">问学生优惠</span> · <b>Is there a discount for students?</b> → <span class="dn">对方回 Show your student ID. / 10% off.</span></li><li><span class="d-occ">出示证件</span> · <b>Here's my student card.</b> → <span class="dn">给证件享折扣</span></li><li><span class="d-occ">不同回答</span> · <b>With ID, yes. / Only on weekdays. / Sorry, not here.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">There is + 单数 discount；for + 人 表『给…的』。students 复数。discount 名词『折扣』，get a discount 表『获得折扣』。ID / card 指证件。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="观光/时间" data-learned="no" data-mastery="0">
+    <div class="card" id="s43" data-theme="travel" data-cat="观光/时间" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -1711,7 +1712,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">问开馆</span> · <b>What time does the museum open?</b> → <span class="dn">对方回 At 9 a.m. / It opens at ten.</span></li><li><span class="d-occ">问闭馆</span> · <b>What time does it close?</b> → <span class="dn">问几点关门</span></li><li><span class="d-occ">不同回答</span> · <b>Closed on Mondays. / Last entry at 5. / Open till 6.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">What time + does + 主语（单数 museum）+ 动词原形 open 问时间；open 可作动词『开门』或形容词『开着的』。opening hours 表『开放时间』。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="观光/导览" data-learned="no" data-mastery="0">
+    <div class="card" id="s44" data-theme="travel" data-cat="观光/导览" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -1747,7 +1748,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">问导览</span> · <b>Are there any guided tours?</b> → <span class="dn">对方回 Yes, at 11 and 3. / English tour at 2.</span></li><li><span class="d-occ">问语言</span> · <b>Is the tour in English?</b> → <span class="dn">问是否英文导览</span></li><li><span class="d-occ">不同回答</span> · <b>It's 15 per person. / Meet at the entrance. / Audio guide instead?</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">Are there + 复数（tours）存在句；any 用于疑问句表『一些』。guided 是 guide 过去分词作形容词『带导游的』。tour 名词『游览/团』。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="观光/拍照" data-learned="no" data-mastery="0">
+    <div class="card" id="s45" data-theme="travel" data-cat="观光/拍照" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -1783,7 +1784,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">景点拍照</span> · <b>Can I take a photo here?</b> → <span class="dn">对方回 Sure, but no flash. / It's not allowed inside.</span></li><li><span class="d-occ">博物馆</span> · <b>Is it okay to film?</b> → <span class="dn">问能否录像</span></li><li><span class="d-occ">不同回答</span> · <b>Go ahead. / Not in the gallery. / Please don't use flash.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">Can I take + 名词 请求许可；a photo / pictures 同义『照片』。here 副词表『这儿』。allowed 是 allow 过去分词『被允许』。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="应急/便民" data-learned="no" data-mastery="0">
+    <div class="card" id="s46" data-theme="travel" data-cat="应急/便民" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -1819,7 +1820,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">找洗手间</span> · <b>Where is the nearest restroom?</b> → <span class="dn">对方回 Down the hall, on the left.</span></li><li><span class="d-occ">餐厅</span> · <b>Is the restroom for customers?</b> → <span class="dn">问是否顾客可用</span></li><li><span class="d-occ">不同回答</span> · <b>Just past the lobby. / Upstairs. / Around the corner.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">Where is + 单数地点；nearest 是 near 最高级『最近的』。restroom（美）/ bathroom（美）/ toilet（英）/ WC（英）同义。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="应急/遗失" data-learned="no" data-mastery="0">
+    <div class="card" id="s47" data-theme="travel" data-cat="应急/遗失" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -1855,7 +1856,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">报失</span> · <b>I lost my wallet.</b> → <span class="dn">对方回 Report it to the police. / Check your pockets.</span></li><li><span class="d-occ">冻结卡</span> · <b>I need to cancel my cards.</b> → <span class="dn">说要挂失</span></li><li><span class="d-occ">不同回答</span> · <b>When did you last see it? / File a report. / Hope you find it.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">一般过去时 lost（lose 的过去式）表『丢了』；my wallet 单数。gone 是 go 过去分词作形容词『不见了』。can't find 表『找不到』。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="应急/就医" data-learned="no" data-mastery="0">
+    <div class="card" id="s48" data-theme="travel" data-cat="应急/就医" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -1891,7 +1892,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">求医</span> · <b>I need to see a doctor.</b> → <span class="dn">对方回 There's a clinic nearby. / I'll call one.</span></li><li><span class="d-occ">急诊</span> · <b>It's an emergency.</b> → <span class="dn">说紧急情况</span></li><li><span class="d-occ">不同回答</span> · <b>Go to the hospital. / Pharmacy's open. / I'll get help.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">need to + 动词原形 表『需要做某事』；see a doctor 固定搭配『看医生』。doctor 单数用 a。emergency 名词『急症』。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="应急/安全" data-learned="no" data-mastery="0">
+    <div class="card" id="s49" data-theme="travel" data-cat="应急/安全" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -1927,7 +1928,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">紧急报警</span> · <b>Call the police, please.</b> → <span class="dn">旁人回 I'm calling now. / On it.</span></li><li><span class="d-occ">被抢</span> · <b>I've been robbed.</b> → <span class="dn">说被抢了</span></li><li><span class="d-occ">不同回答</span> · <b>Dial 911. / Stay calm. / They're on the way.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">祈使句 Call + 宾语 表命令/请求；the police 集合名词用复数概念但形式单数。call the police 固定『报警』。rob 过去分词 robbed『被抢』。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="应急/误机" data-learned="no" data-mastery="0">
+    <div class="card" id="s50" data-theme="travel" data-cat="应急/误机" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -1963,7 +1964,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">误机</span> · <b>I've missed my flight.</b> → <span class="dn">地勤回 You can rebook for tomorrow.</span></li><li><span class="d-occ">改签</span> · <b>Can I get the next one?</b> → <span class="dn">问下一班</span></li><li><span class="d-occ">不同回答</span> · <b>There's a seat on the 8 p.m. / A fee applies. / Standby only.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">现在完成时 I've missed（miss 的过去分词）强调对现在的影响；my flight 单数。miss 动词『错过』。rebook 表『重新订』。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="沟通/语速" data-learned="no" data-mastery="0">
+    <div class="card" id="s51" data-theme="travel" data-cat="沟通/语速" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -1999,7 +2000,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">请慢点</span> · <b>Can you speak more slowly, please?</b> → <span class="dn">对方回 Of course, sorry.</span></li><li><span class="d-occ">换语言</span> · <b>Do you speak Chinese?</b> → <span class="dn">问会不会中文</span></li><li><span class="d-occ">不同回答</span> · <b>Let me repeat. / I'll go slower. / Like this?</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">Can you + 动词原形（speak）请求；more + 副词原级（slowly）构成比较级『更慢』。speak slower / more slowly 都对，slowly 多音节用 more。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="沟通/理解" data-learned="no" data-mastery="0">
+    <div class="card" id="s52" data-theme="travel" data-cat="沟通/理解" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -2035,7 +2036,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">表示不懂</span> · <b>I don't understand.</b> → <span class="dn">对方回 Let me explain again. / In simpler words…</span></li><li><span class="d-occ">部分懂</span> · <b>I get part of it.</b> → <span class="dn">说懂一部分</span></li><li><span class="d-occ">不同回答</span> · <b>It's like this. / Do you follow now? / I'll write it down.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">don't = do not 缩读；understand 动词『理解』，否定用 don't + 原形。get it 口语同义。mean 动词『意思是』。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="沟通/求助" data-learned="no" data-mastery="0">
+    <div class="card" id="s53" data-theme="travel" data-cat="沟通/求助" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -2071,7 +2072,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">求助问语言</span> · <b>Does anyone here speak English?</b> → <span class="dn">对方回 A little. / Yes, I do.</span></li><li><span class="d-occ">翻译</span> · <b>Can you translate for me?</b> → <span class="dn">请翻译</span></li><li><span class="d-occ">不同回答</span> · <b>My English is poor. / Try the young man. / Slowly, please.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">Does anyone + 动词原形（speak）疑问；anyone 复合不定代词单数用 does。here 副词。speak English 『说英语』。translate 动词『翻译』。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="礼貌/道谢" data-learned="no" data-mastery="0">
+    <div class="card" id="s54" data-theme="daily" data-cat="礼貌/道谢" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -2107,7 +2108,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">道谢</span> · <b>Thank you so much for your help.</b> → <span class="dn">对方回 You're welcome. / No problem.</span></li><li><span class="d-occ">回应帮助</span> · <b>I couldn't have done it without you.</b> → <span class="dn">说没你不行</span></li><li><span class="d-occ">不同回答</span> · <b>Anytime. / Glad to help. / Don't mention it.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">Thank you + so much + for + 名词/动名词 表『为…非常感谢』；your 形容词性物主代词。help 名/动『帮助』。appreciate 动词『感激』。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="礼貌/祝福" data-learned="no" data-mastery="0">
+    <div class="card" id="s55" data-theme="daily" data-cat="礼貌/祝福" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -2143,7 +2144,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">道别祝福</span> · <b>Have a nice day!</b> → <span class="dn">对方回 You too! / Same to you.</span></li><li><span class="d-occ">店员送客</span> · <b>Thank you, you too.</b> → <span class="dn">回祝</span></li><li><span class="d-occ">不同回答</span> · <b>Have a good one. / See you! / Take care.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">Have a + 形容词 + 名词 是固定祝福句型（省略主语 you，祈使）；nice / good / great 同义『美好的』。You too 是『你也一样』的省略回应。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="应急/就医" data-learned="no" data-mastery="0">
+    <div class="card" id="s56" data-theme="travel" data-cat="应急/就医" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-long">长句</span>
@@ -2179,7 +2180,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">求助就医</span> · <b>I was wondering if you could help me find the nearest hospital, as I'm not feeling well.</b> → <span class="dn">对方回 Of course, I'll call a cab.</span></li><li><span class="d-occ">同伴不适</span> · <b>My friend feels sick.</b> → <span class="dn">说同伴不舒服</span></li><li><span class="d-occ">不同回答</span> · <b>The clinic's two blocks away. / I'll go with you. / Call an ambulance.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">I was wondering if… 过去进行表委婉请求（比 Can you 客气）；could 表委婉能力。as 引导原因状语从句『因为』；not feeling well 现在分词作表语『不舒服』。hospital 单数。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="交通/提醒" data-learned="no" data-mastery="0">
+    <div class="card" id="s57" data-theme="travel" data-cat="交通/提醒" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-long">长句</span>
@@ -2215,7 +2216,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">请提醒</span> · <b>If it's not too much trouble, could you let me know when we arrive at the museum?</b> → <span class="dn">对方回 Sure, I will.</span></li><li><span class="d-occ">车上</span> · <b>Wake me up before we arrive.</b> → <span class="dn">说到了叫醒</span></li><li><span class="d-occ">不同回答</span> · <b>No trouble at all. / I'll tap you. / Got it.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">If it's not too much trouble 是固定客套『如果不麻烦的话』；could you + 动词原形 委婉请求；let me know 『告诉我』；when 引导时间状语从句。arrive at + 小地点。</div></div></div>
     </div>
-    <div class="card" data-theme="travel" data-cat="酒店/续住" data-learned="no" data-mastery="0">
+    <div class="card" id="s58" data-theme="travel" data-cat="酒店/续住" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-long">长句</span>
@@ -2251,7 +2252,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">续住</span> · <b>I'd like to extend my stay by two nights if that's possible.</b> → <span class="dn">前台回 Sure, room 305 again. / An extra 40 a night.</span></li><li><span class="d-occ">问价</span> · <b>How much for two more nights?</b> → <span class="dn">问加价</span></li><li><span class="d-occ">不同回答</span> · <b>No problem. / We're fully booked then. / I'll check availability.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">I'd like to + 动词原形（extend）礼貌表达；extend 动词『延长』。by + 时间段 表『多出…』。if that's possible 是插入条件『如果可能』，that's = that is。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="寒暄/问候" data-learned="no" data-mastery="0">
+    <div class="card" id="s59" data-theme="daily" data-cat="寒暄/问候" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -2287,7 +2288,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">日常问候</span> · <b>How are you doing today?</b> → <span class="dn">对方回 I'm good, thanks. And you?</span></li><li><span class="d-occ">熟人间</span> · <b>What's up?</b> → <span class="dn">极简</span></li><li><span class="d-occ">不同回答</span> · <b>Not bad. / Can't complain. / Pretty busy, actually.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">How are you doing 是进行时问候『最近过得怎样』；today 状语。How's it going / What's up 同义寒暄。And you? 是『你呢』省略。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="寒暄/重逢" data-learned="no" data-mastery="0">
+    <div class="card" id="s60" data-theme="daily" data-cat="寒暄/重逢" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -2323,7 +2324,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">重逢</span> · <b>Long time no see!</b> → <span class="dn">对方回 Yeah, way too long! / Great to see you!</span></li><li><span class="d-occ">叙旧</span> · <b>What have you been up to?</b> → <span class="dn">问最近忙啥</span></li><li><span class="d-occ">不同回答</span> · <b>I know, right? / Too long indeed. / Good to catch up.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">Long time no see 是约定俗成的中式英语借来的 idiom（语法不规范但通行）；no see = 没见。It's been a while / Haven't seen you in ages 同义。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="寒暄/问名" data-learned="no" data-mastery="0">
+    <div class="card" id="s61" data-theme="daily" data-cat="寒暄/问名" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -2359,7 +2360,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">没听清名字</span> · <b>What's your name again?</b> → <span class="dn">对方回 I'm Tom. / Lee, with two e's.</span></li><li><span class="d-occ">确认拼法</span> · <b>How do you spell that?</b> → <span class="dn">问怎么拼</span></li><li><span class="d-occ">不同回答</span> · <b>It's Anna. / N-I-N-A. / Just call me Sam.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">What's = What is 缩读；your name 单数用 is。again 副词『再』放句末表『再说一次』。spell 动词『拼写』。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="寒暄/来源" data-learned="no" data-mastery="0">
+    <div class="card" id="s62" data-theme="daily" data-cat="寒暄/来源" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -2395,7 +2396,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">寒暄来源</span> · <b>Where are you from?</b> → <span class="dn">对方回 I'm from China. / Originally from Korea.</span></li><li><span class="d-occ">接着问</span> · <b>Which city exactly?</b> → <span class="dn">问具体城市</span></li><li><span class="d-occ">不同回答</span> · <b>I'm local. / Just moved here. / Near Beijing.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">Where are you from 是 be from 句型问籍贯/来源；you 复数用 are。come from 同义。which + 名词 用于具体追问。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="寒暄/道别" data-learned="no" data-mastery="0">
+    <div class="card" id="s63" data-theme="daily" data-cat="寒暄/道别" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -2431,7 +2432,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">聊天结束</span> · <b>Nice talking to you.</b> → <span class="dn">对方回 You too! / Same here.</span></li><li><span class="d-occ">电话结尾</span> · <b>Great chatting, bye!</b> → <span class="dn">说聊得开心</span></li><li><span class="d-occ">不同回答</span> · <b>Likewise. / Take care. / Let's do this again.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">Nice talking to you 是 It's nice talking to you 省略，动名词 talking 作主语；to you 表『和你』。道别常用，等同 Nice to meet you 用于已认识的人。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="社交/联系方式" data-learned="no" data-mastery="0">
+    <div class="card" id="s64" data-theme="daily" data-cat="社交/联系方式" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -2467,7 +2468,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">要电话</span> · <b>Could I get your phone number?</b> → <span class="dn">对方回 Sure, it's 138… / Let me type it in.</span></li><li><span class="d-occ">加微信式</span> · <b>Can we connect later?</b> → <span class="dn">说以后联系</span></li><li><span class="d-occ">不同回答</span> · <b>Here, scan my code. / I'll text you. / Sure, 555-0192.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">Could I get + 名词 委婉请求；your phone number 单数。get / have 同义『拿到』。exchange contacts 表『互换联系方式』。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="社交/联系" data-learned="no" data-mastery="0">
+    <div class="card" id="s65" data-theme="daily" data-cat="社交/联系" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -2503,7 +2504,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">道别约定</span> · <b>Let's keep in touch.</b> → <span class="dn">对方回 Definitely! / For sure.</span></li><li><span class="d-occ">社交</span> · <b>Add me on WeChat.</b> → <span class="dn">加联系方式</span></li><li><span class="d-occ">不同回答</span> · <b>Absolutely. / I will. / Talk soon.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">Let's = Let us 缩读，后接动词原形 keep；keep in touch / stay in contact 固定搭配『保持联系』。in touch 介词短语作状语。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="邀约/周末" data-learned="no" data-mastery="0">
+    <div class="card" id="s66" data-theme="daily" data-cat="邀约/周末" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -2539,7 +2540,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">邀约前问</span> · <b>Are you free this weekend?</b> → <span class="dn">对方回 Yeah, why? / I'm busy Saturday.</span></li><li><span class="d-occ">提议</span> · <b>Wanna grab coffee?</b> → <span class="dn">问喝咖啡</span></li><li><span class="d-occ">不同回答</span> · <b>I'm wide open. / Got plans already. / Sunday works.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">Are you + 形容词（free）问状态；this weekend 单数用 is（但 you 用 are）。free 形容词『有空的』。plans 复数『安排』。wanna = want to 口语缩读。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="邀约/婉拒" data-learned="no" data-mastery="0">
+    <div class="card" id="s67" data-theme="daily" data-cat="邀约/婉拒" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -2575,7 +2576,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">婉拒</span> · <b>Sorry, I can't make it.</b> → <span class="dn">对方回 No worries. / Another time!</span></li><li><span class="d-occ">给理由</span> · <b>I've got a conflict.</b> → <span class="dn">说冲突了</span></li><li><span class="d-occ">不同回答</span> · <b>That's okay. / Let me know next time. / Rain check?</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">Sorry 形容词作感叹『抱歉』；can't make it 固定『去不了/不能到场』。won't be able to 更正式。rain check 俚语『改天』。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="邀约/改期" data-learned="no" data-mastery="0">
+    <div class="card" id="s68" data-theme="daily" data-cat="邀约/改期" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -2611,7 +2612,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">改期</span> · <b>Maybe another time.</b> → <span class="dn">对方回 Sure, no rush. / Sounds good.</span></li><li><span class="d-occ">约以后</span> · <b>How about next week?</b> → <span class="dn">问下周</span></li><li><span class="d-occ">不同回答</span> · <b>Deal. / I'll text you. / Works for me.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">Maybe 副词『也许』放句首；another = an + other『另一个』；time 此处表『次/时机』。some other time / perhaps another day 同义。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="闲聊/天气" data-learned="no" data-mastery="0">
+    <div class="card" id="s69" data-theme="daily" data-cat="闲聊/天气" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -2647,7 +2648,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">闲聊天气</span> · <b>What's the weather like today?</b> → <span class="dn">对方回 Sunny and warm. / A bit cloudy.</span></li><li><span class="d-occ">出行</span> · <b>Should I bring a coat?</b> → <span class="dn">问要不要带外套</span></li><li><span class="d-occ">不同回答</span> · <b>It's freezing. / Perfect for a walk. / Looks like rain.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">What's + 宾语 + like? 问『…是什么样的』；the weather 单数用 is。like 介词『像』。How's the weather 同义。going to rain 表『将要下雨』。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="闲聊/天气" data-learned="no" data-mastery="0">
+    <div class="card" id="s70" data-theme="daily" data-cat="闲聊/天气" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -2683,7 +2684,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">形容大雨</span> · <b>It's raining cats and dogs.</b> → <span class="dn">对方回 Better take a taxi! / I left my umbrella.</span></li><li><span class="d-occ">抱怨</span> · <b>Ugh, the weather!</b> → <span class="dn">叹天气</span></li><li><span class="d-occ">不同回答</span> · <b>Hope it stops soon. / Typical of the season / Grab a cab.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">It's raining 现在进行时；cats and dogs 是 idiom『倾盆大雨』，不能说 cat and dog。pour / downpour 同义。it 指天气。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="闲聊/交通" data-learned="no" data-mastery="0">
+    <div class="card" id="s71" data-theme="daily" data-cat="闲聊/交通" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-long">长句</span>
@@ -2719,7 +2720,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">告知迟到</span> · <b>I'm stuck in traffic, so I might be a few minutes late.</b> → <span class="dn">对方回 No rush. / Take your time.</span></li><li><span class="d-occ">改约</span> · <b>Can we push it back?</b> → <span class="dn">问能否推迟</span></li><li><span class="d-occ">不同回答</span> · <b>See you soon. / Drive safe. / I'll wait.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">be stuck 过去分词作形容词『卡住/被困』；in traffic 表『堵车中』。so 连词表『所以』；might 表『可能』（比 may 口语）。a few minutes late『晚几分钟』。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="闲聊/问候" data-learned="no" data-mastery="0">
+    <div class="card" id="s72" data-theme="daily" data-cat="闲聊/问候" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -2755,7 +2756,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">问候一天</span> · <b>How was your day?</b> → <span class="dn">对方回 Pretty good, yours? / Long, honestly.</span></li><li><span class="d-occ">回家</span> · <b>Tough day at work?</b> → <span class="dn">问是不是累</span></li><li><span class="d-occ">不同回答</span> · <b>Not bad. / Exhausting. / Same old.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">How was + 单数（day）一般过去时问候；your 物主代词。How'd = How did 缩读；go 表『过得』。tough / exhausting 描述状态。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="闲聊/工作" data-learned="no" data-mastery="0">
+    <div class="card" id="s73" data-theme="daily" data-cat="闲聊/工作" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -2791,7 +2792,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">闲聊工作</span> · <b>I had a long day at work.</b> → <span class="dn">对方回 Wow, rest up. / Same here.</span></li><li><span class="d-occ">共情</span> · <b>That sounds exhausting.</b> → <span class="dn">说听起来累</span></li><li><span class="d-occ">不同回答</span> · <b>Hope you relax tonight. / Tell me about it. / Cheers to the weekend.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">一般过去时 had（have 过去式）；a long day 固定『漫长的一天』。at work / at the office 表『在上班』。tired / exhausted 表累。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="请求/帮忙" data-learned="no" data-mastery="0">
+    <div class="card" id="s74" data-theme="daily" data-cat="请求/帮忙" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -2827,7 +2828,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">请求帮忙</span> · <b>Could you do me a favor?</b> → <span class="dn">对方回 Sure, what is it? / Of course.</span></li><li><span class="d-occ">具体</span> · <b>Can you watch my bag?</b> → <span class="dn">请帮忙看包</span></li><li><span class="d-occ">不同回答</span> · <b>No problem. / Happy to. / What do you need?</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">do me a favor 固定『帮我个忙』，favor 间接宾语 me。Could you / Can you 委婉请求。help out 短语『搭把手』。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="答应/爽快" data-learned="no" data-mastery="0">
+    <div class="card" id="s75" data-theme="daily" data-cat="答应/爽快" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -2863,7 +2864,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">答应请求</span> · <b>Sure, no problem.</b> → <span class="dn">对方回 Thanks a lot! / I owe you.</span></li><li><span class="d-occ">回应</span> · <b>Happy to help.</b> → <span class="dn">说乐意帮忙</span></li><li><span class="d-occ">不同回答</span> · <b>Anytime. / You got it. / No big deal.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">Sure 副词『当然』；no problem 固定『没问题』，用于答应或回应道歉/感谢。of course / no worries 同义。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="安慰/关心" data-learned="no" data-mastery="0">
+    <div class="card" id="s76" data-theme="daily" data-cat="安慰/关心" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-long">长句</span>
@@ -2899,7 +2900,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">安慰</span> · <b>I'm really sorry to hear that; is there anything I can do to help?</b> → <span class="dn">对方回 Thanks, just needed to vent. / I'm okay.</span></li><li><span class="d-occ">关心</span> · <b>Are you all right?</b> → <span class="dn">问是否还好</span></li><li><span class="d-occ">不同回答</span> · <b>I'll be fine. / You're sweet. / Just give me a minute.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">I'm sorry to hear that 固定『听到这很难过』；anything 用于疑问/否定表『任何事』；I can do 是省略 that 的定语从句修饰 anything。to help 不定式表目的。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="祝贺/职场" data-learned="no" data-mastery="0">
+    <div class="card" id="s77" data-theme="daily" data-cat="祝贺/职场" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -2935,7 +2936,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">祝贺升职</span> · <b>Congratulations on your promotion!</b> → <span class="dn">对方回 Thank you so much! / I worked hard for it.</span></li><li><span class="d-occ">同事</span> · <b>You earned it!</b> → <span class="dn">说你应得的</span></li><li><span class="d-occ">不同回答</span> · <b>Means a lot. / Cheers! / Let's celebrate.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">Congratulations on + 名词 固定祝贺句型；promotion 名词『升职』。congrats 是口语缩写。well done / you earned it 同义夸赞。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="礼貌/道谢" data-learned="no" data-mastery="0">
+    <div class="card" id="s78" data-theme="daily" data-cat="礼貌/道谢" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -2971,7 +2972,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">道谢被邀</span> · <b>Thank you for inviting me.</b> → <span class="dn">对方回 You're welcome! / Glad you came.</span></li><li><span class="d-occ">聚会后</span> · <b>I had a great time.</b> → <span class="dn">说玩得开心</span></li><li><span class="d-occ">不同回答</span> · <b>Anytime. / You must come again. / It was fun.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">Thank you for + 动名词（inviting）表『为…感谢』；me 是 inviting 的宾语。invite 过去式 invited，但介词 for 后用动名词 inviting。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="礼貌/回应" data-learned="no" data-mastery="0">
+    <div class="card" id="s79" data-theme="daily" data-cat="礼貌/回应" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -3007,7 +3008,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">回应感谢</span> · <b>You're welcome.</b> → <span class="dn">对方回 Thanks again! / Bye!</span></li><li><span class="d-occ">随意</span> · <b>Sure thing.</b> → <span class="dn">说小事一桩</span></li><li><span class="d-occ">不同回答</span> · <b>Don't mention it. / My pleasure. / Glad to help.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">You're = You are 缩读；welcome 形容词『受欢迎的』，You're welcome 是『不客气』固定回应。No problem / My pleasure 同义。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="餐桌/礼貌" data-learned="no" data-mastery="0">
+    <div class="card" id="s80" data-theme="daily" data-cat="餐桌/礼貌" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -3043,7 +3044,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">餐桌借物</span> · <b>Excuse me, could you pass the salt?</b> → <span class="dn">对方回 Sure, here you go.</span></li><li><span class="d-occ">顺带</span> · <b>And the pepper too, please.</b> → <span class="dn">连胡椒一起</span></li><li><span class="d-occ">不同回答</span> · <b>Of course. / There you are. / Watch the shaker.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">Excuse me 礼貌引子『不好意思』；could you pass + 名词 委婉请求递东西；pass / hand / reach 同义『递』。the salt 单数。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="餐桌/夸赞" data-learned="no" data-mastery="0">
+    <div class="card" id="s81" data-theme="daily" data-cat="餐桌/夸赞" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -3079,7 +3080,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">夸食物</span> · <b>This food is delicious!</b> → <span class="dn">对方回 Glad you like it! / Try the soup too.</span></li><li><span class="d-occ">赞厨艺</span> · <b>You're a great cook.</b> → <span class="dn">夸做饭的人</span></li><li><span class="d-occ">不同回答</span> · <b>Help yourself. / Eat up. / It's a family recipe.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">This food 单数用 is；delicious 形容词『美味的』作表语。taste 系动词 + 形容词（amazing）；tasty 同义口语。recipe 名词『食谱』。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="健康/饮食" data-learned="no" data-mastery="0">
+    <div class="card" id="s82" data-theme="daily" data-cat="健康/饮食" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -3115,7 +3116,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">拒绝食物</span> · <b>I'm on a diet.</b> → <span class="dn">对方回 Oh, have a little! / No pressure.</span></li><li><span class="d-occ">解释</span> · <b>Trying to lose a few pounds.</b> → <span class="dn">说想瘦几斤</span></li><li><span class="d-occ">不同回答</span> · <b>Respect. / Just a bite? / Veggies then?</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">be on a diet 固定『在节食』，on 表『处于…状态』。watch one's weight『控制体重』。lose weight『减肥』。pound 名词『磅』。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="健康/状态" data-learned="no" data-mastery="0">
+    <div class="card" id="s83" data-theme="daily" data-cat="健康/状态" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -3151,7 +3152,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">说不适</span> · <b>I feel a bit under the weather.</b> → <span class="dn">对方回 Hope you feel better. / Rest up.</span></li><li><span class="d-occ">请假</span> · <b>Can I take a sick day?</b> → <span class="dn">问能否病休</span></li><li><span class="d-occ">不同回答</span> · <b>Get some sleep. / Drink water. / Take care.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">under the weather 是 idiom『身体不适/不舒服』；a bit 表『有点』。feel + 形容词 系表结构。off 形容词口语『状态差』。sick day『病假』。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="感叹/惊讶" data-learned="no" data-mastery="0">
+    <div class="card" id="s84" data-theme="daily" data-cat="感叹/惊讶" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -3187,7 +3188,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">表达惊讶</span> · <b>Can you believe it?</b> → <span class="dn">对方回 Crazy, right? / I know!</span></li><li><span class="d-occ">震惊</span> · <b>That's unbelievable.</b> → <span class="dn">说难以置信</span></li><li><span class="d-occ">不同回答</span> · <b>Wild. / Who'd have thought. / Unreal.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">Can you + 动词原形（believe）疑问句；it 指代前文令人惊讶之事。can't believe / no way / unbelievable 同义表惊讶。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="回应/赞同" data-learned="no" data-mastery="0">
+    <div class="card" id="s85" data-theme="daily" data-cat="回应/赞同" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -3223,7 +3224,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">赞同提议</span> · <b>That sounds great!</b> → <span class="dn">对方回 Awesome, see you then. / Perfect.</span></li><li><span class="d-occ">确认</span> · <b>Let's do it.</b> → <span class="dn">说就这么定</span></li><li><span class="d-occ">不同回答</span> · <b>Glad you like it. / It's settled. / Count me in.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">That sounds + 形容词 主系表；sound 系动词『听起来』。great / good 同义。That works for me『对我可行』。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="回应/赞同" data-learned="no" data-mastery="0">
+    <div class="card" id="s86" data-theme="daily" data-cat="回应/赞同" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -3259,7 +3260,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">强烈赞同</span> · <b>I couldn't agree more.</b> → <span class="dn">对方回 Right? / Same here.</span></li><li><span class="d-occ">补充</span> · <b>You took the words out of my mouth.</b> → <span class="dn">说英雄所见略同</span></li><li><span class="d-occ">不同回答</span> · <b>Couldn't have said it better. / Absolutely. / Precisely.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">I couldn't agree more 是 idiom『我完全同意』，字面『不能再更同意了』，用比较级 more 表最高级含义。totally / exactly 同义。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="犹豫/思考" data-learned="no" data-mastery="0">
+    <div class="card" id="s87" data-theme="daily" data-cat="犹豫/思考" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -3295,7 +3296,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">犹豫考虑</span> · <b>Let me think about it.</b> → <span class="dn">对方回 Take your time. / No rush.</span></li><li><span class="d-occ">稍后回</span> · <b>I'll let you know.</b> → <span class="dn">说会告知</span></li><li><span class="d-occ">不同回答</span> · <b>Sure. / Sleep on it. / Tell me later.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">Let me + 动词原形（think）祈使；think about + 宾语『考虑…』。think over / sleep on it 同义『考虑』。let you know『告知你』。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="回应/回复" data-learned="no" data-mastery="0">
+    <div class="card" id="s88" data-theme="daily" data-cat="回应/回复" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-long">长句</span>
@@ -3331,7 +3332,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">说稍后回</span> · <b>I'll get back to you as soon as I confirm the details with my manager.</b> → <span class="dn">对方回 Sounds good, no hurry.</span></li><li><span class="d-occ">承诺</span> · <b>I'll text you tonight.</b> → <span class="dn">说晚上发消息</span></li><li><span class="d-occ">不同回答</span> · <b>Take your time. / Looking forward. / Appreciate it.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">I'll = I will 缩读；get back to you『回复你』。as soon as『一…就…』引导时间状语从句；confirm 动词『确认』。with my manager 表『和经理』。details 复数『细节』。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="沟通/音量" data-learned="no" data-mastery="0">
+    <div class="card" id="s89" data-theme="daily" data-cat="沟通/音量" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -3367,7 +3368,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">请大声</span> · <b>Could you speak up, please?</b> → <span class="dn">对方回 Sorry, is this better? / Sure.</span></li><li><span class="d-occ">电话</span> · <b>You're breaking up.</b> → <span class="dn">说信号断断续续</span></li><li><span class="d-occ">不同回答</span> · <b>My bad. / One more time. / Louder now?</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">Could you + 动词原形（speak）委婉请求；speak up 短语『大声说』。louder 是 loud 比较级。breaking up 指『信号中断』。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="沟通/没听清" data-learned="no" data-mastery="0">
+    <div class="card" id="s90" data-theme="daily" data-cat="沟通/没听清" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -3403,7 +3404,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">没听清名字</span> · <b>I didn't catch your name.</b> → <span class="dn">对方回 It's Tom, T-O-M. / Lee, with two e's.</span></li><li><span class="d-occ">确认</span> · <b>How do you spell it?</b> → <span class="dn">问拼法</span></li><li><span class="d-occ">不同回答</span> · <b>Slowly: A-N-N-A. / Just call me Sam. / Mike, nice to meet you.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">didn't = did not 缩读；catch 动词『听清/赶上』，否定后接原形 catch。your name 单数。say once more『再说一次』。spell 动词『拼写』。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="沟通/澄清" data-learned="no" data-mastery="0">
+    <div class="card" id="s91" data-theme="daily" data-cat="沟通/澄清" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -3439,7 +3440,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">请求澄清</span> · <b>What do you mean by that?</b> → <span class="dn">对方回 I mean it's not a big deal. / I just meant…</span></li><li><span class="d-occ">误解</span> · <b>Sorry, I misheard you.</b> → <span class="dn">说听错了</span></li><li><span class="d-occ">不同回答</span> · <b>Let me rephrase. / I didn't mean it that way. / Like, no offense.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">What do you mean by + 名词/代词 问『你…是什么意思』；mean 动词『意思是』。get at『暗示』。rephrase 动词『重新表述』。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="沟通/澄清" data-learned="no" data-mastery="0">
+    <div class="card" id="s92" data-theme="daily" data-cat="沟通/澄清" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -3475,7 +3476,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">澄清前奏</span> · <b>Just to be clear...</b> → <span class="dn">对方回 Go on. / I'm listening.</span></li><li><span class="d-occ">重述</span> · <b>What I mean is...</b> → <span class="dn">说我的意思是</span></li><li><span class="d-occ">不同回答</span> · <b>Got it. / Crystal clear. / I see what you mean.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">Just to be clear 是插入语『只是说明白一点』，to be clear 不定式作目的。clarify 动词『澄清』。What I mean is…『我的意思是』。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="告别/离开" data-learned="no" data-mastery="0">
+    <div class="card" id="s93" data-theme="daily" data-cat="告别/离开" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -3511,7 +3512,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">告别离开</span> · <b>I'm afraid I have to go now.</b> → <span class="dn">对方回 Already? / Okay, take care.</span></li><li><span class="d-occ">找借口</span> · <b>It's getting late.</b> → <span class="dn">说晚了</span></li><li><span class="d-occ">不同回答</span> · <b>See you soon. / Let's catch up later. / Safe trip.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">I'm afraid… 是委婉引子『恐怕…』，非真害怕；have to + 原形『不得不』。I've got to run / get going 口语『得走了』。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="告别/道别" data-learned="no" data-mastery="0">
+    <div class="card" id="s94" data-theme="daily" data-cat="告别/道别" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -3547,7 +3548,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">道别</span> · <b>See you later!</b> → <span class="dn">对方回 Later! / Bye!</span></li><li><span class="d-occ">同事</span> · <b>See you tomorrow.</b> → <span class="dn">说明天见</span></li><li><span class="d-occ">不同回答</span> · <b>Take care. / Talk soon. / Bye for now.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">See you + 时间副词（later / soon / tomorrow）固定道别『回头见/很快见』。catch you later 口语同义。bye / take care 同义。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="告别/道别" data-learned="no" data-mastery="0">
+    <div class="card" id="s95" data-theme="daily" data-cat="告别/道别" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -3583,7 +3584,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">道别叮嘱</span> · <b>Take care!</b> → <span class="dn">对方回 You too! / Will do.</span></li><li><span class="d-occ">送人</span> · <b>Drive safe!</b> → <span class="dn">叮嘱开车小心</span></li><li><span class="d-occ">不同回答</span> · <b>See you. / Same. / Bye now.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">Take care 固定短语『保重』，祈使句。look after yourself『照顾好自己』。drive safe『开车小心』。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="告别/祝福" data-learned="no" data-mastery="0">
+    <div class="card" id="s96" data-theme="daily" data-cat="告别/祝福" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -3619,7 +3620,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">周末祝福</span> · <b>Have a great weekend!</b> → <span class="dn">对方回 Thanks, you too! / Same to you.</span></li><li><span class="d-occ">周五</span> · <b>Finally Friday!</b> → <span class="dn">说终于周五</span></li><li><span class="d-occ">不同回答</span> · <b>You as well. / See you Monday. / Make it fun.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">Have a + 形容词 + 名词 固定祝福句型；great / good 同义『棒的』。one 代词指代前文 weekend。enjoy 动词『享受』。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="告别/道别" data-learned="no" data-mastery="0">
+    <div class="card" id="s97" data-theme="daily" data-cat="告别/道别" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -3655,7 +3656,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">道别</span> · <b>Talk to you soon.</b> → <span class="dn">对方回 Okay, bye! / Later!</span></li><li><span class="d-occ">线上</span> · <b>Text you later.</b> → <span class="dn">说发消息</span></li><li><span class="d-occ">不同回答</span> · <b>Catch you. / Take care. / Bye for now.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">Talk to you + 时间副词（soon）固定『很快再聊』。soon 副词『很快』。chat / text 口语同义『聊/发消息』。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="寒暄/重逢" data-learned="no" data-mastery="0">
+    <div class="card" id="s98" data-theme="daily" data-cat="寒暄/重逢" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -3691,7 +3692,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">重逢道别</span> · <b>It was great seeing you again.</b> → <span class="dn">对方回 Likewise! / Same here.</span></li><li><span class="d-occ">约定</span> · <b>Let's not wait so long next time.</b> → <span class="dn">说别隔太久</span></li><li><span class="d-occ">不同回答</span> · <b>Definitely. / Take care. / See you soon.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">It was + 形容词 + 动名词（seeing）表『…很高兴』；seeing you again『又见到你』。great / good 同义。likewise『彼此彼此』。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="沟通/没听懂" data-learned="no" data-mastery="0">
+    <div class="card" id="s99" data-theme="daily" data-cat="沟通/没听懂" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -3727,7 +3728,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">没听懂</span> · <b>I'm not sure I follow you.</b> → <span class="dn">对方回 Let me put it differently. / I mean…</span></li><li><span class="d-occ">请重说</span> · <b>Can you say that another way?</b> → <span class="dn">换种说法</span></li><li><span class="d-occ">不同回答</span> · <b>Of course. / Slow down a bit. / It's complicated, sorry.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">be not sure + 从句 表『不确定…』；follow 此处作『听懂/跟上（思路）』，I follow you『我懂你的意思』。lost you 口语『没跟上你说的话』。</div></div></div>
     </div>
-    <div class="card" data-theme="daily" data-cat="邀约/吃饭" data-learned="no" data-mastery="0">
+    <div class="card" id="s100" data-theme="daily" data-cat="邀约/吃饭" data-learned="no" data-mastery="0">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -3935,7 +3936,6 @@
   try { speedSel.value = localStorage.getItem('vocab_speed') || '1'; } catch(e){ speedSel.value = '1'; }
   speedSel.onchange = () => applySpeed(speedSel.value);
   apply();
-  (function(){ const d=new Date().toISOString().slice(0,10); document.querySelectorAll('.today-nav').forEach(a=>a.href='day'+d+'.html'); })();
 </script>
 </body>
 </html>
