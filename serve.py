@@ -8,10 +8,9 @@
 - GET  /api/mastery    -> 返回全部句掌握度
 - POST /api/mastery    -> 回写某句掌握度 {id, action: clear|fuzzy|unknown}
 跨域（CORS）已放开，因此从 WorkBuddy 预览页(其他端口)打开也能回写。
-所有请求需 HTTP Basic Auth（凭据在 gitignored 的 serve_auth.json 中，切勿提交到公开仓库）。
-浏览器首次访问会弹出登录框，输入后同源请求自动带凭证。
+（已取消 HTTP Basic Auth，访问无需账号密码。）
 """
-import json, os, threading, datetime, base64
+import json, os, threading, datetime
 from http.server import HTTPServer, ThreadingHTTPServer, SimpleHTTPRequestHandler
 import gen_views_html  # 自评回写后重建「已学回顾/学习日历」内嵌数据页
 
@@ -19,17 +18,6 @@ BASE = os.path.dirname(os.path.abspath(__file__))
 MASTER = os.path.join(BASE, "master.json")
 PORT = 3279
 lock = threading.Lock()
-
-AUTH_FILE = os.path.join(BASE, "serve_auth.json")
-
-def load_creds():
-    """从 gitignored 的 serve_auth.json 读取 (user, password)。文件缺失则锁定服务。"""
-    try:
-        with open(AUTH_FILE, encoding="utf-8") as f:
-            d = json.load(f)
-        return d.get("user", ""), d.get("password", "")
-    except Exception:
-        return "", ""
 
 CORS = {
     "Access-Control-Allow-Origin": "*",
@@ -68,35 +56,10 @@ class H(SimpleHTTPRequestHandler):
     def do_OPTIONS(self):
         self._send(204)
 
-    def _auth_ok(self):
-        user, pwd = load_creds()
-        if not user or not pwd:
-            return False  # 未配置凭据 -> 锁定服务
-        auth = self.headers.get("Authorization", "")
-        if not auth.startswith("Basic "):
-            return False
-        try:
-            decoded = base64.b64decode(auth[6:]).decode("utf-8", "ignore")
-            u, _, p = decoded.partition(":")
-            return u == user and p == pwd
-        except Exception:
-            return False
-
-    def _require_auth(self):
-        self.send_response(401)
-        self.send_header("WWW-Authenticate", 'Basic realm="vocab-practice"')
-        self.send_header("Content-Type", "text/plain; charset=utf-8")
-        self.end_headers()
-        self.wfile.write(b"401 Authorization Required")
-
     def do_HEAD(self):
-        if not self._auth_ok():
-            return self._require_auth()
         return super().do_HEAD()
 
     def do_GET(self):
-        if not self._auth_ok():
-            return self._require_auth()
         if self.path == "/api/status":
             return self._send(200, json.dumps({"ok": True, "port": PORT}))
         if self.path == "/api/mastery":
@@ -114,8 +77,6 @@ class H(SimpleHTTPRequestHandler):
         return super().do_GET()
 
     def do_POST(self):
-        if not self._auth_ok():
-            return self._require_auth()
         if self.path == "/api/mastery":
             try:
                 ln = int(self.headers.get("Content-Length", 0) or 0)
