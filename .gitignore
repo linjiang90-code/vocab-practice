@@ -20,3 +20,6 @@ serve_auth.json
 
 # Runtime log (append-only server output)
 serve.log
+
+# 旧音色备份（Aria），非项目产物
+audio_backup_aria/

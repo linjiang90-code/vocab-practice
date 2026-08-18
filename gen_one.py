@@ -7,7 +7,7 @@ os.makedirs("audio", exist_ok=True)
 out = f"audio/s{sid}.mp3"
 
 async def main():
-    communicate = edge_tts.Communicate(text, "en-US-AriaNeural", rate="-10%")
+    communicate = edge_tts.Communicate(text, "en-US-AndrewNeural", rate="-10%")
     await communicate.save(out)
 
 asyncio.run(main())

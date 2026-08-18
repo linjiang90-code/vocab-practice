@@ -15,7 +15,7 @@
       15,
       30
     ],
-    "voice": "en-US-AriaNeural",
+    "voice": "en-US-AndrewNeural",
     "voiceRate": "-10%",
     "audioDir": "audio/",
     "audioPattern": "audio/s{id}.mp3",

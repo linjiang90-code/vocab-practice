@@ -3,7 +3,7 @@ import asyncio, edge_tts, os
 OUT = os.path.join(os.path.dirname(__file__), "audio")
 os.makedirs(OUT, exist_ok=True)
 
-VOICE = "en-US-AriaNeural"
+VOICE = "en-US-AndrewNeural"
 RATE = "-10%"   # 略放慢，便于跟读
 
 SENTENCES = [

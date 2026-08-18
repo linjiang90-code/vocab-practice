@@ -234,7 +234,7 @@ html = f'''<!DOCTYPE html>
 <header>
   <div class="htitle">
     <h1>旅游 + 日常英语 · {total} 句范式总览</h1>
-    <p>每天 5 句随机推送 · 每 30 天 +50 新句（{total}→{total+50}→{total+100}…）· 点击 ▶ 听原声（en-US-Aria 真人音色）· 点「🔤 发音详情」看完整音变标注</p>
+    <p>每天 5 句随机推送 · 每 30 天 +50 新句（{total}→{total+50}→{total+100}…）· 点击 ▶ 听原声（en-US-Andrew 标准美音）· 点「🔤 发音详情」看完整音变标注</p>
   </div>
   <nav class="pagenav">
     <a href="index.html">🏠 首页</a>

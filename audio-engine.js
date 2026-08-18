@@ -40,6 +40,7 @@
 
   var active = {};   // key -> { src, stop }
   function stopKey(key){
+    key = normId(key);              // 归一化：'1'/'s1' 都能命中
     var a = active[key];
     if(a){
       try { a.src.onended = null; } catch(e){}
