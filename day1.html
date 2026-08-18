@@ -76,6 +76,7 @@
   <footer>每天 10:00 自动推送新一批（同款增强版）· 进度本地保存，不外传</footer>
 </div>
 
+<script src="audio-engine.js"></script>
 <script>
 const DATA = [
  {id:"s1",type:"short",topic:"travel",en:"Where is the nearest subway station?",ipa:"/wɛr ɪz ðə ˈnɪrɪst ˈsʌbweɪ ˈsteɪʃən/",zh:"最近的地铁站在哪里？",
@@ -177,10 +178,13 @@ function cardHTML(d){
 document.getElementById('short').innerHTML=DATA.filter(d=>d.type==='short').map(cardHTML).join('');
 document.getElementById('long').innerHTML=DATA.filter(d=>d.type==='long').map(cardHTML).join('');
 
-function playAudio(id, rate){ const a=new Audio('audio/'+id+'.mp3'); a.playbackRate=rate||1; a.play().catch(e=>console.warn('audio fail',id,e)); }
+function playAudio(id, rate){ if(window.VocabAudio){ VocabAudio.play(id, rate || 1); } }
 let queue=[]; function playAll(){ stopAll(); queue=DATA.map(d=>d.id); next(); }
-function next(){ if(!queue.length){ stopAll(); return; } const id=queue.shift(); const a=new Audio('audio/'+id+'.mp3'); a.playbackRate=slow?0.75:1; a.onended=next; a.play().catch(()=>next()); }
-function stopAll(){ queue=[]; }
+function next(){ if(!queue.length){ stopAll(); return; }
+  const id=queue.shift();
+  if(window.VocabAudio){ VocabAudio.play(id, (typeof slow!=='undefined'&&slow?0.75:1), ()=>{ next(); }); }
+  else { stopAll(); return; } }
+function stopAll(){ queue=[]; if(window.VocabAudio) VocabAudio.stopAll(); }
 </script>
 </body>
 </html>

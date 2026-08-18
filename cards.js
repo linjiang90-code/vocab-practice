@@ -7,31 +7,9 @@ function esc2(x){
   return String(x==null?'':x).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
 function speak(text){ /* 已统一为服务器音频：用 speakId(id) -> playAudio(id) */ }
-var __audioCache = {};
-(function(){
-  /* 隐藏容器：所有动态创建的 Audio 必须挂进 DOM 才能在远程浏览器（尤其手机）正常播放。
-     仅 JS 变量持有引用不够——master.html(day 页) 的 audio 在卡片 DOM 里所以远程有声，
-     review/calendar 走 cards.js 的 new Audio() 不在 DOM 中所以远程静音。 */
-  var host = document.createElement('div');
-  host.id = '__audioHost__';
-  host.style.display = 'none';
-  host.setAttribute('aria-hidden','true');
-  (document.body || document.documentElement).appendChild(host);
-  window.__audioHost = host;
-})();
-function playAudio(id, rate){
-  const key = 's' + id;
-  const realId = (String(id).indexOf('s') === 0) ? String(id) : key;
-  let a = __audioCache[realId];
-  if(!a){
-    a = new Audio('audio/' + realId + '.mp3');
-    __audioCache[realId] = a;
-    window.__audioHost.appendChild(a);   /* 挂入 DOM：远程浏览器要求 audio 在 DOM 中才播放 */
-  }
-  a.playbackRate = rate || 1;
-  try { a.currentTime = 0; } catch(e){}
-  a.play().catch(e=>console.warn('audio play failed', e));
-}
+/* 朗读统一走 audio-engine.js 的 VocabAudio（Web Audio，全设备遵守 playbackRate，含 iOS）。
+   原 DOM 挂入方案在 iOS Safari 仍不生效变速率，故弃用。 */
+function playAudio(id, rate){ if(window.VocabAudio) VocabAudio.play(id, rate); }
 function speakId(id){ playAudio(id, 0.9); }
 function masteryBadge(m){
   m = parseInt(m||0,10);

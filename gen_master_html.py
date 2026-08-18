@@ -275,6 +275,7 @@ html = f'''<!DOCTYPE html>
   </div>
 <div class="grid" id="grid">{cards}</div>
 <footer>共 {len(S)} 句 · 数据来自 master.json · 生词已注音标 · 发音详情随每日推送逐步补全</footer>
+<script src="audio-engine.js"></script>
 <script>
   const grid = document.getElementById('grid');
   const cards = [...grid.children];
@@ -401,35 +402,22 @@ html = f'''<!DOCTYPE html>
       curSpeed = spdSel.value;
       try {{ localStorage.setItem('vocab_speed_'+sid, curSpeed); }} catch(e){{}}
     }};
-    let speaking = false, remain = 0;
-    function getAudio() {{
-      let a = card.querySelector('audio.mta');
-      if(!a){{ a = document.createElement('audio'); a.className='mta'; a.preload='none'; a.src='audio/s'+sid+'.mp3'; card.appendChild(a); }}
-      return a;
-    }}
-    function speakRep() {{
-      if(!speaking){{ stop(); return; }}
-      const a = getAudio();
-      a.playbackRate = parseFloat(curSpeed) || 1;
-      a.onended = () => {{ remain--; if(remain > 0 && speaking) speakRep(); else stop(); }};
-      a.onerror = () => {{ stop(); }};
-      try {{ a.currentTime = 0; }} catch(e){{}}
-      a.play().catch(() => {{ stop(); }});
-    }}
+    let speaking = false;
     function stop() {{
-      speaking = false; remain = 0;
-      const a = card.querySelector('audio.mta');
-      if(a){{ try {{ a.pause(); a.currentTime = 0; }} catch(e){{}} }}
+      speaking = false;
+      if(window.VocabAudio) VocabAudio.stopId(sid);
       readBtn.textContent = '▶ 开始';
       readBtn.classList.remove('run');
     }}
     readBtn.addEventListener('click', () => {{
       if(speaking) {{ stop(); return; }}
       const reps = parseInt(repsSel ? repsSel.value : '3', 10) || 3;
-      speaking = true; remain = reps;
+      speaking = true;
       readBtn.textContent = '⏹ 停止';
       readBtn.classList.add('run');
-      speakRep();
+      if(window.VocabAudio){{
+        VocabAudio.loop(sid, parseFloat(curSpeed) || 1, reps, {{ onEnd: () => stop() }});
+      }} else {{ stop(); }}
     }});
   }}
   cards.forEach(bindCard);

@@ -221,6 +221,7 @@ TEMPLATE = r"""<!DOCTYPE html>
   <div id="long"></div>
   <footer>每天 9:00 自动推送新一批（同款增强版）· 进度本地保存，不外传</footer>
 </div>
+<script src="audio-engine.js"></script>
 <script>
 (function(){ const d=new Date().toISOString().slice(0,10); document.querySelectorAll('.today-nav').forEach(a=>a.href='day'+d+'.html'); })();
 const DATA = __DATA__;
@@ -254,7 +255,6 @@ async function assess(sid, action, btn){
   if(btn) btn.blur();
 }
 function setSpeed(v){ speed=parseFloat(v); try{ localStorage.setItem('vocab_speed', String(speed)); }catch(e){}
-  document.querySelectorAll('.card audio').forEach(a=>a.playbackRate=speed);
   document.querySelectorAll('.spdSel').forEach(s=>s.value=v);
   DATA.forEach(d=>{ const sid=String(d.id).replace('s',''); cardSpeed[d.id]=speed; try{ localStorage.setItem('vocab_speed_'+sid, v); }catch(e){} }); }
 function cardHTML(d){
@@ -337,24 +337,23 @@ function mColor(v){ return v<=2?'#dc2626':(v<=4?'#d97706':'#16a34a'); }
 function setMbar(sid,v){ const bar=document.getElementById('mbar-'+sid);
   if(bar){ const f=bar.querySelector('.mfill'); f.style.width=(v*20)+'%'; f.style.background=mColor(v); }
   const b=document.getElementById('mb-'+sid); if(b) b.textContent=v+'/5'; }
-function playAudio(id, rate){ const a=document.getElementById('au-'+id);
-  if(!a){ console.warn('playAudio: missing audio el', id); return; }
-  a.playbackRate = rate || cardSpeed[id] || speed;
-  a.currentTime=0; a.play().catch(e=>console.warn('audio play failed', id, e)); }
+function playAudio(id, rate){ if(window.VocabAudio){ VocabAudio.play(id, rate || cardSpeed[id] || speed); } }
 function loopSpeak(id){ const btn=document.getElementById('rb-'+id); if(!btn) return;
-  const a=document.getElementById('au-'+id); if(!a) return;
-  if(btn.classList.contains('run')){ a.pause(); btn.classList.remove('run'); btn.textContent='▶ 开始'; return; }
+  if(btn.classList.contains('run')){ if(window.VocabAudio) VocabAudio.stopId(id); btn.classList.remove('run'); btn.textContent='▶ 开始'; return; }
   const reps=parseInt(document.getElementById('rp-'+id).value,10)||3;
-  let remain=reps; btn.classList.add('run'); btn.textContent='⏹ 停止';
-  a.playbackRate = cardSpeed[id]||speed;
-  a.onended = ()=>{ remain--; if(remain>0 && btn.classList.contains('run')){ a.currentTime=0; a.play().catch(()=>{ btn.classList.remove('run'); btn.textContent='▶ 开始'; }); } else { btn.classList.remove('run'); btn.textContent='▶ 开始'; } };
-  a.currentTime=0; a.play().catch(()=>{ btn.classList.remove('run'); btn.textContent='▶ 开始'; }); }
+  btn.classList.add('run'); btn.textContent='⏹ 停止';
+  if(window.VocabAudio){ VocabAudio.loop(id, cardSpeed[id]||speed, reps, { onEnd: ()=>{ btn.classList.remove('run'); btn.textContent='▶ 开始'; } }); }
+  else { btn.classList.remove('run'); btn.textContent='▶ 开始'; } }
 function setCardSpeed(id,v){ cardSpeed[id]=parseFloat(v);
   try{ localStorage.setItem('vocab_speed_'+String(id).replace('s',''), v); }catch(e){} }
-function speak(t){ /* deprecated: 所有播放统一走服务器音频 playAudio */ }
+function speak(t){ /* deprecated: 所有播放统一走服务器音频 VocabAudio */ }
 let queue=[]; function playAll(){ stopAll(); queue=DATA.map(d=>d.id); next(); }
-function next(){ if(!queue.length){ stopAll(); return; } const id=queue.shift(); const a=document.getElementById('au-'+id); if(!a){ next(); return; } a.playbackRate=cardSpeed[id]||speed; a.onended=next; a.currentTime=0; a.play().catch(()=>next()); }
-function stopAll(){ queue=[]; document.querySelectorAll('.card audio').forEach(a=>{ try{a.pause(); a.currentTime=0;}catch(e){} }); }
+function next(){ if(!queue.length){ stopAll(); return; }
+  const id=queue.shift();
+  if(window.VocabAudio){ VocabAudio.play(id, cardSpeed[id]||speed, ()=>{ next(); }); }
+  else { stopAll(); return; } }
+function stopAll(){ queue=[]; if(window.VocabAudio) VocabAudio.stopAll();
+  document.querySelectorAll('.readBtn.run').forEach(b=>{ b.classList.remove('run'); b.textContent='▶ 开始'; }); }
 </script>
 </body>
 </html>"""

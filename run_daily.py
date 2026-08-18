@@ -282,6 +282,7 @@ PAGE = """<!DOCTYPE html>
   <div id="long"></div>
   <footer>每天 10:00 自动推送新一批（同款增强版）· 底部自评按钮实时回写掌握度 · 进度本地保存，不外传</footer>
 </div>
+<script src="audio-engine.js"></script>
 <script>
 const DATA = __DATA_JSON__;
 let slow=false;
@@ -318,10 +319,13 @@ function cardHTML(d){
 }
 document.getElementById('short').innerHTML=DATA.filter(d=>d.type==='short').map(cardHTML).join('');
 document.getElementById('long').innerHTML=DATA.filter(d=>d.type==='long').map(cardHTML).join('');
-function playAudio(id, rate){ const a=new Audio('audio/'+id+'.mp3'); a.playbackRate=rate||1; a.play().catch(e=>console.warn('audio fail',id,e)); }
+function playAudio(id, rate){ if(window.VocabAudio){ VocabAudio.play(id, rate || 1); } }
 let queue=[]; function playAll(){ stopAll(); queue=DATA.map(d=>d.id); next(); }
-function next(){ if(!queue.length){ stopAll(); return; } const id=queue.shift(); const a=new Audio('audio/'+id+'.mp3'); a.playbackRate=slow?0.75:1; a.onended=next; a.play().catch(()=>next()); }
-function stopAll(){ queue=[]; }
+function next(){ if(!queue.length){ stopAll(); return; }
+  const id=queue.shift();
+  if(window.VocabAudio){ VocabAudio.play(id, (typeof slow!=='undefined'&&slow?0.75:1), ()=>{ next(); }); }
+  else { stopAll(); return; } }
+function stopAll(){ queue=[]; if(window.VocabAudio) VocabAudio.stopAll(); }
 const PORT=3279;
 async function apiPost(path,body){ try{ const r=await fetch('http://127.0.0.1:'+PORT+path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}); return await r.json(); }catch(e){ return null; } }
 async function rate(nid,action){
