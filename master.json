@@ -1039,8 +1039,8 @@
       "learn": {
         "introduced": true,
         "introducedDay": 6,
-        "mastery": 1,
-        "reviewCount": 1,
+        "mastery": 0,
+        "reviewCount": 4,
         "lastReviewed": "2026-08-18",
         "dueDate": "2026-08-19",
         "enh": {

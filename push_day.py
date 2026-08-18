@@ -267,7 +267,7 @@ function cardHTML(d){
       <span class="pill ${d.topic}">${d.topic==='travel'?'旅游':'日常'}</span>
       <span class="play">
         <span class="ic" title="原声伴读" onclick="playAudio('${d.id}')">🔊</span>
-        <span class="ic" title="慢速朗读" onclick="speak('${encodeURIComponent(d.en)}')">🐢</span>
+        <span class="ic" title="慢速朗读" onclick="playAudio('${d.id}', 0.75)">🐢</span>
       </span>
     </div>
     <div class="en">${d.en}</div>
@@ -337,33 +337,24 @@ function mColor(v){ return v<=2?'#dc2626':(v<=4?'#d97706':'#16a34a'); }
 function setMbar(sid,v){ const bar=document.getElementById('mbar-'+sid);
   if(bar){ const f=bar.querySelector('.mfill'); f.style.width=(v*20)+'%'; f.style.background=mColor(v); }
   const b=document.getElementById('mb-'+sid); if(b) b.textContent=v+'/5'; }
-function playAudio(id){ const a=document.getElementById('au-'+id);
-  if(!a){ speak(encodeURIComponent(DATA.find(d=>d.id===id).en)); return; }
-  a.playbackRate = cardSpeed[id]||speed;
-  a.onerror=()=>speak(encodeURIComponent(DATA.find(d=>d.id===id).en));
-  a.currentTime=0; a.play().catch(()=>speak(encodeURIComponent(DATA.find(d=>d.id===id).en))); }
+function playAudio(id, rate){ const a=document.getElementById('au-'+id);
+  if(!a){ console.warn('playAudio: missing audio el', id); return; }
+  a.playbackRate = rate || cardSpeed[id] || speed;
+  a.currentTime=0; a.play().catch(e=>console.warn('audio play failed', id, e)); }
 function loopSpeak(id){ const btn=document.getElementById('rb-'+id); if(!btn) return;
-  const d=DATA.find(x=>x.id===id); if(!d) return;
-  if(btn.classList.contains('run')){ speechSynthesis.cancel(); btn.classList.remove('run'); btn.textContent='▶ 开始'; return; }
+  const a=document.getElementById('au-'+id); if(!a) return;
+  if(btn.classList.contains('run')){ a.pause(); btn.classList.remove('run'); btn.textContent='▶ 开始'; return; }
   const reps=parseInt(document.getElementById('rp-'+id).value,10)||3;
   let remain=reps; btn.classList.add('run'); btn.textContent='⏹ 停止';
-  function say(){ const u=new SpeechSynthesisUtterance(d.en); u.lang='en-US'; u.rate=cardSpeed[id]||speed;
-    const v=speechSynthesis.getVoices().find(x=>x.lang&&x.lang.startsWith('en')); if(v)u.voice=v;
-    u.onend=()=>{ remain--; if(remain>0 && btn.classList.contains('run')){ say(); } else { btn.classList.remove('run'); btn.textContent='▶ 开始'; } };
-    speechSynthesis.cancel(); speechSynthesis.speak(u); }
-  say(); }
+  a.playbackRate = cardSpeed[id]||speed;
+  a.onended = ()=>{ remain--; if(remain>0 && btn.classList.contains('run')){ a.currentTime=0; a.play().catch(()=>{ btn.classList.remove('run'); btn.textContent='▶ 开始'; }); } else { btn.classList.remove('run'); btn.textContent='▶ 开始'; } };
+  a.currentTime=0; a.play().catch(()=>{ btn.classList.remove('run'); btn.textContent='▶ 开始'; }); }
 function setCardSpeed(id,v){ cardSpeed[id]=parseFloat(v);
   try{ localStorage.setItem('vocab_speed_'+String(id).replace('s',''), v); }catch(e){} }
-function speak(t){ const u=new SpeechSynthesisUtterance(decodeURIComponent(t));
-  u.lang='en-US'; u.rate=speed;
-  const v=speechSynthesis.getVoices().find(x=>x.lang&&x.lang.startsWith('en')); if(v)u.voice=v;
-  speechSynthesis.cancel(); speechSynthesis.speak(u); }
-let queue=[]; function playAll(){ stopAll(); queue=DATA.map(d=>d.en); next(); }
-function next(){ if(!queue.length)return; const u=new SpeechSynthesisUtterance(queue.shift());
-  u.lang='en-US'; u.rate=speed;
-  const v=speechSynthesis.getVoices().find(x=>x.lang&&x.lang.startsWith('en')); if(v)u.voice=v;
-  u.onend=next; speechSynthesis.speak(u); }
-function stopAll(){ speechSynthesis.cancel(); queue=[]; }
+function speak(t){ /* deprecated: 所有播放统一走服务器音频 playAudio */ }
+let queue=[]; function playAll(){ stopAll(); queue=DATA.map(d=>d.id); next(); }
+function next(){ if(!queue.length){ stopAll(); return; } const id=queue.shift(); const a=document.getElementById('au-'+id); if(!a){ next(); return; } a.playbackRate=cardSpeed[id]||speed; a.onended=next; a.currentTime=0; a.play().catch(()=>next()); }
+function stopAll(){ queue=[]; document.querySelectorAll('.card audio').forEach(a=>{ try{a.pause(); a.currentTime=0;}catch(e){} }); }
 </script>
 </body>
 </html>"""

@@ -237,7 +237,7 @@ function cardHTML(d){
       <span class="pill ${d.topic}">${d.topic==='travel'?'旅游':'日常'}</span>
       <span class="play">
         <span class="ic" title="原声伴读" onclick="playAudio('${d.id}')">🔊</span>
-        <span class="ic" title="慢速朗读" onclick="speak('${encodeURIComponent(d.en)}',true)">🐢</span>
+        <span class="ic" title="慢速朗读" onclick="playAudio('${d.id}', 0.75)">🐢</span>
       </span>
     </div>
     <div class="en">${d.en}</div>
@@ -259,19 +259,10 @@ function cardHTML(d){
 }
 document.getElementById('short').innerHTML=DATA.filter(d=>d.type==='short').map(cardHTML).join('');
 document.getElementById('long').innerHTML=DATA.filter(d=>d.type==='long').map(cardHTML).join('');
-function playAudio(id){ const a=new Audio('audio/'+id+'.mp3');
-  a.onerror=()=>speak(encodeURIComponent(DATA.find(d=>d.id===id).en),slow);
-  a.play().catch(()=>speak(encodeURIComponent(DATA.find(d=>d.id===id).en),slow)); }
-function speak(t,sl){ const u=new SpeechSynthesisUtterance(decodeURIComponent(t));
-  u.lang='en-US'; u.rate=sl?0.55:0.95;
-  const v=speechSynthesis.getVoices().find(x=>x.lang&&x.lang.startsWith('en')); if(v)u.voice=v;
-  speechSynthesis.cancel(); speechSynthesis.speak(u); }
-let queue=[]; function playAll(){ stopAll(); queue=DATA.map(d=>d.en); next(); }
-function next(){ if(!queue.length)return; const u=new SpeechSynthesisUtterance(queue.shift());
-  u.lang='en-US'; u.rate=slow?0.55:0.95;
-  const v=speechSynthesis.getVoices().find(x=>x.lang&&x.lang.startsWith('en')); if(v)u.voice=v;
-  u.onend=next; speechSynthesis.speak(u); }
-function stopAll(){ speechSynthesis.cancel(); queue=[]; }
+function playAudio(id, rate){ const a=new Audio('audio/'+id+'.mp3'); a.playbackRate=rate||1; a.play().catch(e=>console.warn('audio fail',id,e)); }
+let queue=[]; function playAll(){ stopAll(); queue=DATA.map(d=>d.id); next(); }
+function next(){ if(!queue.length){ stopAll(); return; } const id=queue.shift(); const a=new Audio('audio/'+id+'.mp3'); a.playbackRate=slow?0.75:1; a.onended=next; a.play().catch(()=>next()); }
+function stopAll(){ queue=[]; }
 const PORT=3279;
 async function apiPost(path,body){ try{ const r=await fetch('http://127.0.0.1:'+PORT+path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}); return await r.json(); }catch(e){ return null; } }
 async function rate(nid,action){

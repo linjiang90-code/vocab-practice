@@ -17,3 +17,6 @@ Thumbs.db
 
 # Auth secret (NEVER commit — repo is public on GitHub!)
 serve_auth.json
+
+# Runtime log (append-only server output)
+serve.log

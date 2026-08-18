@@ -6,17 +6,33 @@ window.__en = {};
 function esc2(x){
   return String(x==null?'':x).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
-function speak(text){
-  if(!('speechSynthesis' in window)) return;
-  const u = new SpeechSynthesisUtterance(text);
-  u.lang = 'en-US'; u.rate = 0.9;
-  try{
-    const v = speechSynthesis.getVoices().find(x=>x.lang && x.lang.startsWith('en'));
-    if(v) u.voice = v;
-  }catch(e){}
-  speechSynthesis.cancel(); speechSynthesis.speak(u);
+function speak(text){ /* 已统一为服务器音频：用 speakId(id) -> playAudio(id) */ }
+var __audioCache = {};
+(function(){
+  /* 隐藏容器：所有动态创建的 Audio 必须挂进 DOM 才能在远程浏览器（尤其手机）正常播放。
+     仅 JS 变量持有引用不够——master.html(day 页) 的 audio 在卡片 DOM 里所以远程有声，
+     review/calendar 走 cards.js 的 new Audio() 不在 DOM 中所以远程静音。 */
+  var host = document.createElement('div');
+  host.id = '__audioHost__';
+  host.style.display = 'none';
+  host.setAttribute('aria-hidden','true');
+  (document.body || document.documentElement).appendChild(host);
+  window.__audioHost = host;
+})();
+function playAudio(id, rate){
+  const key = 's' + id;
+  const realId = (String(id).indexOf('s') === 0) ? String(id) : key;
+  let a = __audioCache[realId];
+  if(!a){
+    a = new Audio('audio/' + realId + '.mp3');
+    __audioCache[realId] = a;
+    window.__audioHost.appendChild(a);   /* 挂入 DOM：远程浏览器要求 audio 在 DOM 中才播放 */
+  }
+  a.playbackRate = rate || 1;
+  try { a.currentTime = 0; } catch(e){}
+  a.play().catch(e=>console.warn('audio play failed', e));
 }
-function speakId(id){ speak(window.__en[id] || ''); }
+function speakId(id){ playAudio(id, 0.9); }
 function masteryBadge(m){
   m = parseInt(m||0,10);
   const lvl = m>=5?'lvl-green':(m>=3?'lvl-yellow':'lvl-red');

@@ -136,7 +136,7 @@
 </details>
   <div class="stats">
       <div class="stat"><span class="num" id="stLearned">20</span><span class="lbl">/ <span id="stTotal">100</span> 已学句数</span></div>
-      <div class="stat"><span class="num" id="stAvg">1.1</span><span class="lbl">/ 5 平均掌握度<span class="hint">（已学句口径）</span></span></div>
+      <div class="stat"><span class="num" id="stAvg">1.0</span><span class="lbl">/ 5 平均掌握度<span class="hint">（已学句口径）</span></span></div>
       <div class="gbarwrap"><div class="gbar"><i id="stBar" style="width:4%;background:#dc2626"></i></div><span class="glbl" id="stPct">总掌握度 4%</span></div>
     </div>
   <div class="bar">
@@ -704,7 +704,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">机场找行李</span> · <b>Excuse me, where is the baggage claim?</b> → <span class="dn">对方指方向 This way, follow the signs.</span></li><li><span class="d-occ">看屏幕</span> · <b>Which carousel is for flight XX?</b> → <span class="dn">问几号转盘</span></li><li><span class="d-occ">不同回答</span> · <b>It's downstairs. / Belt 3 on the left. / Turn right after customs.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">baggage 与 luggage 都表行李，baggage 偏美、luggage 通用且不可数。claim 此处作名词『领取处』；Where is + 地点 问位置。</div></div></div>
     </div>
-    <div class="card" id="s16" data-theme="travel" data-cat="机场/行李" data-learned="yes" data-mastery="1">
+    <div class="card" id="s16" data-theme="travel" data-cat="机场/行李" data-learned="yes" data-mastery="0">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -732,7 +732,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">1/5</span></div>
+      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/maɪ ˈlʌɡɪdʒ ˈdɪdənt əˈraɪv/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">缩读：didn't = did not（/ˈdɪdənt/）。连读：My luggage→/maɪ ˈlʌɡɪdʒ/（aɪ 与 l）；luggage didn't→/ˈlʌɡɪdʒ ˈdɪdənt/（dʒ 与 d）；didn't arrive→/ˈdɪdənt əˈraɪv/（t 与 ə）。弱读：my→/maɪ/（重读）；didn't 弱读 /ˈdɪdənt/。失去爆破：luggage didn't /ˈlʌɡɪ(dʒ) ˈdɪ/（dʒ 轻微）；didn't arrive /ˈdɪdən(t) ə/（t 在 ə 前不完全爆破）。浊化：无。同化/滑音/闪音：无典型。</div></div>
@@ -3892,23 +3892,24 @@
       try { localStorage.setItem('vocab_speed_'+sid, curSpeed); } catch(e){}
     };
     let speaking = false, remain = 0;
-    function getEn() { const e = card.querySelector('.en'); return e ? e.textContent.trim() : ''; }
+    function getAudio() {
+      let a = card.querySelector('audio.mta');
+      if(!a){ a = document.createElement('audio'); a.className='mta'; a.preload='none'; a.src='audio/s'+sid+'.mp3'; card.appendChild(a); }
+      return a;
+    }
     function speakRep() {
-      const txt = getEn();
-      if(!txt || !('speechSynthesis' in window)) { stop(); return; }
-      try {
-        const u = new SpeechSynthesisUtterance(txt);
-        u.lang = 'en-US';
-        u.rate = parseFloat(curSpeed);
-        u.onend = () => { remain--; if(remain > 0 && speaking) speakRep(); else stop(); };
-        u.onerror = () => { stop(); };
-        window.speechSynthesis.cancel();
-        window.speechSynthesis.speak(u);
-      } catch(e) { stop(); }
+      if(!speaking){ stop(); return; }
+      const a = getAudio();
+      a.playbackRate = parseFloat(curSpeed) || 1;
+      a.onended = () => { remain--; if(remain > 0 && speaking) speakRep(); else stop(); };
+      a.onerror = () => { stop(); };
+      try { a.currentTime = 0; } catch(e){}
+      a.play().catch(() => { stop(); });
     }
     function stop() {
       speaking = false; remain = 0;
-      try { window.speechSynthesis.cancel(); } catch(e){}
+      const a = card.querySelector('audio.mta');
+      if(a){ try { a.pause(); a.currentTime = 0; } catch(e){} }
       readBtn.textContent = '▶ 开始';
       readBtn.classList.remove('run');
     }

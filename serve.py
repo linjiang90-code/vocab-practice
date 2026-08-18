@@ -41,6 +41,13 @@ class H(SimpleHTTPRequestHandler):
         # 防止客户端半开/慢速连接永久阻塞线程、拖垮整个服务（曾出现占端口却不响应）
         self.connection.settimeout(60)
 
+    def end_headers(self):
+        # 禁用静态资源缓存：前端(cards.js 等)频繁改动，避免远程浏览器长期使用旧缓存
+        # 导致「改了却像没生效 / 朗读无声」等缓存假象。API 不受影响（仍走 _send）。
+        self.send_header("Cache-Control", "no-store, max-age=0")
+        self.send_header("Pragma", "no-cache")
+        super().end_headers()
+
     def _send(self, code, body=b"", ctype="application/json"):
         if isinstance(body, str):
             body = body.encode("utf-8")

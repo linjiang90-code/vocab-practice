@@ -402,23 +402,24 @@ html = f'''<!DOCTYPE html>
       try {{ localStorage.setItem('vocab_speed_'+sid, curSpeed); }} catch(e){{}}
     }};
     let speaking = false, remain = 0;
-    function getEn() {{ const e = card.querySelector('.en'); return e ? e.textContent.trim() : ''; }}
+    function getAudio() {{
+      let a = card.querySelector('audio.mta');
+      if(!a){{ a = document.createElement('audio'); a.className='mta'; a.preload='none'; a.src='audio/s'+sid+'.mp3'; card.appendChild(a); }}
+      return a;
+    }}
     function speakRep() {{
-      const txt = getEn();
-      if(!txt || !('speechSynthesis' in window)) {{ stop(); return; }}
-      try {{
-        const u = new SpeechSynthesisUtterance(txt);
-        u.lang = 'en-US';
-        u.rate = parseFloat(curSpeed);
-        u.onend = () => {{ remain--; if(remain > 0 && speaking) speakRep(); else stop(); }};
-        u.onerror = () => {{ stop(); }};
-        window.speechSynthesis.cancel();
-        window.speechSynthesis.speak(u);
-      }} catch(e) {{ stop(); }}
+      if(!speaking){{ stop(); return; }}
+      const a = getAudio();
+      a.playbackRate = parseFloat(curSpeed) || 1;
+      a.onended = () => {{ remain--; if(remain > 0 && speaking) speakRep(); else stop(); }};
+      a.onerror = () => {{ stop(); }};
+      try {{ a.currentTime = 0; }} catch(e){{}}
+      a.play().catch(() => {{ stop(); }});
     }}
     function stop() {{
       speaking = false; remain = 0;
-      try {{ window.speechSynthesis.cancel(); }} catch(e){{}}
+      const a = card.querySelector('audio.mta');
+      if(a){{ try {{ a.pause(); a.currentTime = 0; }} catch(e){{}} }}
       readBtn.textContent = '▶ 开始';
       readBtn.classList.remove('run');
     }}
