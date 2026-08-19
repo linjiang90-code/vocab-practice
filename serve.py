@@ -127,7 +127,32 @@ class H(SimpleHTTPRequestHandler):
 
 if __name__ == "__main__":
     os.chdir(BASE)
-    srv = ThreadingHTTPServer(("0.0.0.0", PORT), H)
-    srv.daemon_threads = True
-    print("vocab serve on http://127.0.0.1:%d (threading)" % PORT)
-    srv.serve_forever()
+    import signal
+    # 忽略客户端断开导致的 BrokenPipe，避免 handler 线程异常冒泡
+    try:
+        signal.signal(signal.SIGPIPE, signal.SIG_IGN)
+    except Exception:
+        pass
+    # 崩溃自重启：serve_forever 若异常退出，等待后自动拉起，避免长时间假死无服务
+    while True:
+        try:
+            srv = ThreadingHTTPServer(("0.0.0.0", PORT), H)
+        except OSError as e:
+            # 端口被占用（已有实例在跑）→ 不要自重启空转，直接退出，避免多实例抢端口
+            print("vocab serve: port %d already in use (%r) — another instance is running, exit." % (PORT, e), flush=True)
+            break
+        try:
+            srv.daemon_threads = True
+            print("vocab serve on http://127.0.0.1:%d (threading, self-healing)" % PORT, flush=True)
+            srv.serve_forever()
+        except KeyboardInterrupt:
+            print("vocab serve stopped by user", flush=True)
+            break
+        except Exception as e:
+            print("vocab serve crashed: %r — restarting in 3s" % e, flush=True)
+            try:
+                srv.server_close()
+            except Exception:
+                pass
+            import time
+            time.sleep(3)
