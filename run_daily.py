@@ -179,6 +179,10 @@ with open(MASTER, "w", encoding="utf-8") as f:
     json.dump(data, f, ensure_ascii=False, indent=2)
 
 # ============ 生成当日练习页 ============
+# 预计算汇总数据（模板需要）
+total = len(S)
+learned = sum(1 for s in S if s["learn"]["introduced"])
+
 def esc(x):
     return str(x).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
@@ -195,6 +199,7 @@ for s in selected:
         "scenes": enh.get("scenes", []) or [],
         "grammar": enh.get("grammar", ""),
         "pron": enh.get("pron", ""),
+        "mastery": s["learn"].get("mastery", 0) or 0,
     })
 DATA_JSON = json.dumps(data_list, ensure_ascii=False)
 
@@ -209,20 +214,27 @@ PAGE = """<!DOCTYPE html>
 <title>英语口语 Day __DAY__ · 增强版</title>
 <style>
   :root{
-    --bg:#f5f7fa; --card:#ffffff; --text:#1f2329; --sub:#6b7280; --line:#e5e7eb;
-    --accent:#2f6fed; --accent2:#0e9f6e; --warn:#b45309; --pron:#0369a1;
-    --travel:#eef4ff; --daily:#eafaf3; --chip:#fff4e5; --var:#f3f0ff; --scene:#eafaf3; --gram:#fff7ed; --pr:#eaf4ff;
+    --bg:#f5f7fa; --card:#ffffff; --text:#1f2329; --sub:#6b7280;
+    --line:#e5e7eb; --accent:#2f6fed; --accent2:#0e9f6e; --warn:#b45309; --pron:#0369a1;
+    --travel:#eef4ff; --daily:#eafaf3; --chip:#fff4e5;
+    --var:#f3f0ff; --scene:#eafaf3; --gram:#fff7ed; --pr:#eaf4ff;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;padding:24px 16px 60px}
+  body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",Segoe UI,Roboto,sans-serif;
+    background:var(--bg);color:var(--text);line-height:1.65;padding:24px 16px 60px}
   .wrap{max-width:820px;margin:0 auto}
   header{text-align:center;margin-bottom:14px}
   header h1{font-size:22px;font-weight:700}
   header p{color:var(--sub);font-size:13.5px;margin-top:6px}
-  .legend{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;font-size:12px;color:var(--sub);margin:6px 0 18px}
+  .summary{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:14px 0 4px}
+  .summary .box{background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 14px;text-align:center;min-width:96px}
+  .summary .box b{display:block;font-size:18px;color:var(--accent)}
+  .summary .box span{font-size:12px;color:var(--sub)}
+  .legend{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;font-size:12px;color:var(--sub);margin:14px 0 18px}
   .legend b{color:var(--text)}
   .toolbar{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:0 0 22px}
-  .btn{border:1px solid var(--line);background:#fff;color:var(--text);border-radius:999px;padding:7px 16px;font-size:14px;cursor:pointer;transition:.15s}
+  .btn{border:1px solid var(--line);background:#fff;color:var(--text);border-radius:999px;
+    padding:7px 16px;font-size:14px;cursor:pointer;transition:.15s}
   .btn:hover{border-color:var(--accent);color:var(--accent)}
   .btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
   .sec-title{font-size:15px;font-weight:700;color:var(--sub);margin:24px 4px 12px;display:flex;align-items:center;gap:8px}
@@ -246,47 +258,113 @@ PAGE = """<!DOCTYPE html>
   .kw{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
   .kw .chip{background:var(--chip);border-radius:8px;padding:5px 10px;font-size:13px}
   .kw .chip b{color:#b45309} .kw .chip .p{color:#9a3412;font-style:italic;margin-left:4px}
-  .block ul{margin:0;padding-left:18px} .block li{margin:3px 0}
+  .block ul{margin:0;padding:left:18px} .block li{margin:3px 0}
+  .block li .ex{font-weight:600} .block li .nt{color:#6b7280}
   .scene li .occ{color:#0e9f6e;font-weight:600} .scene li .resp{color:#6b7280}
-  .rate{margin-top:14px;border-top:1px dashed var(--line);padding-top:12px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:13px}
-  .rate .rlbl{color:var(--sub);font-weight:600}
-  .rbtn{border:1px solid var(--line);background:#fff;border-radius:8px;padding:6px 12px;font-size:13px;cursor:pointer}
-  .rbtn.up{border-color:#16a34a;color:#16a34a} .rbtn.up:hover{background:#f0fdf4}
-  .rbtn.fz{border-color:#d97706;color:#d97706} .rbtn.fz:hover{background:#fffbeb}
-  .rbtn.dn{border-color:#dc2626;color:#dc2626} .rbtn.dn:hover{background:#fef2f2}
-  .rstat{font-size:12px;color:var(--sub);margin-left:4px}
-  .rstat.ok{color:#16a34a;font-weight:600}
-  footer{text-align:center;color:var(--sub);font-size:12px;padding:18px}
+  footer{text-align:center;color:var(--sub);font-size:12px;margin-top:24px}
+  .assess{display:flex;align-items:center;gap:8px;margin-top:12px;flex-wrap:wrap;border-top:1px dashed var(--line);padding-top:10px}
+  .assess .lbl{font-size:13px;color:var(--sub)}
+  .assess button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:5px 12px;font-size:13px;cursor:pointer}
+  .assess button:hover{filter:brightness(.97)}
+  .assess .c{color:#16a34a}.assess .f{color:#d97706}.assess .u{color:#dc2626}
+  .astat{font-size:12px;color:var(--sub);margin-left:auto}
+  .mbadge{font-size:12px;font-weight:600;padding:2px 8px;border-radius:6px;background:#f1f5f9;color:#475569}
+  .spd{font-size:14px;color:var(--sub);display:flex;align-items:center;gap:6px}
+  .spd select{padding:6px 8px;border:1px solid var(--line);border-radius:8px;background:#fff;font-size:13px;color:var(--text);cursor:pointer}
+  .readwrap{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:12px 0 2px;font-size:13px;color:var(--sub)}
+  .readwrap audio{width:100%;height:32px;margin-bottom:2px}
+  .readwrap select{padding:5px 8px;border:1px solid var(--line);border-radius:8px;background:#fff;font-size:13px;color:var(--text);cursor:pointer}
+  .readwrap .rlbl{font-weight:600;color:#475569}
+  .readwrap .spdlbl{color:var(--sub)}
+  .readBtn{border:1px solid var(--accent2);background:var(--accent2);color:#fff;border-radius:8px;padding:5px 14px;font-size:13px;cursor:pointer}
+  .readBtn:hover{filter:brightness(1.05)}
+  .readBtn.run{background:#dc2626;border-color:#dc2626}
+  .detailsBtn{width:100%;text-align:left;border:1px solid var(--line);background:#f8fafc;color:var(--sub);border-radius:10px;padding:8px 12px;font-size:13px;font-weight:600;cursor:pointer;margin-top:12px}
+  .detailsBtn:hover{border-color:var(--accent);color:var(--accent)}
+  .details.collapsed>.block{display:none}
+  .mbar{width:96px;height:9px;border-radius:5px;background:#e5e7eb;overflow:hidden;flex:none}
+  .mbar .mfill{height:100%;border-radius:5px;transition:width .25s,background .25s}
+  .pagenav{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap;margin-bottom:6px}
+  .pagenav a{text-decoration:none;font-size:13px;color:#475569;border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-weight:600;transition:.15s}
+  .pagenav a:hover{border-color:var(--accent);color:var(--accent);background:#f0f6ff}
 </style>
 </head>
 <body>
 <div class="wrap">
+<nav class="pagenav">
+  <a href="index.html">\U0001f3e0 \u9996\u9875</a>
+  <a href="review.html">\U0001f4da \u5df2\u5b66\u56de\u987e</a>
+  <a href="calendar.html">\U0001f4c5 \u65e5\u5386</a>
+</nav>
   <header>
-    <h1>🗣 英语口语 · Day __DAY__（增强版）</h1>
-    <p>选句模式：__MODE__ · 中英对照 + 生词音标 + 原声伴读 + 变体 + 场景俚语 + 语法 + 发音提示（覆盖：连读/同化/滑音/浊化/失去爆破/闪音/弱读/缩读）</p>
+    <h1>\U0001f5a3 \u82f1\u8bed\u53e3\u8bed \u00b7 Day __DAY__\uff08\u589e\u5f3a\u7248\uff09</h1>
+    <p>\u65c5\u6e38 + \u65e5\u5e38\u6df7\u5408 \u00b7 __N__ \u53e5/\u5929 \u00b7 \u4e2d\u82f1\u5bf9\u7167 + \u751f\u8bcd\u97f3\u6807 + \u539f\u58f0\u4f34\u8bfb + \u53d8\u4f53 + \u573a\u666f\u4fd7\u8bed + \u8bed\u6cd5 + \u53d1\u97f3\u63d0\u793a</p>
   </header>
+  <div class="summary">
+    <div class="box"><b>\u7b2c __DAY__ \u5929</b><span>\u8fde\u7eed\u5b66\u4e60</span></div>
+    <div class="box"><b>__INTRO__ \u53e5</b><span>\u4eca\u65e5\u65b0\u5b66</span></div>
+    <div class="box"><b>__TOTAL__/__POOL__</b><span>\u7d2f\u8ba1\u5df2\u5b66</span></div>
+    <div class="box"><b>__POOL__ \u53e5</b><span>\u5f53\u524d\u603b\u6c60</span></div>
+  </div>
   <div class="legend">
-    <span>🔹 <b>简化/口语变体</b></span>
-    <span>🎭 <b>场景化表达 + 不同回答</b></span>
-    <span>📝 <b>语法提示</b></span>
-    <span>🔤 <b>发音提示</b></span>
+    <span>\U0001f53b <b>\u7b80\u5316/\u53e3\u8bed\u53d8\u4f53</b></span>
+    <span>\U0001f3ad <b>\u573a\u666f\u5316\u8868\u8fbe + \u4e0d\u540c\u56de\u7b54</b></span>
+    <span>\U0001f4dd <b>\u8bed\u6cd5\u63d0\u793a</b></span>
+    <span>\U0001f524 <b>\u53d1\u97f3\u63d0\u793a(\u8fde\u8bfb/\u540c\u5316/\u6ed1\u97f3/\u6d4a\u5316/\u5931\u53bb\u7206\u7834/\u95ea\u97f3/\u5f31\u8bfb/\u7f29\u8bfb)</b></span>
   </div>
   <div class="toolbar">
-    <button class="btn primary" onclick="playAll()">▶ 全部伴读</button>
-    <button class="btn" id="slowBtn" onclick="toggleSlow()">🐢 慢速：关</button>
-    <button class="btn" onclick="stopAll()">⏹ 停止</button>
+    <button class="btn primary" onclick="playAll()">\u25b6 \u5168\u90e8\u4f34\u8bfb</button>
+    <label class="spd">\u8bed\u901f(\u6279\u91cf\u9884\u8bbe)
+      <select id="speedSel" onchange="setSpeed(this.value)" title="\u8bbe\u4e3a\u7edf\u4e00\u8bed\u901f\u5e94\u7528\u5230\u5168\u90e8\u53e5\u5b50">
+        <option value="1">1.0x</option>
+        <option value="0.75">0.75x</option>
+        <option value="0.5">0.5x</option>
+        <option value="0.4">0.4x</option>
+      </select>
+    </label>
+    <button class="btn" onclick="stopAll()">\u23f9 \u505c\u6b62</button>
+    <button class="btn" id="allDetBtn" onclick="toggleAllDetails()">\U0001f4c2 \u5c55\u5f00\u5168\u90e8\u8be6\u60c5</button>
   </div>
-  <div class="sec-title"><span class="tag">短句</span> Short sentences（__NSHORT__）</div>
   <div id="short"></div>
-  <div class="sec-title"><span class="tag">长句</span> Long sentences（__NLONG__）</div>
   <div id="long"></div>
-  <footer>每天 10:00 自动推送新一批（同款增强版）· 底部自评按钮实时回写掌握度 · 进度本地保存，不外传</footer>
+  <footer>\u6bcf\u5929 9:00 \u81ea\u52a8\u63a8\u9001\u65b0\u4e00\u6279\uff08\u540c\u6b3e\u589e\u5f3a\u7248\uff09 \u00b7 \u8fdb\u5ea6\u672c\u5730\u4fdd\u5b58\uff0c\u4e0d\u5916\u4f20</footer>
 </div>
 <script src="audio-engine.js"></script>
 <script>
+(function(){ const d=new Date().toISOString().slice(0,10); document.querySelectorAll('.today-nav').forEach(a=>a.href='day'+d+'.html'); })();
 const DATA = __DATA_JSON__;
-let slow=false;
-function toggleSlow(){ slow=!slow; document.getElementById('slowBtn').textContent='🐢 慢速：'+(slow?'开':'关'); }
+let speed = 1;
+let cardSpeed = {};
+try { DATA.forEach(d => { const sv = localStorage.getItem('vocab_speed_'+String(d.id).replace('s','')); if(sv) cardSpeed[d.id]=parseFloat(sv); }); } catch(e){}
+const API_PORT = 3279;
+try { const sv = localStorage.getItem('vocab_speed'); if (sv) { speed = parseFloat(sv); document.getElementById('speedSel').value = sv; } } catch(e){}
+async function apiFetch(path, opts){
+  for(const b of ['', 'http://127.0.0.1:'+API_PORT]){
+    try{ const r = await fetch(b+path, opts); if(r && r.ok) return r; }catch(e){}
+  }
+  return null;
+}
+async function assess(sid, action, btn){
+  const id = parseInt(String(sid).replace('s',''),10);
+  const r = await apiFetch('/api/mastery', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({id, action})});
+  const el = document.getElementById('mb-'+sid);
+  const st = document.getElementById('as-'+sid);
+  const cur = parseInt((el?el.textContent:'0/5').replace('/5',''),10)||0;
+  let nv = cur;
+  if(r){
+    const j = await r.json(); nv = j.mastery;
+    if(st) st.textContent = (action==='clear'?'\u5df2 +1':action==='unknown'?'\u5df2 -1':'\u5df2\u8bb0\u5f55')+' \u00b7 \u5df2\u56de\u5199 \u2713';
+  } else {
+    nv = action==='clear'?Math.min(5,cur+1):action==='unknown'?Math.max(0,cur-1):cur;
+    if(st) st.textContent = '\u5df2\u672c\u5730\u8bb0\u5f55\uff08\u542f\u52a8\u672c\u5730\u670d\u52a1\u540e\u53ef\u56de\u5199\uff09';
+  }
+  setMbar(sid, nv);
+  try{ localStorage.setItem('vocab_mastery_'+id, String(nv)); }catch(e){}
+  if(btn) btn.blur();
+}
+function setSpeed(v){ speed=parseFloat(v); try{ localStorage.setItem('vocab_speed', String(speed)); }catch(e){}
+  document.querySelectorAll('.spdSel').forEach(s=>s.value=v);
+  DATA.forEach(d=>{ const sid=String(d.id).replace('s',''); cardSpeed[d.id]=speed; try{ localStorage.setItem('vocab_speed_'+sid, v); }catch(e){} }); }
 function cardHTML(d){
   const kw=d.kw.map(k=>`<span class="chip"><b>${k[0]}</b><span class="p">${k[1]}</span> ${k[2]}</span>`).join('');
   const v=d.variants.map(x=>`<li><span class="ex">${x[0]}</span> <span class="nt">— ${x[1]}</span></li>`).join('');
@@ -294,58 +372,109 @@ function cardHTML(d){
   return `<div class="card">
     <div class="top">
       <span class="num">${d.id.replace('s','')}</span>
-      <span class="pill ${d.topic}">${d.topic==='travel'?'旅游':'日常'}</span>
+      <span class="pill ${d.topic}">${d.topic==='travel'?'\u65c5\u6e38':'\u65e5\u5e38'}</span>
       <span class="play">
-        <span class="ic" title="原声伴读" onclick="playAudio('${d.id}')">🔊</span>
-        <span class="ic" title="慢速朗读" onclick="playAudio('${d.id}', 0.75)">🐢</span>
+        <span class="ic" title="\u539f\u58f0\u4f34\u8bfb" onclick="playAudio('${d.id}')">\U0001f50a</span>
+        <span class="ic" title="\u6162\u901f\u6717\u8bfb" onclick="playAudio('${d.id}', 0.75)">\U0001f422</span>
       </span>
     </div>
     <div class="en">${d.en}</div>
     <div class="ipa">${d.ipa}</div>
     <div class="zh">${d.zh}</div>
     <div class="kw">${kw}</div>
-    <div class="block var"><div class="h">🔹 简化 / 口语变体</div><ul>${v}</ul></div>
-    <div class="block scene"><div class="h">🎭 场景化表达 + 不同回答</div><ul>${sc}</ul></div>
-    <div class="block gram"><div class="h">📝 语法提示</div><div>${d.grammar}</div></div>
-    <div class="block pr"><div class="h">🔤 发音提示（连读 / 同化 / 滑音 / 浊化 / 失去爆破 / 闪音 / 弱读 / 缩读）</div><div>${d.pron}</div></div>
-    <div class="rate" data-nid="${d.nid}">
-      <span class="rlbl">自评掌握度：</span>
-      <button class="rbtn up" onclick="rate(${d.nid},'clear')">认识 +1</button>
-      <button class="rbtn fz" onclick="rate(${d.nid},'fuzzy')">模糊</button>
-      <button class="rbtn dn" onclick="rate(${d.nid},'unknown')">不认识 -1</button>
-      <span class="rstat" id="rstat-${d.nid}"></span>
+    <button class="detailsBtn" id="db-${d.id}" onclick="toggleDetails('${d.id}')">\U0001f4c2 \u5c55\u5f00\u8be6\u60c5\uff08\u53d8\u4f53 / \u573a\u666f / \u8bed\u6cd5 / \u53d1\u97f3\uff09</button>
+    <div class="details collapsed" id="dt-${d.id}">
+      <div class="block var"><div class="h">\U0001f53b \u7b80\u5316 / \u53e3\u8bed\u53d8\u4f53</div><ul>${v}</ul></div>
+      <div class="block scene"><div class="h">\U0001f3ad \u573a\u666f\u5316\u8868\u8fbe + \u4e0d\u540c\u56de\u7b54</div><ul>${sc}</ul></div>
+      <div class="block gram"><div class="h">\U0001f4dd \u8bed\u6cd5\u63d0\u793a</div><div>${d.grammar}</div></div>
+      <div class="block pr"><div class="h">\U0001f524 \u53d1\u97f3\u63d0\u793a\uff08\u8fde\u8bfb/\u540c\u5316/\u6ed1\u97f3/\u6d4a\u5316/\u5931\u53bb\u7206\u7834/\u95ea\u97f3/\u5f31\u8bfb/\u7f29\u8bfb\uff09</div><div>${d.pron}</div></div>
+    </div>
+    <audio id="au-${d.id}" preload="none" src="audio/${d.id}.mp3"></audio>
+    <div class="readwrap">
+      <span class="rlbl">\U0001f501 \u6717\u8bfb</span>
+      <select id="rp-${d.id}" class="repsSel">
+        <option value="2">2 \u904d</option>
+        <option value="3" selected>3 \u904d</option>
+        <option value="5">5 \u904d</option>
+        <option value="8">8 \u904d</option>
+      </select>
+      <button id="rb-${d.id}" class="readBtn" onclick="loopSpeak('${d.id}')">\u25b6 \u5f00\u59cb</button>
+      <span class="spdlbl">\u8bed\u901f</span>
+      <select class="spdSel" onchange="setCardSpeed('${d.id}',this.value)">
+        <option value="1">1.0x</option>
+        <option value="0.75">0.75x</option>
+        <option value="0.5">0.5x</option>
+        <option value="0.4">0.4x</option>
+      </select>
+    </div>
+    <div class="assess">
+      <span class="lbl">\u81ea\u8bc4\u638c\u63e1\u5ea6\uff1a</span>
+      <div class="mbar" id="mbar-${d.id}"><div class="mfill" style="width:${d.mastery*20}%;background:${d.mastery<=2?'#dc2626':d.mastery<=4?'#d97706':'#16a34a'}"></div></div>
+      <span class="mbadge" id="mb-${d.id}">${d.mastery}/5</span>
+      <button class="c" onclick="assess('${d.id}','clear',this")>\u2705 \u8ba4\u8bc6 +1</button>
+      <button class="f" onclick="assess('${d.id}','fuzzy',this)">\U0001f7e1 \u6a21\u7cca</button>
+      <button class="u" onclick="assess('${d.id}','unknown',this')">\U0001f534 \u4e0d\u8ba4\u8bc6 -1</button>
+      <span class="astat" id="as-${d.id}"></span>
     </div>
   </div>`;
 }
-document.getElementById('short').innerHTML=DATA.filter(d=>d.type==='short').map(cardHTML).join('');
-document.getElementById('long').innerHTML=DATA.filter(d=>d.type==='long').map(cardHTML).join('');
-function playAudio(id, rate){ if(window.VocabAudio){ VocabAudio.play(id, rate || 1); } }
+if(DATA.some(d=>d.type==='short')){
+  const n=DATA.filter(d=>d.type==='short').length;
+  const st=document.createElement('div'); st.className='sec-title';
+  st.innerHTML=`<span class="tag">\u77ed\u53e5</span> Short sentences\uff08${n}\uff09`; document.querySelector('.wrap').insertBefore(st, document.getElementById('short'));
+  document.getElementById('short').innerHTML=DATA.filter(d=>d.type==='short').map(cardHTML).join('');
+}
+if(DATA.some(d=>d.type==='long')){
+  const n=DATA.filter(d=>d.type==='long').length;
+  const st=document.createElement('div'); st.className='sec-title';
+  st.innerHTML=`<span class="tag">\u957f\u53e5</span> Long sentences\uff08${n}\uff09`; document.querySelector('.wrap').insertBefore(st, document.getElementById('long'));
+  document.getElementById('long').innerHTML=DATA.filter(d=>d.type==='long').map(cardHTML).join('');
+}
+applyStoredDetails();
+function setCardDetails(id, show){ const el=document.getElementById('dt-'+id); if(!el) return; el.classList.toggle('collapsed', !show);
+  const btn=document.getElementById('db-'+id); if(btn) btn.textContent = show ? '\U0001f4c1 \u6536\u8d77\u8be6\u60c5\uff08\u53d8\u4f53 / \u573a\u666f / \u8bed\u6cd5 / \u53d1\u97f3\uff09' : '\U0001f4c2 \u5c55\u5f00\u8be6\u60c5\uff08\u53d8\u4f53 / \u573a\u666f / \u8bed\u6cd5 / \u53d1\u97f3\uff09';
+  try{ localStorage.setItem('vocab_details_'+id, show?'open':'closed'); }catch(e){} }
+function toggleDetails(id){ const el=document.getElementById('dt-'+id); if(el) setCardDetails(id, el.classList.contains('collapsed')); }
+function toggleAllDetails(){ const anyCollapsed = !!document.querySelector('.details.collapsed'); const show = anyCollapsed;
+  document.querySelectorAll('.details').forEach(el=>setCardDetails(el.id.replace('dt-',''), show));
+  const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = show ? '\U0001f4c1 \u6536\u8d70\u5168\u90e8\u8be6\u60c5' : '\U0001f4c2 \u5c55\u5f00\u5168\u90e8\u8be6\u60c5'; }
+function applyStoredDetails(){ DATA.forEach(d=>{ let st=null; try{ st=localStorage.getItem('vocab_details_'+d.id); }catch(e){}
+  if(st==='open') setCardDetails(d.id, true); });
+  const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = document.querySelector('.details.collapsed') ? '\U0001f4c2 \u5c55\u5f00\u5168\u90e8\u8be6\u60c5' : '\U0001f4c1 \u6536\u8d70\u5168\u90e8\u8be6\u60c5'; }
+function mColor(v){ return v<=2?'#dc2626':(v<=4?'#d97706':'#16a34a'); }
+function setMbar(sid,v){ const bar=document.getElementById('mbar-'+sid);
+  if(bar){ const f=bar.querySelector('.mfill'); f.style.width=(v*20)+'%'; f.style.background=mColor(v); }
+  const b=document.getElementById('mb-'+sid); if(b) b.textContent=v+'/5'; }
+function playAudio(id, rate){ if(window.VocabAudio){ VocabAudio.play(id, rate || cardSpeed[id] || speed); } }
+function loopSpeak(id){ const btn=document.getElementById('rb-'+id); if(!btn) return;
+  if(btn.classList.contains('run')){ if(window.VocabAudio) VocabAudio.stopId(id); btn.classList.remove('run'); btn.textContent='\u25b6 \u5f00\u59cb'; return; }
+  const reps=parseInt(document.getElementById('rp-'+id).value,10)||3;
+  btn.classList.add('run'); btn.textContent='\u23f9 \u505c\u6b62';
+  if(window.VocabAudio){ VocabAudio.loop(id, cardSpeed[id]||speed, reps, { onEnd: ()=>{ btn.classList.remove('run'); btn.textContent='\u25b6 \u5f00\u59cb'; } }); }
+  else { btn.classList.remove('run'); btn.textContent='\u25b6 \u5f00\u59cb'; } }
+function setCardSpeed(id,v){ cardSpeed[id]=parseFloat(v);
+  try{ localStorage.setItem('vocab_speed_'+String(id).replace('s',''), v); }catch(e){} }
+function speak(t){ /* deprecated: \u6240\u6709\u64ad\u653e\u7edf\u4e00\u8d70\u670d\u52a1\u5668\u97f3\u9891 VocabAudio */ }
 let queue=[]; function playAll(){ stopAll(); queue=DATA.map(d=>d.id); next(); }
 function next(){ if(!queue.length){ stopAll(); return; }
   const id=queue.shift();
-  if(window.VocabAudio){ VocabAudio.play(id, (typeof slow!=='undefined'&&slow?0.75:1), ()=>{ next(); }); }
+  if(window.VocabAudio){ VocabAudio.play(id, cardSpeed[id]||speed, ()=>{ next(); }); }
   else { stopAll(); return; } }
-function stopAll(){ queue=[]; if(window.VocabAudio) VocabAudio.stopAll(); }
-const PORT=3279;
-async function apiPost(path,body){ try{ const r=await fetch('http://127.0.0.1:'+PORT+path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}); return await r.json(); }catch(e){ return null; } }
-async function rate(nid,action){
-  const el=document.getElementById('rstat-'+nid);
-  const r=await apiPost('/api/mastery',{id:nid,action:action});
-  if(r && r.ok){ el.className='rstat ok'; el.textContent='已记录 ✓ 掌握度 '+r.mastery+'/5'; }
-  else { el.className='rstat'; el.textContent='服务未连接（数据已本地显示）'; }
-}
+function stopAll(){ queue=[]; if(window.VocabAudio) VocabAudio.stopAll();
+  document.querySelectorAll('.readBtn.run').forEach(b=>{ b.classList.remove('run'); b.textContent='\u25b6 \u5f00\u59cb'; }); }
 </script>
 </body>
 </html>"""
 
 PAGE = (PAGE
         .replace("__DAY__", str(dayIndex))
-        .replace("__MODE__", "新学" if mode == "new" else "复习")
+        .replace("__N__", str(dailyCount))
+        .replace("__INTRO__", str(sum(1 for s in selected if s["learn"].get("introducedDay") == dayIndex)))
         .replace("__DATA_JSON__", DATA_JSON)
-        .replace("__NSHORT__", str(len(shorts)))
-        .replace("__NLONG__", str(len(longs))))
+        .replace("__TOTAL__", str(learned))
+        .replace("__POOL__", str(total)))
 
-day_file = os.path.join(BASE, "day%d.html" % dayIndex)
+day_file = os.path.join(BASE, "day%s.html" % today_str)
 with open(day_file, "w", encoding="utf-8") as f:
     f.write(PAGE)
 
@@ -356,8 +485,6 @@ except Exception as e:
     print("MASTER_HTML_FAIL", e)
 
 # ============ 汇总 ============
-total = len(S)
-learned = sum(1 for s in S if s["learn"]["introduced"])
 streak_note = "连续天数≈%d（自 %s 起）" % (dayIndex, meta["startDate"])
 print("==== DAILY SUMMARY ====")
 print("today:", today_str, "dayIndex:", dayIndex, "mode:", mode)
