@@ -55,6 +55,20 @@
   .mwrap.lvl-yellow .mnum { color:#d97706; }
   .mwrap.lvl-green .mnum { color:#16a34a; }
   .card[data-learned="no"] .mnum { color:#cbd5e1; }
+  /* 交互式掌握度自评控件（mastery.js） */
+  .assess { display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin:10px 0 2px; font-size:13px; }
+  .assess .lbl { color:var(--sub); font-weight:600; }
+  .assess .mbar { width:120px; height:10px; border-radius:6px; background:#e2e8f0; overflow:hidden; flex:none; }
+  .assess .mfill { height:100%; width:0; background:#dc2626; transition:width .25s, background .25s; }
+  .assess .mbadge { font-weight:600; font-size:13px; color:#475569; min-width:34px; }
+  .assess button { border:1px solid var(--line); background:#fff; border-radius:8px; padding:5px 10px; font-size:12.5px; cursor:pointer; transition:.15s; }
+  .assess button.c { border-color:#16a34a; color:#16a34a; }
+  .assess button.f { border-color:#d97706; color:#d97706; }
+  .assess button.u { border-color:#dc2626; color:#dc2626; }
+  .assess button:hover { filter:brightness(.96); }
+  .assess button:active { transform:scale(.97); }
+  .assess .astat { font-size:12px; color:var(--sub); flex-basis:100%; margin-top:2px; }
+  .assess .astat.ok { color:#16a34a; font-weight:600; }
   .stats { display:flex; align-items:center; flex-wrap:wrap; gap:18px; background:#fff; border-bottom:1px solid var(--line);
     padding:12px 24px; }
   .stat { display:flex; align-items:baseline; gap:4px; }
@@ -192,7 +206,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="1"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-1"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-1">0/5</span><button class="c" onclick="VocabMastery.assess('1','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('1','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('1','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-1"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/wɛr ɪz ðə ˈnɪrɪst ˈsʌbweɪ ˈsteɪʃən/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：Where is→/wɛə rɪz/（r 与 ɪ 连读）；is the→/ɪ zðə/（z 与 ð 连读）；the nearest 元音顺接。同化/滑音：无典型。弱读：is→/z/（功能词弱读省 /ɪ/）；the→/ðə/（弱读）。浊化：无（句首 Where 后接元音，无清→浊语境）。失去爆破/闪音：本句无（注：含 good boy/sit down 等相邻爆破音标失去爆破；含 better/water/party/city 等元音间 /t/ 标闪音 /ɾ/）。缩读：无。</div></div>
@@ -228,7 +242,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="2"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-2"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-2">0/5</span><button class="c" onclick="VocabMastery.assess('2','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('2','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('2','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-2"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/kʊd ju seɪ ðæt əˈɡɛn pliz/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">同化：Could you→/kʊdʒu/（d+j 同化为 dʒ，关键！）。连读：that again→/ðæ təˈɡɛn/（t 与 a 连读）。浊化：that again 快读 t→d：/ðæ dəˈɡɛn/。弱读：you 此处因同化保留 /ju/，弱读时可作 /jə/。失去爆破/闪音：无典型。缩读：无。</div></div>
@@ -264,7 +278,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">1/5</span></div>
+      <div class="assess" data-mid="3"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-3"><div class="mfill" style="width:20%;background:#dc2626"></div></div><span class="mbadge" id="mb-3">1/5</span><button class="c" onclick="VocabMastery.assess('3','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('3','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('3','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-3"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/aɪd laɪk tə bʊk ə ˈteɪbəl fɔr tu/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：like to→/laɪk tə/（可连成 /laɪktə/）；book a→/bʊ kə/（k 与 a 连读）；table for→/ˈteɪbə wɔr/（l 后加 w 滑音）。滑音：table for 中 /l/ 与 /ɔ/ 间插入 /w/。弱读：to→/tə/、a→/ə/、for→/fər/（功能词均弱读）。缩读：I'd = I would（/aɪd/，'d 为 would 缩读）。浊化：like to 快读 t→d：/laɪ də/。失去爆破：无（无爆破音相邻）。闪音：无。</div></div>
@@ -300,7 +314,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">1/5</span></div>
+      <div class="assess" data-mid="4"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-4"><div class="mfill" style="width:20%;background:#dc2626"></div></div><span class="mbadge" id="mb-4">1/5</span><button class="c" onclick="VocabMastery.assess('4','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('4','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('4','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-4"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/ɪts naɪs tə miːt ju/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">同化：meet you→/miː tʃu/（t+j 同化为 tʃ，关键！）。连读：It's nice→/ɪ tsnaɪs/（ts 连读）；nice to→/naɪs tə/（s 与 t 连读）；to meet→/tə wmiːt/（加 w 滑音）。滑音：to meet 中 /tə/ 与 /miːt/ 间插入 /w/。弱读：to→/tə/；you 句末常弱读 /ju/（此处保留）。缩读：It's = It is（/ɪts/，'s 为 is 缩读）。浊化：无典型。失去爆破/闪音：无典型。</div></div>
@@ -336,7 +350,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">1/5</span></div>
+      <div class="assess" data-mid="5"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-5"><div class="mfill" style="width:20%;background:#dc2626"></div></div><span class="mbadge" id="mb-5">1/5</span><button class="c" onclick="VocabMastery.assess('5','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('5','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('5','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-5"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/haʊ mʌtʃ dʌz ðɪs kɔst/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：How much→/haʊ mʌtʃ/（w 与 m 连读）；much does→/mʌtʃ dʌz/（tʃ 与 d）；does this→/dʌz ðɪs/（z 与 ð）。弱读：does→/dʌz/（弱读形式 /dəz/）；this 此处重读 /ðɪs/。浊化：this cost 中 s 后接清 k，保持清音（无浊化）。失去爆破/闪音：无典型（注：含 that thing / hot day 等相邻爆破或 /t/+/θ/ 时标失去爆破）。缩读：无。</div></div>
@@ -372,7 +386,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">1/5</span></div>
+      <div class="assess" data-mid="6"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-6"><div class="mfill" style="width:20%;background:#dc2626"></div></div><span class="mbadge" id="mb-6">1/5</span><button class="c" onclick="VocabMastery.assess('6','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('6','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('6','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-6"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/wʌt du ju ˈjuːʒuəli du ɑːn ˈwiːkendz/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">同化：do you→/dʒu/（d+j 同化为 dʒ，关键！）。连读：What do→/wʌ dʊ/（t 与 d 连读）；do on→/dʊ wɑn/（元音间加 w 滑音）；on weekends→/ɑːn ˈwiːkendz/（n 与 w 连读）。浊化：What do 快读 /wʌ dʊ/（t→d，极典型）；usually do 顺接 /ˈjuːʒuəli dʊ/。弱读：you 弱读 /jə/（亦可保留 /ju/）；do 作助动词弱读 /də/；on→/ən/。缩读：场景里 wanna = want to（口语缩读）。失去爆破/闪音：本句无典型（参考：better→/bɛɾɚ/、city→/sɪɾi/ 元音间 /t/ 标闪音；good boy→/ɡʊ bɔɪ/ 相邻爆破音标失去爆破）。</div></div>
@@ -408,7 +422,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">1/5</span></div>
+      <div class="assess" data-mid="7"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-7"><div class="mfill" style="width:20%;background:#dc2626"></div></div><span class="mbadge" id="mb-7">1/5</span><button class="c" onclick="VocabMastery.assess('7','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('7','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('7','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-7"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/ɪz ˈbrekfəst ɪnˈkluːdɪd ɪn ðə praɪs/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：Is breakfast→/ɪz ˈbrekfəst/（z 与 b 连读）；breakfast included→/ˈbrekfəst ɪnˈkluːdɪd/（t 与 ɪ 连读）；included in→/ɪnˈkluːdɪd ɪn/（d 与 ɪ）；in the→/ɪn ðə/（n 与 ð）。失去爆破：breakfast 词尾 /t/ 在 /ɪ/ 前为不完全爆破 /ˈbrekfəs(t) ɪn/；included 词尾 /d/ 在 /ɪn/ 前 /ɪnˈkluːdɪ(d) ɪn/。浊化：breakfast 词尾 t 在 ɪ 前快读可浊化为 d：/ˈbrekfəsd ɪn/。弱读：the→/ðə/；in→/ɪn/。同化/滑音/缩读：无典型。</div></div>
@@ -444,7 +458,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">1/5</span></div>
+      <div class="assess" data-mid="8"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-8"><div class="mfill" style="width:20%;background:#dc2626"></div></div><span class="mbadge" id="mb-8">1/5</span><button class="c" onclick="VocabMastery.assess('8','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('8','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('8','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-8"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/kʊd ju ˌrekəˈmend ə ɡʊd ˈloʊkəl ˈrestərənt ðæts nɑːt tuː ɪkˈspensɪv ənd ˈwɪðɪn ˈwɔːkɪŋ ˈdɪstəns/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">同化：Could you→/kʊdʒu/（d+j 同化为 dʒ，关键！）；that's not→/ðæts nɑt/（s 与 n 相邻）。连读：good local→/ɡʊ wˈloʊkəl/（d 后加 w 滑音）；not too→/nɑ tʊ/（两个 t 只读一次，后接元音）；too expensive 顺接 /tuː ɪkˈspensɪv/；and within→/ənd ˈwɪðɪn/（d 与 w）。浊化：not too 快读 /nɑ dʊ/（t→d）。失去爆破：good local /ɡʊ(d) ˈloʊkəl/（d 在 l 前不完全爆破）。弱读：a→/ə/；and→/ən/；that's→/ðæts/。缩读：that's = that is（口语缩读）。闪音：无典型。</div></div>
@@ -480,7 +494,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">1/5</span></div>
+      <div class="assess" data-mid="9"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-9"><div class="mfill" style="width:20%;background:#dc2626"></div></div><span class="mbadge" id="mb-9">1/5</span><button class="c" onclick="VocabMastery.assess('9','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('9','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('9','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-9"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/aɪ wʌz ˈwʌndərɪŋ ɪf juːd laɪk tə ɡræb ə ˈkɔːfi wɪð miː ˈsʌmtaɪm ðɪs wiːk/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：was wondering→/wʌz ˈwʌndərɪŋ/（z 与 w）；grab a→/ɡræb ə/（b 与 a）；coffee with→/ˈkɔfi wɪð/（i 与 w 滑音）；sometime this→/ˈsʌmtaɪm ðɪs/（m 与 ð）。浊化：like to→/laɪ də/（t→d，同 wanna 规律）；grab a 中 b 保持浊。弱读：to→/tə/；a→/ə/；me→/mi/(可弱读 /mə/)；if→/ɪf/。缩读：you'd = you would（口语缩读）；场景中 wanna = want to。失去爆破：grab a /ɡræ(b) ə/（b 在 a 前轻微不完全爆破）。闪音：无典型。</div></div>
@@ -516,7 +530,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">1/5</span></div>
+      <div class="assess" data-mid="10"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-10"><div class="mfill" style="width:20%;background:#dc2626"></div></div><span class="mbadge" id="mb-10">1/5</span><button class="c" onclick="VocabMastery.assess('10','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('10','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('10','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-10"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/aɪ siːm tə hæv lɔst maɪ weɪ kʊd ju tel miː haʊ tə ɡet tə ðə ˈsɪti ˈsentər frəm hɪr/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">同化：Could you→/kʊdʒu/（d+j 同化为 dʒ，关键！）。连读：seem to→/siːm p tə/（m 后加 p 滑音）；lost my→/lɔs maɪ/（t 与 m 连读）；my way→/maɪ weɪ/（aɪ 与 w 滑音）；from here→/frəm hɪr/（m 与 h）；tell me→/tɛl mi/（l 与 m）。浊化：lost my 快读 /lɔz maɪ/ 或 /lɔd maɪ/（t→d，典型）；have 的 v 保持浊。失去爆破：lost my /lɔ(s)t maɪ/（s-t，/t/ 在 m 前不完全爆破）；get to /ɡe(t) tə/；center /ˈsɛn(t)ər/（t 在 ər 前不完全爆破）。闪音：city→/ˈsɪɾi/（美式，元音间 /t/ 标闪音 /ɾ/，关键！）。弱读：to→/tə/；the→/ðə/。缩读：无典型。</div></div>
@@ -552,7 +566,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">1/5</span></div>
+      <div class="assess" data-mid="11"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-11"><div class="mfill" style="width:20%;background:#dc2626"></div></div><span class="mbadge" id="mb-11">1/5</span><button class="c" onclick="VocabMastery.assess('11','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('11','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('11','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-11"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/wɛr kən aɪ baɪ ə ˈtɪkɪt tə ðə ˈsɪti ˈsɛntər/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：Where can→/wɛr kən/（r 与 k）；can I→/kə naɪ/（n 与 a）；buy a→/baɪ ə/（aɪ 与 ə）；ticket to→/ˈtɪkɪ tə/（t 与 tə）；to the→/tə ðə/。弱读：can→/kən/；a→/ə/；to→/tə/；the→/ðə/。失去爆破：ticket /ˈtɪkɪ(t)/（词尾 t 轻微不完全爆破）；center /ˈsɛn(t)ər/（t 在 ər 前）。闪音：city→/ˈsɪɾi/（美式元音间 t 标闪音 /ɾ/，关键！）。同化/滑音/浊化/缩读：无典型。</div></div>
@@ -588,7 +602,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">1/5</span></div>
+      <div class="assess" data-mid="12"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-12"><div class="mfill" style="width:20%;background:#dc2626"></div></div><span class="mbadge" id="mb-12">1/5</span><button class="c" onclick="VocabMastery.assess('12','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('12','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('12','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-12"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/haʊ lɔŋ dʌz ɪt teɪk tə ɡɛt ðɛr/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：How long→/haʊ lɔŋ/（w 与 l）；does it→/dʌ zɪt/（z 与 ɪ）；it take→/ɪ tteɪk/（t 与 t 顺接）；take to→/teɪk tə/；get there→/ɡɛ tðɛr/（t 与 ð）。弱读：does→/dəz/；it→/ɪt/；to→/tə/。失去爆破：get there /ɡɛ(t) ðɛr/（t 在 ð 前不完全爆破）。浊化：无典型。同化/滑音/闪音/缩读：无典型。</div></div>
@@ -624,7 +638,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">1/5</span></div>
+      <div class="assess" data-mid="13"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-13"><div class="mfill" style="width:20%;background:#dc2626"></div></div><span class="mbadge" id="mb-13">1/5</span><button class="c" onclick="VocabMastery.assess('13','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('13','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('13','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-13"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/ɪz ðɪs sit ˈteɪkən/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：Is this→/ɪz ðɪs/（z 与 ð）；this seat→/ðɪs sit/（s 与 s）；seat taken→/sit ˈteɪkən/（t 与 t）。弱读：this→/ðɪs/（此处重读）；is→/ɪz/。失去爆破：this seat /ðɪ(s) sit/（s 轻微）；seat taken /si(t) ˈteɪkən/（t 在 t 前不完全爆破）。浊化：无。同化/滑音/闪音/缩读：无典型。</div></div>
@@ -660,7 +674,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-yellow"><span class="mlbl">掌握度</span><span class="mbar lvl-yellow"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="mnum">4/5</span></div>
+      <div class="assess" data-mid="14"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-14"><div class="mfill" style="width:80%;background:#d97706"></div></div><span class="mbadge" id="mb-14">4/5</span><button class="c" onclick="VocabMastery.assess('14','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('14','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('14','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-14"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/aɪd laɪk ə ˈwɪndoʊ sit pliz/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">缩读：I'd = I would（/aɪd/，'d 为 would 缩读）。连读：like a→/laɪ kə/（k 与 ə）；a window→/ə ˈwɪndoʊ/；window seat→/ˈwɪndoʊ sit/（oʊ 与 s）；seat please→/sit pliz/（t 与 p）。弱读：a→/ə/。失去爆破：window seat /ˈwɪndoʊ(s) sit/（w 轻微）；seat please /si(t) pliz/（t 在 p 前不完全爆破）。浊化：无典型。同化/滑音/闪音：无典型。</div></div>
@@ -696,7 +710,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">1/5</span></div>
+      <div class="assess" data-mid="15"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-15"><div class="mfill" style="width:20%;background:#dc2626"></div></div><span class="mbadge" id="mb-15">1/5</span><button class="c" onclick="VocabMastery.assess('15','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('15','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('15','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-15"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/wɛr ɪz ðə ˈbæɡɪdʒ kleɪm/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：Where is→/wɛə rɪz/（r 与 ɪ）；is the→/ɪ zðə/（z 与 ð）；the baggage→/ðə ˈbæɡɪdʒ/；baggage claim→/ˈbæɡɪdʒ kleɪm/（dʒ 与 k）。弱读：is→/ɪz/；the→/ðə/。失去爆破：baggage /ˈbæɡɪ(dʒ)/ 词尾轻微；无相邻爆破典型。浊化：无典型。同化/滑音/闪音/缩读：无典型。</div></div>
@@ -732,7 +746,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="16"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-16"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-16">0/5</span><button class="c" onclick="VocabMastery.assess('16','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('16','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('16','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-16"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/maɪ ˈlʌɡɪdʒ ˈdɪdənt əˈraɪv/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">缩读：didn't = did not（/ˈdɪdənt/）。连读：My luggage→/maɪ ˈlʌɡɪdʒ/（aɪ 与 l）；luggage didn't→/ˈlʌɡɪdʒ ˈdɪdənt/（dʒ 与 d）；didn't arrive→/ˈdɪdənt əˈraɪv/（t 与 ə）。弱读：my→/maɪ/（重读）；didn't 弱读 /ˈdɪdənt/。失去爆破：luggage didn't /ˈlʌɡɪ(dʒ) ˈdɪ/（dʒ 轻微）；didn't arrive /ˈdɪdən(t) ə/（t 在 ə 前不完全爆破）。浊化：无。同化/滑音/闪音：无典型。</div></div>
@@ -768,7 +782,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">1/5</span></div>
+      <div class="assess" data-mid="17"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-17"><div class="mfill" style="width:20%;background:#dc2626"></div></div><span class="mbadge" id="mb-17">1/5</span><button class="c" onclick="VocabMastery.assess('17','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('17','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('17','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-17"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/du aɪ nid ə ˈvizə fɔr ðɪs ˈkʌntri/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：Do I→/du aɪ/（u 与 a）；I need→/aɪ nid/（aɪ 与 n）；need a→/nid ə/（d 与 ə）；visa for→/ˈvizə fɔr/（ə 与 f）；for this→/fɔr ðɪs/（r 与 ð）。弱读：do→/də/；a→/ə/；for→/fər/。失去爆破：need a /ni(d) ə/（d 在 ə 前不完全爆破）。浊化：need a 快读 /ni də/（d 本就浊）。同化/滑音/闪音/缩读：无典型。</div></div>
@@ -804,7 +818,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">1/5</span></div>
+      <div class="assess" data-mid="18"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-18"><div class="mfill" style="width:20%;background:#dc2626"></div></div><span class="mbadge" id="mb-18">1/5</span><button class="c" onclick="VocabMastery.assess('18','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('18','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('18','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-18"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/wɛr ʃʊd aɪ ɡoʊ fɔr ˈpæspɔrt kənˈtroʊl/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：Where should→/wɛr ʃʊd/（r 与 ʃ）；should I→/ʃʊ daɪ/（d 与 a）；I go→/aɪ ɡoʊ/；go for→/ɡoʊ fɔr/；for passport→/fɔr ˈpæspɔrt/；passport control→/ˈpæspɔrt kənˈtroʊl/（t 与 k）。弱读：should→/ʃʊd/；I→/aɪ/；for→/fər/。失去爆破：passport /ˈpæs(p)ɔrt/（s-p 相邻，p 轻）；should I /ʃʊ(d) aɪ/。浊化：passport 中 p 在 s 后保持清。同化/滑音/闪音/缩读：无典型。</div></div>
@@ -840,7 +854,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">1/5</span></div>
+      <div class="assess" data-mid="19"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-19"><div class="mfill" style="width:20%;background:#dc2626"></div></div><span class="mbadge" id="mb-19">1/5</span><button class="c" onclick="VocabMastery.assess('19','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('19','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('19','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-19"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/kʊd ju kɔl mi ə ˈtæksi pliz/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">同化：Could you→/kʊdʒu/（d+j 同化为 dʒ，关键！）。连读：call me→/kɔl mi/（l 与 m）；me a→/mi ə/（i 与 ə）；a taxi→/ə ˈtæksi/。弱读：me→/mi/；a→/ə/。失去爆破：call me /kɔ(l) mi/（l 轻微）；无相邻爆破典型。浊化：无。滑音/闪音/缩读：无典型。</div></div>
@@ -876,7 +890,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">1/5</span></div>
+      <div class="assess" data-mid="20"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-20"><div class="mfill" style="width:20%;background:#dc2626"></div></div><span class="mbadge" id="mb-20">1/5</span><button class="c" onclick="VocabMastery.assess('20','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('20','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('20','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-20"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/pliz drɑp mi ɔf ət ðə treɪn ˈsteɪʃən/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：drop me→/drɑp mi/（p 与 m）；me off→/mi ɔf/（i 与 ɔ）；off at→/ɔ fæt/（f 与 æ）；at the→/ət ðə/；the train→/ðə treɪn/；train station→/treɪn ˈsteɪʃən/（n 与 s）。弱读：me→/mi/；at→/ət/；the→/ðə/。失去爆破：drop me /drɑ(p) mi/（p 在 m 前不完全爆破）；train station /treɪ(n) ˈsteɪ/（n 轻微）。浊化：无。同化/滑音/闪音：无典型。缩读：无。</div></div>
@@ -912,7 +926,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">1/5</span></div>
+      <div class="assess" data-mid="21"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-21"><div class="mfill" style="width:20%;background:#dc2626"></div></div><span class="mbadge" id="mb-21">1/5</span><button class="c" onclick="VocabMastery.assess('21','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('21','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('21','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-21"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/haʊ fɑr ɪz ɪt frəm hɪr/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：How far→/haʊ fɑr/（w 与 f）；far is→/fɑ rɪz/（r 与 ɪ）；is it→/ɪ zɪt/（z 与 ɪ）；it from→/ɪt frəm/；from here→/frəm hɪr/（m 与 h）。弱读：is→/ɪz/；it→/ɪt/。失去爆破：from here /frə(m) hɪr/（m 轻微）。浊化：无。同化/滑音/闪音/缩读：无典型。</div></div>
@@ -948,7 +962,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">1/5</span></div>
+      <div class="assess" data-mid="22"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-22"><div class="mfill" style="width:20%;background:#dc2626"></div></div><span class="mbadge" id="mb-22">1/5</span><button class="c" onclick="VocabMastery.assess('22','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('22','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('22','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-22"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/kæn ju ʃoʊ mi ɑn ðə mæp/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：Can you→/kæn ju/（n 与 j，可同化为 /kændʒu/）；you show→/ju ʃoʊ/；show me→/ʃoʊ mi/（oʊ 与 m）；me on→/mi ɑn/（i 与 ɑ）；on the→/ɑn ðə/；the map→/ðə mæp/。弱读：you→/jə/（可保留 /ju/）；me→/mi/；on→/ən/；the→/ðə/。同化：Can you 快读 /kændʒu/（n+j）。失去爆破：show me /ʃoʊ(m)/（轻微）。浊化：无典型。滑音/闪音/缩读：无典型。</div></div>
@@ -984,7 +998,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">1/5</span></div>
+      <div class="assess" data-mid="23"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-23"><div class="mfill" style="width:20%;background:#dc2626"></div></div><span class="mbadge" id="mb-23">1/5</span><button class="c" onclick="VocabMastery.assess('23','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('23','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('23','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-23"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/tɜrn lɛft ət ðə nɛkst ˈkɔrnər/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：Turn left→/tɜrn lɛft/（n 与 l）；left at→/lɛf tæt/（f 与 æ）；at the→/ət ðə/；the next→/ðə nɛkst/；next corner→/nɛkst ˈkɔrnər/（t 与 k）。弱读：at→/ət/；the→/ðə/。失去爆破：left at /lɛ(f) tæt/（f 轻微）；next corner /nɛks(t) ˈkɔr/（t 在 k 前不完全爆破）。浊化：无。同化/滑音/闪音：无典型。缩读：无。</div></div>
@@ -1020,7 +1034,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">1/5</span></div>
+      <div class="assess" data-mid="24"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-24"><div class="mfill" style="width:20%;background:#dc2626"></div></div><span class="mbadge" id="mb-24">1/5</span><button class="c" onclick="VocabMastery.assess('24','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('24','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('24','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-24"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/ɪz ðɛr ə ˈfɑrməsi ˈnɪrbaɪ/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：Is there→/ɪz ðɛr/（z 与 ð）；there a→/ðɛ rə/（r 与 ə）；a pharmacy→/ə ˈfɑrməsi/；pharmacy nearby→/ˈfɑrməsi ˈnɪrbaɪ/（i 与 n）。弱读：there→/ðɛr/；a→/ə/。失去爆破：无相邻爆破典型（注：含 good boy 等时标失去爆破）。浊化：无。同化/滑音/闪音/缩读：无典型。</div></div>
@@ -1056,7 +1070,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">1/5</span></div>
+      <div class="assess" data-mid="25"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-25"><div class="mfill" style="width:20%;background:#dc2626"></div></div><span class="mbadge" id="mb-25">1/5</span><button class="c" onclick="VocabMastery.assess('25','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('25','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('25','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-25"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/aɪd laɪk tə tʃɛk ɪn pliz/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">缩读：I'd = I would（/aɪd/）。连读：like to→/laɪk tə/（可连成 /laɪktə/）；to check→/tə tʃɛk/；check in→/tʃɛk ɪn/（k 与 ɪ）。弱读：to→/tə/。浊化：like to 快读 /laɪ də/（t→d）。失去爆破：check in /tʃɛ(k) ɪn/（k 在 ɪ 前不完全爆破）。滑音/闪音/同化：无典型。</div></div>
@@ -1092,7 +1106,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">1/5</span></div>
+      <div class="assess" data-mid="26"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-26"><div class="mfill" style="width:20%;background:#dc2626"></div></div><span class="mbadge" id="mb-26">1/5</span><button class="c" onclick="VocabMastery.assess('26','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('26','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('26','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-26"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/aɪ hæv ə ˌrɛzərˈveɪʃən ˈʌndər ðə neɪm li/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：have a→/hæ və/（v 与 ə）；a reservation→/ə ˌrɛzərˈveɪʃən/；reservation under→/ˌrɛzərˈveɪʃən ˈʌndər/（n 与 ʌ）；under the→/ˈʌndər ðə/；the name→/ðə neɪm/；name Lee→/neɪm li/（m 与 l）。弱读：a→/ə/；under→/ˈʌndər/（弱读 /əndər/）；the→/ðə/。失去爆破：name Lee /neɪ(m) li/（m 轻微）；reservation /ˌrɛzərˈveɪʃən/ 词尾 n 轻微。浊化：无典型。同化/滑音/闪音/缩读：无典型。</div></div>
@@ -1128,7 +1142,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">1/5</span></div>
+      <div class="assess" data-mid="27"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-27"><div class="mfill" style="width:20%;background:#dc2626"></div></div><span class="mbadge" id="mb-27">1/5</span><button class="c" onclick="VocabMastery.assess('27','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('27','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('27','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-27"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/wʌt taɪm ɪz ˈbrɛkfəst sɜrvd/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：What time→/wʌt taɪm/（t 与 t）；time is→/taɪm ɪz/（m 与 ɪ）；is breakfast→/ɪz ˈbrɛkfəst/（z 与 b）；breakfast served→/ˈbrɛkfəst sɜrvd/（t 与 s）。弱读：is→/ɪz/。失去爆破：breakfast served /ˈbrɛkfəs(t) sɜrvd/（t 在 s 前不完全爆破）。浊化：breakfast 词尾 t 在 s 前快读可浊 /ˈbrɛkfəsd/。同化/滑音/闪音/缩读：无典型。</div></div>
@@ -1164,7 +1178,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">1/5</span></div>
+      <div class="assess" data-mid="28"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-28"><div class="mfill" style="width:20%;background:#dc2626"></div></div><span class="mbadge" id="mb-28">1/5</span><button class="c" onclick="VocabMastery.assess('28','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('28','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('28','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-28"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/kʊd aɪ hæv ə rum wɪð ə ˈbɛtər vju/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">同化：无典型。连读：Could I→/kʊ daɪ/（d 与 a）；I have→/aɪ hæv/；have a→/hæ və/；a room→/ə rum/；room with→/rum wɪð/（m 与 w 滑音）；with a→/wɪð ə/；a better→/ə ˈbɛtər/；better view→/ˈbɛtər vju/（r 与 v）。弱读：a→/ə/；with→/wɪð/。浊化：无。滑音：room with 中 /m/ 与 /w/ 间加 w 滑音。失去爆破：无相邻爆破典型。闪音：better→/ˈbɛɾər/（美式元音间 t 标闪音 /ɾ/，关键！）。缩读：无。</div></div>
@@ -1200,7 +1214,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">1/5</span></div>
+      <div class="assess" data-mid="29"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-29"><div class="mfill" style="width:20%;background:#dc2626"></div></div><span class="mbadge" id="mb-29">1/5</span><button class="c" onclick="VocabMastery.assess('29','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('29','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('29','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-29"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/ðə ɛr kənˈdɪʃənɪŋ ˈdʌzənt wɜrk/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">缩读：doesn't = does not（/ˈdʌzənt/）。连读：The air→/ðə ɛr/（ð 与 ɛ）；air conditioning→/ɛr kənˈdɪʃənɪŋ/（r 与 k）；conditioning doesn't→/kənˈdɪʃənɪŋ ˈdʌzənt/（ŋ 与 d）；doesn't work→/ˈdʌzənt wɜrk/（t 与 w）。弱读：the→/ðə/。失去爆破：doesn't work /ˈdʌzən(t) wɜrk/（t 在 w 前不完全爆破）。浊化：无。同化/滑音/闪音：无典型。</div></div>
@@ -1236,7 +1250,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">1/5</span></div>
+      <div class="assess" data-mid="30"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-30"><div class="mfill" style="width:20%;background:#dc2626"></div></div><span class="mbadge" id="mb-30">1/5</span><button class="c" onclick="VocabMastery.assess('30','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('30','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('30','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-30"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/wʌts ðə ˈwaɪ faɪ ˈpæswɜrd/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">缩读：What's = What is（/wʌts/）。连读：What's the→/wʌts ðə/（s 与 ð）；the Wi-Fi→/ðə ˈwaɪ/；Wi-Fi password→/ˈwaɪ faɪ ˈpæswɜrd/（faɪ 与 p）。弱读：the→/ðə/。失去爆破：password /ˈpæs(w)ɜrd/（s 轻微）。浊化：无。同化/滑音/闪音：无典型。</div></div>
@@ -1272,7 +1286,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="31"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-31"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-31">0/5</span><button class="c" onclick="VocabMastery.assess('31','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('31','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('31','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-31"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/kʊd wi hæv ðə ˈmɛnju pliz/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">同化：无典型。连读：Could we→/kʊd wi/（d 与 w）；we have→/wi hæv/；have the→/hæv ðə/（v 与 ð）；the menu→/ðə ˈmɛnju/；menu please→/ˈmɛnju pliz/（ju 与 p）。弱读：we→/wi/；the→/ðə/。失去爆破：have the /hæ(v) ðə/（v 轻微）；menu please /ˈmɛnju(p) pliz/（p 在 p 前轻）。浊化：无。滑音/闪音/缩读：无典型（注：could 后接 we 无 d+j 同化，因 we 以 w 起）。</div></div>
@@ -1308,7 +1322,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="32"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-32"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-32">0/5</span><button class="c" onclick="VocabMastery.assess('32','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('32','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('32','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-32"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/aɪm əˈlɜrdʒɪk tə ˈpinʌts/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">缩读：I'm = I am（/aɪm/）。连读：I'm allergic→/aɪm əˈlɜrdʒɪk/（m 与 ə）；allergic to→/əˈlɜrdʒɪk tə/（k 与 tə）；to peanuts→/tə ˈpinʌts/（tə 与 p）。弱读：to→/tə/。失去爆破：allergic to /əˈlɜrdʒɪ(k) tə/（k 在 t 前不完全爆破）。浊化：无。同化/滑音/闪音：无典型。</div></div>
@@ -1344,7 +1358,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="33"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-33"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-33">0/5</span><button class="c" onclick="VocabMastery.assess('33','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('33','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('33','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-33"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/kʊd ju brɪŋ mi ðə bɪl pliz/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">同化：Could you→/kʊdʒu/（d+j 同化为 dʒ，关键！）。连读：bring me→/brɪŋ mi/（ŋ 与 m）；me the→/mi ðə/（i 与 ð）；the bill→/ðə bɪl/；bill please→/bɪl pliz/（l 与 p）。弱读：me→/mi/；the→/ðə/。失去爆破：bring me /brɪ(ŋ) mi/（ŋ 轻微）；bill please /bɪ(l) pliz/（l 轻微）。浊化：无。滑音/闪音/缩读：无典型。</div></div>
@@ -1380,7 +1394,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="34"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-34"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-34">0/5</span><button class="c" onclick="VocabMastery.assess('34','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('34','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('34','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-34"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/ɪz ðə tɪp ɪnˈkludɪd/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：Is the→/ɪ zðə/（z 与 ð）；the tip→/ðə tɪp/；tip included→/tɪp ɪnˈkludɪd/（p 与 ɪ）。弱读：the→/ðə/。失去爆破：tip included /tɪ(p) ɪn/（p 在 ɪ 前不完全爆破）。浊化：无。同化/滑音/闪音/缩读：无典型。</div></div>
@@ -1416,7 +1430,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="35"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-35"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-35">0/5</span><button class="c" onclick="VocabMastery.assess('35','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('35','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('35','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-35"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/du ju hæv ðɪs ɪn ə ˈlɑrdʒər saɪz/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：Do you→/dʒu/（d+j 同化为 dʒ，关键！）；you have→/ju hæv/；have this→/hæv ðɪs/（v 与 ð）；this in→/ðɪs ɪn/（s 与 ɪ）；in a→/ɪ nə/（n 与 ə）；a larger→/ə ˈlɑrdʒər/；larger size→/ˈlɑrdʒər saɪz/（r 与 s）。弱读：you→/jə/；have→/həv/；a→/ə/；in→/ɪn/。同化：Do you→/dʒu/。失去爆破：this in /ðɪ(s) ɪn/（s 轻微）。浊化：无。闪音：larger→/ˈlɑrdʒər/（词尾 r 连 s，无 t 闪音）。缩读：无。</div></div>
@@ -1452,7 +1466,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="36"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-36"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-36">0/5</span><button class="c" onclick="VocabMastery.assess('36','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('36','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('36','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-36"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/kæn aɪ traɪ ðɪs ɑn/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：Can I→/kæn aɪ/（n 与 a）；I try→/aɪ traɪ/；try this→/traɪ ðɪs/（aɪ 与 ð）；this on→/ðɪs ɑn/（s 与 ɑ）。弱读：I→/aɪ/（重读）；can→/kæn/。失去爆破：this on /ðɪ(s) ɑn/（s 轻微）；try this /traɪ(ð) ðɪs/（ð 轻微）。浊化：无。同化/滑音/闪音/缩读：无典型。</div></div>
@@ -1488,7 +1502,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="37"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-37"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-37">0/5</span><button class="c" onclick="VocabMastery.assess('37','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('37','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('37','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-37"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/ðæts ə bɪt ɪkˈspɛnsɪv fɔr mi/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">缩读：That's = That is（/ðæts/）。连读：That's a→/ðæts ə/（s 与 ə）；a bit→/ə bɪt/；bit expensive→/bɪt ɪkˈspɛnsɪv/（t 与 ɪ）；expensive for→/ɪkˈspɛnsɪv fɔr/；for me→/fɔr mi/。弱读：a→/ə/；for→/fər/；me→/mi/。失去爆破：bit expensive /bɪ(t) ɪk/（t 在 ɪ 前不完全爆破）。浊化：无。同化/滑音/闪音：无典型。</div></div>
@@ -1524,7 +1538,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="38"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-38"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-38">0/5</span><button class="c" onclick="VocabMastery.assess('38','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('38','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('38','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-38"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/du ju əkˈsɛpt ˈkrɛdɪt kɑrdz/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：Do you→/dʒu/（d+j 同化为 dʒ，关键！）；you accept→/ju əkˈsɛpt/；accept credit→/əkˈsɛpt ˈkrɛdɪt/（t 与 k）；credit cards→/ˈkrɛdɪt kɑrdz/（t 与 k）。弱读：you→/jə/。同化：Do you→/dʒu/。失去爆破：accept credit /əkˈsɛp(t) ˈkrɛ/（t 在 k 前不完全爆破）；credit cards /ˈkrɛdɪ(t) kɑrdz/（t 在 k 前）。浊化：无。闪音：credit→/ˈkrɛdɪt/ 词尾 t 在 k 前不完全爆破（非闪音）。缩读：无。</div></div>
@@ -1560,7 +1574,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="39"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-39"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-39">0/5</span><button class="c" onclick="VocabMastery.assess('39','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('39','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('39','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-39"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/kæn aɪ ɡɛt ə ˈrifʌnd/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：Can I→/kæn aɪ/（n 与 a）；I get→/aɪ ɡɛt/；get a→/ɡɛ tə/（t 与 ə）；a refund→/ə ˈrifʌnd/。弱读：I→/aɪ/；a→/ə/。失去爆破：get a /ɡɛ(t) ə/（t 在 ə 前不完全爆破）。浊化：get a 快读 /ɡɛ də/（t→d）。同化/滑音/闪音/缩读：无典型。</div></div>
@@ -1596,7 +1610,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="40"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-40"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-40">0/5</span><button class="c" onclick="VocabMastery.assess('40','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('40','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('40','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-40"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/wɛr ɑr ðə ˈtʃeɪndʒɪŋ rumz/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：Where are→/wɛr ɑr/（r 与 ɑ）；are the→/ɑr ðə/（r 与 ð）；the changing→/ðə ˈtʃeɪndʒɪŋ/；changing rooms→/ˈtʃeɪndʒɪŋ rumz/（ŋ 与 r）。弱读：are→/ər/；the→/ðə/。失去爆破：无相邻爆破典型。浊化：无。同化/滑音/闪音/缩读：无典型。</div></div>
@@ -1632,7 +1646,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="41"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-41"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-41">0/5</span><button class="c" onclick="VocabMastery.assess('41','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('41','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('41','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-41"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/aɪm ˈlʊkɪŋ fɔr ə ˌsuvəˈnɪr fɔr maɪ frɛnd/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">缩读：I'm = I am（/aɪm/）。连读：looking for→/ˈlʊkɪŋ fɔr/（ŋ 与 f）；for a→/fɔr ə/；a souvenir→/ə ˌsuvəˈnɪr/；souvenir for→/ˌsuvəˈnɪr fɔr/；for my→/fɔr maɪ/；my friend→/maɪ frɛnd/（aɪ 与 f）。弱读：for→/fər/；a→/ə/；my→/maɪ/（重读）。失去爆破：looking for /ˈlʊkɪŋ(f)ɔr/（ŋ 轻微）。浊化：无。同化/滑音/闪音/缩读：无典型。</div></div>
@@ -1668,7 +1682,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="42"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-42"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-42">0/5</span><button class="c" onclick="VocabMastery.assess('42','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('42','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('42','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-42"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/ɪz ðɛr ə ˈdɪskaʊnt fɔr ˈstudənts/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：Is there→/ɪz ðɛr/（z 与 ð）；there a→/ðɛ rə/；a discount→/ə ˈdɪskaʊnt/；discount for→/ˈdɪskaʊnt fɔr/；for students→/fɔr ˈstudənts/。弱读：there→/ðɛr/；a→/ə/；for→/fər/。失去爆破：discount for /ˈdɪskaʊn(t) fɔr/（t 在 f 前不完全爆破）；students /ˈstudənts/ 词尾 ts 轻。浊化：无。同化/滑音/闪音/缩读：无典型。</div></div>
@@ -1704,7 +1718,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="43"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-43"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-43">0/5</span><button class="c" onclick="VocabMastery.assess('43','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('43','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('43','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-43"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/wʌt taɪm dʌz ðə mjuˈziəm ˈoʊpən/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：What time→/wʌt taɪm/（t 与 t）；time does→/taɪm dʌz/（m 与 d）；does the→/dʌz ðə/（z 与 ð）；the museum→/ðə mjuˈziəm/；museum open→/mjuˈziəm ˈoʊpən/（m 与 o）。弱读：does→/dəz/；the→/ðə/。失去爆破：museum open /mjuˈziə(m) ˈoʊ/（m 轻微）。浊化：无。同化/滑音/闪音/缩读：无典型。</div></div>
@@ -1740,7 +1754,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="44"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-44"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-44">0/5</span><button class="c" onclick="VocabMastery.assess('44','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('44','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('44','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-44"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/ɑr ðɛr ˈɛni ˈɡaɪdɪd tʊrz/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：Are there→/ɑr ðɛr/（r 与 ð）；there any→/ðɛ rɛni/（r 与 ɛ）；any guided→/ˈɛni ˈɡaɪdɪd/；guided tours→/ˈɡaɪdɪd tʊrz/（d 与 t）。弱读：are→/ər/；there→/ðɛr/；any→/ˈɛni/（重读）。失去爆破：guided tours /ˈɡaɪdɪ(d) tʊrz/（d 在 t 前不完全爆破）。浊化：无。同化/滑音/闪音：无典型。缩读：无。</div></div>
@@ -1776,7 +1790,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="45"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-45"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-45">0/5</span><button class="c" onclick="VocabMastery.assess('45','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('45','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('45','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-45"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/kæn aɪ teɪk ə ˈfoʊtoʊ hɪr/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：Can I→/kæn aɪ/（n 与 a）；I take→/aɪ teɪk/；take a→/teɪk ə/（k 与 ə）；a photo→/ə ˈfoʊtoʊ/；photo here→/ˈfoʊtoʊ hɪr/（oʊ 与 h）。弱读：I→/aɪ/；a→/ə/。失去爆破：take a /teɪ(k) ə/（k 在 ə 前不完全爆破）。浊化：无。同化/滑音/闪音/缩读：无典型。</div></div>
@@ -1812,7 +1826,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="46"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-46"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-46">0/5</span><button class="c" onclick="VocabMastery.assess('46','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('46','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('46','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-46"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/wɛr ɪz ðə ˈnɪrɪst ˈrɛstrum/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：Where is→/wɛə rɪz/（r 与 ɪ）；is the→/ɪ zðə/（z 与 ð）；the nearest→/ðə ˈnɪrɪst/；nearest restroom→/ˈnɪrɪst ˈrɛstrum/（t 与 r）。弱读：is→/ɪz/；the→/ðə/。失去爆破：nearest restroom /ˈnɪrɪ(s)t ˈrɛs/（t 在 r 前不完全爆破）。浊化：无。同化/滑音/闪音：无典型。缩读：无。</div></div>
@@ -1848,7 +1862,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="47"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-47"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-47">0/5</span><button class="c" onclick="VocabMastery.assess('47','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('47','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('47','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-47"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/aɪ lɔst maɪ ˈwɑlɪt/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：I lost→/aɪ lɔst/（aɪ 与 l）；lost my→/lɔs maɪ/（t 与 m）；my wallet→/maɪ ˈwɑlɪt/（aɪ 与 w）。弱读：my→/maɪ/（重读）。失去爆破：lost my /lɔ(s)t maɪ/（s-t，/t/ 在 m 前不完全爆破）。浊化：lost my 快读 /lɔz maɪ/ 或 /lɔd maɪ/（t→d，典型）。同化/滑音/闪音/缩读：无典型。</div></div>
@@ -1884,7 +1898,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="48"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-48"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-48">0/5</span><button class="c" onclick="VocabMastery.assess('48','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('48','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('48','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-48"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/aɪ nid tə si ə ˈdɑktər/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：need to→/nid tə/（d 与 tə）；to see→/tə si/（tə 与 s）；see a→/si ə/（i 与 ə）；a doctor→/ə ˈdɑktər/。弱读：to→/tə/；a→/ə/。浊化：need to 快读 /ni də/（d→d 本浊）；see a 中 a 弱读。失去爆破：need to /ni(d) tə/（d 在 t 前轻）。同化/滑音/闪音/缩读：无典型。</div></div>
@@ -1920,7 +1934,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="49"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-49"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-49">0/5</span><button class="c" onclick="VocabMastery.assess('49','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('49','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('49','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-49"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/kɔl ðə pəˈlis pliz/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：Call the→/kɔl ðə/（l 与 ð）；the police→/ðə pəˈlis/；police please→/pəˈlis pliz/（s 与 p）。弱读：the→/ðə/。失去爆破：call the /kɔ(l) ðə/（l 轻微）；police please /pəˈli(s) pliz/（s 轻）。浊化：无。同化/滑音/闪音/缩读：无典型。</div></div>
@@ -1956,7 +1970,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="50"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-50"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-50">0/5</span><button class="c" onclick="VocabMastery.assess('50','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('50','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('50','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-50"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/aɪv mɪst maɪ flaɪt/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">缩读：I've = I have（/aɪv/）。连读：I've missed→/aɪv mɪst/（v 与 m）；missed my→/mɪst maɪ/（t 与 m）；my flight→/maɪ flaɪt/（aɪ 与 f）。弱读：my→/maɪ/（重读）。失去爆破：missed my /mɪ(s)t maɪ/（s-t，/t/ 在 m 前不完全爆破）。浊化：missed my 快读 /mɪz maɪ/ 或 /mɪd maɪ/（t→d，典型）。同化/滑音/闪音/缩读：无典型。</div></div>
@@ -1992,7 +2006,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="51"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-51"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-51">0/5</span><button class="c" onclick="VocabMastery.assess('51','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('51','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('51','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-51"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/kæn ju spiːk mɔr ˈsloʊli pliz/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：Can you→/kæn ju/（n 与 j，可同化 /kændʒu/）；you speak→/ju spiːk/；speak more→/spiːk mɔr/（k 与 m）；more slowly→/mɔr ˈsloʊli/（r 与 s）。弱读：you→/jə/（可保留 /ju/）。同化：Can you 快读 /kændʒu/（n+j）。失去爆破：speak more /spiː(k) mɔr/（k 在 m 前轻）。浊化：无。滑音/闪音/缩读：无典型。</div></div>
@@ -2028,7 +2042,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="52"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-52"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-52">0/5</span><button class="c" onclick="VocabMastery.assess('52','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('52','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('52','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-52"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/aɪ doʊnt ˌʌndərˈstænd/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">缩读：don't = do not（/doʊnt/）。连读：I don't→/aɪ doʊnt/（aɪ 与 d）；don't understand→/doʊnt ˌʌndərˈstænd/（t 与 ʌ）。弱读：I→/aɪ/（重读）。失去爆破：don't understand /doʊn(t) ˌʌn/（t 在 ʌ 前不完全爆破）。浊化：无。同化/滑音/闪音：无典型。</div></div>
@@ -2064,7 +2078,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="53"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-53"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-53">0/5</span><button class="c" onclick="VocabMastery.assess('53','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('53','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('53','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-53"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/dʌz ˈɛniwʌn hɪr spik ˈɪŋɡlɪʃ/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：Does anyone→/dʌz ˈɛniwʌn/（z 与 ɛ）；anyone here→/ˈɛniwʌn hɪr/（n 与 h）；here speak→/hɪr spik/（r 与 s）；speak English→/spik ˈɪŋɡlɪʃ/（k 与 ɪ）。弱读：does→/dəz/。失去爆破：anyone here /ˈɛniwʌ(n) hɪr/（n 轻微）；speak English /spi(k) ˈɪŋ/（k 在 ɪ 前不完全爆破）。浊化：无。同化/滑音/闪音/缩读：无典型。</div></div>
@@ -2100,7 +2114,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="54"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-54"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-54">0/5</span><button class="c" onclick="VocabMastery.assess('54','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('54','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('54','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-54"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/θæŋk ju soʊ mʌtʃ fɔr jʊr hɛlp/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：Thank you→/θæŋk ju/（ŋk 与 j，可同化 /θæŋkju/）；you so→/ju soʊ/；so much→/soʊ mʌtʃ/（oʊ 与 m）；much for→/mʌtʃ fɔr/（tʃ 与 f）；for your→/fɔr jʊr/（r 与 j）；your help→/jʊr hɛlp/。弱读：you→/jə/（可保留 /ju/）；for→/fər/；your→/jər/。同化：Thank you 快读 /θæŋkju/（k+j 轻微）。失去爆破：thank you /θæŋ(k) ju/（k 在 j 前不完全爆破）。浊化：无。滑音/闪音/缩读：无典型。</div></div>
@@ -2136,7 +2150,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="55"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-55"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-55">0/5</span><button class="c" onclick="VocabMastery.assess('55','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('55','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('55','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-55"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/hæv ə naɪs deɪ/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：Have a→/hæ və/（v 与 ə）；a nice→/ə naɪs/；nice day→/naɪs deɪ/（s 与 d）。弱读：a→/ə/。失去爆破：nice day /naɪ(s) deɪ/（s 轻微）。浊化：无。同化/滑音/闪音/缩读：无典型。</div></div>
@@ -2172,7 +2186,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="56"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-56"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-56">0/5</span><button class="c" onclick="VocabMastery.assess('56','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('56','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('56','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-56"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/aɪ wʌz ˈwʌndərɪŋ ɪf ju kʊd hɛlp mi faɪnd ðə ˈnɪrɪst ˈhɑspɪtl əz aɪm nɑt ˈfilɪŋ wɛl/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">同化：Could you→/kʊdʒu/（d+j 同化，关键！）。连读：was wondering→/wʌz ˈwʌndərɪŋ/（z 与 w）；if you→/ɪf ju/（f 与 j）；you could→/ju kʊd/；help me→/hɛlp mi/（p 与 m）；me find→/mi faɪnd/（i 与 f）；find the→/faɪnd ðə/；the nearest→/ðə ˈnɪrɪst/；hospital as→/ˈhɑspɪtl əz/（l 与 ə）；as I'm→/əz aɪm/（z 与 a）；I'm not→/aɪm nɑt/；not feeling→/nɑt ˈfilɪŋ/；feeling well→/ˈfilɪŋ wɛl/（ŋ 与 w）。弱读：you→/jə/；me→/mi/；the→/ðə/；as→/əz/；I'm→/aɪm/。失去爆破：help me /hɛ(l)p mi/（l 轻）；nearest /ˈnɪrɪ(s)t/（t 轻）；feeling well /ˈfilɪŋ(w)ɛl/。浊化：无。闪音：hospital→/ˈhɑspɪtl/（词尾 l 无闪音，但 testing/letting 等含闪音，本句无典型）。缩读：I'm = I am。</div></div>
@@ -2208,7 +2222,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="57"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-57"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-57">0/5</span><button class="c" onclick="VocabMastery.assess('57','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('57','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('57','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-57"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/ɪf ɪts nɑt tu mʌtʃ ˈtrʌbəl kʊd ju lɛt mi noʊ wɛn wi əˈraɪv ət ðə mjuˈziəm/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">同化：Could you→/kʊdʒu/（d+j 同化，关键！）。连读：If it's→/ɪf ɪts/（f 与 s）；it's not→/ɪts nɑt/（s 与 n）；not too→/nɑ tʊ/（两 t 只读一次）；much trouble→/mʌtʃ ˈtrʌbəl/（tʃ 与 t）；could you→/kʊdʒu/；you let→/ju lɛt/；let me→/lɛt mi/（t 与 m）；me know→/mi noʊ/（i 与 n）；know when→/noʊ wɛn/（oʊ 与 w）；when we→/wɛn wi/（n 与 w）；we arrive→/wi əˈraɪv/；arrive at→/əˈraɪv ət/；at the→/ət ðə/；the museum→/ðə mjuˈziəm/。弱读：you→/jə/；me→/mi/；at→/ət/；the→/ðə/。浊化：not too 快读 /nɑ dʊ/（t→d）。失去爆破：much trouble /mʌtʃ ˈtrʌ(b)əl/（b 轻）；let me /lɛ(t) mi/（t 在 m 前不完全爆破）；arrive at /əˈraɪ(v) ət/。缩读：it's = it is。滑音/闪音：无典型。</div></div>
@@ -2244,7 +2258,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="58"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-58"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-58">0/5</span><button class="c" onclick="VocabMastery.assess('58','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('58','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('58','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-58"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/aɪd laɪk tə ɪkˈstɛnd maɪ steɪ baɪ tu naɪts ɪf ðæts ˈpɑsəbəl/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">缩读：I'd = I would（/aɪd/）；that's = that is（/ðæts/）。连读：like to→/laɪk tə/（可 /laɪktə/）；to extend→/tə ɪkˈstɛnd/；extend my→/ɪkˈstɛnd maɪ/（d 与 m）；my stay→/maɪ steɪ/（aɪ 与 s）；stay by→/steɪ baɪ/（aɪ 与 b）；by two→/baɪ tu/；two nights→/tu naɪts/（u 与 n）；if that's→/ɪf ðæts/（f 与 s）；that's possible→/ðæts ˈpɑsəbəl/（s 与 p）。弱读：to→/tə/；my→/maɪ/；if→/ɪf/。浊化：like to 快读 /laɪ də/（t→d）。失去爆破：extend my /ɪkˈstɛn(d) maɪ/（d 轻）；two nights /tu naɪ(t)s/（t 在 s 前不完全爆破）。闪音：无典型。同化：无。</div></div>
@@ -2280,7 +2294,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="59"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-59"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-59">0/5</span><button class="c" onclick="VocabMastery.assess('59','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('59','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('59','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-59"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/haʊ ɑr ju ˈduɪŋ təˈdeɪ/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：How are→/haʊ ɑr/（w 与 ɑ）；are you→/ɑr ju/（r 与 j）；you doing→/ju ˈduɪŋ/（u 与 d）；doing today→/ˈduɪŋ təˈdeɪ/（ŋ 与 t）。弱读：are→/ər/；you→/jə/（可保留 /ju/）。同化：are you 快读 /ɑrju/（无 d+j，因 are 以 r 尾）。失去爆破：doing today /ˈduɪŋ(t)ə/（ŋ 轻）。浊化：无。滑音/闪音/缩读：无典型。</div></div>
@@ -2316,7 +2330,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="60"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-60"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-60">0/5</span><button class="c" onclick="VocabMastery.assess('60','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('60','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('60','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-60"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/lɔŋ taɪm no si/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：Long time→/lɔŋ taɪm/（ŋ 与 t）；time no→/taɪm noʊ/（m 与 n）；no see→/noʊ si/（oʊ 与 s）。弱读：no→/noʊ/（重读）。失去爆破：long time /lɔ(ŋ) taɪm/（ŋ 轻）；no see /noʊ(s)i/（s 轻）。浊化：无。同化/滑音/闪音/缩读：无典型。</div></div>
@@ -2352,7 +2366,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="61"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-61"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-61">0/5</span><button class="c" onclick="VocabMastery.assess('61','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('61','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('61','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-61"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/wʌts jʊr neɪm əˈɡɛn/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">缩读：What's = What is（/wʌts/）。连读：What's your→/wʌts jʊr/（s 与 j）；your name→/jʊr neɪm/（r 与 n）；name again→/neɪm əˈɡɛn/（m 与 ə）。弱读：your→/jər/；again→/əˈɡɛn/（重读第二音节）。失去爆破：name again /neɪ(m) ə/（m 轻）。浊化：无。同化：What's your 快读 /wʌtʃər/（t+j 轻微同化，tʃ）。滑音/闪音/缩读：无典型。</div></div>
@@ -2388,7 +2402,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="62"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-62"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-62">0/5</span><button class="c" onclick="VocabMastery.assess('62','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('62','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('62','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-62"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/wɛr ɑr ju frəm/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：Where are→/wɛr ɑr/（r 与 ɑ）；are you→/ɑr ju/（r 与 j）；you from→/ju frəm/（u 与 f）。弱读：are→/ər/；you→/jə/（可保留 /ju/）；from→/frəm/（弱读 /frəm/，此处重读 /frʌm/）。同化：are you 快读 /ɑrju/（无 d+j）。失去爆破：you from /ju(f)rəm/（f 轻）。浊化：无。滑音/闪音/缩读：无典型。</div></div>
@@ -2424,7 +2438,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="63"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-63"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-63">0/5</span><button class="c" onclick="VocabMastery.assess('63','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('63','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('63','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-63"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/naɪs ˈtɔkɪŋ tə ju/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：Nice talking→/naɪs ˈtɔkɪŋ/（s 与 t）；talking to→/ˈtɔkɪŋ tə/（ŋ 与 t）；to you→/tə ju/（tə 与 j）。弱读：to→/tə/；you→/jə/（可保留 /ju/）。失去爆破：talking to /ˈtɔkɪŋ(t)ə/（ŋ 轻）。浊化：无。同化：to you 快读 /təju/（无 d+j）。滑音/闪音/缩读：无典型。</div></div>
@@ -2460,7 +2474,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="64"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-64"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-64">0/5</span><button class="c" onclick="VocabMastery.assess('64','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('64','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('64','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-64"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/kʊd aɪ ɡɛt jʊr foʊn ˈnʌmbər/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">同化：无典型。连读：Could I→/kʊ daɪ/（d 与 a）；I get→/aɪ ɡɛt/；get your→/ɡɛt jʊr/（t 与 j）；your phone→/jʊr foʊn/；phone number→/foʊn ˈnʌmbər/（n 与 n）。弱读：your→/jər/。同化：get your 快读 /ɡɛtʃər/（t+j 同化为 tʃ，关键！）。失去爆破：get your /ɡɛ(t) jʊr/（t 在 j 前不完全爆破）。浊化：无。滑音/闪音/缩读：无典型。</div></div>
@@ -2496,7 +2510,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="65"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-65"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-65">0/5</span><button class="c" onclick="VocabMastery.assess('65','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('65','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('65','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-65"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/lɛts kip ɪn tʌtʃ/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">缩读：Let's = Let us（/lɛts/）。连读：Let's keep→/lɛts kip/（s 与 k）；keep in→/kip ɪn/（p 与 ɪ）；in touch→/ɪn tʌtʃ/（n 与 t）。弱读：in→/ɪn/。失去爆破：keep in /ki(p) ɪn/（p 在 ɪ 前不完全爆破）。浊化：无。同化/滑音/闪音：无典型。</div></div>
@@ -2532,7 +2546,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="66"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-66"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-66">0/5</span><button class="c" onclick="VocabMastery.assess('66','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('66','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('66','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-66"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/ɑr ju fri ðɪs ˈwikɛnd/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：Are you→/ɑr ju/（r 与 j）；you free→/ju fri/（u 与 f）；free this→/fri ðɪs/（i 与 ð）；this weekend→/ðɪs ˈwikɛnd/（s 与 w）。弱读：are→/ər/；you→/jə/（可保留 /ju/）。同化：are you 快读 /ɑrju/（无 d+j）。失去爆破：free this /fri(ð) ðɪs/（ð 轻）；this weekend /ðɪ(s) ˈwi/（s 轻）。浊化：无。滑音/闪音/缩读：无典型。</div></div>
@@ -2568,7 +2582,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="67"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-67"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-67">0/5</span><button class="c" onclick="VocabMastery.assess('67','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('67','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('67','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-67"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/ˈsɑri aɪ kænt meɪk ɪt/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">缩读：can't = can not（/kænt/）。连读：Sorry, I→/ˈsɑri aɪ/（i 与 a）；I can't→/aɪ kænt/；can't make→/kænt meɪk/（t 与 m）；make it→/meɪk ɪt/（k 与 ɪ）。弱读：I→/aɪ/（重读）。失去爆破：can't make /kæn(t) meɪk/（t 在 m 前不完全爆破）；make it /meɪ(k) ɪt/（k 在 ɪ 前）。浊化：无。同化/滑音/闪音：无典型。</div></div>
@@ -2604,7 +2618,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="68"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-68"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-68">0/5</span><button class="c" onclick="VocabMastery.assess('68','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('68','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('68','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-68"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/ˈmeɪbi əˈnʌðər taɪm/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：Maybe another→/ˈmeɪbi əˈnʌðər/（i 与 ə）；another time→/əˈnʌðər taɪm/（r 与 t）。弱读：another→/əˈnʌðər/（弱读 /ənʌðər/，此处重读）。失去爆破：another time /əˈnʌðər(t)aɪm/（r 轻）。浊化：无。同化/滑音/闪音/缩读：无典型。</div></div>
@@ -2640,7 +2654,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="69"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-69"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-69">0/5</span><button class="c" onclick="VocabMastery.assess('69','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('69','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('69','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-69"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/wʌts ðə ˈwɛðər laɪk təˈdeɪ/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">缩读：What's = What is（/wʌts/）。连读：What's the→/wʌts ðə/（s 与 ð）；the weather→/ðə ˈwɛðər/；weather like→/ˈwɛðər laɪk/（r 与 l）；like today→/laɪk təˈdeɪ/（k 与 t）。弱读：the→/ðə/。失去爆破：weather like /ˈwɛðər(l)aɪk/（r 轻）；like today /laɪ(k) tə/（k 在 t 前不完全爆破）。浊化：无。同化/滑音/闪音：无典型。</div></div>
@@ -2676,7 +2690,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="70"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-70"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-70">0/5</span><button class="c" onclick="VocabMastery.assess('70','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('70','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('70','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-70"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/ɪts ˈreɪnɪŋ kæts ənd dɔɡz/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">缩读：It's = It is（/ɪts/）。连读：It's raining→/ɪts ˈreɪnɪŋ/（s 与 r）；raining cats→/ˈreɪnɪŋ kæts/（ŋ 与 k）；cats and→/kæts ənd/（s 与 ə）；and dogs→/ənd dɔɡz/（d 与 d）。弱读：and→/ənd/（弱读 /ən/）。失去爆破：raining cats /ˈreɪnɪŋ(k)æts/（ŋ 轻）；cats and /kæ(t)s ənd/（t 在 s 前不完全爆破，/ts/）。浊化：无。同化/滑音/闪音：无典型。</div></div>
@@ -2712,7 +2726,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="71"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-71"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-71">0/5</span><button class="c" onclick="VocabMastery.assess('71','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('71','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('71','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-71"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/aɪm stʌk ɪn ˈtræfɪk so aɪ maɪt bi ə fju ˈmɪnɪts leɪt/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">缩读：I'm = I am（/aɪm/）。连读：stuck in→/stʌk ɪn/（k 与 ɪ）；in traffic→/ɪn ˈtræfɪk/（n 与 t）；traffic so→/ˈtræfɪk soʊ/（k 与 s）；so I→/soʊ aɪ/；I might→/aɪ maɪt/；might be→/maɪt bi/（t 与 b）；be a→/bi ə/；a few→/ə fju/；few minutes→/fju ˈmɪnɪts/（u 与 m）；minutes late→/ˈmɪnɪts leɪt/（ts 与 l）。弱读：in→/ɪn/；a→/ə/；be→/bi/。失去爆破：stuck in /stʌ(k) ɪn/（k 在 ɪ 前不完全爆破）；few minutes /fju ˈmɪnɪ(t)s/（t 在 s 前）。浊化：无。同化/滑音/闪音：无典型。</div></div>
@@ -2748,7 +2762,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="72"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-72"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-72">0/5</span><button class="c" onclick="VocabMastery.assess('72','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('72','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('72','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-72"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/haʊ wʌz jʊr deɪ/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：How was→/haʊ wʌz/（w 与 w）；was your→/wʌz jʊr/（z 与 j）；your day→/jʊr deɪ/（r 与 d）。弱读：was→/wəz/；your→/jər/。同化：was your 快读 /wʌʒər/（z+j 同化为 ʒ，关键！）。失去爆破：your day /jʊ(r) deɪ/（r 轻）。浊化：无。滑音/闪音/缩读：无典型。</div></div>
@@ -2784,7 +2798,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="73"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-73"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-73">0/5</span><button class="c" onclick="VocabMastery.assess('73','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('73','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('73','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-73"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/aɪ hæd ə lɔŋ deɪ ət wɜrk/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：had a→/hæ də/（d 与 ə）；a long→/ə lɔŋ/；long day→/lɔŋ deɪ/（ŋ 与 d）；day at→/deɪ ət/（aɪ 与 ə）；at work→/ət wɜrk/。弱读：a→/ə/；at→/ət/。浊化：had a 快读 /hæ də/（d 本浊）。失去爆破：long day /lɔ(ŋ) deɪ/（ŋ 轻）；day at /deɪ(ə)t/。同化/滑音/闪音/缩读：无典型。</div></div>
@@ -2820,7 +2834,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="74"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-74"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-74">0/5</span><button class="c" onclick="VocabMastery.assess('74','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('74','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('74','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-74"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/kʊd ju du mi ə ˈfeɪvər/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">同化：Could you→/kʊdʒu/（d+j 同化，关键！）。连读：you do→/ju du/；do me→/du mi/（u 与 m）；me a→/mi ə/（i 与 ə）；a favor→/ə ˈfeɪvər/。弱读：you→/jə/；me→/mi/；a→/ə/。失去爆破：do me /du(m)/（m 轻）；a favor /ə ˈfeɪvər/。浊化：无。滑音/闪音/缩读：无典型。</div></div>
@@ -2856,7 +2870,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="75"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-75"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-75">0/5</span><button class="c" onclick="VocabMastery.assess('75','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('75','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('75','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-75"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/ʃʊr noʊ ˈprɑbləm/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：Sure, no→/ʃʊr noʊ/（r 与 n）；no problem→/noʊ ˈprɑbləm/（oʊ 与 p）。弱读：no→/noʊ/（重读）。失去爆破：no problem /noʊ ˈprɑbləm/（b 轻，/m/ 词尾）。浊化：无。同化/滑音/闪音/缩读：无典型。</div></div>
@@ -2892,7 +2906,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="76"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-76"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-76">0/5</span><button class="c" onclick="VocabMastery.assess('76','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('76','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('76','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-76"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/aɪm ˈrɪli ˈsɑri tə hɪr ðæt ɪz ðɛr ˈɛniθɪŋ aɪ kæn du tə hɛlp/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">缩读：I'm = I am（/aɪm/）。连读：sorry to→/ˈsɑri tə/（i 与 t）；to hear→/tə hɪr/（tə 与 h）；hear that→/hɪr ðæt/（r 与 ð）；that is→/ðæt ɪz/（t 与 ɪ）；is there→/ɪz ðɛr/（z 与 ð）；there anything→/ðɛ rɛniθɪŋ/（r 与 ɛ）；anything I→/ˈɛniθɪŋ aɪ/（ŋ 与 a）；I can→/aɪ kæn/；can do→/kæn du/（n 与 d）；do to→/du tə/（u 与 t）；to help→/tə hɛlp/。弱读：to→/tə/；that→/ðæt/；is→/ɪz/；there→/ðɛr/；I→/aɪ/；can→/kæn/。失去爆破：hear that /hɪ(r) ðæt/（r 轻）；anything I /ˈɛniθɪŋ(aɪ)/（ŋ 轻）；can do /kæ(n) du/（n 轻）。浊化：无。同化/滑音/闪音/缩读：无典型。</div></div>
@@ -2928,7 +2942,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="77"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-77"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-77">0/5</span><button class="c" onclick="VocabMastery.assess('77','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('77','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('77','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-77"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/kənˌɡrætʃəˈleɪʃənz ɑn jʊr prəˈmoʊʃən/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：Congratulations on→/kənˌɡrætʃəˈleɪʃənz ɑn/（z 与 ɑ）；on your→/ɑn jʊr/（n 与 j）；your promotion→/jʊr prəˈmoʊʃən/（r 与 p）。弱读：on→/ən/；your→/jər/。失去爆破：Congratulations on /kənˌɡrætʃəˈleɪʃənz(ɑ)n/（z 轻）；your promotion /jʊ(r) prə/（r 轻）。浊化：无。同化/滑音/闪音/缩读：无典型。</div></div>
@@ -2964,7 +2978,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="78"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-78"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-78">0/5</span><button class="c" onclick="VocabMastery.assess('78','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('78','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('78','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-78"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/θæŋk ju fɔr ɪnˈvaɪtɪŋ mi/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：Thank you→/θæŋk ju/（ŋk 与 j）；you for→/ju fɔr/（u 与 f）；for inviting→/fɔr ɪnˈvaɪtɪŋ/（r 与 ɪ）；inviting me→/ɪnˈvaɪtɪŋ mi/（ŋ 与 m）。弱读：you→/jə/；for→/fər/；me→/mi/。同化：Thank you 快读 /θæŋkju/（k+j）。失去爆破：thank you /θæŋ(k) ju/（k 在 j 前不完全爆破）；inviting me /ɪnˈvaɪtɪŋ(m)/（ŋ 轻）。浊化：无。滑音/闪音/缩读：无典型。</div></div>
@@ -3000,7 +3014,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="79"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-79"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-79">0/5</span><button class="c" onclick="VocabMastery.assess('79','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('79','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('79','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-79"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/jʊr ˈwɛlkəm/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">缩读：You're = You are（/jʊr/）。连读：You're welcome→/jʊr ˈwɛlkəm/（r 与 w）。弱读：You're→/jər/。失去爆破：You're welcome /jʊ(r) ˈwɛl/（r 轻）；welcome /ˈwɛl(k)əm/（k 在 ə 前不完全爆破）。浊化：无。同化/滑音/闪音：无典型。</div></div>
@@ -3036,7 +3050,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="80"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-80"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-80">0/5</span><button class="c" onclick="VocabMastery.assess('80','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('80','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('80','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-80"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/ɪkˈskjuz mi kʊd ju pæs ðə sɔlt/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">同化：Could you→/kʊdʒu/（d+j 同化，关键！）。连读：Excuse me→/ɪkˈskjuz mi/（z 与 m）；me could→/mi kʊd/（i 与 k）；you pass→/ju pæs/（u 与 p）；pass the→/pæs ðə/（s 与 ð）；the salt→/ðə sɔlt/。弱读：me→/mi/；you→/jə/；the→/ðə/。失去爆破：pass the /pæ(s) ðə/（s 轻）；the salt /ðə sɔ(l)t/（l 轻）。浊化：无。滑音/闪音/缩读：无典型。</div></div>
@@ -3072,7 +3086,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="81"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-81"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-81">0/5</span><button class="c" onclick="VocabMastery.assess('81','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('81','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('81','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-81"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/ðɪs fud ɪz dɪˈlɪʃəs/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：This food→/ðɪs fud/（s 与 f）；food is→/fud ɪz/（d 与 ɪ）；is delicious→/ɪz dɪˈlɪʃəs/（z 与 d）。弱读：is→/ɪz/。失去爆破：this food /ðɪ(s) fud/（s 轻）；delicious /dɪˈlɪʃəs/ 词尾 s 轻。浊化：无。同化/滑音/闪音/缩读：无典型。</div></div>
@@ -3108,7 +3122,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="82"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-82"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-82">0/5</span><button class="c" onclick="VocabMastery.assess('82','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('82','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('82','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-82"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/aɪm ɑn ə ˈdaɪət/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">缩读：I'm = I am（/aɪm/）。连读：I'm on→/aɪm ɑn/（m 与 ɑ）；on a→/ɑ nə/（n 与 ə）；a diet→/ə ˈdaɪət/。弱读：on→/ən/；a→/ə/。失去爆破：on a /ɑ(n) ə/（n 轻）；a diet /ə ˈdaɪət/。浊化：无。同化/滑音/闪音/缩读：无典型。</div></div>
@@ -3144,7 +3158,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="83"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-83"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-83">0/5</span><button class="c" onclick="VocabMastery.assess('83','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('83','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('83','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-83"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/aɪ fil ə bɪt ˈʌndər ðə ˈwɛðər/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：feel a→/fil ə/（l 与 ə）；a bit→/ə bɪt/；bit under→/bɪt ˈʌndər/（t 与 ʌ）；under the→/ˈʌndər ðə/；the weather→/ðə ˈwɛðər/。弱读：a→/ə/；under→/ˈʌndər/（弱读 /əndər/）；the→/ðə/。失去爆破：bit under /bɪ(t) ˈʌn/（t 在 ʌ 前不完全爆破）。浊化：无。同化/滑音/闪音/缩读：无典型。</div></div>
@@ -3180,7 +3194,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="84"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-84"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-84">0/5</span><button class="c" onclick="VocabMastery.assess('84','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('84','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('84','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-84"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/kæn ju bɪˈliv ɪt/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：Can you→/kæn ju/（n 与 j，可同化 /kændʒu/）；you believe→/ju bɪˈliv/；believe it→/bɪˈliv ɪt/（v 与 ɪ）。弱读：you→/jə/（可保留 /ju/）。同化：Can you 快读 /kændʒu/（n+j）。失去爆破：believe it /bɪˈli(v) ɪt/（v 轻）。浊化：无。滑音/闪音/缩读：无典型。</div></div>
@@ -3216,7 +3230,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="85"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-85"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-85">0/5</span><button class="c" onclick="VocabMastery.assess('85','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('85','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('85','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-85"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/ðæt saʊndz ɡreɪt/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：That sounds→/ðæt saʊndz/（t 与 s）；sounds great→/saʊndz ɡreɪt/（z 与 ɡ）。弱读：that→/ðæt/（重读）。失去爆破：sounds great /saʊndz(ɡ)reɪt/（ɡ 轻）；that sounds /ðæ(t) saʊ/（t 在 s 前不完全爆破，/ts/）。浊化：无。同化/滑音/闪音/缩读：无典型。</div></div>
@@ -3252,7 +3266,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="86"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-86"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-86">0/5</span><button class="c" onclick="VocabMastery.assess('86','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('86','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('86','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-86"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/aɪ ˈkʊdənt əˈɡri mɔr/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">缩读：couldn't = could not（/ˈkʊdənt/）。连读：couldn't agree→/ˈkʊdənt əˈɡri/（t 与 ə）；agree more→/əˈɡri mɔr/（i 与 m）。弱读：无典型。失去爆破：couldn't agree /ˈkʊdən(t) ə/（t 在 ə 前不完全爆破）。浊化：无。同化/滑音/闪音/缩读：无典型。</div></div>
@@ -3288,7 +3302,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="87"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-87"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-87">0/5</span><button class="c" onclick="VocabMastery.assess('87','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('87','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('87','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-87"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/lɛt mi θɪŋk əˈbaʊt ɪt/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：Let me→/lɛt mi/（t 与 m）；me think→/mi θɪŋk/（i 与 θ）；think about→/θɪŋk əˈbaʊt/（k 与 ə）；about it→/əˈbaʊt ɪt/（t 与 ɪ）。弱读：me→/mi/；about→/əˈbaʊt/（弱读 /əbaʊt/）；it→/ɪt/。失去爆破：let me /lɛ(t) mi/（t 在 m 前不完全爆破）；think about /θɪŋ(k) ə/（k 在 ə 前不完全爆破）；about it /əˈbaʊ(t) ɪt/（t 在 ɪ 前）。浊化：无。同化/滑音/闪音/缩读：无典型。</div></div>
@@ -3324,7 +3338,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="88"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-88"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-88">0/5</span><button class="c" onclick="VocabMastery.assess('88','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('88','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('88','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-88"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/aɪl ɡɛt bæk tə ju əz sun əz aɪ kənˈfɜrm ðə dɪˈteɪlz wɪð maɪ ˈmænɪdʒər/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">缩读：I'll = I will（/aɪl/）。连读：get back→/ɡɛt bæk/（t 与 b）；back to→/bæk tə/（k 与 tə）；to you→/tə ju/；you as→/ju əz/（u 与 ə）；as soon→/əz sun/（z 与 s）；soon as→/sun əz/（n 与 ə）；as I→/əz aɪ/；I confirm→/aɪ kənˈfɜrm/；confirm the→/kənˈfɜrm ðə/；the details→/ðə dɪˈteɪlz/；details with→/dɪˈteɪlz wɪð/（z 与 w）；with my→/wɪð maɪ/；my manager→/maɪ ˈmænɪdʒər/（aɪ 与 m）。弱读：to→/tə/；you→/jə/；as→/əz/；the→/ðə/；with→/wɪð/；my→/maɪ/（重读）。失去爆破：get back /ɡɛ(t) bæk/（t 在 b 前不完全爆破）；back to /bæ(k) tə/（k 在 t 前）；soon as /su(n) əz/（n 轻）；my manager /maɪ ˈmænɪ(dʒ)ər/（dʒ 轻）。浊化：无。同化/滑音/闪音：无典型。</div></div>
@@ -3360,7 +3374,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="89"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-89"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-89">0/5</span><button class="c" onclick="VocabMastery.assess('89','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('89','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('89','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-89"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/kʊd ju spik ʌp pliz/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">同化：Could you→/kʊdʒu/（d+j 同化，关键！）。连读：you speak→/ju spik/；speak up→/spik ʌp/（k 与 ʌ）；up please→/ʌp pliz/（p 与 p）。弱读：you→/jə/。失去爆破：speak up /spi(k) ʌp/（k 在 ʌ 前不完全爆破）；up please /ʌ(p) pliz/（p 在 p 前轻，只读一次）。浊化：无。滑音/闪音/缩读：无典型。</div></div>
@@ -3396,7 +3410,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="90"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-90"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-90">0/5</span><button class="c" onclick="VocabMastery.assess('90','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('90','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('90','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-90"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/aɪ ˈdɪdənt kætʃ jʊr neɪm/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">缩读：didn't = did not（/ˈdɪdənt/）。连读：didn't catch→/ˈdɪdənt kætʃ/（t 与 k）；catch your→/kætʃ jʊr/（tʃ 与 j）；your name→/jʊr neɪm/（r 与 n）。弱读：your→/jər/。同化：catch your 快读 /kætʃər/（tʃ+j，本就同化）。失去爆破：didn't catch /ˈdɪdən(t) kæ/（t 在 k 前不完全爆破）。浊化：无。滑音/闪音/缩读：无典型。</div></div>
@@ -3432,7 +3446,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="91"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-91"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-91">0/5</span><button class="c" onclick="VocabMastery.assess('91','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('91','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('91','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-91"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/wʌt du ju min baɪ ðæt/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">同化：Do you→/dʒu/（d+j 同化为 dʒ，关键！）。连读：What do→/wʌt du/（t 与 d）；do you→/dʒu/；you mean→/ju min/；mean by→/min baɪ/（n 与 b）；by that→/baɪ ðæt/（aɪ 与 ð）。弱读：you→/jə/（可保留 /ju/）；do→/də/。失去爆破：mean by /mi(n) baɪ/（n 轻）；by that /baɪ(ð) ðæt/（ð 轻）。浊化：What do 快读 /wʌ dʊ/（t→d，典型）。同化：Do you→/dʒu/。滑音/闪音/缩读：无典型。</div></div>
@@ -3468,7 +3482,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="92"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-92"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-92">0/5</span><button class="c" onclick="VocabMastery.assess('92','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('92','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('92','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-92"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/dʒʌst tə bi klɪr/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：Just to→/dʒʌst tə/（t 与 tə）；to be→/tə bi/（tə 与 b）；be clear→/bi klɪr/（i 与 k）。弱读：to→/tə/；be→/bi/。失去爆破：Just to /dʒʌ(s)t tə/（s 轻，t 在 tə 前轻）；be clear /bi(k)lɪr/（k 在 l 前不完全爆破）。浊化：无。同化/滑音/闪音/缩读：无典型。</div></div>
@@ -3504,7 +3518,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="93"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-93"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-93">0/5</span><button class="c" onclick="VocabMastery.assess('93','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('93','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('93','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-93"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/aɪm əˈfreɪd aɪ hæv tə ɡoʊ naʊ/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">缩读：I'm = I am（/aɪm/）。连读：afraid I→/əˈfreɪd aɪ/（d 与 a）；I have→/aɪ hæv/；have to→/hæv tə/（v 与 tə）；to go→/tə ɡoʊ/；go now→/ɡoʊ naʊ/（oʊ 与 n）。弱读：I→/aɪ/；have→/həv/；to→/tə/。浊化：have to 快读 /hæ də/（v 后 t→d，典型）。失去爆破：have to /hæ(v) tə/（v 轻）；go now /ɡoʊ(n)aʊ/（n 轻）。同化/滑音/闪音/缩读：无典型。</div></div>
@@ -3540,7 +3554,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="94"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-94"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-94">0/5</span><button class="c" onclick="VocabMastery.assess('94','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('94','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('94','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-94"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/si ju ˈleɪtər/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：See you→/si ju/（i 与 j）；you later→/ju ˈleɪtər/（u 与 l）。弱读：you→/jə/（可保留 /ju/）。同化/滑音/闪音/缩读：无典型。失去爆破：you later /ju ˈleɪtər/（r 轻，无相邻爆破典型）。</div></div>
@@ -3576,7 +3590,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="95"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-95"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-95">0/5</span><button class="c" onclick="VocabMastery.assess('95','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('95','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('95','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-95"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/teɪk kɛr/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：Take care→/teɪk kɛr/（k 与 k）。弱读：care 重读 /kɛr/。失去爆破：Take care /teɪ(k) kɛr/（k 在 k 前不完全爆破，只读一次）。浊化：无。同化/滑音/闪音/缩读：无典型。</div></div>
@@ -3612,7 +3626,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="96"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-96"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-96">0/5</span><button class="c" onclick="VocabMastery.assess('96','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('96','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('96','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-96"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/hæv ə ɡreɪt ˈwikɛnd/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：Have a→/hæ və/（v 与 ə）；a great→/ə ɡreɪt/；great weekend→/ɡreɪt ˈwikɛnd/（t 与 w）。弱读：a→/ə/。失去爆破：great weekend /ɡreɪ(t) ˈwi/（t 在 w 前不完全爆破）。浊化：无。同化/滑音/闪音/缩读：无典型。</div></div>
@@ -3648,7 +3662,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="97"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-97"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-97">0/5</span><button class="c" onclick="VocabMastery.assess('97','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('97','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('97','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-97"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/tɔk tə ju sun/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：Talk to→/tɔk tə/（k 与 tə）；to you→/tə ju/（tə 与 j）；you soon→/ju sun/（u 与 s）。弱读：to→/tə/；you→/jə/（可保留 /ju/）。同化：to you 快读 /təju/（无 d+j）。失去爆破：talk to /tɔ(k) tə/（k 在 t 前不完全爆破）。浊化：无。滑音/闪音/缩读：无典型。</div></div>
@@ -3684,7 +3698,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="98"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-98"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-98">0/5</span><button class="c" onclick="VocabMastery.assess('98','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('98','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('98','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-98"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/ɪt wʌz ɡreɪt ˈsiɪŋ ju əˈɡɛn/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：It was→/ɪt wʌz/（t 与 w）；was great→/wʌz ɡreɪt/（z 与 ɡ）；great seeing→/ɡreɪt ˈsiɪŋ/（t 与 s）；seeing you→/ˈsiɪŋ ju/（ŋ 与 j）；you again→/ju əˈɡɛn/（u 与 ə）。弱读：it→/ɪt/；was→/wəz/；you→/jə/（可保留 /ju/）；again→/əˈɡɛn/。失去爆破：great seeing /ɡreɪ(t) ˈsi/（t 在 s 前不完全爆破，/ts/）；you again /ju əˈɡɛn/（轻）。浊化：无。同化：seeing you 中 ng+j 轻微。滑音/闪音/缩读：无典型。</div></div>
@@ -3720,7 +3734,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="99"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-99"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-99">0/5</span><button class="c" onclick="VocabMastery.assess('99','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('99','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('99','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-99"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/aɪm nɑt ʃʊr aɪ fɑloʊ ju/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">缩读：I'm = I am（/aɪm/）。连读：not sure→/nɑt ʃʊr/（t 与 ʃ，同化为 /nɑ tʃʊr/，tʃ）；sure I→/ʃʊr aɪ/（r 与 a）；I follow→/aɪ ˈfɑloʊ/；follow you→/ˈfɑloʊ ju/（oʊ 与 j）。弱读：I→/aɪ/（重读）；you→/jə/。同化：not sure 快读 /nɑtʃʊr/（t+ʃ 同化为 tʃ，关键！）。失去爆破：not sure /nɑ(t)ʃʊr/（t 轻）。浊化：无。滑音/闪音/缩读：无典型。</div></div>
@@ -3756,7 +3770,7 @@
           <option value="0.4">0.4x</option>
         </select>
       </div>
-      <div class="mwrap lvl-red"><span class="mlbl">掌握度</span><span class="mbar lvl-red"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="mnum">0/5</span></div>
+      <div class="assess" data-mid="100"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-100"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-100">0/5</span><button class="c" onclick="VocabMastery.assess('100','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('100','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('100','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-100"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/lɛts ɡræb lʌntʃ ˈsʌmtaɪm/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">缩读：Let's = Let us（/lɛts/）。连读：Let's grab→/lɛts ɡræb/（s 与 ɡ）；grab lunch→/ɡræb lʌntʃ/（b 与 l）；lunch sometime→/lʌntʃ ˈsʌmtaɪm/（tʃ 与 s）。弱读：无典型。失去爆破：grab lunch /ɡræ(b) lʌn/（b 在 l 前轻微不完全爆破）；lunch sometime /lʌn(t)ʃ ˈsʌm/（tʃ 轻）。浊化：无。同化/滑音/闪音：无典型。</div></div>
@@ -3766,6 +3780,7 @@
     </div></div>
 <footer>共 100 句 · 数据来自 master.json · 生词已注音标 · 发音详情随每日推送逐步补全</footer>
 <script src="audio-engine.js"></script>
+<script src="mastery.js"></script>
 <script>
   const grid = document.getElementById('grid');
   const cards = [...grid.children];
@@ -3846,26 +3861,12 @@
     }
     return null;
   }
-  function renderBar(card, m){
-    const lvl = m>=5?'lvl-green':(m>=3?'lvl-yellow':'lvl-red');
-    const seg = Array.from({length:5},(_,i)=>`<i class="${i<m?'on':''}"></i>`).join('');
-    const mw = card.querySelector('.mwrap'); const mb = card.querySelector('.mbar'); const mn = card.querySelector('.mnum');
-    if(mw) mw.className = 'mwrap '+lvl;
-    if(mb){ mb.className='mbar '+lvl; mb.innerHTML=seg; }
-    if(mn) mn.textContent = m+'/5';
-    card.dataset.mastery = m;
-  }
+  // 掌握度同步统一交给 mastery.js：加载时拉取服务端最新值应用到全部控件，
+  // 并每隔 15s 自动同步，确保各页（总览/回顾/日历）互相同步。
   async function syncMastery(){
-    const r = await apiFetch('/api/mastery');
-    if(!r) return false;
-    const j = await r.json();
-    const map = {}; (j.sentences||[]).forEach(s=> map[s.id]=s.mastery);
-    cards.forEach(c=>{
-      const sid = c.querySelector('.sid'); const id = sid?parseInt(sid.textContent.replace('#',''),10):null;
-      if(id!=null && (id in map)) renderBar(c, map[id]);
-    });
-    updateStats();
-    return true;
+    const ok = await VocabMastery.refreshAll();
+    if(ok) updateStats();
+    return ok;
   }
   const sb = document.getElementById('syncBtn');
   if(sb) sb.onclick = async () => {

@@ -112,6 +112,11 @@ class H(SimpleHTTPRequestHandler):
                     s["learn"]["mastery"] = m
                     save_master(d)
                     try:
+                        # 重新加载生成器模块，避免使用服务启动时锁进内存的旧版代码
+                        # （曾因旧版 gen_views_html 在每次回写时重建 review/calendar，
+                        #  把新增的 mastery.js 引用覆盖掉，导致多页自评失效）
+                        import importlib
+                        importlib.reload(gen_views_html)
                         gen_views_html.main()
                     except Exception:
                         pass

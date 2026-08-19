@@ -73,8 +73,20 @@ for s in S:
     mastery = int(s.get("learn", {}).get("mastery", 0) or 0)
     lvl = "lvl-green" if mastery >= 5 else ("lvl-yellow" if mastery >= 3 else "lvl-red")
     seg = "".join(f'<i class="{"on" if i < mastery else ""}"></i>' for i in range(5))
-    mastery_html = (f'<div class="mwrap {lvl}"><span class="mlbl">掌握度</span>'
-                    f'<span class="mbar {lvl}">{seg}</span><span class="mnum">{mastery}/5</span></div>')
+    mcolor = "#dc2626" if mastery <= 2 else ("#d97706" if mastery <= 4 else "#16a34a")
+    # 交互式自评控件：点按钮回写 /api/mastery，加载时由 mastery.js 同步最新值
+    sid = s["id"]
+    assess_html = (
+        f'<div class="assess" data-mid="{sid}">'
+        f'<span class="lbl">自评掌握度：</span>'
+        f'<div class="mbar" id="mbar-{sid}"><div class="mfill" style="width:{mastery*20}%;background:{mcolor}"></div></div>'
+        f'<span class="mbadge" id="mb-{sid}">{mastery}/5</span>'
+        f'<button class="c" onclick="VocabMastery.assess(\'{sid}\',\'clear\',this)">✅ 认识 +1</button>'
+        f'<button class="f" onclick="VocabMastery.assess(\'{sid}\',\'fuzzy\',this)">🟡 模糊</button>'
+        f'<button class="u" onclick="VocabMastery.assess(\'{sid}\',\'unknown\',this)">🔴 不认识 -1</button>'
+        f'<span class="astat" id="as-{sid}"></span>'
+        f'</div>'
+    )
     detail_html, has = render_detail(s)
     toggle_label = "🔤 发音详情 ▾" if has else "🔤 完整增强（待生成）▾"
     toggle_cls = "toggle ready" if has else "toggle wait"
@@ -90,7 +102,7 @@ for s in S:
       <div class="zh">{esc(s['zh'])}</div>
       <div class="kvbox">{kv}</div>
       {readwrap}
-      {mastery_html}
+      {assess_html}
       <button class="{toggle_cls}" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">{toggle_label}</button>
       <div class="detail">{detail_html}</div>
     </div>'''
@@ -169,6 +181,20 @@ html = f'''<!DOCTYPE html>
   .mwrap.lvl-yellow .mnum {{ color:#d97706; }}
   .mwrap.lvl-green .mnum {{ color:#16a34a; }}
   .card[data-learned="no"] .mnum {{ color:#cbd5e1; }}
+  /* 交互式掌握度自评控件（mastery.js） */
+  .assess {{ display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin:10px 0 2px; font-size:13px; }}
+  .assess .lbl {{ color:var(--sub); font-weight:600; }}
+  .assess .mbar {{ width:120px; height:10px; border-radius:6px; background:#e2e8f0; overflow:hidden; flex:none; }}
+  .assess .mfill {{ height:100%; width:0; background:#dc2626; transition:width .25s, background .25s; }}
+  .assess .mbadge {{ font-weight:600; font-size:13px; color:#475569; min-width:34px; }}
+  .assess button {{ border:1px solid var(--line); background:#fff; border-radius:8px; padding:5px 10px; font-size:12.5px; cursor:pointer; transition:.15s; }}
+  .assess button.c {{ border-color:#16a34a; color:#16a34a; }}
+  .assess button.f {{ border-color:#d97706; color:#d97706; }}
+  .assess button.u {{ border-color:#dc2626; color:#dc2626; }}
+  .assess button:hover {{ filter:brightness(.96); }}
+  .assess button:active {{ transform:scale(.97); }}
+  .assess .astat {{ font-size:12px; color:var(--sub); flex-basis:100%; margin-top:2px; }}
+  .assess .astat.ok {{ color:#16a34a; font-weight:600; }}
   .stats {{ display:flex; align-items:center; flex-wrap:wrap; gap:18px; background:#fff; border-bottom:1px solid var(--line);
     padding:12px 24px; }}
   .stat {{ display:flex; align-items:baseline; gap:4px; }}
@@ -276,6 +302,7 @@ html = f'''<!DOCTYPE html>
 <div class="grid" id="grid">{cards}</div>
 <footer>共 {len(S)} 句 · 数据来自 master.json · 生词已注音标 · 发音详情随每日推送逐步补全</footer>
 <script src="audio-engine.js"></script>
+<script src="mastery.js"></script>
 <script>
   const grid = document.getElementById('grid');
   const cards = [...grid.children];
@@ -356,26 +383,12 @@ html = f'''<!DOCTYPE html>
     }}
     return null;
   }}
-  function renderBar(card, m){{
-    const lvl = m>=5?'lvl-green':(m>=3?'lvl-yellow':'lvl-red');
-    const seg = Array.from({{length:5}},(_,i)=>`<i class="${{i<m?'on':''}}"></i>`).join('');
-    const mw = card.querySelector('.mwrap'); const mb = card.querySelector('.mbar'); const mn = card.querySelector('.mnum');
-    if(mw) mw.className = 'mwrap '+lvl;
-    if(mb){{ mb.className='mbar '+lvl; mb.innerHTML=seg; }}
-    if(mn) mn.textContent = m+'/5';
-    card.dataset.mastery = m;
-  }}
+  // 掌握度同步统一交给 mastery.js：加载时拉取服务端最新值应用到全部控件，
+  // 并每隔 15s 自动同步，确保各页（总览/回顾/日历）互相同步。
   async function syncMastery(){{
-    const r = await apiFetch('/api/mastery');
-    if(!r) return false;
-    const j = await r.json();
-    const map = {{}}; (j.sentences||[]).forEach(s=> map[s.id]=s.mastery);
-    cards.forEach(c=>{{
-      const sid = c.querySelector('.sid'); const id = sid?parseInt(sid.textContent.replace('#',''),10):null;
-      if(id!=null && (id in map)) renderBar(c, map[id]);
-    }});
-    updateStats();
-    return true;
+    const ok = await VocabMastery.refreshAll();
+    if(ok) updateStats();
+    return ok;
   }}
   const sb = document.getElementById('syncBtn');
   if(sb) sb.onclick = async () => {{

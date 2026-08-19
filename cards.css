@@ -69,6 +69,19 @@ body{margin:0;font-family:-apple-system,"PingFang SC","Microsoft YaHei",Segoe UI
 .smbar.lvl-green i.on{background:linear-gradient(90deg,#22c55e,#16a34a)}
 .smbar .smnum{font-size:12px;font-weight:600;margin-left:4px}
 .smbar.lvl-red .smnum{color:var(--red)} .smbar.lvl-yellow .smnum{color:var(--yellow)} .smbar.lvl-green .smnum{color:var(--green)}
+/* 交互式掌握度自评控件（mastery.js），与 day* / master 页一致 */
+.scard .assess{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:10px 0 2px;font-size:13px}
+.scard .assess .lbl{color:var(--sub);font-weight:600}
+.scard .assess .mbar{width:120px;height:10px;border-radius:6px;background:#e2e8f0;overflow:hidden;flex:none}
+.scard .assess .mfill{height:100%;width:0;background:#dc2626;transition:width .25s,background .25s}
+.scard .assess .mbadge{font-weight:600;font-size:13px;color:#475569;min-width:34px}
+.scard .assess button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:5px 10px;font-size:12.5px;cursor:pointer;transition:.15s}
+.scard .assess button.c{border-color:#16a34a;color:#16a34a}
+.scard .assess button.f{border-color:#d97706;color:#d97706}
+.scard .assess button.u{border-color:#dc2626;color:#dc2626}
+.scard .assess button:hover{filter:brightness(.96)}
+.scard .assess button:active{transform:scale(.97)}
+.scard .assess .astat{font-size:12px;color:var(--sub);flex-basis:100%;margin-top:2px}
 /* 空态 / 加载 */
 .empty{text-align:center;color:var(--sub);padding:40px 16px;font-size:14px}
 .empty.err{color:var(--red)}

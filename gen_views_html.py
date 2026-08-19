@@ -88,6 +88,7 @@ REVIEW_TMPL = r"""<!DOCTYPE html>
   <div class="pstat" id="stat"><b id="nLearned">0</b><span>已学句式（按引入日期排列）</span></div>
   <div class="grid" id="grid"></div>
 </div>
+<script src="mastery.js"></script>
 <script src="cards.js"></script>
 <script>
 const REVIEW_DATA = /*REVIEW_DATA*/;
@@ -103,6 +104,7 @@ const REVIEW_DATA = /*REVIEW_DATA*/;
     id:s.id, en:s.en, zh:s.zh, category:s.category, theme:s.theme,
     mastery:s.mastery||0, keyvocab:s.keyvocab||[], enh:s.enh||{}
   })).join('');
+  if(window.VocabMastery) VocabMastery.refreshAll();
 })();
 </script>
 </body>
@@ -153,6 +155,7 @@ CAL_TMPL = r"""<!DOCTYPE html>
   </div>
   <div class="daypanel" id="daypanel"></div>
 </div>
+<script src="mastery.js"></script>
 <script src="cards.js"></script>
 <script>
 const CAL_DATA = /*CAL_DATA*/;
@@ -214,6 +217,7 @@ function showDay(ds){
   panel.innerHTML = '<div class="dph">📅 ' + ds + ' 练习句式 <span>（共 ' + ids.length + ' 句，点击句子可跳转总览）</span></div>' +
     '<div class="grid">' + (cards || '<div class="empty">该日无可用句子数据。</div>') + '</div>';
   panel.scrollIntoView({behavior:'smooth', block:'start'});
+  if(window.VocabMastery) VocabMastery.refreshAll();
 }
 
 document.getElementById('prevBtn').onclick = ()=>{ viewM--; if(viewM<0){viewM=11;viewY--;} renderCalendar(); };
@@ -229,6 +233,7 @@ document.getElementById('todayChip').onclick = (e)=>{
 (function(){
   const t=new Date(); viewY=t.getFullYear(); viewM=t.getMonth();
   renderRecent(); renderCalendar();
+  if(window.VocabMastery) VocabMastery.refreshAll();
 })();
 </script>
 </body>

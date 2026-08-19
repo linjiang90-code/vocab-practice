@@ -47,7 +47,7 @@ function renderSentenceCard(s){
     <div class="kvbox">${kw}</div>
     <button class="sdetBtn" onclick="toggleDet('${detId}')">🔤 发音详情 / 变体 / 场景 / 语法 ▾</button>
     <div class="sdet" id="${detId}">${detRows}</div>
-    <div class="scfoot">${masteryBadge(s.mastery||0)}<a class="slink" href="${link}">在总览中查看 →</a></div>
+    <div class="scfoot">${(typeof VocabMastery!=='undefined' && VocabMastery.widgetHTML)?VocabMastery.widgetHTML(s.id):masteryBadge(s.mastery||0)}<a class="slink" href="${link}">在总览中查看 →</a></div>
   </div>`;
 }
 function toggleDet(id){
