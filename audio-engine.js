@@ -1,6 +1,13 @@
 /* 统一朗读引擎：用 Web Audio API 解码播放，playbackRate 在所有设备（含 iOS Safari）
    都生效。原生 <audio>.playbackRate 在 iOS Safari 会被静默忽略，所以必须用 Web Audio。
    无 Web Audio 时回退到 <audio>（桌面仍有效）。
+
+   关键健壮性（2026-08-19 修正）：
+   - 顺序/循环播放不再单纯依赖 onended。部分浏览器（尤其移动端/远程 Edge）在
+     程序化连续播放时 onended 经常不触发，导致"只读一句/循环卡住/停止无效"。
+   - 改为：每次播放用「缓冲时长 × (1/rate) + 余量」启动一个兜底定时器，
+     无论 onended 是否触发，都会准时推进到下一句 / 下一遍 / 触发 onEnd。
+   - 每次播放前 ac() 恢复 AudioContext，避免上下文在句间被挂起导致静音。
    依赖：在页面 <script> 之前用 <script src="audio-engine.js"></script> 引入。 */
 (function(){
   'use strict';
@@ -38,11 +45,12 @@
     });
   }
 
-  var active = {};   // key -> { src, stop }
+  var active = {};   // key -> { src, timer, stop }
   function stopKey(key){
     key = normId(key);              // 归一化：'1'/'s1' 都能命中
     var a = active[key];
     if(a){
+      try { if(a.timer) clearTimeout(a.timer); } catch(e){}
       try { a.src.onended = null; } catch(e){}
       try { a.src.stop(); } catch(e){}
       try { a.src.disconnect(); } catch(e){}
@@ -52,15 +60,26 @@
   function stopAll(){ Object.keys(active).forEach(stopKey); }
   function isActive(id){ return !!active[normId(id)]; }
 
+  // 启动一次播放；onEnd 通过「onended + 时长兜底定时器」双保险触发（只触发一次）
   function startSource(key, id, rate, onEnd){
     return decode(id).then(function(buf){
       var c = ac();
+      if(!c) throw new Error('no AudioContext');
       var src = c.createBufferSource();
+      var r = (rate && rate > 0) ? rate : 1;
       src.buffer = buf;
-      src.playbackRate.value = (rate && rate > 0) ? rate : 1;
+      src.playbackRate.value = r;
       src.connect(c.destination);
-      if(onEnd){ src.onended = onEnd; }
-      active[key] = { src: src, stop: function(){ stopKey(key); } };
+      var done = false;
+      function finish(){
+        if(done) return; done = true;
+        if(onEnd) onEnd();
+      }
+      src.onended = finish;
+      // 兜底定时器：按缓冲真实时长推进，彻底摆脱 onended 不触发的问题
+      var durMs = (buf.duration / r) * 1000 + 400;
+      var timer = setTimeout(finish, durMs);
+      active[key] = { src: src, timer: timer, stop: function(){ stopKey(key); } };
       src.start(0);
       return src;
     });
@@ -103,13 +122,11 @@
     stopKey(key);
     var n = 0;
     function step(){
-      startSource(key, id, rate, null).then(function(src){
-        src.onended = function(){
-          n++;
-          if(cb && cb.onTick) cb.onTick(n);
-          if(n < reps){ step(); }
-          else { if(cb && cb.onEnd) cb.onEnd(); delete active[key]; }
-        };
+      startSource(key, id, rate, function(){
+        n++;
+        if(cb && cb.onTick) cb.onTick(n);
+        if(n < reps){ step(); }
+        else { if(cb && cb.onEnd) cb.onEnd(); delete active[key]; }
       }).catch(function(){ if(cb && cb.onEnd) cb.onEnd(); });
     }
     step();

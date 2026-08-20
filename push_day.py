@@ -208,10 +208,10 @@ TEMPLATE = r"""<!DOCTYPE html>
     <button class="btn primary" onclick="playAll()">▶ 全部伴读</button>
     <label class="spd">语速(批量预设)
       <select id="speedSel" onchange="setSpeed(this.value)" title="设为统一语速并应用到全部句子">
-        <option value="1">1.0x</option>
-        <option value="0.75">0.75x</option>
-        <option value="0.5">0.5x</option>
-        <option value="0.4">0.4x</option>
+        <option value="1">1倍</option>
+        <option value="0.8">0.8倍</option>
+        <option value="0.7">0.7倍</option>
+        <option value="0.6">0.6倍</option>
       </select>
     </label>
     <button class="btn" onclick="stopAll()">⏹ 停止</button>
@@ -267,7 +267,7 @@ function cardHTML(d){
       <span class="pill ${d.topic}">${d.topic==='travel'?'旅游':'日常'}</span>
       <span class="play">
         <span class="ic" title="原声伴读" onclick="playAudio('${d.id}')">🔊</span>
-        <span class="ic" title="慢速朗读" onclick="playAudio('${d.id}', 0.75)">🐢</span>
+        <span class="ic" title="慢速朗读" onclick="playAudio('${d.id}', 0.7)">🐢</span>
       </span>
     </div>
     <div class="en">${d.en}</div>
@@ -293,10 +293,10 @@ function cardHTML(d){
       <button id="rb-${d.id}" class="readBtn" onclick="loopSpeak('${d.id}')">▶ 开始</button>
       <span class="spdlbl">语速</span>
       <select class="spdSel" onchange="setCardSpeed('${d.id}',this.value)">
-        <option value="1">1.0x</option>
-        <option value="0.75">0.75x</option>
-        <option value="0.5">0.5x</option>
-        <option value="0.4">0.4x</option>
+        <option value="1">1倍</option>
+        <option value="0.8">0.8倍</option>
+        <option value="0.7">0.7倍</option>
+        <option value="0.6">0.6倍</option>
       </select>
     </div>
     <div class="assess">

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>英语口语 Day 5 · 增强版</title>
+<title>英语口语 Day 8 · 增强版</title>
 <style>
   :root{
     --bg:#f5f7fa; --card:#ffffff; --text:#1f2329; --sub:#6b7280;
@@ -50,7 +50,7 @@
   .kw{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
   .kw .chip{background:var(--chip);border-radius:8px;padding:5px 10px;font-size:13px}
   .kw .chip b{color:#b45309} .kw .chip .p{color:#9a3412;font-style:italic;margin-left:4px}
-  .block ul{margin:0;padding-left:18px} .block li{margin:3px 0}
+  .block ul{margin:0;padding:left:18px} .block li{margin:3px 0}
   .block li .ex{font-weight:600} .block li .nt{color:#6b7280}
   .scene li .occ{color:#0e9f6e;font-weight:600} .scene li .resp{color:#6b7280}
   footer{text-align:center;color:var(--sub);font-size:12px;margin-top:24px}
@@ -89,17 +89,17 @@
   <a href="calendar.html">📅 日历</a>
 </nav>
   <header>
-    <h1>🗣 英语口语 · Day 5（增强版）</h1>
-    <p>旅游 + 日常混合 · 5 句/天 · 中英对照 + 生词音标 + 原声伴读 + 变体 + 场景俚语 + 语法 + 发音提示</p>
+    <h1>🖣 英语口语 · Day 8（增强版）</h1>
+    <p>旅游 + 日常混合 · 5 句/天 · 中英对照 + 生词音标 + 原声伴读 + 变体 + 场景俗语 + 语法 + 发音提示</p>
   </header>
   <div class="summary">
-    <div class="box"><b>第 5 天</b><span>连续学习</span></div>
-    <div class="box"><b>0 句</b><span>今日新学</span></div>
-    <div class="box"><b>20/100</b><span>累计已学</span></div>
+    <div class="box"><b>第 8 天</b><span>连续学习</span></div>
+    <div class="box"><b>5 句</b><span>今日新学</span></div>
+    <div class="box"><b>40/100</b><span>累计已学</span></div>
     <div class="box"><b>100 句</b><span>当前总池</span></div>
   </div>
   <div class="legend">
-    <span>🔹 <b>简化/口语变体</b></span>
+    <span>🔻 <b>简化/口语变体</b></span>
     <span>🎭 <b>场景化表达 + 不同回答</b></span>
     <span>📝 <b>语法提示</b></span>
     <span>🔤 <b>发音提示(连读/同化/滑音/浊化/失去爆破/闪音/弱读/缩读)</b></span>
@@ -107,7 +107,7 @@
   <div class="toolbar">
     <button class="btn primary" onclick="playAll()">▶ 全部伴读</button>
     <label class="spd">语速(批量预设)
-      <select id="speedSel" onchange="setSpeed(this.value)" title="设为统一语速并应用到全部句子">
+      <select id="speedSel" onchange="setSpeed(this.value)" title="设为统一语速应用到全部句子">
         <option value="1">1倍</option>
         <option value="0.8">0.8倍</option>
         <option value="0.7">0.7倍</option>
@@ -119,12 +119,12 @@
   </div>
   <div id="short"></div>
   <div id="long"></div>
-  <footer>每天 9:00 自动推送新一批（同款增强版）· 进度本地保存，不外传</footer>
+  <footer>每天 9:00 自动推送新一批（同款增强版） · 进度本地保存，不外传</footer>
 </div>
 <script src="audio-engine.js"></script>
 <script>
 (function(){ const d=new Date().toISOString().slice(0,10); document.querySelectorAll('.today-nav').forEach(a=>a.href='day'+d+'.html'); })();
-const DATA = [{"id": "s11", "type": "short", "topic": "travel", "en": "Where can I buy a ticket to the city center?", "ipa": "/wɛr kən aɪ baɪ ə ˈtɪkɪt tə ðə ˈsɪti ˈsɛntər/", "zh": "我在哪里可以买到去市中心的票？", "kw": [["ticket", "/ˈtɪkɪt/", "n.票"], ["city", "/ˈsɪti/", "n.城市"]], "variants": [["Where do I get a ticket to downtown?", "downtown 是美式『市中心』"], ["Can I buy a ticket here?", "问当场/本地能否买票"], ["One ticket to the center, please.", "窗口极简说法"]], "scenes": [["问售票柜台", "Where can I buy a ticket to the city center?", "对方指柜台 Over there at the counter."], ["问自助机", "Is there a ticket machine around here?", "对方回 Yes, by the entrance."], ["不同回答", "Single or return? / It's 3 dollars. / Platform 2 is that way."]], "grammar": "Where can I + 动词原形 用于询问地点/请求信息；buy a ticket to + 地点 表『买去…的票』。city center（英）/ downtown（美）同义。ticket 单数即可泛指『一张票』。", "pron": "连读：Where can→/wɛr kən/（r 与 k）；can I→/kə naɪ/（n 与 a）；buy a→/baɪ ə/（aɪ 与 ə）；ticket to→/ˈtɪkɪ tə/（t 与 tə）；to the→/tə ðə/。弱读：can→/kən/；a→/ə/；to→/tə/；the→/ðə/。失去爆破：ticket /ˈtɪkɪ(t)/（词尾 t 轻微不完全爆破）；center /ˈsɛn(t)ər/（t 在 ər 前）。闪音：city→/ˈsɪɾi/（美式元音间 t 标闪音 /ɾ/，关键！）。同化/滑音/浊化/缩读：无典型。", "mastery": 1}, {"id": "s12", "type": "short", "topic": "travel", "en": "How long does it take to get there?", "ipa": "/haʊ lɔŋ dʌz ɪt teɪk tə ɡɛt ðɛr/", "zh": "到那里要花多长时间？", "kw": [["take", "/teɪk/", "v.花费（时间）"], ["there", "/ðɛr/", "adv.那里"]], "variants": [["How long is the trip?", "问行程时长，trip 更口语"], ["How long will it take?", "将来时，问预计多久"], ["About how long?", "极简追问大约多久"]], "scenes": [["问交通时长", "How long does it take to get there?", "对方回 About 20 minutes by bus."], ["不同交通对比", "Is the train faster than the bus?", "问哪种更快"], ["不同回答", "It's a 10-minute walk. / Around an hour. / Depends on traffic."]], "grammar": "How long 问时长；It takes + 时间 + to do 是『做某事花多少时间』的固定句型，does 随主语 it 用单数。get there = 到达那里，there 作副词不加 to。", "pron": "连读：How long→/haʊ lɔŋ/（w 与 l）；does it→/dʌ zɪt/（z 与 ɪ）；it take→/ɪ tteɪk/（t 与 t 顺接）；take to→/teɪk tə/；get there→/ɡɛ tðɛr/（t 与 ð）。弱读：does→/dəz/；it→/ɪt/；to→/tə/。失去爆破：get there /ɡɛ(t) ðɛr/（t 在 ð 前不完全爆破）。浊化：无典型。同化/滑音/闪音/缩读：无典型。", "mastery": 1}, {"id": "s13", "type": "short", "topic": "travel", "en": "Is this seat taken?", "ipa": "/ɪz ðɪs sit ˈteɪkən/", "zh": "这个座位有人坐吗？", "kw": [["seat", "/sit/", "n.座位"], ["taken", "/ˈteɪkən/", "adj.被占用的"]], "variants": [["Is anyone sitting here?", "问『有人坐这儿吗』更直白"], ["Is this taken?", "极简，指座位/物品"], ["Can I sit here?", "直接问能否坐"]], "scenes": [["车上找座", "Excuse me, is this seat taken?", "对方回 No, go ahead.(没人，请坐) / Yes, sorry.(有人)"], ["放行李", "Is this spot free?", "问地方是否被占"], ["不同回答", "It's free. / Someone's coming back. / I'm saving it for a friend."]], "grammar": "be + 过去分词 表状态；take 的过去分词 taken 在此作形容词『被占用的』。this seat 单数用 is。比 Can I sit here 更礼貌且常用。", "pron": "连读：Is this→/ɪz ðɪs/（z 与 ð）；this seat→/ðɪs sit/（s 与 s）；seat taken→/sit ˈteɪkən/（t 与 t）。弱读：this→/ðɪs/（此处重读）；is→/ɪz/。失去爆破：this seat /ðɪ(s) sit/（s 轻微）；seat taken /si(t) ˈteɪkən/（t 在 t 前不完全爆破）。浊化：无。同化/滑音/闪音/缩读：无典型。", "mastery": 1}, {"id": "s14", "type": "short", "topic": "travel", "en": "I'd like a window seat, please.", "ipa": "/aɪd laɪk ə ˈwɪndoʊ sit pliz/", "zh": "我想要一个靠窗的座位，谢谢。", "kw": [["window", "/ˈwɪndoʊ/", "n.窗户"], ["seat", "/sit/", "n.座位"]], "variants": [["I'd like an aisle seat, please.", "aisle=靠走道座位"], ["Window seat, please.", "极简，值机时说"], ["Can I get a window seat?", "问能否安排靠窗"]], "scenes": [["值机选座", "I'd like a window seat, please.", "对方回 Sure, 14A by the window."], ["在线选座", "Is a window seat still available?", "问是否还有靠窗位"], ["不同回答", "We only have middle seats left. / Aisle okay instead? / No extra charge."]], "grammar": "I'd like to… / I'd like + 名词 表『我想要…』，比 I want 礼貌。window seat / aisle seat 是航班选座固定说法。", "pron": "缩读：I'd = I would（/aɪd/，'d 为 would 缩读）。连读：like a→/laɪ kə/（k 与 ə）；a window→/ə ˈwɪndoʊ/；window seat→/ˈwɪndoʊ sit/（oʊ 与 s）；seat please→/sit pliz/（t 与 p）。弱读：a→/ə/。失去爆破：window seat /ˈwɪndoʊ(s) sit/（w 轻微）；seat please /si(t) pliz/（t 在 p 前不完全爆破）。浊化：无典型。同化/滑音/闪音：无典型。", "mastery": 4}, {"id": "s15", "type": "short", "topic": "travel", "en": "Where is the baggage claim?", "ipa": "/wɛr ɪz ðə ˈbæɡɪdʒ kleɪm/", "zh": "行李领取处在哪里？", "kw": [["baggage", "/ˈbæɡɪdʒ/", "n.行李"], ["claim", "/kleɪm/", "n.领取"]], "variants": [["Where do I pick up my luggage?", "pick up luggage 更口语"], ["Where's the luggage carousel?", "carousel=行李转盘"], ["Baggage claim?", "极简，问路时"]], "scenes": [["机场找行李", "Excuse me, where is the baggage claim?", "对方指方向 This way, follow the signs."], ["看屏幕", "Which carousel is for flight XX?", "问几号转盘"], ["不同回答", "It's downstairs. / Belt 3 on the left. / Turn right after customs."]], "grammar": "baggage 与 luggage 都表行李，baggage 偏美、luggage 通用且不可数。claim 此处作名词『领取处』；Where is + 地点 问位置。", "pron": "连读：Where is→/wɛə rɪz/（r 与 ɪ）；is the→/ɪ zðə/（z 与 ð）；the baggage→/ðə ˈbæɡɪdʒ/；baggage claim→/ˈbæɡɪdʒ kleɪm/（dʒ 与 k）。弱读：is→/ɪz/；the→/ðə/。失去爆破：baggage /ˈbæɡɪ(dʒ)/ 词尾轻微；无相邻爆破典型。浊化：无典型。同化/滑音/闪音/缩读：无典型。", "mastery": 1}];
+const DATA = [{"id": "s36", "nid": 36, "type": "short", "topic": "travel", "en": "Can I try this on?", "ipa": "/kæn aɪ traɪ ðɪs ɑn/", "zh": "我可以试穿这件吗？", "kw": [["try on", "/traɪ ɑn/", "phr.试穿"]], "variants": [["Can I try it on?", "代词 it 必须放中间"], ["Where's the fitting room?", "先问试衣间"], ["May I try this on?", "may 更正式"]], "scenes": [["试穿", "Can I try this on?", "店员回 Sure, the mirror's there."], ["拿进试衣间", "I'll take these to the fitting room.", "说拿去试"], ["不同回答", "Sure. / It looks great on you. / The fitting room is in the back."]], "grammar": "try on 短语动词『试穿』，代词宾语必放中间（try it on），名词可放后（try this on）。can/may 表请求许可；this 单数用 try。", "pron": "连读：Can I→/kæn aɪ/（n 与 a）；I try→/aɪ traɪ/；try this→/traɪ ðɪs/（aɪ 与 ð）；this on→/ðɪs ɑn/（s 与 ɑ）。弱读：I→/aɪ/（重读）；can→/kæn/。失去爆破：this on /ðɪ(s) ɑn/（s 轻微）；try this /traɪ(ð) ðɪs/（ð 轻微）。浊化：无。同化/滑音/闪音/缩读：无典型。", "mastery": 1}, {"id": "s37", "nid": 37, "type": "short", "topic": "travel", "en": "That's a bit expensive for me.", "ipa": "/ðæts ə bɪt ɪkˈspɛnsɪv fɔr mi/", "zh": "那对我来说有点贵。", "kw": [["expensive", "/ɪkˈspɛnsɪv/", "adj.贵的"]], "variants": [["That's a little pricey for me.", "pricey 口语=贵"], ["It's over my budget.", "说超预算"], ["Can you do a better price?", "问能否便宜点"]], "scenes": [["觉得贵", "That's a bit expensive for me.", "店员回 I can give you a discount."], ["砍价", "Is there any flexibility on price?", "问价可否松动"], ["不同回答", "It's the last one. / I'll take 10% off. / That's our best price."]], "grammar": "That's = That is 缩读；a bit + 形容词 表『有点…』；expensive 形容词『贵的』；for me 表『对我而言』。比较级 cheaper 表『更便宜』。", "pron": "缩读：That's = That is（/ðæts/）。连读：That's a→/ðæts ə/（s 与 ə）；a bit→/ə bɪt/；bit expensive→/bɪt ɪkˈspɛnsɪv/（t 与 ɪ）；expensive for→/ɪkˈspɛnsɪv fɔr/；for me→/fɔr mi/。弱读：a→/ə/；for→/fər/；me→/mi/。失去爆破：bit expensive /bɪ(t) ɪk/（t 在 ɪ 前不完全爆破）。浊化：无。同化/滑音/闪音：无典型。", "mastery": 1}, {"id": "s38", "nid": 38, "type": "short", "topic": "travel", "en": "Do you accept credit cards?", "ipa": "/du ju əkˈsɛpt ˈkrɛdɪt kɑrdz/", "zh": "你们收信用卡吗？", "kw": [["credit", "/ˈkrɛdɪt/", "n.信用"], ["card", "/kɑrd/", "n.卡"]], "variants": [["Do you take cards?", "take 口语=收"], ["Can I pay by card?", "问能否刷卡"], ["Do you accept Visa?", "问具体卡种"]], "scenes": [["付款前问", "Do you accept credit cards?", "店员回 Yes, we do. / Card's fine."], ["问现金", "Do you take cash only?", "问是否只收现金"], ["不同回答", "We take all cards. / There's a 3% fee. / Tap or chip?"]], "grammar": "Do you accept + 名词 问『你们收…吗』；credit cards 复数。accept 动词『接受』；take 口语同义。pay by card / in cash 表支付方式。", "pron": "连读：Do you→/dʒu/（d+j 同化为 dʒ，关键！）；you accept→/ju əkˈsɛpt/；accept credit→/əkˈsɛpt ˈkrɛdɪt/（t 与 k）；credit cards→/ˈkrɛdɪt kɑrdz/（t 与 k）。弱读：you→/jə/。同化：Do you→/dʒu/。失去爆破：accept credit /əkˈsɛp(t) ˈkrɛ/（t 在 k 前不完全爆破）；credit cards /ˈkrɛdɪ(t) kɑrdz/（t 在 k 前）。浊化：无。闪音：credit→/ˈkrɛdɪt/ 词尾 t 在 k 前不完全爆破（非闪音）。缩读：无。", "mastery": 1}, {"id": "s39", "nid": 39, "type": "short", "topic": "travel", "en": "Can I get a refund?", "ipa": "/kæn aɪ ɡɛt ə ˈrifʌnd/", "zh": "我可以退款吗？", "kw": [["refund", "/ˈrifʌnd/", "n.退款"]], "variants": [["Can I get my money back?", "说退钱更直接"], ["I'd like a refund, please.", "礼貌要退款"], ["Is this returnable?", "问能否退"]], "scenes": [["退货", "Can I get a refund?", "店员回 With the receipt, yes. / No, final sale."], ["问条件", "Do I need the receipt?", "问要不要小票"], ["不同回答", "We'll refund to your card. / Store credit only. / Within 7 days, please."]], "grammar": "Can I get + 名词 请求；a refund 单数『退款』。refund 也可作动词 /rɪˈfʌnd/。return 作动词『退』，returnable 形容词『可退的』。", "pron": "连读：Can I→/kæn aɪ/（n 与 a）；I get→/aɪ ɡɛt/；get a→/ɡɛ tə/（t 与 ə）；a refund→/ə ˈrifʌnd/。弱读：I→/aɪ/；a→/ə/。失去爆破：get a /ɡɛ(t) ə/（t 在 ə 前不完全爆破）。浊化：get a 快读 /ɡɛ də/（t→d）。同化/滑音/闪音/缩读：无典型。", "mastery": 1}, {"id": "s40", "nid": 40, "type": "short", "topic": "travel", "en": "Where are the changing rooms?", "ipa": "/wɛr ɑr ðə ˈtʃeɪndʒɪŋ rumz/", "zh": "试衣间在哪里？", "kw": [["changing rooms", "/ˈtʃeɪndʒɪŋ rumz/", "n.试衣间"]], "variants": [["Where are the fitting rooms?", "fitting room 也常用"], ["Where can I try clothes on?", "问试衣处"], ["Where's the dressing room?", "dressing room 偏正式"]], "scenes": [["找试衣间", "Where are the changing rooms?", "店员回 In the back, on your left."], ["确认", "Are they unisex?", "问是否男女通用"], ["不同回答", "Just around the corner. / They're occupied. / One moment, I'll open one."]], "grammar": "Where are + 复数名词（rooms）用 are；changing rooms / fitting rooms 同义『试衣间』。dressing room 偏正式/舞台更衣室。", "pron": "连读：Where are→/wɛr ɑr/（r 与 ɑ）；are the→/ɑr ðə/（r 与 ð）；the changing→/ðə ˈtʃeɪndʒɪŋ/；changing rooms→/ˈtʃeɪndʒɪŋ rumz/（ŋ 与 r）。弱读：are→/ər/；the→/ðə/。失去爆破：无相邻爆破典型。浊化：无。同化/滑音/闪音/缩读：无典型。", "mastery": 1}];
 let speed = 1;
 let cardSpeed = {};
 try { DATA.forEach(d => { const sv = localStorage.getItem('vocab_speed_'+String(d.id).replace('s','')); if(sv) cardSpeed[d.id]=parseFloat(sv); }); } catch(e){}
@@ -176,7 +176,7 @@ function cardHTML(d){
     <div class="kw">${kw}</div>
     <button class="detailsBtn" id="db-${d.id}" onclick="toggleDetails('${d.id}')">📂 展开详情（变体 / 场景 / 语法 / 发音）</button>
     <div class="details collapsed" id="dt-${d.id}">
-      <div class="block var"><div class="h">🔹 简化 / 口语变体</div><ul>${v}</ul></div>
+      <div class="block var"><div class="h">🔻 简化 / 口语变体</div><ul>${v}</ul></div>
       <div class="block scene"><div class="h">🎭 场景化表达 + 不同回答</div><ul>${sc}</ul></div>
       <div class="block gram"><div class="h">📝 语法提示</div><div>${d.grammar}</div></div>
       <div class="block pr"><div class="h">🔤 发音提示（连读/同化/滑音/浊化/失去爆破/闪音/弱读/缩读）</div><div>${d.pron}</div></div>
@@ -203,9 +203,9 @@ function cardHTML(d){
       <span class="lbl">自评掌握度：</span>
       <div class="mbar" id="mbar-${d.id}"><div class="mfill" style="width:${d.mastery*20}%;background:${d.mastery<=2?'#dc2626':d.mastery<=4?'#d97706':'#16a34a'}"></div></div>
       <span class="mbadge" id="mb-${d.id}">${d.mastery}/5</span>
-      <button class="c" onclick="assess('${d.id}','clear',this)">✅ 认识 +1</button>
+      <button class="c" onclick="assess('${d.id}','clear',this")>✅ 认识 +1</button>
       <button class="f" onclick="assess('${d.id}','fuzzy',this)">🟡 模糊</button>
-      <button class="u" onclick="assess('${d.id}','unknown',this)">🔴 不认识 -1</button>
+      <button class="u" onclick="assess('${d.id}','unknown',this')">🔴 不认识 -1</button>
       <span class="astat" id="as-${d.id}"></span>
     </div>
   </div>`;
@@ -229,10 +229,10 @@ function setCardDetails(id, show){ const el=document.getElementById('dt-'+id); i
 function toggleDetails(id){ const el=document.getElementById('dt-'+id); if(el) setCardDetails(id, el.classList.contains('collapsed')); }
 function toggleAllDetails(){ const anyCollapsed = !!document.querySelector('.details.collapsed'); const show = anyCollapsed;
   document.querySelectorAll('.details').forEach(el=>setCardDetails(el.id.replace('dt-',''), show));
-  const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = show ? '📁 收起全部详情' : '📂 展开全部详情'; }
+  const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = show ? '📁 收走全部详情' : '📂 展开全部详情'; }
 function applyStoredDetails(){ DATA.forEach(d=>{ let st=null; try{ st=localStorage.getItem('vocab_details_'+d.id); }catch(e){}
   if(st==='open') setCardDetails(d.id, true); });
-  const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = document.querySelector('.details.collapsed') ? '📂 展开全部详情' : '📁 收起全部详情'; }
+  const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = document.querySelector('.details.collapsed') ? '📂 展开全部详情' : '📁 收走全部详情'; }
 function mColor(v){ return v<=2?'#dc2626':(v<=4?'#d97706':'#16a34a'); }
 function setMbar(sid,v){ const bar=document.getElementById('mbar-'+sid);
   if(bar){ const f=bar.querySelector('.mfill'); f.style.width=(v*20)+'%'; f.style.background=mColor(v); }

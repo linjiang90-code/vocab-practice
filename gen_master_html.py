@@ -56,10 +56,10 @@ for s in S:
         <button class="readBtn" data-id="{s['id']}">▶ 开始</button>
         <span class="spdlbl">语速</span>
         <select class="spdSel" data-id="{s['id']}">
-          <option value="1">1.0x</option>
-          <option value="0.75">0.75x</option>
-          <option value="0.5">0.5x</option>
-          <option value="0.4">0.4x</option>
+          <option value="1">1倍</option>
+          <option value="0.8">0.8倍</option>
+          <option value="0.7">0.7倍</option>
+          <option value="0.6">0.6倍</option>
         </select>
       </div>'''
     kv = "".join(
@@ -293,9 +293,9 @@ html = f'''<!DOCTYPE html>
     <button class="tbtn" id="expandAll">🔤 展开全部发音详情</button>
     <button class="tbtn" id="syncBtn">🔄 同步掌握度</button>
     <label class="speedWrap">语速(批量预设) <select id="speedSel" class="tbtn" title="设为统一语速并应用到全部句子">
-      <option value="1">1.0x</option>
-      <option value="0.75">0.75x</option>
-      <option value="0.5">0.5x</option>
+      <option value="1">1倍</option>
+      <option value="0.8">0.8倍</option>
+      <option value="0.7">0.7倍</option>
     </select></label>
     <span class="count" id="count"></span>
   </div>

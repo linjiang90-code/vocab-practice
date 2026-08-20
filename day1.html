@@ -162,7 +162,7 @@ function cardHTML(d){
       <span class="pill ${d.topic}">${d.topic==='travel'?'旅游':'日常'}</span>
       <span class="play">
         <span class="ic" title="原声伴读" onclick="playAudio('${d.id}')">🔊</span>
-        <span class="ic" title="慢速朗读" onclick="playAudio('${d.id}', 0.75)">🐢</span>
+        <span class="ic" title="慢速朗读" onclick="playAudio('${d.id}', 0.7)">🐢</span>
       </span>
     </div>
     <div class="en">${d.en}</div>
@@ -182,7 +182,7 @@ function playAudio(id, rate){ if(window.VocabAudio){ VocabAudio.play(id, rate ||
 let queue=[]; function playAll(){ stopAll(); queue=DATA.map(d=>d.id); next(); }
 function next(){ if(!queue.length){ stopAll(); return; }
   const id=queue.shift();
-  if(window.VocabAudio){ VocabAudio.play(id, (typeof slow!=='undefined'&&slow?0.75:1), ()=>{ next(); }); }
+  if(window.VocabAudio){ VocabAudio.play(id, (typeof slow!=='undefined'&&slow?0.7:1), ()=>{ next(); }); }
   else { stopAll(); return; } }
 function stopAll(){ queue=[]; if(window.VocabAudio) VocabAudio.stopAll(); }
 </script>

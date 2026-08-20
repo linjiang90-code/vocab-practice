@@ -316,10 +316,10 @@ PAGE = """<!DOCTYPE html>
     <button class="btn primary" onclick="playAll()">\u25b6 \u5168\u90e8\u4f34\u8bfb</button>
     <label class="spd">\u8bed\u901f(\u6279\u91cf\u9884\u8bbe)
       <select id="speedSel" onchange="setSpeed(this.value)" title="\u8bbe\u4e3a\u7edf\u4e00\u8bed\u901f\u5e94\u7528\u5230\u5168\u90e8\u53e5\u5b50">
-        <option value="1">1.0x</option>
-        <option value="0.75">0.75x</option>
-        <option value="0.5">0.5x</option>
-        <option value="0.4">0.4x</option>
+        <option value="1">1倍</option>
+        <option value="0.8">0.8倍</option>
+        <option value="0.7">0.7倍</option>
+        <option value="0.6">0.6倍</option>
       </select>
     </label>
     <button class="btn" onclick="stopAll()">\u23f9 \u505c\u6b62</button>
@@ -375,7 +375,7 @@ function cardHTML(d){
       <span class="pill ${d.topic}">${d.topic==='travel'?'\u65c5\u6e38':'\u65e5\u5e38'}</span>
       <span class="play">
         <span class="ic" title="\u539f\u58f0\u4f34\u8bfb" onclick="playAudio('${d.id}')">\U0001f50a</span>
-        <span class="ic" title="\u6162\u901f\u6717\u8bfb" onclick="playAudio('${d.id}', 0.75)">\U0001f422</span>
+        <span class="ic" title="\u6162\u901f\u6717\u8bfb" onclick="playAudio('${d.id}', 0.7)">\U0001f422</span>
       </span>
     </div>
     <div class="en">${d.en}</div>
@@ -401,10 +401,10 @@ function cardHTML(d){
       <button id="rb-${d.id}" class="readBtn" onclick="loopSpeak('${d.id}')">\u25b6 \u5f00\u59cb</button>
       <span class="spdlbl">\u8bed\u901f</span>
       <select class="spdSel" onchange="setCardSpeed('${d.id}',this.value)">
-        <option value="1">1.0x</option>
-        <option value="0.75">0.75x</option>
-        <option value="0.5">0.5x</option>
-        <option value="0.4">0.4x</option>
+        <option value="1">1倍</option>
+        <option value="0.8">0.8倍</option>
+        <option value="0.7">0.7倍</option>
+        <option value="0.6">0.6倍</option>
       </select>
     </div>
     <div class="assess">
