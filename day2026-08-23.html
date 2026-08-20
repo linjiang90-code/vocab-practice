@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>英语口语 Day 11 · 增强版</title>
+<style>
+  :root{
+    --bg:#f5f7fa; --card:#ffffff; --text:#1f2329; --sub:#6b7280;
+    --line:#e5e7eb; --accent:#2f6fed; --accent2:#0e9f6e; --warn:#b45309; --pron:#0369a1;
+    --travel:#eef4ff; --daily:#eafaf3; --chip:#fff4e5;
+    --var:#f3f0ff; --scene:#eafaf3; --gram:#fff7ed; --pr:#eaf4ff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",Segoe UI,Roboto,sans-serif;
+    background:var(--bg);color:var(--text);line-height:1.65;padding:24px 16px 60px}
+  .wrap{max-width:820px;margin:0 auto}
+  header{text-align:center;margin-bottom:14px}
+  header h1{font-size:22px;font-weight:700}
+  header p{color:var(--sub);font-size:13.5px;margin-top:6px}
+  .summary{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:14px 0 4px}
+  .summary .box{background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 14px;text-align:center;min-width:96px}
+  .summary .box b{display:block;font-size:18px;color:var(--accent)}
+  .summary .box span{font-size:12px;color:var(--sub)}
+  .legend{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;font-size:12px;color:var(--sub);margin:14px 0 18px}
+  .legend b{color:var(--text)}
+  .toolbar{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:0 0 22px}
+  .btn{border:1px solid var(--line);background:#fff;color:var(--text);border-radius:999px;
+    padding:7px 16px;font-size:14px;cursor:pointer;transition:.15s}
+  .btn:hover{border-color:var(--accent);color:var(--accent)}
+  .btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .sec-title{font-size:15px;font-weight:700;color:var(--sub);margin:24px 4px 12px;display:flex;align-items:center;gap:8px}
+  .sec-title .tag{background:var(--accent);color:#fff;font-size:12px;padding:2px 9px;border-radius:6px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:14px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+  .card .top{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+  .num{width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex:none}
+  .pill{font-size:12px;padding:2px 10px;border-radius:999px;font-weight:600}
+  .pill.travel{background:var(--travel);color:#2f6fed}
+  .pill.daily{background:var(--daily);color:#0e9f6e}
+  .play{margin-left:auto;display:flex;gap:6px}
+  .ic{border:1px solid var(--line);background:#fff;border-radius:8px;width:34px;height:30px;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center}
+  .ic:hover{border-color:var(--accent);background:#f0f6ff}
+  .en{font-size:19px;font-weight:600;letter-spacing:.2px}
+  .ipa{color:var(--sub);font-size:13px;margin:4px 0 6px;font-style:italic}
+  .zh{font-size:15px;color:#374151}
+  .block{margin-top:12px;border-radius:10px;padding:10px 12px;font-size:13.5px}
+  .block .h{font-weight:700;font-size:13px;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+  .var{background:var(--var)} .scene{background:var(--scene)} .gram{background:var(--gram)} .pr{background:var(--pr)}
+  .var .h{color:#6d28d9} .scene .h{color:#0e9f6e} .gram .h{color:var(--warn)} .pr .h{color:var(--pron)}
+  .kw{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+  .kw .chip{background:var(--chip);border-radius:8px;padding:5px 10px;font-size:13px}
+  .kw .chip b{color:#b45309} .kw .chip .p{color:#9a3412;font-style:italic;margin-left:4px}
+  .block ul{margin:0;padding:left:18px} .block li{margin:3px 0}
+  .block li .ex{font-weight:600} .block li .nt{color:#6b7280}
+  .scene li .occ{color:#0e9f6e;font-weight:600} .scene li .resp{color:#6b7280}
+  footer{text-align:center;color:var(--sub);font-size:12px;margin-top:24px}
+  .assess{display:flex;align-items:center;gap:8px;margin-top:12px;flex-wrap:wrap;border-top:1px dashed var(--line);padding-top:10px}
+  .assess .lbl{font-size:13px;color:var(--sub)}
+  .assess button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:5px 12px;font-size:13px;cursor:pointer}
+  .assess button:hover{filter:brightness(.97)}
+  .assess .c{color:#16a34a}.assess .f{color:#d97706}.assess .u{color:#dc2626}
+  .astat{font-size:12px;color:var(--sub);margin-left:auto}
+  .mbadge{font-size:12px;font-weight:600;padding:2px 8px;border-radius:6px;background:#f1f5f9;color:#475569}
+  .spd{font-size:14px;color:var(--sub);display:flex;align-items:center;gap:6px}
+  .spd select{padding:6px 8px;border:1px solid var(--line);border-radius:8px;background:#fff;font-size:13px;color:var(--text);cursor:pointer}
+  .readwrap{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:12px 0 2px;font-size:13px;color:var(--sub)}
+  .readwrap audio{width:100%;height:32px;margin-bottom:2px}
+  .readwrap select{padding:5px 8px;border:1px solid var(--line);border-radius:8px;background:#fff;font-size:13px;color:var(--text);cursor:pointer}
+  .readwrap .rlbl{font-weight:600;color:#475569}
+  .readwrap .spdlbl{color:var(--sub)}
+  .readBtn{border:1px solid var(--accent2);background:var(--accent2);color:#fff;border-radius:8px;padding:5px 14px;font-size:13px;cursor:pointer}
+  .readBtn:hover{filter:brightness(1.05)}
+  .readBtn.run{background:#dc2626;border-color:#dc2626}
+  .detailsBtn{width:100%;text-align:left;border:1px solid var(--line);background:#f8fafc;color:var(--sub);border-radius:10px;padding:8px 12px;font-size:13px;font-weight:600;cursor:pointer;margin-top:12px}
+  .detailsBtn:hover{border-color:var(--accent);color:var(--accent)}
+  .details.collapsed>.block{display:none}
+  .mbar{width:96px;height:9px;border-radius:5px;background:#e5e7eb;overflow:hidden;flex:none}
+  .mbar .mfill{height:100%;border-radius:5px;transition:width .25s,background .25s}
+  .pagenav{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap;margin-bottom:6px}
+  .pagenav a{text-decoration:none;font-size:13px;color:#475569;border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-weight:600;transition:.15s}
+  .pagenav a:hover{border-color:var(--accent);color:var(--accent);background:#f0f6ff}
+.preview-banner{background:#fff7ed;border:1px solid #fed7aa;color:#b45309;border-radius:10px;padding:9px 12px;font-size:13px;margin:10px 0 4px;text-align:center;line-height:1.5}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="pagenav">
+  <a href="index.html">\U0001f3e0 \u9996\u9875</a>
+  <a href="review.html">\U0001f4da \u5df2\u5b66\u56de\u987e</a>
+  <a href="calendar.html">\U0001f4c5 \u65e5\u5386</a>
+</nav>
+  <header>
+    <h1>\U0001f5a3 \u82f1\u8bed\u53e3\u8bed \u00b7 Day 11\uff08\u589e\u5f3a\u7248\uff09</h1>
+    <p>\u65c5\u6e38 + \u65e5\u5e38\u6df7\u5408 \u00b7 5 \u53e5/\u5929 \u00b7 \u4e2d\u82f1\u5bf9\u7167 + \u751f\u8bcd\u97f3\u6807 + \u539f\u58f0\u4f34\u8bfb + \u53d8\u4f53 + \u573a\u666f\u4fd7\u8bed + \u8bed\u6cd5 + \u53d1\u97f3\u63d0\u793a</p>
+  </header>
+  <div class="preview-banner">🔓 预习模式 · 该日尚未到（2026-08-23），可提前学习；每日 9:00 自动推送后会与此页内容同步。</div>
+  <div class="summary">
+    <div class="box"><b>\u7b2c 11 \u5929</b><span>\u8fde\u7eed\u5b66\u4e60</span></div>
+    <div class="box"><b>5 \u53e5</b><span>\u4eca\u65e5\u65b0\u5b66</span></div>
+    <div class="box"><b>60/100</b><span>\u7d2f\u8ba1\u5df2\u5b66</span></div>
+    <div class="box"><b>100 \u53e5</b><span>\u5f53\u524d\u603b\u6c60</span></div>
+  </div>
+  <div class="legend">
+    <span>\U0001f53b <b>\u7b80\u5316/\u53e3\u8bed\u53d8\u4f53</b></span>
+    <span>\U0001f3ad <b>\u573a\u666f\u5316\u8868\u8fbe + \u4e0d\u540c\u56de\u7b54</b></span>
+    <span>\U0001f4dd <b>\u8bed\u6cd5\u63d0\u793a</b></span>
+    <span>\U0001f524 <b>\u53d1\u97f3\u63d0\u793a(\u8fde\u8bfb/\u540c\u5316/\u6ed1\u97f3/\u6d4a\u5316/\u5931\u53bb\u7206\u7834/\u95ea\u97f3/\u5f31\u8bfb/\u7f29\u8bfb)</b></span>
+  </div>
+  <div class="toolbar">
+    <button class="btn primary" onclick="playAll()">\u25b6 \u5168\u90e8\u4f34\u8bfb</button>
+    <label class="spd">\u8bed\u901f(\u6279\u91cf\u9884\u8bbe)
+      <select id="speedSel" onchange="setSpeed(this.value)" title="\u8bbe\u4e3a\u7edf\u4e00\u8bed\u901f\u5e94\u7528\u5230\u5168\u90e8\u53e5\u5b50">
+        <option value="1">1倍</option>
+        <option value="0.8">0.8倍</option>
+        <option value="0.7">0.7倍</option>
+        <option value="0.6">0.6倍</option>
+      </select>
+    </label>
+    <button class="btn" onclick="stopAll()">\u23f9 \u505c\u6b62</button>
+    <button class="btn" id="allDetBtn" onclick="toggleAllDetails()">\U0001f4c2 \u5c55\u5f00\u5168\u90e8\u8be6\u60c5</button>
+  </div>
+  <div id="short"></div>
+  <div id="long"></div>
+  <footer>\u6bcf\u5929 9:00 \u81ea\u52a8\u63a8\u9001\u65b0\u4e00\u6279\uff08\u540c\u6b3e\u589e\u5f3a\u7248\uff09 \u00b7 \u8fdb\u5ea6\u672c\u5730\u4fdd\u5b58\uff0c\u4e0d\u5916\u4f20</footer>
+</div>
+<script src="audio-engine.js"></script>
+<script>
+(function(){ const d=new Date().toISOString().slice(0,10); document.querySelectorAll('.today-nav').forEach(a=>a.href='day'+d+'.html'); })();
+const DATA = [{"id": "s56", "nid": 56, "type": "long", "topic": "travel", "en": "I was wondering if you could help me find the nearest hospital, as I'm not feeling well.", "ipa": "/aɪ wʌz ˈwʌndərɪŋ ɪf ju kʊd hɛlp mi faɪnd ðə ˈnɪrɪst ˈhɑspɪtl əz aɪm nɑt ˈfilɪŋ wɛl/", "zh": "我想问你能否帮我找最近的医院，因为我有点不舒服。", "kw": [["hospital", "/ˈhɑspɪtl/", "n.医院"], ["feeling", "/ˈfilɪŋ/", "v.感觉"]], "variants": [["Can you help me find a hospital?", "更直接"], ["I need the nearest hospital, please.", "紧急直说"], ["Where's the ER?", "ER = emergency room 急诊"]], "scenes": [["求助就医", "I was wondering if you could help me find the nearest hospital, as I'm not feeling well.", "对方回 Of course, I'll call a cab."], ["同伴不适", "My friend feels sick.", "说同伴不舒服"], ["不同回答", "The clinic's two blocks away. / I'll go with you. / Call an ambulance."]], "grammar": "I was wondering if… 过去进行表委婉请求（比 Can you 客气）；could 表委婉能力。as 引导原因状语从句『因为』；not feeling well 现在分词作表语『不舒服』。hospital 单数。", "pron": "同化：Could you→/kʊdʒu/（d+j 同化，关键！）。连读：was wondering→/wʌz ˈwʌndərɪŋ/（z 与 w）；if you→/ɪf ju/（f 与 j）；you could→/ju kʊd/；help me→/hɛlp mi/（p 与 m）；me find→/mi faɪnd/（i 与 f）；find the→/faɪnd ðə/；the nearest→/ðə ˈnɪrɪst/；hospital as→/ˈhɑspɪtl əz/（l 与 ə）；as I'm→/əz aɪm/（z 与 a）；I'm not→/aɪm nɑt/；not feeling→/nɑt ˈfilɪŋ/；feeling well→/ˈfilɪŋ wɛl/（ŋ 与 w）。弱读：you→/jə/；me→/mi/；the→/ðə/；as→/əz/；I'm→/aɪm/。失去爆破：help me /hɛ(l)p mi/（l 轻）；nearest /ˈnɪrɪ(s)t/（t 轻）；feeling well /ˈfilɪŋ(w)ɛl/。浊化：无。闪音：hospital→/ˈhɑspɪtl/（词尾 l 无闪音，但 testing/letting 等含闪音，本句无典型）。缩读：I'm = I am。", "mastery": 0}, {"id": "s57", "nid": 57, "type": "long", "topic": "travel", "en": "If it's not too much trouble, could you let me know when we arrive at the museum?", "ipa": "/ɪf ɪts nɑt tu mʌtʃ ˈtrʌbəl kʊd ju lɛt mi noʊ wɛn wi əˈraɪv ət ðə mjuˈziəm/", "zh": "如果不麻烦的话，到了博物馆请告诉我一声好吗？", "kw": [["trouble", "/ˈtrʌbəl/", "n.麻烦"], ["arrive", "/əˈraɪv/", "v.到达"]], "variants": [["Please tell me when we get to the museum.", "更直接"], ["Let me know at the museum, okay?", "口语"], ["Remind me when we arrive.", "remind 提醒"]], "scenes": [["请提醒", "If it's not too much trouble, could you let me know when we arrive at the museum?", "对方回 Sure, I will."], ["车上", "Wake me up before we arrive.", "说到了叫醒"], ["不同回答", "No trouble at all. / I'll tap you. / Got it."]], "grammar": "If it's not too much trouble 是固定客套『如果不麻烦的话』；could you + 动词原形 委婉请求；let me know 『告诉我』；when 引导时间状语从句。arrive at + 小地点。", "pron": "同化：Could you→/kʊdʒu/（d+j 同化，关键！）。连读：If it's→/ɪf ɪts/（f 与 s）；it's not→/ɪts nɑt/（s 与 n）；not too→/nɑ tʊ/（两 t 只读一次）；much trouble→/mʌtʃ ˈtrʌbəl/（tʃ 与 t）；could you→/kʊdʒu/；you let→/ju lɛt/；let me→/lɛt mi/（t 与 m）；me know→/mi noʊ/（i 与 n）；know when→/noʊ wɛn/（oʊ 与 w）；when we→/wɛn wi/（n 与 w）；we arrive→/wi əˈraɪv/；arrive at→/əˈraɪv ət/；at the→/ət ðə/；the museum→/ðə mjuˈziəm/。弱读：you→/jə/；me→/mi/；at→/ət/；the→/ðə/。浊化：not too 快读 /nɑ dʊ/（t→d）。失去爆破：much trouble /mʌtʃ ˈtrʌ(b)əl/（b 轻）；let me /lɛ(t) mi/（t 在 m 前不完全爆破）；arrive at /əˈraɪ(v) ət/。缩读：it's = it is。滑音/闪音：无典型。", "mastery": 0}, {"id": "s58", "nid": 58, "type": "long", "topic": "travel", "en": "I'd like to extend my stay by two nights if that's possible.", "ipa": "/aɪd laɪk tə ɪkˈstɛnd maɪ steɪ baɪ tu naɪts ɪf ðæts ˈpɑsəbəl/", "zh": "如果可能的话，我想把住宿延长两晚。", "kw": [["extend", "/ɪkˈstɛnd/", "v.延长"], ["stay", "/steɪ/", "n.停留"]], "variants": [["I'd like to stay two more nights.", "more nights 更口语"], ["Can I extend my stay?", "问能否续住"], ["I want to add two nights.", "add 表加"]], "scenes": [["续住", "I'd like to extend my stay by two nights if that's possible.", "前台回 Sure, room 305 again. / An extra 40 a night."], ["问价", "How much for two more nights?", "问加价"], ["不同回答", "No problem. / We're fully booked then. / I'll check availability."]], "grammar": "I'd like to + 动词原形（extend）礼貌表达；extend 动词『延长』。by + 时间段 表『多出…』。if that's possible 是插入条件『如果可能』，that's = that is。", "pron": "缩读：I'd = I would（/aɪd/）；that's = that is（/ðæts/）。连读：like to→/laɪk tə/（可 /laɪktə/）；to extend→/tə ɪkˈstɛnd/；extend my→/ɪkˈstɛnd maɪ/（d 与 m）；my stay→/maɪ steɪ/（aɪ 与 s）；stay by→/steɪ baɪ/（aɪ 与 b）；by two→/baɪ tu/；two nights→/tu naɪts/（u 与 n）；if that's→/ɪf ðæts/（f 与 s）；that's possible→/ðæts ˈpɑsəbəl/（s 与 p）。弱读：to→/tə/；my→/maɪ/；if→/ɪf/。浊化：like to 快读 /laɪ də/（t→d）。失去爆破：extend my /ɪkˈstɛn(d) maɪ/（d 轻）；two nights /tu naɪ(t)s/（t 在 s 前不完全爆破）。闪音：无典型。同化：无。", "mastery": 0}, {"id": "s59", "nid": 59, "type": "short", "topic": "daily", "en": "How are you doing today?", "ipa": "/haʊ ɑr ju ˈduɪŋ təˈdeɪ/", "zh": "你今天过得怎么样？", "kw": [["doing", "/ˈduɪŋ/", "v.过（日子）"], ["today", "/təˈdeɪ/", "adv.今天"]], "variants": [["How are you?", "最简问候"], ["How's it going?", "口语，问近况"], ["How have you been?", "问最近(一段时间)如何"]], "scenes": [["日常问候", "How are you doing today?", "对方回 I'm good, thanks. And you?"], ["熟人间", "What's up?", "极简"], ["不同回答", "Not bad. / Can't complain. / Pretty busy, actually."]], "grammar": "How are you doing 是进行时问候『最近过得怎样』；today 状语。How's it going / What's up 同义寒暄。And you? 是『你呢』省略。", "pron": "连读：How are→/haʊ ɑr/（w 与 ɑ）；are you→/ɑr ju/（r 与 j）；you doing→/ju ˈduɪŋ/（u 与 d）；doing today→/ˈduɪŋ təˈdeɪ/（ŋ 与 t）。弱读：are→/ər/；you→/jə/（可保留 /ju/）。同化：are you 快读 /ɑrju/（无 d+j，因 are 以 r 尾）。失去爆破：doing today /ˈduɪŋ(t)ə/（ŋ 轻）。浊化：无。滑音/闪音/缩读：无典型。", "mastery": 0}, {"id": "s60", "nid": 60, "type": "short", "topic": "daily", "en": "Long time no see!", "ipa": "/lɔŋ taɪm no si/", "zh": "好久不见！", "kw": [["long time no see", "/lɔŋ taɪm no si/", "idiom好久不见"]], "variants": [["Haven't seen you in ages!", "ages 表好久"], ["Long time no see!", "经典"], ["It's been a while.", "说有一阵子了"]], "scenes": [["重逢", "Long time no see!", "对方回 Yeah, way too long! / Great to see you!"], ["叙旧", "What have you been up to?", "问最近忙啥"], ["不同回答", "I know, right? / Too long indeed. / Good to catch up."]], "grammar": "Long time no see 是约定俗成的中式英语借来的 idiom（语法不规范但通行）；no see = 没见。It's been a while / Haven't seen you in ages 同义。", "pron": "连读：Long time→/lɔŋ taɪm/（ŋ 与 t）；time no→/taɪm noʊ/（m 与 n）；no see→/noʊ si/（oʊ 与 s）。弱读：no→/noʊ/（重读）。失去爆破：long time /lɔ(ŋ) taɪm/（ŋ 轻）；no see /noʊ(s)i/（s 轻）。浊化：无。同化/滑音/闪音/缩读：无典型。", "mastery": 0}];
+let speed = 1;
+let cardSpeed = {};
+try { DATA.forEach(d => { const sv = localStorage.getItem('vocab_speed_'+String(d.id).replace('s','')); if(sv) cardSpeed[d.id]=parseFloat(sv); }); } catch(e){}
+const API_PORT = 3279;
+try { const sv = localStorage.getItem('vocab_speed'); if (sv) { speed = parseFloat(sv); document.getElementById('speedSel').value = sv; } } catch(e){}
+async function apiFetch(path, opts){
+  for(const b of ['', 'http://127.0.0.1:'+API_PORT]){
+    try{ const r = await fetch(b+path, opts); if(r && r.ok) return r; }catch(e){}
+  }
+  return null;
+}
+async function assess(sid, action, btn){
+  const id = parseInt(String(sid).replace('s',''),10);
+  const r = await apiFetch('/api/mastery', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({id, action})});
+  const el = document.getElementById('mb-'+sid);
+  const st = document.getElementById('as-'+sid);
+  const cur = parseInt((el?el.textContent:'0/5').replace('/5',''),10)||0;
+  let nv = cur;
+  if(r){
+    const j = await r.json(); nv = j.mastery;
+    if(st) st.textContent = (action==='clear'?'\u5df2 +1':action==='unknown'?'\u5df2 -1':'\u5df2\u8bb0\u5f55')+' \u00b7 \u5df2\u56de\u5199 \u2713';
+  } else {
+    nv = action==='clear'?Math.min(5,cur+1):action==='unknown'?Math.max(0,cur-1):cur;
+    if(st) st.textContent = '\u5df2\u672c\u5730\u8bb0\u5f55\uff08\u542f\u52a8\u672c\u5730\u670d\u52a1\u540e\u53ef\u56de\u5199\uff09';
+  }
+  setMbar(sid, nv);
+  try{ localStorage.setItem('vocab_mastery_'+id, String(nv)); }catch(e){}
+  if(btn) btn.blur();
+}
+function setSpeed(v){ speed=parseFloat(v); try{ localStorage.setItem('vocab_speed', String(speed)); }catch(e){}
+  document.querySelectorAll('.spdSel').forEach(s=>s.value=v);
+  DATA.forEach(d=>{ const sid=String(d.id).replace('s',''); cardSpeed[d.id]=speed; try{ localStorage.setItem('vocab_speed_'+sid, v); }catch(e){} }); }
+function cardHTML(d){
+  const kw=d.kw.map(k=>`<span class="chip"><b>${k[0]}</b><span class="p">${k[1]}</span> ${k[2]}</span>`).join('');
+  const v=d.variants.map(x=>`<li><span class="ex">${x[0]}</span> <span class="nt">— ${x[1]}</span></li>`).join('');
+  const sc=d.scenes.map(x=>`<li><span class="occ">【${x[0]}】</span> ${x[1]} <span class="resp">→ ${x[2]}</span></li>`).join('');
+  return `<div class="card">
+    <div class="top">
+      <span class="num">${d.id.replace('s','')}</span>
+      <span class="pill ${d.topic}">${d.topic==='travel'?'\u65c5\u6e38':'\u65e5\u5e38'}</span>
+      <span class="play">
+        <span class="ic" title="\u539f\u58f0\u4f34\u8bfb" onclick="playAudio('${d.id}')">\U0001f50a</span>
+        <span class="ic" title="\u6162\u901f\u6717\u8bfb" onclick="playAudio('${d.id}', 0.7)">\U0001f422</span>
+      </span>
+    </div>
+    <div class="en">${d.en}</div>
+    <div class="ipa">${d.ipa}</div>
+    <div class="zh">${d.zh}</div>
+    <div class="kw">${kw}</div>
+    <button class="detailsBtn" id="db-${d.id}" onclick="toggleDetails('${d.id}')">\U0001f4c2 \u5c55\u5f00\u8be6\u60c5\uff08\u53d8\u4f53 / \u573a\u666f / \u8bed\u6cd5 / \u53d1\u97f3\uff09</button>
+    <div class="details collapsed" id="dt-${d.id}">
+      <div class="block var"><div class="h">\U0001f53b \u7b80\u5316 / \u53e3\u8bed\u53d8\u4f53</div><ul>${v}</ul></div>
+      <div class="block scene"><div class="h">\U0001f3ad \u573a\u666f\u5316\u8868\u8fbe + \u4e0d\u540c\u56de\u7b54</div><ul>${sc}</ul></div>
+      <div class="block gram"><div class="h">\U0001f4dd \u8bed\u6cd5\u63d0\u793a</div><div>${d.grammar}</div></div>
+      <div class="block pr"><div class="h">\U0001f524 \u53d1\u97f3\u63d0\u793a\uff08\u8fde\u8bfb/\u540c\u5316/\u6ed1\u97f3/\u6d4a\u5316/\u5931\u53bb\u7206\u7834/\u95ea\u97f3/\u5f31\u8bfb/\u7f29\u8bfb\uff09</div><div>${d.pron}</div></div>
+    </div>
+    <audio id="au-${d.id}" preload="none" src="audio/${d.id}.mp3"></audio>
+    <div class="readwrap">
+      <span class="rlbl">\U0001f501 \u6717\u8bfb</span>
+      <select id="rp-${d.id}" class="repsSel">
+        <option value="2">2 \u904d</option>
+        <option value="3" selected>3 \u904d</option>
+        <option value="5">5 \u904d</option>
+        <option value="8">8 \u904d</option>
+      </select>
+      <button id="rb-${d.id}" class="readBtn" onclick="loopSpeak('${d.id}')">\u25b6 \u5f00\u59cb</button>
+      <span class="spdlbl">\u8bed\u901f</span>
+      <select class="spdSel" onchange="setCardSpeed('${d.id}',this.value)">
+        <option value="1">1倍</option>
+        <option value="0.8">0.8倍</option>
+        <option value="0.7">0.7倍</option>
+        <option value="0.6">0.6倍</option>
+      </select>
+    </div>
+    <div class="assess">
+      <span class="lbl">\u81ea\u8bc4\u638c\u63e1\u5ea6\uff1a</span>
+      <div class="mbar" id="mbar-${d.id}"><div class="mfill" style="width:${d.mastery*20}%;background:${d.mastery<=2?'#dc2626':d.mastery<=4?'#d97706':'#16a34a'}"></div></div>
+      <span class="mbadge" id="mb-${d.id}">${d.mastery}/5</span>
+      <button class="c" onclick="assess('${d.id}','clear',this")>\u2705 \u8ba4\u8bc6 +1</button>
+      <button class="f" onclick="assess('${d.id}','fuzzy',this)">\U0001f7e1 \u6a21\u7cca</button>
+      <button class="u" onclick="assess('${d.id}','unknown',this')">\U0001f534 \u4e0d\u8ba4\u8bc6 -1</button>
+      <span class="astat" id="as-${d.id}"></span>
+    </div>
+  </div>`;
+}
+if(DATA.some(d=>d.type==='short')){
+  const n=DATA.filter(d=>d.type==='short').length;
+  const st=document.createElement('div'); st.className='sec-title';
+  st.innerHTML=`<span class="tag">\u77ed\u53e5</span> Short sentences\uff08${n}\uff09`; document.querySelector('.wrap').insertBefore(st, document.getElementById('short'));
+  document.getElementById('short').innerHTML=DATA.filter(d=>d.type==='short').map(cardHTML).join('');
+}
+if(DATA.some(d=>d.type==='long')){
+  const n=DATA.filter(d=>d.type==='long').length;
+  const st=document.createElement('div'); st.className='sec-title';
+  st.innerHTML=`<span class="tag">\u957f\u53e5</span> Long sentences\uff08${n}\uff09`; document.querySelector('.wrap').insertBefore(st, document.getElementById('long'));
+  document.getElementById('long').innerHTML=DATA.filter(d=>d.type==='long').map(cardHTML).join('');
+}
+applyStoredDetails();
+function setCardDetails(id, show){ const el=document.getElementById('dt-'+id); if(!el) return; el.classList.toggle('collapsed', !show);
+  const btn=document.getElementById('db-'+id); if(btn) btn.textContent = show ? '\U0001f4c1 \u6536\u8d77\u8be6\u60c5\uff08\u53d8\u4f53 / \u573a\u666f / \u8bed\u6cd5 / \u53d1\u97f3\uff09' : '\U0001f4c2 \u5c55\u5f00\u8be6\u60c5\uff08\u53d8\u4f53 / \u573a\u666f / \u8bed\u6cd5 / \u53d1\u97f3\uff09';
+  try{ localStorage.setItem('vocab_details_'+id, show?'open':'closed'); }catch(e){} }
+function toggleDetails(id){ const el=document.getElementById('dt-'+id); if(el) setCardDetails(id, el.classList.contains('collapsed')); }
+function toggleAllDetails(){ const anyCollapsed = !!document.querySelector('.details.collapsed'); const show = anyCollapsed;
+  document.querySelectorAll('.details').forEach(el=>setCardDetails(el.id.replace('dt-',''), show));
+  const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = show ? '\U0001f4c1 \u6536\u8d70\u5168\u90e8\u8be6\u60c5' : '\U0001f4c2 \u5c55\u5f00\u5168\u90e8\u8be6\u60c5'; }
+function applyStoredDetails(){ DATA.forEach(d=>{ let st=null; try{ st=localStorage.getItem('vocab_details_'+d.id); }catch(e){}
+  if(st==='open') setCardDetails(d.id, true); });
+  const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = document.querySelector('.details.collapsed') ? '\U0001f4c2 \u5c55\u5f00\u5168\u90e8\u8be6\u60c5' : '\U0001f4c1 \u6536\u8d70\u5168\u90e8\u8be6\u60c5'; }
+function mColor(v){ return v<=2?'#dc2626':(v<=4?'#d97706':'#16a34a'); }
+function setMbar(sid,v){ const bar=document.getElementById('mbar-'+sid);
+  if(bar){ const f=bar.querySelector('.mfill'); f.style.width=(v*20)+'%'; f.style.background=mColor(v); }
+  const b=document.getElementById('mb-'+sid); if(b) b.textContent=v+'/5'; }
+function playAudio(id, rate){ if(window.VocabAudio){ VocabAudio.play(id, rate || cardSpeed[id] || speed); } }
+function loopSpeak(id){ const btn=document.getElementById('rb-'+id); if(!btn) return;
+  if(btn.classList.contains('run')){ if(window.VocabAudio) VocabAudio.stopId(id); btn.classList.remove('run'); btn.textContent='\u25b6 \u5f00\u59cb'; return; }
+  const reps=parseInt(document.getElementById('rp-'+id).value,10)||3;
+  btn.classList.add('run'); btn.textContent='\u23f9 \u505c\u6b62';
+  if(window.VocabAudio){ VocabAudio.loop(id, cardSpeed[id]||speed, reps, { onEnd: ()=>{ btn.classList.remove('run'); btn.textContent='\u25b6 \u5f00\u59cb'; } }); }
+  else { btn.classList.remove('run'); btn.textContent='\u25b6 \u5f00\u59cb'; } }
+function setCardSpeed(id,v){ cardSpeed[id]=parseFloat(v);
+  try{ localStorage.setItem('vocab_speed_'+String(id).replace('s',''), v); }catch(e){} }
+function speak(t){ /* deprecated: \u6240\u6709\u64ad\u653e\u7edf\u4e00\u8d70\u670d\u52a1\u5668\u97f3\u9891 VocabAudio */ }
+let queue=[]; function playAll(){ stopAll(); queue=DATA.map(d=>d.id); next(); }
+function next(){ if(!queue.length){ stopAll(); return; }
+  const id=queue.shift();
+  if(window.VocabAudio){ VocabAudio.play(id, cardSpeed[id]||speed, ()=>{ next(); }); }
+  else { stopAll(); return; } }
+function stopAll(){ queue=[]; if(window.VocabAudio) VocabAudio.stopAll();
+  document.querySelectorAll('.readBtn.run').forEach(b=>{ b.classList.remove('run'); b.textContent='\u25b6 \u5f00\u59cb'; }); }
+</script>
+</body>
+</html>

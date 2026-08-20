@@ -5,7 +5,7 @@
 数据取自 master.json / days.json / day<日期>.json 侧车。
 用法：python gen_views_html.py
 """
-import json, os, glob
+import json, os, glob, datetime
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 MASTER = os.path.join(BASE, "master.json")
@@ -127,6 +127,8 @@ CAL_TMPL = r"""<!DOCTYPE html>
   .recent .rchip{border:1px solid var(--daily);background:#eafaf3;color:var(--daily);
     border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600;cursor:pointer;transition:.15s}
   .recent .rchip:hover{background:#d7f5ea}
+  .recent .rchip.rprev{background:#fff7ed;color:#b45309;border-color:#fed7aa}
+  .recent .rchip.rprev:hover{background:#fde9d3}
 </style>
 </head>
 <body>
@@ -138,7 +140,7 @@ CAL_TMPL = r"""<!DOCTYPE html>
   </nav>
   <div class="phead">
     <h1>📅 学习日历</h1>
-    <p>高亮日期为已练习过的日子 · 点「最近练习」或日历中的高亮日期查看当日句式，再点句子可跳转到总览详情</p>
+    <p>🟢 绿色=已练习 · 🟠 橙色=可提前预习（点开即学）· 点「最近练习 / 可预习」或日历高亮日期查看当日句式，点句子可跳转总览详情</p>
   </div>
   <div class="recent" id="recent"></div>
   <div class="cal">
@@ -163,6 +165,7 @@ CAL_TMPL = r"""<!DOCTYPE html>
 const CAL_DATA = /*CAL_DATA*/;
 const DOW = ['日','一','二','三','四','五','六'];
 let practiced = new Set(CAL_DATA.days || []);
+let preview = new Set(CAL_DATA.previewDays || []);
 let sMap = CAL_DATA.smap || {};
 let dayIds = CAL_DATA.dayIds || {};
 let viewY = 0, viewM = 0;
@@ -173,10 +176,15 @@ function todayStr(){ const t = new Date(); return ymd(t.getFullYear(), t.getMont
 
 function renderRecent(){
   const box = document.getElementById('recent');
-  const ds = (CAL_DATA.days||[]).slice().sort().reverse().slice(0,3); // 最近 3 次
-  if (!ds.length){ box.style.display='none'; return; }
-  box.innerHTML = '<span class="rlbl">最近练习：</span>' +
-    ds.map(d => '<button class="rchip" onclick="showDay(\'' + d + '\')">' + d + '</button>').join('');
+  const dsP = (CAL_DATA.days||[]).slice().sort().reverse().slice(0,3); // 最近 3 次
+  const dsU = (CAL_DATA.previewDays||[]).slice().sort().slice(0,5);   // 可预习（最早 5 天）
+  let html = '';
+  if (dsP.length) html += '<span class="rlbl">最近练习：</span>' +
+    dsP.map(d => '<button class="rchip" onclick="showDay(\'' + d + '\')">' + d + '</button>').join('');
+  if (dsU.length) html += '<span class="rlbl" style="margin-left:10px">可预习：</span>' +
+    dsU.map(d => '<button class="rchip rprev" onclick="showDay(\'' + d + '\')">🔓 ' + d + '</button>').join('');
+  if (!html){ box.style.display='none'; return; }
+  box.innerHTML = html;
 }
 
 function renderCalendar(){
@@ -193,10 +201,13 @@ function renderCalendar(){
   for (let d=1; d<=daysInMonth; d++){
     const ds = ymd(viewY, viewM, d);
     const c=document.createElement('div'); c.className='calcell';
-    if (practiced.has(ds)) c.className += ' prac';
+    const isPrac = practiced.has(ds);
+    const isPrev = preview.has(ds);
+    if (isPrac) c.className += ' prac';
+    if (isPrev) c.className += ' preview';
     if (ds === tStr) c.className += ' today';
     c.textContent = d;
-    if (practiced.has(ds)){
+    if (isPrac || isPrev){
       const dot=document.createElement('span'); dot.className='dot'; c.appendChild(dot);
       c.onclick=()=>showDay(ds);
     }
@@ -211,12 +222,13 @@ function showDay(ds){
     panel.innerHTML = '<div class="empty">该日（'+ds+'）没有可用的练习数据。</div>';
     return;
   }
+  const tag = preview.has(ds) ? ' 🔓预习' : '';
   const cards = ids.map(id => {
     const s = sMap[id]; if(!s) return '';
     return renderSentenceCard({ id:s.id, en:s.en, zh:s.zh, category:s.category, theme:s.theme,
       mastery:s.mastery||0, keyvocab:s.keyvocab||[], enh:s.enh||{} });
   }).join('');
-  panel.innerHTML = '<div class="dph">📅 ' + ds + ' 练习句式 <span>（共 ' + ids.length + ' 句，点击句子可跳转总览）</span></div>' +
+  panel.innerHTML = '<div class="dph">📅 ' + ds + ' 练习句式' + tag + ' <span>（共 ' + ids.length + ' 句，点击句子可跳转总览）</span></div>' +
     '<div class="grid">' + (cards || '<div class="empty">该日无可用句子数据。</div>') + '</div>';
   panel.scrollIntoView({behavior:'smooth', block:'start'});
   if(window.VocabMastery) VocabMastery.refreshAll();
@@ -255,8 +267,14 @@ def main():
     # 学习日历：句子映射 + 每日 ids
     smap = {s["id"]: slim(s) for s in S}
 
+    # 预习日：有 day<日期>.json 侧车、日期晚于今天、且尚未登记为「已练习」的日期
+    today_str = datetime.date.today().isoformat()
+    practiced_set = set(days)
+    preview_days = sorted(d for d in day_ids if d > today_str and d not in practiced_set)
+
     review_html = REVIEW_TMPL.replace("/*REVIEW_DATA*/", safe_json(learned))
-    cal_data = {"days": days, "smap": smap, "dayIds": day_ids}
+    cal_data = {"days": days, "smap": smap, "dayIds": day_ids,
+                "previewDays": preview_days, "todayStr": today_str}
     cal_html = CAL_TMPL.replace("/*CAL_DATA*/", safe_json(cal_data))
 
     with open(os.path.join(BASE, "review.html"), "w", encoding="utf-8") as f:
@@ -264,8 +282,8 @@ def main():
     with open(os.path.join(BASE, "calendar.html"), "w", encoding="utf-8") as f:
         f.write(cal_html)
 
-    print("GEN_VIEWS: review=%d learned, calendar days=%d, smap=%d, dayIds=%d"
-          % (len(learned), len(days), len(smap), len(day_ids)))
+    print("GEN_VIEWS: review=%d learned, calendar days=%d, preview=%d, smap=%d, dayIds=%d"
+          % (len(learned), len(days), len(preview_days), len(smap), len(day_ids)))
 
 
 if __name__ == "__main__":

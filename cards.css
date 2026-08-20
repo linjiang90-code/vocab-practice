@@ -103,6 +103,9 @@ body{margin:0;font-family:-apple-system,"PingFang SC","Microsoft YaHei",Segoe UI
 .calcell.prac{background:#eafaf3;border-color:var(--daily);color:var(--daily);font-weight:700;cursor:pointer}
 .calcell.prac:hover{background:#d7f5ea}
 .calcell.prac .dot{position:absolute;right:6px;top:6px;width:6px;height:6px;border-radius:50%;background:var(--daily)}
+.calcell.preview{background:#fff7ed;border-color:#fed7aa;color:#b45309;font-weight:700;cursor:pointer}
+.calcell.preview:hover{background:#fde9d3}
+.calcell.preview .dot{position:absolute;right:6px;top:6px;width:6px;height:6px;border-radius:50%;background:#f59e0b}
 .calcell.today{outline:2px solid var(--travel);outline-offset:-2px}
 .daypanel{margin-top:6px}
 .daypanel .dph{font-size:15px;font-weight:700;margin:6px 4px 12px;color:var(--daily)}

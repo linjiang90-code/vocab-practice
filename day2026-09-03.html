@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>英语口语 Day 22 · 增强版</title>
+<style>
+  :root{
+    --bg:#f5f7fa; --card:#ffffff; --text:#1f2329; --sub:#6b7280;
+    --line:#e5e7eb; --accent:#2f6fed; --accent2:#0e9f6e; --warn:#b45309; --pron:#0369a1;
+    --travel:#eef4ff; --daily:#eafaf3; --chip:#fff4e5;
+    --var:#f3f0ff; --scene:#eafaf3; --gram:#fff7ed; --pr:#eaf4ff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",Segoe UI,Roboto,sans-serif;
+    background:var(--bg);color:var(--text);line-height:1.65;padding:24px 16px 60px}
+  .wrap{max-width:820px;margin:0 auto}
+  header{text-align:center;margin-bottom:14px}
+  header h1{font-size:22px;font-weight:700}
+  header p{color:var(--sub);font-size:13.5px;margin-top:6px}
+  .summary{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:14px 0 4px}
+  .summary .box{background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 14px;text-align:center;min-width:96px}
+  .summary .box b{display:block;font-size:18px;color:var(--accent)}
+  .summary .box span{font-size:12px;color:var(--sub)}
+  .legend{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;font-size:12px;color:var(--sub);margin:14px 0 18px}
+  .legend b{color:var(--text)}
+  .toolbar{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:0 0 22px}
+  .btn{border:1px solid var(--line);background:#fff;color:var(--text);border-radius:999px;
+    padding:7px 16px;font-size:14px;cursor:pointer;transition:.15s}
+  .btn:hover{border-color:var(--accent);color:var(--accent)}
+  .btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .sec-title{font-size:15px;font-weight:700;color:var(--sub);margin:24px 4px 12px;display:flex;align-items:center;gap:8px}
+  .sec-title .tag{background:var(--accent);color:#fff;font-size:12px;padding:2px 9px;border-radius:6px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:14px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+  .card .top{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+  .num{width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex:none}
+  .pill{font-size:12px;padding:2px 10px;border-radius:999px;font-weight:600}
+  .pill.travel{background:var(--travel);color:#2f6fed}
+  .pill.daily{background:var(--daily);color:#0e9f6e}
+  .play{margin-left:auto;display:flex;gap:6px}
+  .ic{border:1px solid var(--line);background:#fff;border-radius:8px;width:34px;height:30px;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center}
+  .ic:hover{border-color:var(--accent);background:#f0f6ff}
+  .en{font-size:19px;font-weight:600;letter-spacing:.2px}
+  .ipa{color:var(--sub);font-size:13px;margin:4px 0 6px;font-style:italic}
+  .zh{font-size:15px;color:#374151}
+  .block{margin-top:12px;border-radius:10px;padding:10px 12px;font-size:13.5px}
+  .block .h{font-weight:700;font-size:13px;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+  .var{background:var(--var)} .scene{background:var(--scene)} .gram{background:var(--gram)} .pr{background:var(--pr)}
+  .var .h{color:#6d28d9} .scene .h{color:#0e9f6e} .gram .h{color:var(--warn)} .pr .h{color:var(--pron)}
+  .kw{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+  .kw .chip{background:var(--chip);border-radius:8px;padding:5px 10px;font-size:13px}
+  .kw .chip b{color:#b45309} .kw .chip .p{color:#9a3412;font-style:italic;margin-left:4px}
+  .block ul{margin:0;padding:left:18px} .block li{margin:3px 0}
+  .block li .ex{font-weight:600} .block li .nt{color:#6b7280}
+  .scene li .occ{color:#0e9f6e;font-weight:600} .scene li .resp{color:#6b7280}
+  footer{text-align:center;color:var(--sub);font-size:12px;margin-top:24px}
+  .assess{display:flex;align-items:center;gap:8px;margin-top:12px;flex-wrap:wrap;border-top:1px dashed var(--line);padding-top:10px}
+  .assess .lbl{font-size:13px;color:var(--sub)}
+  .assess button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:5px 12px;font-size:13px;cursor:pointer}
+  .assess button:hover{filter:brightness(.97)}
+  .assess .c{color:#16a34a}.assess .f{color:#d97706}.assess .u{color:#dc2626}
+  .astat{font-size:12px;color:var(--sub);margin-left:auto}
+  .mbadge{font-size:12px;font-weight:600;padding:2px 8px;border-radius:6px;background:#f1f5f9;color:#475569}
+  .spd{font-size:14px;color:var(--sub);display:flex;align-items:center;gap:6px}
+  .spd select{padding:6px 8px;border:1px solid var(--line);border-radius:8px;background:#fff;font-size:13px;color:var(--text);cursor:pointer}
+  .readwrap{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:12px 0 2px;font-size:13px;color:var(--sub)}
+  .readwrap audio{width:100%;height:32px;margin-bottom:2px}
+  .readwrap select{padding:5px 8px;border:1px solid var(--line);border-radius:8px;background:#fff;font-size:13px;color:var(--text);cursor:pointer}
+  .readwrap .rlbl{font-weight:600;color:#475569}
+  .readwrap .spdlbl{color:var(--sub)}
+  .readBtn{border:1px solid var(--accent2);background:var(--accent2);color:#fff;border-radius:8px;padding:5px 14px;font-size:13px;cursor:pointer}
+  .readBtn:hover{filter:brightness(1.05)}
+  .readBtn.run{background:#dc2626;border-color:#dc2626}
+  .detailsBtn{width:100%;text-align:left;border:1px solid var(--line);background:#f8fafc;color:var(--sub);border-radius:10px;padding:8px 12px;font-size:13px;font-weight:600;cursor:pointer;margin-top:12px}
+  .detailsBtn:hover{border-color:var(--accent);color:var(--accent)}
+  .details.collapsed>.block{display:none}
+  .mbar{width:96px;height:9px;border-radius:5px;background:#e5e7eb;overflow:hidden;flex:none}
+  .mbar .mfill{height:100%;border-radius:5px;transition:width .25s,background .25s}
+  .pagenav{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap;margin-bottom:6px}
+  .pagenav a{text-decoration:none;font-size:13px;color:#475569;border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-weight:600;transition:.15s}
+  .pagenav a:hover{border-color:var(--accent);color:var(--accent);background:#f0f6ff}
+.preview-banner{background:#fff7ed;border:1px solid #fed7aa;color:#b45309;border-radius:10px;padding:9px 12px;font-size:13px;margin:10px 0 4px;text-align:center;line-height:1.5}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="pagenav">
+  <a href="index.html">\U0001f3e0 \u9996\u9875</a>
+  <a href="review.html">\U0001f4da \u5df2\u5b66\u56de\u987e</a>
+  <a href="calendar.html">\U0001f4c5 \u65e5\u5386</a>
+</nav>
+  <header>
+    <h1>\U0001f5a3 \u82f1\u8bed\u53e3\u8bed \u00b7 Day 22\uff08\u589e\u5f3a\u7248\uff09</h1>
+    <p>\u65c5\u6e38 + \u65e5\u5e38\u6df7\u5408 \u00b7 5 \u53e5/\u5929 \u00b7 \u4e2d\u82f1\u5bf9\u7167 + \u751f\u8bcd\u97f3\u6807 + \u539f\u58f0\u4f34\u8bfb + \u53d8\u4f53 + \u573a\u666f\u4fd7\u8bed + \u8bed\u6cd5 + \u53d1\u97f3\u63d0\u793a</p>
+  </header>
+  <div class="preview-banner">🔓 预习模式 · 该日尚未到（2026-09-03），可提前学习；每日 9:00 自动推送后会与此页内容同步。</div>
+  <div class="summary">
+    <div class="box"><b>\u7b2c 22 \u5929</b><span>\u8fde\u7eed\u5b66\u4e60</span></div>
+    <div class="box"><b>0 \u53e5</b><span>\u4eca\u65e5\u65b0\u5b66</span></div>
+    <div class="box"><b>100/100</b><span>\u7d2f\u8ba1\u5df2\u5b66</span></div>
+    <div class="box"><b>100 \u53e5</b><span>\u5f53\u524d\u603b\u6c60</span></div>
+  </div>
+  <div class="legend">
+    <span>\U0001f53b <b>\u7b80\u5316/\u53e3\u8bed\u53d8\u4f53</b></span>
+    <span>\U0001f3ad <b>\u573a\u666f\u5316\u8868\u8fbe + \u4e0d\u540c\u56de\u7b54</b></span>
+    <span>\U0001f4dd <b>\u8bed\u6cd5\u63d0\u793a</b></span>
+    <span>\U0001f524 <b>\u53d1\u97f3\u63d0\u793a(\u8fde\u8bfb/\u540c\u5316/\u6ed1\u97f3/\u6d4a\u5316/\u5931\u53bb\u7206\u7834/\u95ea\u97f3/\u5f31\u8bfb/\u7f29\u8bfb)</b></span>
+  </div>
+  <div class="toolbar">
+    <button class="btn primary" onclick="playAll()">\u25b6 \u5168\u90e8\u4f34\u8bfb</button>
+    <label class="spd">\u8bed\u901f(\u6279\u91cf\u9884\u8bbe)
+      <select id="speedSel" onchange="setSpeed(this.value)" title="\u8bbe\u4e3a\u7edf\u4e00\u8bed\u901f\u5e94\u7528\u5230\u5168\u90e8\u53e5\u5b50">
+        <option value="1">1倍</option>
+        <option value="0.8">0.8倍</option>
+        <option value="0.7">0.7倍</option>
+        <option value="0.6">0.6倍</option>
+      </select>
+    </label>
+    <button class="btn" onclick="stopAll()">\u23f9 \u505c\u6b62</button>
+    <button class="btn" id="allDetBtn" onclick="toggleAllDetails()">\U0001f4c2 \u5c55\u5f00\u5168\u90e8\u8be6\u60c5</button>
+  </div>
+  <div id="short"></div>
+  <div id="long"></div>
+  <footer>\u6bcf\u5929 9:00 \u81ea\u52a8\u63a8\u9001\u65b0\u4e00\u6279\uff08\u540c\u6b3e\u589e\u5f3a\u7248\uff09 \u00b7 \u8fdb\u5ea6\u672c\u5730\u4fdd\u5b58\uff0c\u4e0d\u5916\u4f20</footer>
+</div>
+<script src="audio-engine.js"></script>
+<script>
+(function(){ const d=new Date().toISOString().slice(0,10); document.querySelectorAll('.today-nav').forEach(a=>a.href='day'+d+'.html'); })();
+const DATA = [{"id": "s11", "nid": 11, "type": "short", "topic": "travel", "en": "Where can I buy a ticket to the city center?", "ipa": "/wɛr kən aɪ baɪ ə ˈtɪkɪt tə ðə ˈsɪti ˈsɛntər/", "zh": "我在哪里可以买到去市中心的票？", "kw": [["ticket", "/ˈtɪkɪt/", "n.票"], ["city", "/ˈsɪti/", "n.城市"]], "variants": [["Where do I get a ticket to downtown?", "downtown 是美式『市中心』"], ["Can I buy a ticket here?", "问当场/本地能否买票"], ["One ticket to the center, please.", "窗口极简说法"]], "scenes": [["问售票柜台", "Where can I buy a ticket to the city center?", "对方指柜台 Over there at the counter."], ["问自助机", "Is there a ticket machine around here?", "对方回 Yes, by the entrance."], ["不同回答", "Single or return? / It's 3 dollars. / Platform 2 is that way."]], "grammar": "Where can I + 动词原形 用于询问地点/请求信息；buy a ticket to + 地点 表『买去…的票』。city center（英）/ downtown（美）同义。ticket 单数即可泛指『一张票』。", "pron": "连读：Where can→/wɛr kən/（r 与 k）；can I→/kə naɪ/（n 与 a）；buy a→/baɪ ə/（aɪ 与 ə）；ticket to→/ˈtɪkɪ tə/（t 与 tə）；to the→/tə ðə/。弱读：can→/kən/；a→/ə/；to→/tə/；the→/ðə/。失去爆破：ticket /ˈtɪkɪ(t)/（词尾 t 轻微不完全爆破）；center /ˈsɛn(t)ər/（t 在 ər 前）。闪音：city→/ˈsɪɾi/（美式元音间 t 标闪音 /ɾ/，关键！）。同化/滑音/浊化/缩读：无典型。", "mastery": 1}, {"id": "s12", "nid": 12, "type": "short", "topic": "travel", "en": "How long does it take to get there?", "ipa": "/haʊ lɔŋ dʌz ɪt teɪk tə ɡɛt ðɛr/", "zh": "到那里要花多长时间？", "kw": [["take", "/teɪk/", "v.花费（时间）"], ["there", "/ðɛr/", "adv.那里"]], "variants": [["How long is the trip?", "问行程时长，trip 更口语"], ["How long will it take?", "将来时，问预计多久"], ["About how long?", "极简追问大约多久"]], "scenes": [["问交通时长", "How long does it take to get there?", "对方回 About 20 minutes by bus."], ["不同交通对比", "Is the train faster than the bus?", "问哪种更快"], ["不同回答", "It's a 10-minute walk. / Around an hour. / Depends on traffic."]], "grammar": "How long 问时长；It takes + 时间 + to do 是『做某事花多少时间』的固定句型，does 随主语 it 用单数。get there = 到达那里，there 作副词不加 to。", "pron": "连读：How long→/haʊ lɔŋ/（w 与 l）；does it→/dʌ zɪt/（z 与 ɪ）；it take→/ɪ tteɪk/（t 与 t 顺接）；take to→/teɪk tə/；get there→/ɡɛ tðɛr/（t 与 ð）。弱读：does→/dəz/；it→/ɪt/；to→/tə/。失去爆破：get there /ɡɛ(t) ðɛr/（t 在 ð 前不完全爆破）。浊化：无典型。同化/滑音/闪音/缩读：无典型。", "mastery": 1}, {"id": "s13", "nid": 13, "type": "short", "topic": "travel", "en": "Is this seat taken?", "ipa": "/ɪz ðɪs sit ˈteɪkən/", "zh": "这个座位有人坐吗？", "kw": [["seat", "/sit/", "n.座位"], ["taken", "/ˈteɪkən/", "adj.被占用的"]], "variants": [["Is anyone sitting here?", "问『有人坐这儿吗』更直白"], ["Is this taken?", "极简，指座位/物品"], ["Can I sit here?", "直接问能否坐"]], "scenes": [["车上找座", "Excuse me, is this seat taken?", "对方回 No, go ahead.(没人，请坐) / Yes, sorry.(有人)"], ["放行李", "Is this spot free?", "问地方是否被占"], ["不同回答", "It's free. / Someone's coming back. / I'm saving it for a friend."]], "grammar": "be + 过去分词 表状态；take 的过去分词 taken 在此作形容词『被占用的』。this seat 单数用 is。比 Can I sit here 更礼貌且常用。", "pron": "连读：Is this→/ɪz ðɪs/（z 与 ð）；this seat→/ðɪs sit/（s 与 s）；seat taken→/sit ˈteɪkən/（t 与 t）。弱读：this→/ðɪs/（此处重读）；is→/ɪz/。失去爆破：this seat /ðɪ(s) sit/（s 轻微）；seat taken /si(t) ˈteɪkən/（t 在 t 前不完全爆破）。浊化：无。同化/滑音/闪音/缩读：无典型。", "mastery": 1}, {"id": "s14", "nid": 14, "type": "short", "topic": "travel", "en": "I'd like a window seat, please.", "ipa": "/aɪd laɪk ə ˈwɪndoʊ sit pliz/", "zh": "我想要一个靠窗的座位，谢谢。", "kw": [["window", "/ˈwɪndoʊ/", "n.窗户"], ["seat", "/sit/", "n.座位"]], "variants": [["I'd like an aisle seat, please.", "aisle=靠走道座位"], ["Window seat, please.", "极简，值机时说"], ["Can I get a window seat?", "问能否安排靠窗"]], "scenes": [["值机选座", "I'd like a window seat, please.", "对方回 Sure, 14A by the window."], ["在线选座", "Is a window seat still available?", "问是否还有靠窗位"], ["不同回答", "We only have middle seats left. / Aisle okay instead? / No extra charge."]], "grammar": "I'd like to… / I'd like + 名词 表『我想要…』，比 I want 礼貌。window seat / aisle seat 是航班选座固定说法。", "pron": "缩读：I'd = I would（/aɪd/，'d 为 would 缩读）。连读：like a→/laɪ kə/（k 与 ə）；a window→/ə ˈwɪndoʊ/；window seat→/ˈwɪndoʊ sit/（oʊ 与 s）；seat please→/sit pliz/（t 与 p）。弱读：a→/ə/。失去爆破：window seat /ˈwɪndoʊ(s) sit/（w 轻微）；seat please /si(t) pliz/（t 在 p 前不完全爆破）。浊化：无典型。同化/滑音/闪音：无典型。", "mastery": 4}, {"id": "s15", "nid": 15, "type": "short", "topic": "travel", "en": "Where is the baggage claim?", "ipa": "/wɛr ɪz ðə ˈbæɡɪdʒ kleɪm/", "zh": "行李领取处在哪里？", "kw": [["baggage", "/ˈbæɡɪdʒ/", "n.行李"], ["claim", "/kleɪm/", "n.领取"]], "variants": [["Where do I pick up my luggage?", "pick up luggage 更口语"], ["Where's the luggage carousel?", "carousel=行李转盘"], ["Baggage claim?", "极简，问路时"]], "scenes": [["机场找行李", "Excuse me, where is the baggage claim?", "对方指方向 This way, follow the signs."], ["看屏幕", "Which carousel is for flight XX?", "问几号转盘"], ["不同回答", "It's downstairs. / Belt 3 on the left. / Turn right after customs."]], "grammar": "baggage 与 luggage 都表行李，baggage 偏美、luggage 通用且不可数。claim 此处作名词『领取处』；Where is + 地点 问位置。", "pron": "连读：Where is→/wɛə rɪz/（r 与 ɪ）；is the→/ɪ zðə/（z 与 ð）；the baggage→/ðə ˈbæɡɪdʒ/；baggage claim→/ˈbæɡɪdʒ kleɪm/（dʒ 与 k）。弱读：is→/ɪz/；the→/ðə/。失去爆破：baggage /ˈbæɡɪ(dʒ)/ 词尾轻微；无相邻爆破典型。浊化：无典型。同化/滑音/闪音/缩读：无典型。", "mastery": 1}];
+let speed = 1;
+let cardSpeed = {};
+try { DATA.forEach(d => { const sv = localStorage.getItem('vocab_speed_'+String(d.id).replace('s','')); if(sv) cardSpeed[d.id]=parseFloat(sv); }); } catch(e){}
+const API_PORT = 3279;
+try { const sv = localStorage.getItem('vocab_speed'); if (sv) { speed = parseFloat(sv); document.getElementById('speedSel').value = sv; } } catch(e){}
+async function apiFetch(path, opts){
+  for(const b of ['', 'http://127.0.0.1:'+API_PORT]){
+    try{ const r = await fetch(b+path, opts); if(r && r.ok) return r; }catch(e){}
+  }
+  return null;
+}
+async function assess(sid, action, btn){
+  const id = parseInt(String(sid).replace('s',''),10);
+  const r = await apiFetch('/api/mastery', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({id, action})});
+  const el = document.getElementById('mb-'+sid);
+  const st = document.getElementById('as-'+sid);
+  const cur = parseInt((el?el.textContent:'0/5').replace('/5',''),10)||0;
+  let nv = cur;
+  if(r){
+    const j = await r.json(); nv = j.mastery;
+    if(st) st.textContent = (action==='clear'?'\u5df2 +1':action==='unknown'?'\u5df2 -1':'\u5df2\u8bb0\u5f55')+' \u00b7 \u5df2\u56de\u5199 \u2713';
+  } else {
+    nv = action==='clear'?Math.min(5,cur+1):action==='unknown'?Math.max(0,cur-1):cur;
+    if(st) st.textContent = '\u5df2\u672c\u5730\u8bb0\u5f55\uff08\u542f\u52a8\u672c\u5730\u670d\u52a1\u540e\u53ef\u56de\u5199\uff09';
+  }
+  setMbar(sid, nv);
+  try{ localStorage.setItem('vocab_mastery_'+id, String(nv)); }catch(e){}
+  if(btn) btn.blur();
+}
+function setSpeed(v){ speed=parseFloat(v); try{ localStorage.setItem('vocab_speed', String(speed)); }catch(e){}
+  document.querySelectorAll('.spdSel').forEach(s=>s.value=v);
+  DATA.forEach(d=>{ const sid=String(d.id).replace('s',''); cardSpeed[d.id]=speed; try{ localStorage.setItem('vocab_speed_'+sid, v); }catch(e){} }); }
+function cardHTML(d){
+  const kw=d.kw.map(k=>`<span class="chip"><b>${k[0]}</b><span class="p">${k[1]}</span> ${k[2]}</span>`).join('');
+  const v=d.variants.map(x=>`<li><span class="ex">${x[0]}</span> <span class="nt">— ${x[1]}</span></li>`).join('');
+  const sc=d.scenes.map(x=>`<li><span class="occ">【${x[0]}】</span> ${x[1]} <span class="resp">→ ${x[2]}</span></li>`).join('');
+  return `<div class="card">
+    <div class="top">
+      <span class="num">${d.id.replace('s','')}</span>
+      <span class="pill ${d.topic}">${d.topic==='travel'?'\u65c5\u6e38':'\u65e5\u5e38'}</span>
+      <span class="play">
+        <span class="ic" title="\u539f\u58f0\u4f34\u8bfb" onclick="playAudio('${d.id}')">\U0001f50a</span>
+        <span class="ic" title="\u6162\u901f\u6717\u8bfb" onclick="playAudio('${d.id}', 0.7)">\U0001f422</span>
+      </span>
+    </div>
+    <div class="en">${d.en}</div>
+    <div class="ipa">${d.ipa}</div>
+    <div class="zh">${d.zh}</div>
+    <div class="kw">${kw}</div>
+    <button class="detailsBtn" id="db-${d.id}" onclick="toggleDetails('${d.id}')">\U0001f4c2 \u5c55\u5f00\u8be6\u60c5\uff08\u53d8\u4f53 / \u573a\u666f / \u8bed\u6cd5 / \u53d1\u97f3\uff09</button>
+    <div class="details collapsed" id="dt-${d.id}">
+      <div class="block var"><div class="h">\U0001f53b \u7b80\u5316 / \u53e3\u8bed\u53d8\u4f53</div><ul>${v}</ul></div>
+      <div class="block scene"><div class="h">\U0001f3ad \u573a\u666f\u5316\u8868\u8fbe + \u4e0d\u540c\u56de\u7b54</div><ul>${sc}</ul></div>
+      <div class="block gram"><div class="h">\U0001f4dd \u8bed\u6cd5\u63d0\u793a</div><div>${d.grammar}</div></div>
+      <div class="block pr"><div class="h">\U0001f524 \u53d1\u97f3\u63d0\u793a\uff08\u8fde\u8bfb/\u540c\u5316/\u6ed1\u97f3/\u6d4a\u5316/\u5931\u53bb\u7206\u7834/\u95ea\u97f3/\u5f31\u8bfb/\u7f29\u8bfb\uff09</div><div>${d.pron}</div></div>
+    </div>
+    <audio id="au-${d.id}" preload="none" src="audio/${d.id}.mp3"></audio>
+    <div class="readwrap">
+      <span class="rlbl">\U0001f501 \u6717\u8bfb</span>
+      <select id="rp-${d.id}" class="repsSel">
+        <option value="2">2 \u904d</option>
+        <option value="3" selected>3 \u904d</option>
+        <option value="5">5 \u904d</option>
+        <option value="8">8 \u904d</option>
+      </select>
+      <button id="rb-${d.id}" class="readBtn" onclick="loopSpeak('${d.id}')">\u25b6 \u5f00\u59cb</button>
+      <span class="spdlbl">\u8bed\u901f</span>
+      <select class="spdSel" onchange="setCardSpeed('${d.id}',this.value)">
+        <option value="1">1倍</option>
+        <option value="0.8">0.8倍</option>
+        <option value="0.7">0.7倍</option>
+        <option value="0.6">0.6倍</option>
+      </select>
+    </div>
+    <div class="assess">
+      <span class="lbl">\u81ea\u8bc4\u638c\u63e1\u5ea6\uff1a</span>
+      <div class="mbar" id="mbar-${d.id}"><div class="mfill" style="width:${d.mastery*20}%;background:${d.mastery<=2?'#dc2626':d.mastery<=4?'#d97706':'#16a34a'}"></div></div>
+      <span class="mbadge" id="mb-${d.id}">${d.mastery}/5</span>
+      <button class="c" onclick="assess('${d.id}','clear',this")>\u2705 \u8ba4\u8bc6 +1</button>
+      <button class="f" onclick="assess('${d.id}','fuzzy',this)">\U0001f7e1 \u6a21\u7cca</button>
+      <button class="u" onclick="assess('${d.id}','unknown',this')">\U0001f534 \u4e0d\u8ba4\u8bc6 -1</button>
+      <span class="astat" id="as-${d.id}"></span>
+    </div>
+  </div>`;
+}
+if(DATA.some(d=>d.type==='short')){
+  const n=DATA.filter(d=>d.type==='short').length;
+  const st=document.createElement('div'); st.className='sec-title';
+  st.innerHTML=`<span class="tag">\u77ed\u53e5</span> Short sentences\uff08${n}\uff09`; document.querySelector('.wrap').insertBefore(st, document.getElementById('short'));
+  document.getElementById('short').innerHTML=DATA.filter(d=>d.type==='short').map(cardHTML).join('');
+}
+if(DATA.some(d=>d.type==='long')){
+  const n=DATA.filter(d=>d.type==='long').length;
+  const st=document.createElement('div'); st.className='sec-title';
+  st.innerHTML=`<span class="tag">\u957f\u53e5</span> Long sentences\uff08${n}\uff09`; document.querySelector('.wrap').insertBefore(st, document.getElementById('long'));
+  document.getElementById('long').innerHTML=DATA.filter(d=>d.type==='long').map(cardHTML).join('');
+}
+applyStoredDetails();
+function setCardDetails(id, show){ const el=document.getElementById('dt-'+id); if(!el) return; el.classList.toggle('collapsed', !show);
+  const btn=document.getElementById('db-'+id); if(btn) btn.textContent = show ? '\U0001f4c1 \u6536\u8d77\u8be6\u60c5\uff08\u53d8\u4f53 / \u573a\u666f / \u8bed\u6cd5 / \u53d1\u97f3\uff09' : '\U0001f4c2 \u5c55\u5f00\u8be6\u60c5\uff08\u53d8\u4f53 / \u573a\u666f / \u8bed\u6cd5 / \u53d1\u97f3\uff09';
+  try{ localStorage.setItem('vocab_details_'+id, show?'open':'closed'); }catch(e){} }
+function toggleDetails(id){ const el=document.getElementById('dt-'+id); if(el) setCardDetails(id, el.classList.contains('collapsed')); }
+function toggleAllDetails(){ const anyCollapsed = !!document.querySelector('.details.collapsed'); const show = anyCollapsed;
+  document.querySelectorAll('.details').forEach(el=>setCardDetails(el.id.replace('dt-',''), show));
+  const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = show ? '\U0001f4c1 \u6536\u8d70\u5168\u90e8\u8be6\u60c5' : '\U0001f4c2 \u5c55\u5f00\u5168\u90e8\u8be6\u60c5'; }
+function applyStoredDetails(){ DATA.forEach(d=>{ let st=null; try{ st=localStorage.getItem('vocab_details_'+d.id); }catch(e){}
+  if(st==='open') setCardDetails(d.id, true); });
+  const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = document.querySelector('.details.collapsed') ? '\U0001f4c2 \u5c55\u5f00\u5168\u90e8\u8be6\u60c5' : '\U0001f4c1 \u6536\u8d70\u5168\u90e8\u8be6\u60c5'; }
+function mColor(v){ return v<=2?'#dc2626':(v<=4?'#d97706':'#16a34a'); }
+function setMbar(sid,v){ const bar=document.getElementById('mbar-'+sid);
+  if(bar){ const f=bar.querySelector('.mfill'); f.style.width=(v*20)+'%'; f.style.background=mColor(v); }
+  const b=document.getElementById('mb-'+sid); if(b) b.textContent=v+'/5'; }
+function playAudio(id, rate){ if(window.VocabAudio){ VocabAudio.play(id, rate || cardSpeed[id] || speed); } }
+function loopSpeak(id){ const btn=document.getElementById('rb-'+id); if(!btn) return;
+  if(btn.classList.contains('run')){ if(window.VocabAudio) VocabAudio.stopId(id); btn.classList.remove('run'); btn.textContent='\u25b6 \u5f00\u59cb'; return; }
+  const reps=parseInt(document.getElementById('rp-'+id).value,10)||3;
+  btn.classList.add('run'); btn.textContent='\u23f9 \u505c\u6b62';
+  if(window.VocabAudio){ VocabAudio.loop(id, cardSpeed[id]||speed, reps, { onEnd: ()=>{ btn.classList.remove('run'); btn.textContent='\u25b6 \u5f00\u59cb'; } }); }
+  else { btn.classList.remove('run'); btn.textContent='\u25b6 \u5f00\u59cb'; } }
+function setCardSpeed(id,v){ cardSpeed[id]=parseFloat(v);
+  try{ localStorage.setItem('vocab_speed_'+String(id).replace('s',''), v); }catch(e){} }
+function speak(t){ /* deprecated: \u6240\u6709\u64ad\u653e\u7edf\u4e00\u8d70\u670d\u52a1\u5668\u97f3\u9891 VocabAudio */ }
+let queue=[]; function playAll(){ stopAll(); queue=DATA.map(d=>d.id); next(); }
+function next(){ if(!queue.length){ stopAll(); return; }
+  const id=queue.shift();
+  if(window.VocabAudio){ VocabAudio.play(id, cardSpeed[id]||speed, ()=>{ next(); }); }
+  else { stopAll(); return; } }
+function stopAll(){ queue=[]; if(window.VocabAudio) VocabAudio.stopAll();
+  document.querySelectorAll('.readBtn.run').forEach(b=>{ b.classList.remove('run'); b.textContent='\u25b6 \u5f00\u59cb'; }); }
+</script>
+</body>
+</html>
