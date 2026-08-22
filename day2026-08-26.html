@@ -85,48 +85,48 @@
 <body>
 <div class="wrap">
 <nav class="pagenav">
-  <a href="index.html">\U0001f3e0 \u9996\u9875</a>
-  <a href="review.html">\U0001f4da \u5df2\u5b66\u56de\u987e</a>
-  <a href="calendar.html">\U0001f4c5 \u65e5\u5386</a>
+  <a href="index.html">\U0001f3e0 首页</a>
+  <a href="review.html">\U0001f4da 已学回顾</a>
+  <a href="calendar.html">\U0001f4c5 日历</a>
 </nav>
   <header>
-    <h1>\U0001f5a3 \u82f1\u8bed\u53e3\u8bed \u00b7 Day 14\uff08\u589e\u5f3a\u7248\uff09</h1>
-    <p>\u65c5\u6e38 + \u65e5\u5e38\u6df7\u5408 \u00b7 5 \u53e5/\u5929 \u00b7 \u4e2d\u82f1\u5bf9\u7167 + \u751f\u8bcd\u97f3\u6807 + \u539f\u58f0\u4f34\u8bfb + \u53d8\u4f53 + \u573a\u666f\u4fd7\u8bed + \u8bed\u6cd5 + \u53d1\u97f3\u63d0\u793a</p>
+    <h1>\U0001f5a3 英语口语 · Day 14（增强版）</h1>
+    <p>旅游 + 日常混合 · 5 句/天 · 中英对照 + 生词音标 + 原声伴读 + 变体 + 场景俗语 + 语法 + 发音提示</p>
   </header>
   <div class="preview-banner">🔓 预习模式 · 该日尚未到（2026-08-26），可提前学习；每日 9:00 自动推送后会与此页内容同步。</div>
   <div class="summary">
-    <div class="box"><b>\u7b2c 14 \u5929</b><span>\u8fde\u7eed\u5b66\u4e60</span></div>
-    <div class="box"><b>5 \u53e5</b><span>\u4eca\u65e5\u65b0\u5b66</span></div>
-    <div class="box"><b>75/100</b><span>\u7d2f\u8ba1\u5df2\u5b66</span></div>
-    <div class="box"><b>100 \u53e5</b><span>\u5f53\u524d\u603b\u6c60</span></div>
+    <div class="box"><b>第 14 天</b><span>连续学习</span></div>
+    <div class="box"><b>5 句</b><span>今日新学</span></div>
+    <div class="box"><b>70/100</b><span>累计已学</span></div>
+    <div class="box"><b>100 句</b><span>当前总池</span></div>
   </div>
   <div class="legend">
-    <span>\U0001f53b <b>\u7b80\u5316/\u53e3\u8bed\u53d8\u4f53</b></span>
-    <span>\U0001f3ad <b>\u573a\u666f\u5316\u8868\u8fbe + \u4e0d\u540c\u56de\u7b54</b></span>
-    <span>\U0001f4dd <b>\u8bed\u6cd5\u63d0\u793a</b></span>
-    <span>\U0001f524 <b>\u53d1\u97f3\u63d0\u793a(\u8fde\u8bfb/\u540c\u5316/\u6ed1\u97f3/\u6d4a\u5316/\u5931\u53bb\u7206\u7834/\u95ea\u97f3/\u5f31\u8bfb/\u7f29\u8bfb)</b></span>
+    <span>\U0001f53b <b>简化/口语变体</b></span>
+    <span>\U0001f3ad <b>场景化表达 + 不同回答</b></span>
+    <span>\U0001f4dd <b>语法提示</b></span>
+    <span>\U0001f524 <b>发音提示(连读/同化/滑音/浊化/失去爆破/闪音/弱读/缩读)</b></span>
   </div>
   <div class="toolbar">
-    <button class="btn primary" onclick="playAll()">\u25b6 \u5168\u90e8\u4f34\u8bfb</button>
-    <label class="spd">\u8bed\u901f(\u6279\u91cf\u9884\u8bbe)
-      <select id="speedSel" onchange="setSpeed(this.value)" title="\u8bbe\u4e3a\u7edf\u4e00\u8bed\u901f\u5e94\u7528\u5230\u5168\u90e8\u53e5\u5b50">
+    <button class="btn primary" onclick="playAll()">▶ 全部伴读</button>
+    <label class="spd">语速(批量预设)
+      <select id="speedSel" onchange="setSpeed(this.value)" title="设为统一语速应用到全部句子">
         <option value="1">1倍</option>
         <option value="0.8">0.8倍</option>
         <option value="0.7">0.7倍</option>
         <option value="0.6">0.6倍</option>
       </select>
     </label>
-    <button class="btn" onclick="stopAll()">\u23f9 \u505c\u6b62</button>
-    <button class="btn" id="allDetBtn" onclick="toggleAllDetails()">\U0001f4c2 \u5c55\u5f00\u5168\u90e8\u8be6\u60c5</button>
+    <button class="btn" onclick="stopAll()">⏹ 停止</button>
+    <button class="btn" id="allDetBtn" onclick="toggleAllDetails()">\U0001f4c2 展开全部详情</button>
   </div>
   <div id="short"></div>
   <div id="long"></div>
-  <footer>\u6bcf\u5929 9:00 \u81ea\u52a8\u63a8\u9001\u65b0\u4e00\u6279\uff08\u540c\u6b3e\u589e\u5f3a\u7248\uff09 \u00b7 \u8fdb\u5ea6\u672c\u5730\u4fdd\u5b58\uff0c\u4e0d\u5916\u4f20</footer>
+  <footer>每天 9:00 自动推送新一批（同款增强版） · 进度本地保存，不外传</footer>
 </div>
 <script src="audio-engine.js"></script>
 <script>
 (function(){ const d=new Date().toISOString().slice(0,10); document.querySelectorAll('.today-nav').forEach(a=>a.href='day'+d+'.html'); })();
-const DATA = [{"id": "s71", "nid": 71, "type": "long", "topic": "daily", "en": "I'm stuck in traffic, so I might be a few minutes late.", "ipa": "/aɪm stʌk ɪn ˈtræfɪk so aɪ maɪt bi ə fju ˈmɪnɪts leɪt/", "zh": "我堵车了，所以可能会晚几分钟。", "kw": [["stuck", "/stʌk/", "adj.卡住的"], ["traffic", "/ˈtræfɪk/", "n.交通"]], "variants": [["I'm stuck in traffic.", "省略后半也通"], ["I'll be a bit late.", "只说会晚"], ["Traffic's horrible today.", "抱怨交通"]], "scenes": [["告知迟到", "I'm stuck in traffic, so I might be a few minutes late.", "对方回 No rush. / Take your time."], ["改约", "Can we push it back?", "问能否推迟"], ["不同回答", "See you soon. / Drive safe. / I'll wait."]], "grammar": "be stuck 过去分词作形容词『卡住/被困』；in traffic 表『堵车中』。so 连词表『所以』；might 表『可能』（比 may 口语）。a few minutes late『晚几分钟』。", "pron": "缩读：I'm = I am（/aɪm/）。连读：stuck in→/stʌk ɪn/（k 与 ɪ）；in traffic→/ɪn ˈtræfɪk/（n 与 t）；traffic so→/ˈtræfɪk soʊ/（k 与 s）；so I→/soʊ aɪ/；I might→/aɪ maɪt/；might be→/maɪt bi/（t 与 b）；be a→/bi ə/；a few→/ə fju/；few minutes→/fju ˈmɪnɪts/（u 与 m）；minutes late→/ˈmɪnɪts leɪt/（ts 与 l）。弱读：in→/ɪn/；a→/ə/；be→/bi/。失去爆破：stuck in /stʌ(k) ɪn/（k 在 ɪ 前不完全爆破）；few minutes /fju ˈmɪnɪ(t)s/（t 在 s 前）。浊化：无。同化/滑音/闪音：无典型。", "mastery": 0}, {"id": "s72", "nid": 72, "type": "short", "topic": "daily", "en": "How was your day?", "ipa": "/haʊ wʌz jʊr deɪ/", "zh": "你今天过得怎么样？", "kw": [["day", "/deɪ/", "n.一天"]], "variants": [["How was your day?", "标准"], ["How'd your day go?", "go 表过得如何"], ["Good day?", "极简"]], "scenes": [["问候一天", "How was your day?", "对方回 Pretty good, yours? / Long, honestly."], ["回家", "Tough day at work?", "问是不是累"], ["不同回答", "Not bad. / Exhausting. / Same old."]], "grammar": "How was + 单数（day）一般过去时问候；your 物主代词。How'd = How did 缩读；go 表『过得』。tough / exhausting 描述状态。", "pron": "连读：How was→/haʊ wʌz/（w 与 w）；was your→/wʌz jʊr/（z 与 j）；your day→/jʊr deɪ/（r 与 d）。弱读：was→/wəz/；your→/jər/。同化：was your 快读 /wʌʒər/（z+j 同化为 ʒ，关键！）。失去爆破：your day /jʊ(r) deɪ/（r 轻）。浊化：无。滑音/闪音/缩读：无典型。", "mastery": 0}, {"id": "s73", "nid": 73, "type": "short", "topic": "daily", "en": "I had a long day at work.", "ipa": "/aɪ hæd ə lɔŋ deɪ ət wɜrk/", "zh": "我今天工作了一整天，挺累的。", "kw": [["work", "/wɜrk/", "n.工作"]], "variants": [["I had a long day.", "省 at work 也通"], ["I'm tired from work.", "说累了"], ["Rough day at the office.", "rough 表艰难"]], "scenes": [["闲聊工作", "I had a long day at work.", "对方回 Wow, rest up. / Same here."], ["共情", "That sounds exhausting.", "说听起来累"], ["不同回答", "Hope you relax tonight. / Tell me about it. / Cheers to the weekend."]], "grammar": "一般过去时 had（have 过去式）；a long day 固定『漫长的一天』。at work / at the office 表『在上班』。tired / exhausted 表累。", "pron": "连读：had a→/hæ də/（d 与 ə）；a long→/ə lɔŋ/；long day→/lɔŋ deɪ/（ŋ 与 d）；day at→/deɪ ət/（aɪ 与 ə）；at work→/ət wɜrk/。弱读：a→/ə/；at→/ət/。浊化：had a 快读 /hæ də/（d 本浊）。失去爆破：long day /lɔ(ŋ) deɪ/（ŋ 轻）；day at /deɪ(ə)t/。同化/滑音/闪音/缩读：无典型。", "mastery": 0}, {"id": "s74", "nid": 74, "type": "short", "topic": "daily", "en": "Could you do me a favor?", "ipa": "/kʊd ju du mi ə ˈfeɪvər/", "zh": "你能帮我个忙吗？", "kw": [["favor", "/ˈfeɪvər/", "n.恩惠"], ["do me a favor", "/du mi ə ˈfeɪvər/", "phr.帮我个忙"]], "variants": [["Can you do me a favor?", "更随意"], ["Could you help me out?", "help out 表搭把手"], ["I need a small favor.", "先说要帮忙"]], "scenes": [["请求帮忙", "Could you do me a favor?", "对方回 Sure, what is it? / Of course."], ["具体", "Can you watch my bag?", "请帮忙看包"], ["不同回答", "No problem. / Happy to. / What do you need?"]], "grammar": "do me a favor 固定『帮我个忙』，favor 间接宾语 me。Could you / Can you 委婉请求。help out 短语『搭把手』。", "pron": "同化：Could you→/kʊdʒu/（d+j 同化，关键！）。连读：you do→/ju du/；do me→/du mi/（u 与 m）；me a→/mi ə/（i 与 ə）；a favor→/ə ˈfeɪvər/。弱读：you→/jə/；me→/mi/；a→/ə/。失去爆破：do me /du(m)/（m 轻）；a favor /ə ˈfeɪvər/。浊化：无。滑音/闪音/缩读：无典型。", "mastery": 0}, {"id": "s75", "nid": 75, "type": "short", "topic": "daily", "en": "Sure, no problem.", "ipa": "/ʃʊr noʊ ˈprɑbləm/", "zh": "当然，没问题。", "kw": [["sure", "/ʃʊr/", "adj.当然"], ["problem", "/ˈprɑbləm/", "n.问题"]], "variants": [["Sure, no problem.", "经典爽快答应"], ["Of course!", "更热情"], ["No worries.", "澳/英式常用"]], "scenes": [["答应请求", "Sure, no problem.", "对方回 Thanks a lot! / I owe you."], ["回应", "Happy to help.", "说乐意帮忙"], ["不同回答", "Anytime. / You got it. / No big deal."]], "grammar": "Sure 副词『当然』；no problem 固定『没问题』，用于答应或回应道歉/感谢。of course / no worries 同义。", "pron": "连读：Sure, no→/ʃʊr noʊ/（r 与 n）；no problem→/noʊ ˈprɑbləm/（oʊ 与 p）。弱读：no→/noʊ/（重读）。失去爆破：no problem /noʊ ˈprɑbləm/（b 轻，/m/ 词尾）。浊化：无。同化/滑音/闪音/缩读：无典型。", "mastery": 0}];
+const DATA = [{"id": "s66", "nid": 66, "type": "short", "topic": "daily", "en": "Are you free this weekend?", "ipa": "/ɑr ju fri ðɪs ˈwikɛnd/", "zh": "你这个周末有空吗？", "kw": [["free", "/fri/", "adj.有空的"], ["weekend", "/ˈwikɛnd/", "n.周末"]], "variants": [["Are you free this weekend?", "标准"], ["Do you have plans this weekend?", "问有无安排"], ["Free this Saturday?", "问具体某天"]], "scenes": [["邀约前问", "Are you free this weekend?", "对方回 Yeah, why? / I'm busy Saturday."], ["提议", "Wanna grab coffee?", "问喝咖啡"], ["不同回答", "I'm wide open. / Got plans already. / Sunday works."]], "grammar": "Are you + 形容词（free）问状态；this weekend 单数用 is（但 you 用 are）。free 形容词『有空的』。plans 复数『安排』。wanna = want to 口语缩读。", "pron": "连读：Are you→/ɑr ju/（r 与 j）；you free→/ju fri/（u 与 f）；free this→/fri ðɪs/（i 与 ð）；this weekend→/ðɪs ˈwikɛnd/（s 与 w）。弱读：are→/ər/；you→/jə/（可保留 /ju/）。同化：are you 快读 /ɑrju/（无 d+j）。失去爆破：free this /fri(ð) ðɪs/（ð 轻）；this weekend /ðɪ(s) ˈwi/（s 轻）。浊化：无。滑音/闪音/缩读：无典型。", "mastery": 0}, {"id": "s67", "nid": 67, "type": "short", "topic": "daily", "en": "Sorry, I can't make it.", "ipa": "/ˈsɑri aɪ kænt meɪk ɪt/", "zh": "抱歉，我去不了。", "kw": [["sorry", "/ˈsɑri/", "adj.抱歉的"], ["make it", "/meɪk ɪt/", "phr.能到场"]], "variants": [["Sorry, I can't make it.", "标准"], ["I won't be able to come.", "更正式"], ["Rain check?", "改天(俚)"]], "scenes": [["婉拒", "Sorry, I can't make it.", "对方回 No worries. / Another time!"], ["给理由", "I've got a conflict.", "说冲突了"], ["不同回答", "That's okay. / Let me know next time. / Rain check?"]], "grammar": "Sorry 形容词作感叹『抱歉』；can't make it 固定『去不了/不能到场』。won't be able to 更正式。rain check 俚语『改天』。", "pron": "缩读：can't = can not（/kænt/）。连读：Sorry, I→/ˈsɑri aɪ/（i 与 a）；I can't→/aɪ kænt/；can't make→/kænt meɪk/（t 与 m）；make it→/meɪk ɪt/（k 与 ɪ）。弱读：I→/aɪ/（重读）。失去爆破：can't make /kæn(t) meɪk/（t 在 m 前不完全爆破）；make it /meɪ(k) ɪt/（k 在 ɪ 前）。浊化：无。同化/滑音/闪音：无典型。", "mastery": 0}, {"id": "s68", "nid": 68, "type": "short", "topic": "daily", "en": "Maybe another time.", "ipa": "/ˈmeɪbi əˈnʌðər taɪm/", "zh": "也许改天吧。", "kw": [["maybe", "/ˈmeɪbi/", "adv.也许"], ["another", "/əˈnʌðər/", "adj.另一个"]], "variants": [["Maybe some other time.", "some other time 同义"], ["Perhaps another day.", "perhaps 更正式"], ["Let's do it later.", "说以后做"]], "scenes": [["改期", "Maybe another time.", "对方回 Sure, no rush. / Sounds good."], ["约以后", "How about next week?", "问下周"], ["不同回答", "Deal. / I'll text you. / Works for me."]], "grammar": "Maybe 副词『也许』放句首；another = an + other『另一个』；time 此处表『次/时机』。some other time / perhaps another day 同义。", "pron": "连读：Maybe another→/ˈmeɪbi əˈnʌðər/（i 与 ə）；another time→/əˈnʌðər taɪm/（r 与 t）。弱读：another→/əˈnʌðər/（弱读 /ənʌðər/，此处重读）。失去爆破：another time /əˈnʌðər(t)aɪm/（r 轻）。浊化：无。同化/滑音/闪音/缩读：无典型。", "mastery": 0}, {"id": "s69", "nid": 69, "type": "short", "topic": "daily", "en": "What's the weather like today?", "ipa": "/wʌts ðə ˈwɛðər laɪk təˈdeɪ/", "zh": "今天天气怎么样？", "kw": [["weather", "/ˈwɛðər/", "n.天气"]], "variants": [["How's the weather today?", "how 也常用"], ["What's it like outside?", "outside 指户外"], ["Is it going to rain?", "问会不会下雨"]], "scenes": [["闲聊天气", "What's the weather like today?", "对方回 Sunny and warm. / A bit cloudy."], ["出行", "Should I bring a coat?", "问要不要带外套"], ["不同回答", "It's freezing. / Perfect for a walk. / Looks like rain."]], "grammar": "What's + 宾语 + like? 问『…是什么样的』；the weather 单数用 is。like 介词『像』。How's the weather 同义。going to rain 表『将要下雨』。", "pron": "缩读：What's = What is（/wʌts/）。连读：What's the→/wʌts ðə/（s 与 ð）；the weather→/ðə ˈwɛðər/；weather like→/ˈwɛðər laɪk/（r 与 l）；like today→/laɪk təˈdeɪ/（k 与 t）。弱读：the→/ðə/。失去爆破：weather like /ˈwɛðər(l)aɪk/（r 轻）；like today /laɪ(k) tə/（k 在 t 前不完全爆破）。浊化：无。同化/滑音/闪音：无典型。", "mastery": 0}, {"id": "s70", "nid": 70, "type": "short", "topic": "daily", "en": "It's raining cats and dogs.", "ipa": "/ɪts ˈreɪnɪŋ kæts ənd dɔɡz/", "zh": "外面下着倾盆大雨。", "kw": [["raining", "/ˈreɪnɪŋ/", "v.下雨"], ["cats and dogs", "/kæts ənd dɔɡz/", "idiom倾盆大雨"]], "variants": [["It's pouring outside.", "pouring 表倾盆"], ["It's raining heavily.", "heavily 更正式"], ["What a downpour!", "downpour 名词暴雨"]], "scenes": [["形容大雨", "It's raining cats and dogs.", "对方回 Better take a taxi! / I left my umbrella."], ["抱怨", "Ugh, the weather!", "叹天气"], ["不同回答", "Hope it stops soon. / Typical of the season / Grab a cab."]], "grammar": "It's raining 现在进行时；cats and dogs 是 idiom『倾盆大雨』，不能说 cat and dog。pour / downpour 同义。it 指天气。", "pron": "缩读：It's = It is（/ɪts/）。连读：It's raining→/ɪts ˈreɪnɪŋ/（s 与 r）；raining cats→/ˈreɪnɪŋ kæts/（ŋ 与 k）；cats and→/kæts ənd/（s 与 ə）；and dogs→/ənd dɔɡz/（d 与 d）。弱读：and→/ənd/（弱读 /ən/）。失去爆破：raining cats /ˈreɪnɪŋ(k)æts/（ŋ 轻）；cats and /kæ(t)s ənd/（t 在 s 前不完全爆破，/ts/）。浊化：无。同化/滑音/闪音：无典型。", "mastery": 0}];
 let speed = 1;
 let cardSpeed = {};
 try { DATA.forEach(d => { const sv = localStorage.getItem('vocab_speed_'+String(d.id).replace('s','')); if(sv) cardSpeed[d.id]=parseFloat(sv); }); } catch(e){}
@@ -147,10 +147,10 @@ async function assess(sid, action, btn){
   let nv = cur;
   if(r){
     const j = await r.json(); nv = j.mastery;
-    if(st) st.textContent = (action==='clear'?'\u5df2 +1':action==='unknown'?'\u5df2 -1':'\u5df2\u8bb0\u5f55')+' \u00b7 \u5df2\u56de\u5199 \u2713';
+    if(st) st.textContent = (action==='clear'?'已 +1':action==='unknown'?'已 -1':'已记录')+' · 已回写 ✓';
   } else {
     nv = action==='clear'?Math.min(5,cur+1):action==='unknown'?Math.max(0,cur-1):cur;
-    if(st) st.textContent = '\u5df2\u672c\u5730\u8bb0\u5f55\uff08\u542f\u52a8\u672c\u5730\u670d\u52a1\u540e\u53ef\u56de\u5199\uff09';
+    if(st) st.textContent = '已本地记录（启动本地服务后可回写）';
   }
   setMbar(sid, nv);
   try{ localStorage.setItem('vocab_mastery_'+id, String(nv)); }catch(e){}
@@ -166,34 +166,34 @@ function cardHTML(d){
   return `<div class="card">
     <div class="top">
       <span class="num">${d.id.replace('s','')}</span>
-      <span class="pill ${d.topic}">${d.topic==='travel'?'\u65c5\u6e38':'\u65e5\u5e38'}</span>
+      <span class="pill ${d.topic}">${d.topic==='travel'?'旅游':'日常'}</span>
       <span class="play">
-        <span class="ic" title="\u539f\u58f0\u4f34\u8bfb" onclick="playAudio('${d.id}')">\U0001f50a</span>
-        <span class="ic" title="\u6162\u901f\u6717\u8bfb" onclick="playAudio('${d.id}', 0.7)">\U0001f422</span>
+        <span class="ic" title="原声伴读" onclick="playAudio('${d.id}')">\U0001f50a</span>
+        <span class="ic" title="慢速朗读" onclick="playAudio('${d.id}', 0.7)">\U0001f422</span>
       </span>
     </div>
     <div class="en">${d.en}</div>
     <div class="ipa">${d.ipa}</div>
     <div class="zh">${d.zh}</div>
     <div class="kw">${kw}</div>
-    <button class="detailsBtn" id="db-${d.id}" onclick="toggleDetails('${d.id}')">\U0001f4c2 \u5c55\u5f00\u8be6\u60c5\uff08\u53d8\u4f53 / \u573a\u666f / \u8bed\u6cd5 / \u53d1\u97f3\uff09</button>
+    <button class="detailsBtn" id="db-${d.id}" onclick="toggleDetails('${d.id}')">\U0001f4c2 展开详情（变体 / 场景 / 语法 / 发音）</button>
     <div class="details collapsed" id="dt-${d.id}">
-      <div class="block var"><div class="h">\U0001f53b \u7b80\u5316 / \u53e3\u8bed\u53d8\u4f53</div><ul>${v}</ul></div>
-      <div class="block scene"><div class="h">\U0001f3ad \u573a\u666f\u5316\u8868\u8fbe + \u4e0d\u540c\u56de\u7b54</div><ul>${sc}</ul></div>
-      <div class="block gram"><div class="h">\U0001f4dd \u8bed\u6cd5\u63d0\u793a</div><div>${d.grammar}</div></div>
-      <div class="block pr"><div class="h">\U0001f524 \u53d1\u97f3\u63d0\u793a\uff08\u8fde\u8bfb/\u540c\u5316/\u6ed1\u97f3/\u6d4a\u5316/\u5931\u53bb\u7206\u7834/\u95ea\u97f3/\u5f31\u8bfb/\u7f29\u8bfb\uff09</div><div>${d.pron}</div></div>
+      <div class="block var"><div class="h">\U0001f53b 简化 / 口语变体</div><ul>${v}</ul></div>
+      <div class="block scene"><div class="h">\U0001f3ad 场景化表达 + 不同回答</div><ul>${sc}</ul></div>
+      <div class="block gram"><div class="h">\U0001f4dd 语法提示</div><div>${d.grammar}</div></div>
+      <div class="block pr"><div class="h">\U0001f524 发音提示（连读/同化/滑音/浊化/失去爆破/闪音/弱读/缩读）</div><div>${d.pron}</div></div>
     </div>
     <audio id="au-${d.id}" preload="none" src="audio/${d.id}.mp3"></audio>
     <div class="readwrap">
-      <span class="rlbl">\U0001f501 \u6717\u8bfb</span>
+      <span class="rlbl">\U0001f501 朗读</span>
       <select id="rp-${d.id}" class="repsSel">
-        <option value="2">2 \u904d</option>
-        <option value="3" selected>3 \u904d</option>
-        <option value="5">5 \u904d</option>
-        <option value="8">8 \u904d</option>
+        <option value="2">2 遍</option>
+        <option value="3" selected>3 遍</option>
+        <option value="5">5 遍</option>
+        <option value="8">8 遍</option>
       </select>
-      <button id="rb-${d.id}" class="readBtn" onclick="loopSpeak('${d.id}')">\u25b6 \u5f00\u59cb</button>
-      <span class="spdlbl">\u8bed\u901f</span>
+      <button id="rb-${d.id}" class="readBtn" onclick="loopSpeak('${d.id}')">▶ 开始</button>
+      <span class="spdlbl">语速</span>
       <select class="spdSel" onchange="setCardSpeed('${d.id}',this.value)">
         <option value="1">1倍</option>
         <option value="0.8">0.8倍</option>
@@ -202,12 +202,12 @@ function cardHTML(d){
       </select>
     </div>
     <div class="assess">
-      <span class="lbl">\u81ea\u8bc4\u638c\u63e1\u5ea6\uff1a</span>
+      <span class="lbl">自评掌握度：</span>
       <div class="mbar" id="mbar-${d.id}"><div class="mfill" style="width:${d.mastery*20}%;background:${d.mastery<=2?'#dc2626':d.mastery<=4?'#d97706':'#16a34a'}"></div></div>
       <span class="mbadge" id="mb-${d.id}">${d.mastery}/5</span>
-      <button class="c" onclick="assess('${d.id}','clear',this")>\u2705 \u8ba4\u8bc6 +1</button>
-      <button class="f" onclick="assess('${d.id}','fuzzy',this)">\U0001f7e1 \u6a21\u7cca</button>
-      <button class="u" onclick="assess('${d.id}','unknown',this')">\U0001f534 \u4e0d\u8ba4\u8bc6 -1</button>
+      <button class="c" onclick="assess('${d.id}','clear',this)">✅ 认识 +1</button>
+      <button class="f" onclick="assess('${d.id}','fuzzy',this)">\U0001f7e1 模糊</button>
+      <button class="u" onclick="assess('${d.id}','unknown',this)">\U0001f534 不认识 -1</button>
       <span class="astat" id="as-${d.id}"></span>
     </div>
   </div>`;
@@ -215,47 +215,47 @@ function cardHTML(d){
 if(DATA.some(d=>d.type==='short')){
   const n=DATA.filter(d=>d.type==='short').length;
   const st=document.createElement('div'); st.className='sec-title';
-  st.innerHTML=`<span class="tag">\u77ed\u53e5</span> Short sentences\uff08${n}\uff09`; document.querySelector('.wrap').insertBefore(st, document.getElementById('short'));
+  st.innerHTML=`<span class="tag">短句</span> Short sentences（${n}）`; document.querySelector('.wrap').insertBefore(st, document.getElementById('short'));
   document.getElementById('short').innerHTML=DATA.filter(d=>d.type==='short').map(cardHTML).join('');
 }
 if(DATA.some(d=>d.type==='long')){
   const n=DATA.filter(d=>d.type==='long').length;
   const st=document.createElement('div'); st.className='sec-title';
-  st.innerHTML=`<span class="tag">\u957f\u53e5</span> Long sentences\uff08${n}\uff09`; document.querySelector('.wrap').insertBefore(st, document.getElementById('long'));
+  st.innerHTML=`<span class="tag">长句</span> Long sentences（${n}）`; document.querySelector('.wrap').insertBefore(st, document.getElementById('long'));
   document.getElementById('long').innerHTML=DATA.filter(d=>d.type==='long').map(cardHTML).join('');
 }
 applyStoredDetails();
 function setCardDetails(id, show){ const el=document.getElementById('dt-'+id); if(!el) return; el.classList.toggle('collapsed', !show);
-  const btn=document.getElementById('db-'+id); if(btn) btn.textContent = show ? '\U0001f4c1 \u6536\u8d77\u8be6\u60c5\uff08\u53d8\u4f53 / \u573a\u666f / \u8bed\u6cd5 / \u53d1\u97f3\uff09' : '\U0001f4c2 \u5c55\u5f00\u8be6\u60c5\uff08\u53d8\u4f53 / \u573a\u666f / \u8bed\u6cd5 / \u53d1\u97f3\uff09';
+  const btn=document.getElementById('db-'+id); if(btn) btn.textContent = show ? '\U0001f4c1 收起详情（变体 / 场景 / 语法 / 发音）' : '\U0001f4c2 展开详情（变体 / 场景 / 语法 / 发音）';
   try{ localStorage.setItem('vocab_details_'+id, show?'open':'closed'); }catch(e){} }
 function toggleDetails(id){ const el=document.getElementById('dt-'+id); if(el) setCardDetails(id, el.classList.contains('collapsed')); }
 function toggleAllDetails(){ const anyCollapsed = !!document.querySelector('.details.collapsed'); const show = anyCollapsed;
   document.querySelectorAll('.details').forEach(el=>setCardDetails(el.id.replace('dt-',''), show));
-  const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = show ? '\U0001f4c1 \u6536\u8d70\u5168\u90e8\u8be6\u60c5' : '\U0001f4c2 \u5c55\u5f00\u5168\u90e8\u8be6\u60c5'; }
+  const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = show ? '\U0001f4c1 收走全部详情' : '\U0001f4c2 展开全部详情'; }
 function applyStoredDetails(){ DATA.forEach(d=>{ let st=null; try{ st=localStorage.getItem('vocab_details_'+d.id); }catch(e){}
   if(st==='open') setCardDetails(d.id, true); });
-  const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = document.querySelector('.details.collapsed') ? '\U0001f4c2 \u5c55\u5f00\u5168\u90e8\u8be6\u60c5' : '\U0001f4c1 \u6536\u8d70\u5168\u90e8\u8be6\u60c5'; }
+  const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = document.querySelector('.details.collapsed') ? '\U0001f4c2 展开全部详情' : '\U0001f4c1 收走全部详情'; }
 function mColor(v){ return v<=2?'#dc2626':(v<=4?'#d97706':'#16a34a'); }
 function setMbar(sid,v){ const bar=document.getElementById('mbar-'+sid);
   if(bar){ const f=bar.querySelector('.mfill'); f.style.width=(v*20)+'%'; f.style.background=mColor(v); }
   const b=document.getElementById('mb-'+sid); if(b) b.textContent=v+'/5'; }
 function playAudio(id, rate){ if(window.VocabAudio){ VocabAudio.play(id, rate || cardSpeed[id] || speed); } }
 function loopSpeak(id){ const btn=document.getElementById('rb-'+id); if(!btn) return;
-  if(btn.classList.contains('run')){ if(window.VocabAudio) VocabAudio.stopId(id); btn.classList.remove('run'); btn.textContent='\u25b6 \u5f00\u59cb'; return; }
+  if(btn.classList.contains('run')){ if(window.VocabAudio) VocabAudio.stopId(id); btn.classList.remove('run'); btn.textContent='▶ 开始'; return; }
   const reps=parseInt(document.getElementById('rp-'+id).value,10)||3;
-  btn.classList.add('run'); btn.textContent='\u23f9 \u505c\u6b62';
-  if(window.VocabAudio){ VocabAudio.loop(id, cardSpeed[id]||speed, reps, { onEnd: ()=>{ btn.classList.remove('run'); btn.textContent='\u25b6 \u5f00\u59cb'; } }); }
-  else { btn.classList.remove('run'); btn.textContent='\u25b6 \u5f00\u59cb'; } }
+  btn.classList.add('run'); btn.textContent='⏹ 停止';
+  if(window.VocabAudio){ VocabAudio.loop(id, cardSpeed[id]||speed, reps, { onEnd: ()=>{ btn.classList.remove('run'); btn.textContent='▶ 开始'; } }); }
+  else { btn.classList.remove('run'); btn.textContent='▶ 开始'; } }
 function setCardSpeed(id,v){ cardSpeed[id]=parseFloat(v);
   try{ localStorage.setItem('vocab_speed_'+String(id).replace('s',''), v); }catch(e){} }
-function speak(t){ /* deprecated: \u6240\u6709\u64ad\u653e\u7edf\u4e00\u8d70\u670d\u52a1\u5668\u97f3\u9891 VocabAudio */ }
+function speak(t){ /* deprecated: 所有播放统一走服务器音频 VocabAudio */ }
 let queue=[]; function playAll(){ stopAll(); queue=DATA.map(d=>d.id); next(); }
 function next(){ if(!queue.length){ stopAll(); return; }
   const id=queue.shift();
   if(window.VocabAudio){ VocabAudio.play(id, cardSpeed[id]||speed, ()=>{ next(); }); }
   else { stopAll(); return; } }
 function stopAll(){ queue=[]; if(window.VocabAudio) VocabAudio.stopAll();
-  document.querySelectorAll('.readBtn.run').forEach(b=>{ b.classList.remove('run'); b.textContent='\u25b6 \u5f00\u59cb'; }); }
+  document.querySelectorAll('.readBtn.run').forEach(b=>{ b.classList.remove('run'); b.textContent='▶ 开始'; }); }
 </script>
 </body>
 </html>

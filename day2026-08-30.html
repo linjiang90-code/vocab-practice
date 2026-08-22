@@ -85,48 +85,48 @@
 <body>
 <div class="wrap">
 <nav class="pagenav">
-  <a href="index.html">\U0001f3e0 \u9996\u9875</a>
-  <a href="review.html">\U0001f4da \u5df2\u5b66\u56de\u987e</a>
-  <a href="calendar.html">\U0001f4c5 \u65e5\u5386</a>
+  <a href="index.html">\U0001f3e0 首页</a>
+  <a href="review.html">\U0001f4da 已学回顾</a>
+  <a href="calendar.html">\U0001f4c5 日历</a>
 </nav>
   <header>
-    <h1>\U0001f5a3 \u82f1\u8bed\u53e3\u8bed \u00b7 Day 18\uff08\u589e\u5f3a\u7248\uff09</h1>
-    <p>\u65c5\u6e38 + \u65e5\u5e38\u6df7\u5408 \u00b7 5 \u53e5/\u5929 \u00b7 \u4e2d\u82f1\u5bf9\u7167 + \u751f\u8bcd\u97f3\u6807 + \u539f\u58f0\u4f34\u8bfb + \u53d8\u4f53 + \u573a\u666f\u4fd7\u8bed + \u8bed\u6cd5 + \u53d1\u97f3\u63d0\u793a</p>
+    <h1>\U0001f5a3 英语口语 · Day 18（增强版）</h1>
+    <p>旅游 + 日常混合 · 5 句/天 · 中英对照 + 生词音标 + 原声伴读 + 变体 + 场景俗语 + 语法 + 发音提示</p>
   </header>
   <div class="preview-banner">🔓 预习模式 · 该日尚未到（2026-08-30），可提前学习；每日 9:00 自动推送后会与此页内容同步。</div>
   <div class="summary">
-    <div class="box"><b>\u7b2c 18 \u5929</b><span>\u8fde\u7eed\u5b66\u4e60</span></div>
-    <div class="box"><b>5 \u53e5</b><span>\u4eca\u65e5\u65b0\u5b66</span></div>
-    <div class="box"><b>95/100</b><span>\u7d2f\u8ba1\u5df2\u5b66</span></div>
-    <div class="box"><b>100 \u53e5</b><span>\u5f53\u524d\u603b\u6c60</span></div>
+    <div class="box"><b>第 18 天</b><span>连续学习</span></div>
+    <div class="box"><b>5 句</b><span>今日新学</span></div>
+    <div class="box"><b>90/100</b><span>累计已学</span></div>
+    <div class="box"><b>100 句</b><span>当前总池</span></div>
   </div>
   <div class="legend">
-    <span>\U0001f53b <b>\u7b80\u5316/\u53e3\u8bed\u53d8\u4f53</b></span>
-    <span>\U0001f3ad <b>\u573a\u666f\u5316\u8868\u8fbe + \u4e0d\u540c\u56de\u7b54</b></span>
-    <span>\U0001f4dd <b>\u8bed\u6cd5\u63d0\u793a</b></span>
-    <span>\U0001f524 <b>\u53d1\u97f3\u63d0\u793a(\u8fde\u8bfb/\u540c\u5316/\u6ed1\u97f3/\u6d4a\u5316/\u5931\u53bb\u7206\u7834/\u95ea\u97f3/\u5f31\u8bfb/\u7f29\u8bfb)</b></span>
+    <span>\U0001f53b <b>简化/口语变体</b></span>
+    <span>\U0001f3ad <b>场景化表达 + 不同回答</b></span>
+    <span>\U0001f4dd <b>语法提示</b></span>
+    <span>\U0001f524 <b>发音提示(连读/同化/滑音/浊化/失去爆破/闪音/弱读/缩读)</b></span>
   </div>
   <div class="toolbar">
-    <button class="btn primary" onclick="playAll()">\u25b6 \u5168\u90e8\u4f34\u8bfb</button>
-    <label class="spd">\u8bed\u901f(\u6279\u91cf\u9884\u8bbe)
-      <select id="speedSel" onchange="setSpeed(this.value)" title="\u8bbe\u4e3a\u7edf\u4e00\u8bed\u901f\u5e94\u7528\u5230\u5168\u90e8\u53e5\u5b50">
+    <button class="btn primary" onclick="playAll()">▶ 全部伴读</button>
+    <label class="spd">语速(批量预设)
+      <select id="speedSel" onchange="setSpeed(this.value)" title="设为统一语速应用到全部句子">
         <option value="1">1倍</option>
         <option value="0.8">0.8倍</option>
         <option value="0.7">0.7倍</option>
         <option value="0.6">0.6倍</option>
       </select>
     </label>
-    <button class="btn" onclick="stopAll()">\u23f9 \u505c\u6b62</button>
-    <button class="btn" id="allDetBtn" onclick="toggleAllDetails()">\U0001f4c2 \u5c55\u5f00\u5168\u90e8\u8be6\u60c5</button>
+    <button class="btn" onclick="stopAll()">⏹ 停止</button>
+    <button class="btn" id="allDetBtn" onclick="toggleAllDetails()">\U0001f4c2 展开全部详情</button>
   </div>
   <div id="short"></div>
   <div id="long"></div>
-  <footer>\u6bcf\u5929 9:00 \u81ea\u52a8\u63a8\u9001\u65b0\u4e00\u6279\uff08\u540c\u6b3e\u589e\u5f3a\u7248\uff09 \u00b7 \u8fdb\u5ea6\u672c\u5730\u4fdd\u5b58\uff0c\u4e0d\u5916\u4f20</footer>
+  <footer>每天 9:00 自动推送新一批（同款增强版） · 进度本地保存，不外传</footer>
 </div>
 <script src="audio-engine.js"></script>
 <script>
 (function(){ const d=new Date().toISOString().slice(0,10); document.querySelectorAll('.today-nav').forEach(a=>a.href='day'+d+'.html'); })();
-const DATA = [{"id": "s91", "nid": 91, "type": "short", "topic": "daily", "en": "What do you mean by that?", "ipa": "/wʌt du ju min baɪ ðæt/", "zh": "你那么说是什么意思？", "kw": [["mean", "/min/", "v.意思是"]], "variants": [["What do you mean by that?", "标准"], ["What do you mean?", "省 by that 也通"], ["What are you getting at?", "get at 表暗示什么"]], "scenes": [["请求澄清", "What do you mean by that?", "对方回 I mean it's not a big deal. / I just meant…"], ["误解", "Sorry, I misheard you.", "说听错了"], ["不同回答", "Let me rephrase. / I didn't mean it that way. / Like, no offense."]], "grammar": "What do you mean by + 名词/代词 问『你…是什么意思』；mean 动词『意思是』。get at『暗示』。rephrase 动词『重新表述』。", "pron": "同化：Do you→/dʒu/（d+j 同化为 dʒ，关键！）。连读：What do→/wʌt du/（t 与 d）；do you→/dʒu/；you mean→/ju min/；mean by→/min baɪ/（n 与 b）；by that→/baɪ ðæt/（aɪ 与 ð）。弱读：you→/jə/（可保留 /ju/）；do→/də/。失去爆破：mean by /mi(n) baɪ/（n 轻）；by that /baɪ(ð) ðæt/（ð 轻）。浊化：What do 快读 /wʌ dʊ/（t→d，典型）。同化：Do you→/dʒu/。滑音/闪音/缩读：无典型。", "mastery": 0}, {"id": "s92", "nid": 92, "type": "short", "topic": "daily", "en": "Just to be clear...", "ipa": "/dʒʌst tə bi klɪr/", "zh": "只是说明白一点……", "kw": [["clear", "/klɪr/", "adj.清楚的"]], "variants": [["Just to be clear...", "标准"], ["To be clear, ...", "省 just 也通"], ["Let me clarify.", "clarify 更正式"]], "scenes": [["澄清前奏", "Just to be clear...", "对方回 Go on. / I'm listening."], ["重述", "What I mean is...", "说我的意思是"], ["不同回答", "Got it. / Crystal clear. / I see what you mean."]], "grammar": "Just to be clear 是插入语『只是说明白一点』，to be clear 不定式作目的。clarify 动词『澄清』。What I mean is…『我的意思是』。", "pron": "连读：Just to→/dʒʌst tə/（t 与 tə）；to be→/tə bi/（tə 与 b）；be clear→/bi klɪr/（i 与 k）。弱读：to→/tə/；be→/bi/。失去爆破：Just to /dʒʌ(s)t tə/（s 轻，t 在 tə 前轻）；be clear /bi(k)lɪr/（k 在 l 前不完全爆破）。浊化：无。同化/滑音/闪音/缩读：无典型。", "mastery": 0}, {"id": "s93", "nid": 93, "type": "short", "topic": "daily", "en": "I'm afraid I have to go now.", "ipa": "/aɪm əˈfreɪd aɪ hæv tə ɡoʊ naʊ/", "zh": "恐怕我现在得走了。", "kw": [["afraid", "/əˈfreɪd/", "adj.恐怕"], ["I'm afraid", "/aɪm əˈfreɪd/", "phr.恐怕（委婉）"]], "variants": [["I'm afraid I have to go now.", "标准"], ["I've got to run.", "run 口语=得走了"], ["I should get going.", "get going 表该走了"]], "scenes": [["告别离开", "I'm afraid I have to go now.", "对方回 Already? / Okay, take care."], ["找借口", "It's getting late.", "说晚了"], ["不同回答", "See you soon. / Let's catch up later. / Safe trip."]], "grammar": "I'm afraid… 是委婉引子『恐怕…』，非真害怕；have to + 原形『不得不』。I've got to run / get going 口语『得走了』。", "pron": "缩读：I'm = I am（/aɪm/）。连读：afraid I→/əˈfreɪd aɪ/（d 与 a）；I have→/aɪ hæv/；have to→/hæv tə/（v 与 tə）；to go→/tə ɡoʊ/；go now→/ɡoʊ naʊ/（oʊ 与 n）。弱读：I→/aɪ/；have→/həv/；to→/tə/。浊化：have to 快读 /hæ də/（v 后 t→d，典型）。失去爆破：have to /hæ(v) tə/（v 轻）；go now /ɡoʊ(n)aʊ/（n 轻）。同化/滑音/闪音/缩读：无典型。", "mastery": 0}, {"id": "s94", "nid": 94, "type": "short", "topic": "daily", "en": "See you later!", "ipa": "/si ju ˈleɪtər/", "zh": "回头见！", "kw": [["later", "/ˈleɪtər/", "adv.之后"]], "variants": [["See you later!", "标准"], ["See you soon!", "soon 改很快"], ["Catch you later!", "catch 口语=见"]], "scenes": [["道别", "See you later!", "对方回 Later! / Bye!"], ["同事", "See you tomorrow.", "说明天见"], ["不同回答", "Take care. / Talk soon. / Bye for now."]], "grammar": "See you + 时间副词（later / soon / tomorrow）固定道别『回头见/很快见』。catch you later 口语同义。bye / take care 同义。", "pron": "连读：See you→/si ju/（i 与 j）；you later→/ju ˈleɪtər/（u 与 l）。弱读：you→/jə/（可保留 /ju/）。同化/滑音/闪音/缩读：无典型。失去爆破：you later /ju ˈleɪtər/（r 轻，无相邻爆破典型）。", "mastery": 0}, {"id": "s95", "nid": 95, "type": "short", "topic": "daily", "en": "Take care!", "ipa": "/teɪk kɛr/", "zh": "保重！", "kw": [["take care", "/teɪk kɛr/", "phr.保重"]], "variants": [["Take care!", "标准"], ["Take good care.", "加强"], ["Look after yourself.", "更正式关心"]], "scenes": [["道别叮嘱", "Take care!", "对方回 You too! / Will do."], ["送人", "Drive safe!", "叮嘱开车小心"], ["不同回答", "See you. / Same. / Bye now."]], "grammar": "Take care 固定短语『保重』，祈使句。look after yourself『照顾好自己』。drive safe『开车小心』。", "pron": "连读：Take care→/teɪk kɛr/（k 与 k）。弱读：care 重读 /kɛr/。失去爆破：Take care /teɪ(k) kɛr/（k 在 k 前不完全爆破，只读一次）。浊化：无。同化/滑音/闪音/缩读：无典型。", "mastery": 0}];
+const DATA = [{"id": "s86", "nid": 86, "type": "short", "topic": "daily", "en": "I couldn't agree more.", "ipa": "/aɪ ˈkʊdənt əˈɡri mɔr/", "zh": "我完全同意。", "kw": [["agree", "/əˈɡri/", "v.同意"], ["couldn't agree more", "/ˈkʊdənt əˈɡri mɔr/", "idiom完全同意"]], "variants": [["I couldn't agree more.", "标准"], ["Totally agree.", "totally 口语"], ["Exactly!", "极简赞同"]], "scenes": [["强烈赞同", "I couldn't agree more.", "对方回 Right? / Same here."], ["补充", "You took the words out of my mouth.", "说英雄所见略同"], ["不同回答", "Couldn't have said it better. / Absolutely. / Precisely."]], "grammar": "I couldn't agree more 是 idiom『我完全同意』，字面『不能再更同意了』，用比较级 more 表最高级含义。totally / exactly 同义。", "pron": "缩读：couldn't = could not（/ˈkʊdənt/）。连读：couldn't agree→/ˈkʊdənt əˈɡri/（t 与 ə）；agree more→/əˈɡri mɔr/（i 与 m）。弱读：无典型。失去爆破：couldn't agree /ˈkʊdən(t) ə/（t 在 ə 前不完全爆破）。浊化：无。同化/滑音/闪音/缩读：无典型。", "mastery": 0}, {"id": "s87", "nid": 87, "type": "short", "topic": "daily", "en": "Let me think about it.", "ipa": "/lɛt mi θɪŋk əˈbaʊt ɪt/", "zh": "让我想想。", "kw": [["think", "/θɪŋk/", "v.想"]], "variants": [["Let me think about it.", "标准"], ["I'll think it over.", "think over 表考虑"], ["Give me a moment.", "说给点时间"]], "scenes": [["犹豫考虑", "Let me think about it.", "对方回 Take your time. / No rush."], ["稍后回", "I'll let you know.", "说会告知"], ["不同回答", "Sure. / Sleep on it. / Tell me later."]], "grammar": "Let me + 动词原形（think）祈使；think about + 宾语『考虑…』。think over / sleep on it 同义『考虑』。let you know『告知你』。", "pron": "连读：Let me→/lɛt mi/（t 与 m）；me think→/mi θɪŋk/（i 与 θ）；think about→/θɪŋk əˈbaʊt/（k 与 ə）；about it→/əˈbaʊt ɪt/（t 与 ɪ）。弱读：me→/mi/；about→/əˈbaʊt/（弱读 /əbaʊt/）；it→/ɪt/。失去爆破：let me /lɛ(t) mi/（t 在 m 前不完全爆破）；think about /θɪŋ(k) ə/（k 在 ə 前不完全爆破）；about it /əˈbaʊ(t) ɪt/（t 在 ɪ 前）。浊化：无。同化/滑音/闪音/缩读：无典型。", "mastery": 0}, {"id": "s88", "nid": 88, "type": "long", "topic": "daily", "en": "I'll get back to you as soon as I confirm the details with my manager.", "ipa": "/aɪl ɡɛt bæk tə ju əz sun əz aɪ kənˈfɜrm ðə dɪˈteɪlz wɪð maɪ ˈmænɪdʒər/", "zh": "我一和经理确认好细节就回复你。", "kw": [["get back", "/ɡɛt bæk/", "phr.回复"], ["confirm", "/kənˈfɜrm/", "v.确认"]], "variants": [["I'll get back to you soon.", "省后半也通"], ["I'll confirm and reply.", "说确认后回"], ["Let me check with my manager.", "说要问经理"]], "scenes": [["说稍后回", "I'll get back to you as soon as I confirm the details with my manager.", "对方回 Sounds good, no hurry."], ["承诺", "I'll text you tonight.", "说晚上发消息"], ["不同回答", "Take your time. / Looking forward. / Appreciate it."]], "grammar": "I'll = I will 缩读；get back to you『回复你』。as soon as『一…就…』引导时间状语从句；confirm 动词『确认』。with my manager 表『和经理』。details 复数『细节』。", "pron": "缩读：I'll = I will（/aɪl/）。连读：get back→/ɡɛt bæk/（t 与 b）；back to→/bæk tə/（k 与 tə）；to you→/tə ju/；you as→/ju əz/（u 与 ə）；as soon→/əz sun/（z 与 s）；soon as→/sun əz/（n 与 ə）；as I→/əz aɪ/；I confirm→/aɪ kənˈfɜrm/；confirm the→/kənˈfɜrm ðə/；the details→/ðə dɪˈteɪlz/；details with→/dɪˈteɪlz wɪð/（z 与 w）；with my→/wɪð maɪ/；my manager→/maɪ ˈmænɪdʒər/（aɪ 与 m）。弱读：to→/tə/；you→/jə/；as→/əz/；the→/ðə/；with→/wɪð/；my→/maɪ/（重读）。失去爆破：get back /ɡɛ(t) bæk/（t 在 b 前不完全爆破）；back to /bæ(k) tə/（k 在 t 前）；soon as /su(n) əz/（n 轻）；my manager /maɪ ˈmænɪ(dʒ)ər/（dʒ 轻）。浊化：无。同化/滑音/闪音：无典型。", "mastery": 0}, {"id": "s89", "nid": 89, "type": "short", "topic": "daily", "en": "Could you speak up, please?", "ipa": "/kʊd ju spik ʌp pliz/", "zh": "你能大声一点吗？", "kw": [["speak up", "/spik ʌp/", "phr.大声说"]], "variants": [["Could you speak up, please?", "标准"], ["Can you talk louder?", "louder 更口语"], ["I can't hear you well.", "说听不清"]], "scenes": [["请大声", "Could you speak up, please?", "对方回 Sorry, is this better? / Sure."], ["电话", "You're breaking up.", "说信号断断续续"], ["不同回答", "My bad. / One more time. / Louder now?"]], "grammar": "Could you + 动词原形（speak）委婉请求；speak up 短语『大声说』。louder 是 loud 比较级。breaking up 指『信号中断』。", "pron": "同化：Could you→/kʊdʒu/（d+j 同化，关键！）。连读：you speak→/ju spik/；speak up→/spik ʌp/（k 与 ʌ）；up please→/ʌp pliz/（p 与 p）。弱读：you→/jə/。失去爆破：speak up /spi(k) ʌp/（k 在 ʌ 前不完全爆破）；up please /ʌ(p) pliz/（p 在 p 前轻，只读一次）。浊化：无。滑音/闪音/缩读：无典型。", "mastery": 0}, {"id": "s90", "nid": 90, "type": "short", "topic": "daily", "en": "I didn't catch your name.", "ipa": "/aɪ ˈdɪdənt kætʃ jʊr neɪm/", "zh": "我没听清你的名字。", "kw": [["catch", "/kætʃ/", "v.听清，赶上"], ["name", "/neɪm/", "n.名字"]], "variants": [["I didn't catch your name.", "标准"], ["Your name again?", "极简重问"], ["Say that once more?", "请再说一次"]], "scenes": [["没听清名字", "I didn't catch your name.", "对方回 It's Tom, T-O-M. / Lee, with two e's."], ["确认", "How do you spell it?", "问拼法"], ["不同回答", "Slowly: A-N-N-A. / Just call me Sam. / Mike, nice to meet you."]], "grammar": "didn't = did not 缩读；catch 动词『听清/赶上』，否定后接原形 catch。your name 单数。say once more『再说一次』。spell 动词『拼写』。", "pron": "缩读：didn't = did not（/ˈdɪdənt/）。连读：didn't catch→/ˈdɪdənt kætʃ/（t 与 k）；catch your→/kætʃ jʊr/（tʃ 与 j）；your name→/jʊr neɪm/（r 与 n）。弱读：your→/jər/。同化：catch your 快读 /kætʃər/（tʃ+j，本就同化）。失去爆破：didn't catch /ˈdɪdən(t) kæ/（t 在 k 前不完全爆破）。浊化：无。滑音/闪音/缩读：无典型。", "mastery": 0}];
 let speed = 1;
 let cardSpeed = {};
 try { DATA.forEach(d => { const sv = localStorage.getItem('vocab_speed_'+String(d.id).replace('s','')); if(sv) cardSpeed[d.id]=parseFloat(sv); }); } catch(e){}
@@ -147,10 +147,10 @@ async function assess(sid, action, btn){
   let nv = cur;
   if(r){
     const j = await r.json(); nv = j.mastery;
-    if(st) st.textContent = (action==='clear'?'\u5df2 +1':action==='unknown'?'\u5df2 -1':'\u5df2\u8bb0\u5f55')+' \u00b7 \u5df2\u56de\u5199 \u2713';
+    if(st) st.textContent = (action==='clear'?'已 +1':action==='unknown'?'已 -1':'已记录')+' · 已回写 ✓';
   } else {
     nv = action==='clear'?Math.min(5,cur+1):action==='unknown'?Math.max(0,cur-1):cur;
-    if(st) st.textContent = '\u5df2\u672c\u5730\u8bb0\u5f55\uff08\u542f\u52a8\u672c\u5730\u670d\u52a1\u540e\u53ef\u56de\u5199\uff09';
+    if(st) st.textContent = '已本地记录（启动本地服务后可回写）';
   }
   setMbar(sid, nv);
   try{ localStorage.setItem('vocab_mastery_'+id, String(nv)); }catch(e){}
@@ -166,34 +166,34 @@ function cardHTML(d){
   return `<div class="card">
     <div class="top">
       <span class="num">${d.id.replace('s','')}</span>
-      <span class="pill ${d.topic}">${d.topic==='travel'?'\u65c5\u6e38':'\u65e5\u5e38'}</span>
+      <span class="pill ${d.topic}">${d.topic==='travel'?'旅游':'日常'}</span>
       <span class="play">
-        <span class="ic" title="\u539f\u58f0\u4f34\u8bfb" onclick="playAudio('${d.id}')">\U0001f50a</span>
-        <span class="ic" title="\u6162\u901f\u6717\u8bfb" onclick="playAudio('${d.id}', 0.7)">\U0001f422</span>
+        <span class="ic" title="原声伴读" onclick="playAudio('${d.id}')">\U0001f50a</span>
+        <span class="ic" title="慢速朗读" onclick="playAudio('${d.id}', 0.7)">\U0001f422</span>
       </span>
     </div>
     <div class="en">${d.en}</div>
     <div class="ipa">${d.ipa}</div>
     <div class="zh">${d.zh}</div>
     <div class="kw">${kw}</div>
-    <button class="detailsBtn" id="db-${d.id}" onclick="toggleDetails('${d.id}')">\U0001f4c2 \u5c55\u5f00\u8be6\u60c5\uff08\u53d8\u4f53 / \u573a\u666f / \u8bed\u6cd5 / \u53d1\u97f3\uff09</button>
+    <button class="detailsBtn" id="db-${d.id}" onclick="toggleDetails('${d.id}')">\U0001f4c2 展开详情（变体 / 场景 / 语法 / 发音）</button>
     <div class="details collapsed" id="dt-${d.id}">
-      <div class="block var"><div class="h">\U0001f53b \u7b80\u5316 / \u53e3\u8bed\u53d8\u4f53</div><ul>${v}</ul></div>
-      <div class="block scene"><div class="h">\U0001f3ad \u573a\u666f\u5316\u8868\u8fbe + \u4e0d\u540c\u56de\u7b54</div><ul>${sc}</ul></div>
-      <div class="block gram"><div class="h">\U0001f4dd \u8bed\u6cd5\u63d0\u793a</div><div>${d.grammar}</div></div>
-      <div class="block pr"><div class="h">\U0001f524 \u53d1\u97f3\u63d0\u793a\uff08\u8fde\u8bfb/\u540c\u5316/\u6ed1\u97f3/\u6d4a\u5316/\u5931\u53bb\u7206\u7834/\u95ea\u97f3/\u5f31\u8bfb/\u7f29\u8bfb\uff09</div><div>${d.pron}</div></div>
+      <div class="block var"><div class="h">\U0001f53b 简化 / 口语变体</div><ul>${v}</ul></div>
+      <div class="block scene"><div class="h">\U0001f3ad 场景化表达 + 不同回答</div><ul>${sc}</ul></div>
+      <div class="block gram"><div class="h">\U0001f4dd 语法提示</div><div>${d.grammar}</div></div>
+      <div class="block pr"><div class="h">\U0001f524 发音提示（连读/同化/滑音/浊化/失去爆破/闪音/弱读/缩读）</div><div>${d.pron}</div></div>
     </div>
     <audio id="au-${d.id}" preload="none" src="audio/${d.id}.mp3"></audio>
     <div class="readwrap">
-      <span class="rlbl">\U0001f501 \u6717\u8bfb</span>
+      <span class="rlbl">\U0001f501 朗读</span>
       <select id="rp-${d.id}" class="repsSel">
-        <option value="2">2 \u904d</option>
-        <option value="3" selected>3 \u904d</option>
-        <option value="5">5 \u904d</option>
-        <option value="8">8 \u904d</option>
+        <option value="2">2 遍</option>
+        <option value="3" selected>3 遍</option>
+        <option value="5">5 遍</option>
+        <option value="8">8 遍</option>
       </select>
-      <button id="rb-${d.id}" class="readBtn" onclick="loopSpeak('${d.id}')">\u25b6 \u5f00\u59cb</button>
-      <span class="spdlbl">\u8bed\u901f</span>
+      <button id="rb-${d.id}" class="readBtn" onclick="loopSpeak('${d.id}')">▶ 开始</button>
+      <span class="spdlbl">语速</span>
       <select class="spdSel" onchange="setCardSpeed('${d.id}',this.value)">
         <option value="1">1倍</option>
         <option value="0.8">0.8倍</option>
@@ -202,12 +202,12 @@ function cardHTML(d){
       </select>
     </div>
     <div class="assess">
-      <span class="lbl">\u81ea\u8bc4\u638c\u63e1\u5ea6\uff1a</span>
+      <span class="lbl">自评掌握度：</span>
       <div class="mbar" id="mbar-${d.id}"><div class="mfill" style="width:${d.mastery*20}%;background:${d.mastery<=2?'#dc2626':d.mastery<=4?'#d97706':'#16a34a'}"></div></div>
       <span class="mbadge" id="mb-${d.id}">${d.mastery}/5</span>
-      <button class="c" onclick="assess('${d.id}','clear',this")>\u2705 \u8ba4\u8bc6 +1</button>
-      <button class="f" onclick="assess('${d.id}','fuzzy',this)">\U0001f7e1 \u6a21\u7cca</button>
-      <button class="u" onclick="assess('${d.id}','unknown',this')">\U0001f534 \u4e0d\u8ba4\u8bc6 -1</button>
+      <button class="c" onclick="assess('${d.id}','clear',this)">✅ 认识 +1</button>
+      <button class="f" onclick="assess('${d.id}','fuzzy',this)">\U0001f7e1 模糊</button>
+      <button class="u" onclick="assess('${d.id}','unknown',this)">\U0001f534 不认识 -1</button>
       <span class="astat" id="as-${d.id}"></span>
     </div>
   </div>`;
@@ -215,47 +215,47 @@ function cardHTML(d){
 if(DATA.some(d=>d.type==='short')){
   const n=DATA.filter(d=>d.type==='short').length;
   const st=document.createElement('div'); st.className='sec-title';
-  st.innerHTML=`<span class="tag">\u77ed\u53e5</span> Short sentences\uff08${n}\uff09`; document.querySelector('.wrap').insertBefore(st, document.getElementById('short'));
+  st.innerHTML=`<span class="tag">短句</span> Short sentences（${n}）`; document.querySelector('.wrap').insertBefore(st, document.getElementById('short'));
   document.getElementById('short').innerHTML=DATA.filter(d=>d.type==='short').map(cardHTML).join('');
 }
 if(DATA.some(d=>d.type==='long')){
   const n=DATA.filter(d=>d.type==='long').length;
   const st=document.createElement('div'); st.className='sec-title';
-  st.innerHTML=`<span class="tag">\u957f\u53e5</span> Long sentences\uff08${n}\uff09`; document.querySelector('.wrap').insertBefore(st, document.getElementById('long'));
+  st.innerHTML=`<span class="tag">长句</span> Long sentences（${n}）`; document.querySelector('.wrap').insertBefore(st, document.getElementById('long'));
   document.getElementById('long').innerHTML=DATA.filter(d=>d.type==='long').map(cardHTML).join('');
 }
 applyStoredDetails();
 function setCardDetails(id, show){ const el=document.getElementById('dt-'+id); if(!el) return; el.classList.toggle('collapsed', !show);
-  const btn=document.getElementById('db-'+id); if(btn) btn.textContent = show ? '\U0001f4c1 \u6536\u8d77\u8be6\u60c5\uff08\u53d8\u4f53 / \u573a\u666f / \u8bed\u6cd5 / \u53d1\u97f3\uff09' : '\U0001f4c2 \u5c55\u5f00\u8be6\u60c5\uff08\u53d8\u4f53 / \u573a\u666f / \u8bed\u6cd5 / \u53d1\u97f3\uff09';
+  const btn=document.getElementById('db-'+id); if(btn) btn.textContent = show ? '\U0001f4c1 收起详情（变体 / 场景 / 语法 / 发音）' : '\U0001f4c2 展开详情（变体 / 场景 / 语法 / 发音）';
   try{ localStorage.setItem('vocab_details_'+id, show?'open':'closed'); }catch(e){} }
 function toggleDetails(id){ const el=document.getElementById('dt-'+id); if(el) setCardDetails(id, el.classList.contains('collapsed')); }
 function toggleAllDetails(){ const anyCollapsed = !!document.querySelector('.details.collapsed'); const show = anyCollapsed;
   document.querySelectorAll('.details').forEach(el=>setCardDetails(el.id.replace('dt-',''), show));
-  const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = show ? '\U0001f4c1 \u6536\u8d70\u5168\u90e8\u8be6\u60c5' : '\U0001f4c2 \u5c55\u5f00\u5168\u90e8\u8be6\u60c5'; }
+  const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = show ? '\U0001f4c1 收走全部详情' : '\U0001f4c2 展开全部详情'; }
 function applyStoredDetails(){ DATA.forEach(d=>{ let st=null; try{ st=localStorage.getItem('vocab_details_'+d.id); }catch(e){}
   if(st==='open') setCardDetails(d.id, true); });
-  const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = document.querySelector('.details.collapsed') ? '\U0001f4c2 \u5c55\u5f00\u5168\u90e8\u8be6\u60c5' : '\U0001f4c1 \u6536\u8d70\u5168\u90e8\u8be6\u60c5'; }
+  const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = document.querySelector('.details.collapsed') ? '\U0001f4c2 展开全部详情' : '\U0001f4c1 收走全部详情'; }
 function mColor(v){ return v<=2?'#dc2626':(v<=4?'#d97706':'#16a34a'); }
 function setMbar(sid,v){ const bar=document.getElementById('mbar-'+sid);
   if(bar){ const f=bar.querySelector('.mfill'); f.style.width=(v*20)+'%'; f.style.background=mColor(v); }
   const b=document.getElementById('mb-'+sid); if(b) b.textContent=v+'/5'; }
 function playAudio(id, rate){ if(window.VocabAudio){ VocabAudio.play(id, rate || cardSpeed[id] || speed); } }
 function loopSpeak(id){ const btn=document.getElementById('rb-'+id); if(!btn) return;
-  if(btn.classList.contains('run')){ if(window.VocabAudio) VocabAudio.stopId(id); btn.classList.remove('run'); btn.textContent='\u25b6 \u5f00\u59cb'; return; }
+  if(btn.classList.contains('run')){ if(window.VocabAudio) VocabAudio.stopId(id); btn.classList.remove('run'); btn.textContent='▶ 开始'; return; }
   const reps=parseInt(document.getElementById('rp-'+id).value,10)||3;
-  btn.classList.add('run'); btn.textContent='\u23f9 \u505c\u6b62';
-  if(window.VocabAudio){ VocabAudio.loop(id, cardSpeed[id]||speed, reps, { onEnd: ()=>{ btn.classList.remove('run'); btn.textContent='\u25b6 \u5f00\u59cb'; } }); }
-  else { btn.classList.remove('run'); btn.textContent='\u25b6 \u5f00\u59cb'; } }
+  btn.classList.add('run'); btn.textContent='⏹ 停止';
+  if(window.VocabAudio){ VocabAudio.loop(id, cardSpeed[id]||speed, reps, { onEnd: ()=>{ btn.classList.remove('run'); btn.textContent='▶ 开始'; } }); }
+  else { btn.classList.remove('run'); btn.textContent='▶ 开始'; } }
 function setCardSpeed(id,v){ cardSpeed[id]=parseFloat(v);
   try{ localStorage.setItem('vocab_speed_'+String(id).replace('s',''), v); }catch(e){} }
-function speak(t){ /* deprecated: \u6240\u6709\u64ad\u653e\u7edf\u4e00\u8d70\u670d\u52a1\u5668\u97f3\u9891 VocabAudio */ }
+function speak(t){ /* deprecated: 所有播放统一走服务器音频 VocabAudio */ }
 let queue=[]; function playAll(){ stopAll(); queue=DATA.map(d=>d.id); next(); }
 function next(){ if(!queue.length){ stopAll(); return; }
   const id=queue.shift();
   if(window.VocabAudio){ VocabAudio.play(id, cardSpeed[id]||speed, ()=>{ next(); }); }
   else { stopAll(); return; } }
 function stopAll(){ queue=[]; if(window.VocabAudio) VocabAudio.stopAll();
-  document.querySelectorAll('.readBtn.run').forEach(b=>{ b.classList.remove('run'); b.textContent='\u25b6 \u5f00\u59cb'; }); }
+  document.querySelectorAll('.readBtn.run').forEach(b=>{ b.classList.remove('run'); b.textContent='▶ 开始'; }); }
 </script>
 </body>
 </html>
