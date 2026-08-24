@@ -36,6 +36,15 @@ def save_master(d):
     os.replace(tmp, MASTER)
 
 class H(SimpleHTTPRequestHandler):
+    def guess_type(self, path):
+        # 强制为 text/* 资源声明 UTF-8 编码，避免浏览器把 UTF-8 中文误当 GBK 解析成乱码
+        # （曾出现「较早打开的页面正常、之后新页面整页中文乱码」的边界现象，
+        #   根因即响应头未声明 charset 时浏览器对新文件猜测编码出错）
+        t = super().guess_type(path)
+        if t.startswith("text/") and "charset" not in t.lower():
+            return t + "; charset=utf-8"
+        return t
+
     def setup(self):
         super().setup()
         # 防止客户端半开/慢速连接永久阻塞线程、拖垮整个服务（曾出现占端口却不响应）
