@@ -85,12 +85,12 @@
 <body>
 <div class="wrap">
 <nav class="pagenav">
-  <a href="index.html">\U0001f3e0 首页</a>
-  <a href="review.html">\U0001f4da 已学回顾</a>
-  <a href="calendar.html">\U0001f4c5 日历</a>
+  <a href="index.html">🏠 首页</a>
+  <a href="review.html">📚 已学回顾</a>
+  <a href="calendar.html">📅 日历</a>
 </nav>
   <header>
-    <h1>\U0001f5a3 英语口语 · Day 18（增强版）</h1>
+    <h1>🖣 英语口语 · Day 18（增强版）</h1>
     <p>旅游 + 日常混合 · 5 句/天 · 中英对照 + 生词音标 + 原声伴读 + 变体 + 场景俗语 + 语法 + 发音提示</p>
   </header>
   <div class="preview-banner">🔓 预习模式 · 该日尚未到（2026-08-30），可提前学习；每日 9:00 自动推送后会与此页内容同步。</div>
@@ -101,10 +101,10 @@
     <div class="box"><b>100 句</b><span>当前总池</span></div>
   </div>
   <div class="legend">
-    <span>\U0001f53b <b>简化/口语变体</b></span>
-    <span>\U0001f3ad <b>场景化表达 + 不同回答</b></span>
-    <span>\U0001f4dd <b>语法提示</b></span>
-    <span>\U0001f524 <b>发音提示(连读/同化/滑音/浊化/失去爆破/闪音/弱读/缩读)</b></span>
+    <span>🔻 <b>简化/口语变体</b></span>
+    <span>🎭 <b>场景化表达 + 不同回答</b></span>
+    <span>📝 <b>语法提示</b></span>
+    <span>🔤 <b>发音提示(连读/同化/滑音/浊化/失去爆破/闪音/弱读/缩读)</b></span>
   </div>
   <div class="toolbar">
     <button class="btn primary" onclick="playAll()">▶ 全部伴读</button>
@@ -117,7 +117,7 @@
       </select>
     </label>
     <button class="btn" onclick="stopAll()">⏹ 停止</button>
-    <button class="btn" id="allDetBtn" onclick="toggleAllDetails()">\U0001f4c2 展开全部详情</button>
+    <button class="btn" id="allDetBtn" onclick="toggleAllDetails()">📂 展开全部详情</button>
   </div>
   <div id="short"></div>
   <div id="long"></div>
@@ -168,24 +168,24 @@ function cardHTML(d){
       <span class="num">${d.id.replace('s','')}</span>
       <span class="pill ${d.topic}">${d.topic==='travel'?'旅游':'日常'}</span>
       <span class="play">
-        <span class="ic" title="原声伴读" onclick="playAudio('${d.id}')">\U0001f50a</span>
-        <span class="ic" title="慢速朗读" onclick="playAudio('${d.id}', 0.7)">\U0001f422</span>
+        <span class="ic" title="原声伴读" onclick="playAudio('${d.id}')">🔊</span>
+        <span class="ic" title="慢速朗读" onclick="playAudio('${d.id}', 0.7)">🐢</span>
       </span>
     </div>
     <div class="en">${d.en}</div>
     <div class="ipa">${d.ipa}</div>
     <div class="zh">${d.zh}</div>
     <div class="kw">${kw}</div>
-    <button class="detailsBtn" id="db-${d.id}" onclick="toggleDetails('${d.id}')">\U0001f4c2 展开详情（变体 / 场景 / 语法 / 发音）</button>
+    <button class="detailsBtn" id="db-${d.id}" onclick="toggleDetails('${d.id}')">📂 展开详情（变体 / 场景 / 语法 / 发音）</button>
     <div class="details collapsed" id="dt-${d.id}">
-      <div class="block var"><div class="h">\U0001f53b 简化 / 口语变体</div><ul>${v}</ul></div>
-      <div class="block scene"><div class="h">\U0001f3ad 场景化表达 + 不同回答</div><ul>${sc}</ul></div>
-      <div class="block gram"><div class="h">\U0001f4dd 语法提示</div><div>${d.grammar}</div></div>
-      <div class="block pr"><div class="h">\U0001f524 发音提示（连读/同化/滑音/浊化/失去爆破/闪音/弱读/缩读）</div><div>${d.pron}</div></div>
+      <div class="block var"><div class="h">🔻 简化 / 口语变体</div><ul>${v}</ul></div>
+      <div class="block scene"><div class="h">🎭 场景化表达 + 不同回答</div><ul>${sc}</ul></div>
+      <div class="block gram"><div class="h">📝 语法提示</div><div>${d.grammar}</div></div>
+      <div class="block pr"><div class="h">🔤 发音提示（连读/同化/滑音/浊化/失去爆破/闪音/弱读/缩读）</div><div>${d.pron}</div></div>
     </div>
     <audio id="au-${d.id}" preload="none" src="audio/${d.id}.mp3"></audio>
     <div class="readwrap">
-      <span class="rlbl">\U0001f501 朗读</span>
+      <span class="rlbl">🔁 朗读</span>
       <select id="rp-${d.id}" class="repsSel">
         <option value="2">2 遍</option>
         <option value="3" selected>3 遍</option>
@@ -206,8 +206,8 @@ function cardHTML(d){
       <div class="mbar" id="mbar-${d.id}"><div class="mfill" style="width:${d.mastery*20}%;background:${d.mastery<=2?'#dc2626':d.mastery<=4?'#d97706':'#16a34a'}"></div></div>
       <span class="mbadge" id="mb-${d.id}">${d.mastery}/5</span>
       <button class="c" onclick="assess('${d.id}','clear',this)">✅ 认识 +1</button>
-      <button class="f" onclick="assess('${d.id}','fuzzy',this)">\U0001f7e1 模糊</button>
-      <button class="u" onclick="assess('${d.id}','unknown',this)">\U0001f534 不认识 -1</button>
+      <button class="f" onclick="assess('${d.id}','fuzzy',this)">🟡 模糊</button>
+      <button class="u" onclick="assess('${d.id}','unknown',this)">🔴 不认识 -1</button>
       <span class="astat" id="as-${d.id}"></span>
     </div>
   </div>`;
@@ -226,15 +226,15 @@ if(DATA.some(d=>d.type==='long')){
 }
 applyStoredDetails();
 function setCardDetails(id, show){ const el=document.getElementById('dt-'+id); if(!el) return; el.classList.toggle('collapsed', !show);
-  const btn=document.getElementById('db-'+id); if(btn) btn.textContent = show ? '\U0001f4c1 收起详情（变体 / 场景 / 语法 / 发音）' : '\U0001f4c2 展开详情（变体 / 场景 / 语法 / 发音）';
+  const btn=document.getElementById('db-'+id); if(btn) btn.textContent = show ? '📁 收起详情（变体 / 场景 / 语法 / 发音）' : '📂 展开详情（变体 / 场景 / 语法 / 发音）';
   try{ localStorage.setItem('vocab_details_'+id, show?'open':'closed'); }catch(e){} }
 function toggleDetails(id){ const el=document.getElementById('dt-'+id); if(el) setCardDetails(id, el.classList.contains('collapsed')); }
 function toggleAllDetails(){ const anyCollapsed = !!document.querySelector('.details.collapsed'); const show = anyCollapsed;
   document.querySelectorAll('.details').forEach(el=>setCardDetails(el.id.replace('dt-',''), show));
-  const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = show ? '\U0001f4c1 收走全部详情' : '\U0001f4c2 展开全部详情'; }
+  const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = show ? '📁 收走全部详情' : '📂 展开全部详情'; }
 function applyStoredDetails(){ DATA.forEach(d=>{ let st=null; try{ st=localStorage.getItem('vocab_details_'+d.id); }catch(e){}
   if(st==='open') setCardDetails(d.id, true); });
-  const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = document.querySelector('.details.collapsed') ? '\U0001f4c2 展开全部详情' : '\U0001f4c1 收走全部详情'; }
+  const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = document.querySelector('.details.collapsed') ? '📂 展开全部详情' : '📁 收走全部详情'; }
 function mColor(v){ return v<=2?'#dc2626':(v<=4?'#d97706':'#16a34a'); }
 function setMbar(sid,v){ const bar=document.getElementById('mbar-'+sid);
   if(bar){ const f=bar.querySelector('.mfill'); f.style.width=(v*20)+'%'; f.style.background=mColor(v); }

@@ -85,26 +85,26 @@
 <body>
 <div class="wrap">
 <nav class="pagenav">
-  <a href="index.html">\U0001f3e0 首页</a>
-  <a href="review.html">\U0001f4da 已学回顾</a>
-  <a href="calendar.html">\U0001f4c5 日历</a>
+  <a href="index.html">🏠 首页</a>
+  <a href="review.html">📚 已学回顾</a>
+  <a href="calendar.html">📅 日历</a>
 </nav>
   <header>
-    <h1>\U0001f5a3 英语口语 · Day 10（增强版）</h1>
+    <h1>🖣 英语口语 · Day 10（增强版）</h1>
     <p>旅游 + 日常混合 · 5 句/天 · 中英对照 + 生词音标 + 原声伴读 + 变体 + 场景俗语 + 语法 + 发音提示</p>
   </header>
   
   <div class="summary">
     <div class="box"><b>第 10 天</b><span>连续学习</span></div>
     <div class="box"><b>5 句</b><span>今日新学</span></div>
-    <div class="box"><b>50/100</b><span>累计已学</span></div>
+    <div class="box"><b>40/100</b><span>累计已学</span></div>
     <div class="box"><b>100 句</b><span>当前总池</span></div>
   </div>
   <div class="legend">
-    <span>\U0001f53b <b>简化/口语变体</b></span>
-    <span>\U0001f3ad <b>场景化表达 + 不同回答</b></span>
-    <span>\U0001f4dd <b>语法提示</b></span>
-    <span>\U0001f524 <b>发音提示(连读/同化/滑音/浊化/失去爆破/闪音/弱读/缩读)</b></span>
+    <span>🔻 <b>简化/口语变体</b></span>
+    <span>🎭 <b>场景化表达 + 不同回答</b></span>
+    <span>📝 <b>语法提示</b></span>
+    <span>🔤 <b>发音提示(连读/同化/滑音/浊化/失去爆破/闪音/弱读/缩读)</b></span>
   </div>
   <div class="toolbar">
     <button class="btn primary" onclick="playAll()">▶ 全部伴读</button>
@@ -117,7 +117,7 @@
       </select>
     </label>
     <button class="btn" onclick="stopAll()">⏹ 停止</button>
-    <button class="btn" id="allDetBtn" onclick="toggleAllDetails()">\U0001f4c2 展开全部详情</button>
+    <button class="btn" id="allDetBtn" onclick="toggleAllDetails()">📂 展开全部详情</button>
   </div>
   <div id="short"></div>
   <div id="long"></div>
@@ -126,7 +126,7 @@
 <script src="audio-engine.js"></script>
 <script>
 (function(){ const d=new Date().toISOString().slice(0,10); document.querySelectorAll('.today-nav').forEach(a=>a.href='day'+d+'.html'); })();
-const DATA = [{"id": "s46", "nid": 46, "type": "short", "topic": "travel", "en": "Where is the nearest restroom?", "ipa": "/wɛr ɪz ðə ˈnɪrɪst ˈrɛstrum/", "zh": "最近的洗手间在哪里？", "kw": [["restroom", "/ˈrɛstrum/", "n.洗手间"], ["nearest", "/ˈnɪrɪst/", "adj.最近的"]], "variants": [["Where's the bathroom?", "bathroom 美式常用"], ["Where's the toilet?", "toilet 英式/通用"], ["Excuse me, restroom?", "极简，紧急时"]], "scenes": [["找洗手间", "Where is the nearest restroom?", "对方回 Down the hall, on the left."], ["餐厅", "Is the restroom for customers?", "问是否顾客可用"], ["不同回答", "Just past the lobby. / Upstairs. / Around the corner."]], "grammar": "Where is + 单数地点；nearest 是 near 最高级『最近的』。restroom（美）/ bathroom（美）/ toilet（英）/ WC（英）同义。", "pron": "连读：Where is→/wɛə rɪz/（r 与 ɪ）；is the→/ɪ zðə/（z 与 ð）；the nearest→/ðə ˈnɪrɪst/；nearest restroom→/ˈnɪrɪst ˈrɛstrum/（t 与 r）。弱读：is→/ɪz/；the→/ðə/。失去爆破：nearest restroom /ˈnɪrɪ(s)t ˈrɛs/（t 在 r 前不完全爆破）。浊化：无。同化/滑音/闪音：无典型。缩读：无。", "mastery": 1}, {"id": "s47", "nid": 47, "type": "short", "topic": "travel", "en": "I lost my wallet.", "ipa": "/aɪ lɔst maɪ ˈwɑlɪt/", "zh": "我的钱包丢了。", "kw": [["wallet", "/ˈwɑlɪt/", "n.钱包"], ["lost", "/lɔst/", "adj.丢失的"]], "variants": [["I've lost my wallet.", "现在完成时强调影响"], ["My wallet is gone.", "gone 表『不见了』"], ["I can't find my wallet.", "说找不到"]], "scenes": [["报失", "I lost my wallet.", "对方回 Report it to the police. / Check your pockets."], ["冻结卡", "I need to cancel my cards.", "说要挂失"], ["不同回答", "When did you last see it? / File a report. / Hope you find it."]], "grammar": "一般过去时 lost（lose 的过去式）表『丢了』；my wallet 单数。gone 是 go 过去分词作形容词『不见了』。can't find 表『找不到』。", "pron": "连读：I lost→/aɪ lɔst/（aɪ 与 l）；lost my→/lɔs maɪ/（t 与 m）；my wallet→/maɪ ˈwɑlɪt/（aɪ 与 w）。弱读：my→/maɪ/（重读）。失去爆破：lost my /lɔ(s)t maɪ/（s-t，/t/ 在 m 前不完全爆破）。浊化：lost my 快读 /lɔz maɪ/ 或 /lɔd maɪ/（t→d，典型）。同化/滑音/闪音/缩读：无典型。", "mastery": 1}, {"id": "s48", "nid": 48, "type": "short", "topic": "travel", "en": "I need to see a doctor.", "ipa": "/aɪ nid tə si ə ˈdɑktər/", "zh": "我需要看医生。", "kw": [["doctor", "/ˈdɑktər/", "n.医生"]], "variants": [["I need to see a doctor.", "标准说法"], ["I need a doctor.", "极简呼救"], ["Could you call a doctor?", "请别人叫医生"]], "scenes": [["求医", "I need to see a doctor.", "对方回 There's a clinic nearby. / I'll call one."], ["急诊", "It's an emergency.", "说紧急情况"], ["不同回答", "Go to the hospital. / Pharmacy's open. / I'll get help."]], "grammar": "need to + 动词原形 表『需要做某事』；see a doctor 固定搭配『看医生』。doctor 单数用 a。emergency 名词『急症』。", "pron": "连读：need to→/nid tə/（d 与 tə）；to see→/tə si/（tə 与 s）；see a→/si ə/（i 与 ə）；a doctor→/ə ˈdɑktər/。弱读：to→/tə/；a→/ə/。浊化：need to 快读 /ni də/（d→d 本浊）；see a 中 a 弱读。失去爆破：need to /ni(d) tə/（d 在 t 前轻）。同化/滑音/闪音/缩读：无典型。", "mastery": 1}, {"id": "s49", "nid": 49, "type": "short", "topic": "travel", "en": "Call the police, please.", "ipa": "/kɔl ðə pəˈlis pliz/", "zh": "请报警。", "kw": [["police", "/pəˈlis/", "n.警察"]], "variants": [["Call the police!", "省 please 更紧急"], ["Somebody call the police!", "喊别人报警"], ["We need the police.", "说需要警察"]], "scenes": [["紧急报警", "Call the police, please.", "旁人回 I'm calling now. / On it."], ["被抢", "I've been robbed.", "说被抢了"], ["不同回答", "Dial 911. / Stay calm. / They're on the way."]], "grammar": "祈使句 Call + 宾语 表命令/请求；the police 集合名词用复数概念但形式单数。call the police 固定『报警』。rob 过去分词 robbed『被抢』。", "pron": "连读：Call the→/kɔl ðə/（l 与 ð）；the police→/ðə pəˈlis/；police please→/pəˈlis pliz/（s 与 p）。弱读：the→/ðə/。失去爆破：call the /kɔ(l) ðə/（l 轻微）；police please /pəˈli(s) pliz/（s 轻）。浊化：无。同化/滑音/闪音/缩读：无典型。", "mastery": 1}, {"id": "s50", "nid": 50, "type": "short", "topic": "travel", "en": "I've missed my flight.", "ipa": "/aɪv mɪst maɪ flaɪt/", "zh": "我误了航班。", "kw": [["missed", "/mɪst/", "adj.错过的"], ["flight", "/flaɪt/", "n.航班"]], "variants": [["I missed my flight.", "省 I've 也可"], ["I'm late for my flight.", "说赶不上了"], ["They closed the gate.", "说登机口关了"]], "scenes": [["误机", "I've missed my flight.", "地勤回 You can rebook for tomorrow."], ["改签", "Can I get the next one?", "问下一班"], ["不同回答", "There's a seat on the 8 p.m. / A fee applies. / Standby only."]], "grammar": "现在完成时 I've missed（miss 的过去分词）强调对现在的影响；my flight 单数。miss 动词『错过』。rebook 表『重新订』。", "pron": "缩读：I've = I have（/aɪv/）。连读：I've missed→/aɪv mɪst/（v 与 m）；missed my→/mɪst maɪ/（t 与 m）；my flight→/maɪ flaɪt/（aɪ 与 f）。弱读：my→/maɪ/（重读）。失去爆破：missed my /mɪ(s)t maɪ/（s-t，/t/ 在 m 前不完全爆破）。浊化：missed my 快读 /mɪz maɪ/ 或 /mɪd maɪ/（t→d，典型）。同化/滑音/闪音/缩读：无典型。", "mastery": 1}];
+const DATA = [{"id": "s36", "nid": 36, "type": "short", "topic": "travel", "en": "Can I try this on?", "ipa": "/kæn aɪ traɪ ðɪs ɑn/", "zh": "我可以试穿这件吗？", "kw": [["try on", "/traɪ ɑn/", "phr.试穿"]], "variants": [["Can I try it on?", "代词 it 必须放中间"], ["Where's the fitting room?", "先问试衣间"], ["May I try this on?", "may 更正式"]], "scenes": [["试穿", "Can I try this on?", "店员回 Sure, the mirror's there."], ["拿进试衣间", "I'll take these to the fitting room.", "说拿去试"], ["不同回答", "Sure. / It looks great on you. / The fitting room is in the back."]], "grammar": "try on 短语动词『试穿』，代词宾语必放中间（try it on），名词可放后（try this on）。can/may 表请求许可；this 单数用 try。", "pron": "连读：Can I→/kæn aɪ/（n 与 a）；I try→/aɪ traɪ/；try this→/traɪ ðɪs/（aɪ 与 ð）；this on→/ðɪs ɑn/（s 与 ɑ）。弱读：I→/aɪ/（重读）；can→/kæn/。失去爆破：this on /ðɪ(s) ɑn/（s 轻微）；try this /traɪ(ð) ðɪs/（ð 轻微）。浊化：无。同化/滑音/闪音/缩读：无典型。", "mastery": 1}, {"id": "s37", "nid": 37, "type": "short", "topic": "travel", "en": "That's a bit expensive for me.", "ipa": "/ðæts ə bɪt ɪkˈspɛnsɪv fɔr mi/", "zh": "那对我来说有点贵。", "kw": [["expensive", "/ɪkˈspɛnsɪv/", "adj.贵的"]], "variants": [["That's a little pricey for me.", "pricey 口语=贵"], ["It's over my budget.", "说超预算"], ["Can you do a better price?", "问能否便宜点"]], "scenes": [["觉得贵", "That's a bit expensive for me.", "店员回 I can give you a discount."], ["砍价", "Is there any flexibility on price?", "问价可否松动"], ["不同回答", "It's the last one. / I'll take 10% off. / That's our best price."]], "grammar": "That's = That is 缩读；a bit + 形容词 表『有点…』；expensive 形容词『贵的』；for me 表『对我而言』。比较级 cheaper 表『更便宜』。", "pron": "缩读：That's = That is（/ðæts/）。连读：That's a→/ðæts ə/（s 与 ə）；a bit→/ə bɪt/；bit expensive→/bɪt ɪkˈspɛnsɪv/（t 与 ɪ）；expensive for→/ɪkˈspɛnsɪv fɔr/；for me→/fɔr mi/。弱读：a→/ə/；for→/fər/；me→/mi/。失去爆破：bit expensive /bɪ(t) ɪk/（t 在 ɪ 前不完全爆破）。浊化：无。同化/滑音/闪音：无典型。", "mastery": 1}, {"id": "s38", "nid": 38, "type": "short", "topic": "travel", "en": "Do you accept credit cards?", "ipa": "/du ju əkˈsɛpt ˈkrɛdɪt kɑrdz/", "zh": "你们收信用卡吗？", "kw": [["credit", "/ˈkrɛdɪt/", "n.信用"], ["card", "/kɑrd/", "n.卡"]], "variants": [["Do you take cards?", "take 口语=收"], ["Can I pay by card?", "问能否刷卡"], ["Do you accept Visa?", "问具体卡种"]], "scenes": [["付款前问", "Do you accept credit cards?", "店员回 Yes, we do. / Card's fine."], ["问现金", "Do you take cash only?", "问是否只收现金"], ["不同回答", "We take all cards. / There's a 3% fee. / Tap or chip?"]], "grammar": "Do you accept + 名词 问『你们收…吗』；credit cards 复数。accept 动词『接受』；take 口语同义。pay by card / in cash 表支付方式。", "pron": "连读：Do you→/dʒu/（d+j 同化为 dʒ，关键！）；you accept→/ju əkˈsɛpt/；accept credit→/əkˈsɛpt ˈkrɛdɪt/（t 与 k）；credit cards→/ˈkrɛdɪt kɑrdz/（t 与 k）。弱读：you→/jə/。同化：Do you→/dʒu/。失去爆破：accept credit /əkˈsɛp(t) ˈkrɛ/（t 在 k 前不完全爆破）；credit cards /ˈkrɛdɪ(t) kɑrdz/（t 在 k 前）。浊化：无。闪音：credit→/ˈkrɛdɪt/ 词尾 t 在 k 前不完全爆破（非闪音）。缩读：无。", "mastery": 1}, {"id": "s39", "nid": 39, "type": "short", "topic": "travel", "en": "Can I get a refund?", "ipa": "/kæn aɪ ɡɛt ə ˈrifʌnd/", "zh": "我可以退款吗？", "kw": [["refund", "/ˈrifʌnd/", "n.退款"]], "variants": [["Can I get my money back?", "说退钱更直接"], ["I'd like a refund, please.", "礼貌要退款"], ["Is this returnable?", "问能否退"]], "scenes": [["退货", "Can I get a refund?", "店员回 With the receipt, yes. / No, final sale."], ["问条件", "Do I need the receipt?", "问要不要小票"], ["不同回答", "We'll refund to your card. / Store credit only. / Within 7 days, please."]], "grammar": "Can I get + 名词 请求；a refund 单数『退款』。refund 也可作动词 /rɪˈfʌnd/。return 作动词『退』，returnable 形容词『可退的』。", "pron": "连读：Can I→/kæn aɪ/（n 与 a）；I get→/aɪ ɡɛt/；get a→/ɡɛ tə/（t 与 ə）；a refund→/ə ˈrifʌnd/。弱读：I→/aɪ/；a→/ə/。失去爆破：get a /ɡɛ(t) ə/（t 在 ə 前不完全爆破）。浊化：get a 快读 /ɡɛ də/（t→d）。同化/滑音/闪音/缩读：无典型。", "mastery": 1}, {"id": "s40", "nid": 40, "type": "short", "topic": "travel", "en": "Where are the changing rooms?", "ipa": "/wɛr ɑr ðə ˈtʃeɪndʒɪŋ rumz/", "zh": "试衣间在哪里？", "kw": [["changing rooms", "/ˈtʃeɪndʒɪŋ rumz/", "n.试衣间"]], "variants": [["Where are the fitting rooms?", "fitting room 也常用"], ["Where can I try clothes on?", "问试衣处"], ["Where's the dressing room?", "dressing room 偏正式"]], "scenes": [["找试衣间", "Where are the changing rooms?", "店员回 In the back, on your left."], ["确认", "Are they unisex?", "问是否男女通用"], ["不同回答", "Just around the corner. / They're occupied. / One moment, I'll open one."]], "grammar": "Where are + 复数名词（rooms）用 are；changing rooms / fitting rooms 同义『试衣间』。dressing room 偏正式/舞台更衣室。", "pron": "连读：Where are→/wɛr ɑr/（r 与 ɑ）；are the→/ɑr ðə/（r 与 ð）；the changing→/ðə ˈtʃeɪndʒɪŋ/；changing rooms→/ˈtʃeɪndʒɪŋ rumz/（ŋ 与 r）。弱读：are→/ər/；the→/ðə/。失去爆破：无相邻爆破典型。浊化：无。同化/滑音/闪音/缩读：无典型。", "mastery": 1}];
 let speed = 1;
 let cardSpeed = {};
 try { DATA.forEach(d => { const sv = localStorage.getItem('vocab_speed_'+String(d.id).replace('s','')); if(sv) cardSpeed[d.id]=parseFloat(sv); }); } catch(e){}
@@ -168,24 +168,24 @@ function cardHTML(d){
       <span class="num">${d.id.replace('s','')}</span>
       <span class="pill ${d.topic}">${d.topic==='travel'?'旅游':'日常'}</span>
       <span class="play">
-        <span class="ic" title="原声伴读" onclick="playAudio('${d.id}')">\U0001f50a</span>
-        <span class="ic" title="慢速朗读" onclick="playAudio('${d.id}', 0.7)">\U0001f422</span>
+        <span class="ic" title="原声伴读" onclick="playAudio('${d.id}')">🔊</span>
+        <span class="ic" title="慢速朗读" onclick="playAudio('${d.id}', 0.7)">🐢</span>
       </span>
     </div>
     <div class="en">${d.en}</div>
     <div class="ipa">${d.ipa}</div>
     <div class="zh">${d.zh}</div>
     <div class="kw">${kw}</div>
-    <button class="detailsBtn" id="db-${d.id}" onclick="toggleDetails('${d.id}')">\U0001f4c2 展开详情（变体 / 场景 / 语法 / 发音）</button>
+    <button class="detailsBtn" id="db-${d.id}" onclick="toggleDetails('${d.id}')">📂 展开详情（变体 / 场景 / 语法 / 发音）</button>
     <div class="details collapsed" id="dt-${d.id}">
-      <div class="block var"><div class="h">\U0001f53b 简化 / 口语变体</div><ul>${v}</ul></div>
-      <div class="block scene"><div class="h">\U0001f3ad 场景化表达 + 不同回答</div><ul>${sc}</ul></div>
-      <div class="block gram"><div class="h">\U0001f4dd 语法提示</div><div>${d.grammar}</div></div>
-      <div class="block pr"><div class="h">\U0001f524 发音提示（连读/同化/滑音/浊化/失去爆破/闪音/弱读/缩读）</div><div>${d.pron}</div></div>
+      <div class="block var"><div class="h">🔻 简化 / 口语变体</div><ul>${v}</ul></div>
+      <div class="block scene"><div class="h">🎭 场景化表达 + 不同回答</div><ul>${sc}</ul></div>
+      <div class="block gram"><div class="h">📝 语法提示</div><div>${d.grammar}</div></div>
+      <div class="block pr"><div class="h">🔤 发音提示（连读/同化/滑音/浊化/失去爆破/闪音/弱读/缩读）</div><div>${d.pron}</div></div>
     </div>
     <audio id="au-${d.id}" preload="none" src="audio/${d.id}.mp3"></audio>
     <div class="readwrap">
-      <span class="rlbl">\U0001f501 朗读</span>
+      <span class="rlbl">🔁 朗读</span>
       <select id="rp-${d.id}" class="repsSel">
         <option value="2">2 遍</option>
         <option value="3" selected>3 遍</option>
@@ -206,8 +206,8 @@ function cardHTML(d){
       <div class="mbar" id="mbar-${d.id}"><div class="mfill" style="width:${d.mastery*20}%;background:${d.mastery<=2?'#dc2626':d.mastery<=4?'#d97706':'#16a34a'}"></div></div>
       <span class="mbadge" id="mb-${d.id}">${d.mastery}/5</span>
       <button class="c" onclick="assess('${d.id}','clear',this)">✅ 认识 +1</button>
-      <button class="f" onclick="assess('${d.id}','fuzzy',this)">\U0001f7e1 模糊</button>
-      <button class="u" onclick="assess('${d.id}','unknown',this)">\U0001f534 不认识 -1</button>
+      <button class="f" onclick="assess('${d.id}','fuzzy',this)">🟡 模糊</button>
+      <button class="u" onclick="assess('${d.id}','unknown',this)">🔴 不认识 -1</button>
       <span class="astat" id="as-${d.id}"></span>
     </div>
   </div>`;
@@ -226,15 +226,15 @@ if(DATA.some(d=>d.type==='long')){
 }
 applyStoredDetails();
 function setCardDetails(id, show){ const el=document.getElementById('dt-'+id); if(!el) return; el.classList.toggle('collapsed', !show);
-  const btn=document.getElementById('db-'+id); if(btn) btn.textContent = show ? '\U0001f4c1 收起详情（变体 / 场景 / 语法 / 发音）' : '\U0001f4c2 展开详情（变体 / 场景 / 语法 / 发音）';
+  const btn=document.getElementById('db-'+id); if(btn) btn.textContent = show ? '📁 收起详情（变体 / 场景 / 语法 / 发音）' : '📂 展开详情（变体 / 场景 / 语法 / 发音）';
   try{ localStorage.setItem('vocab_details_'+id, show?'open':'closed'); }catch(e){} }
 function toggleDetails(id){ const el=document.getElementById('dt-'+id); if(el) setCardDetails(id, el.classList.contains('collapsed')); }
 function toggleAllDetails(){ const anyCollapsed = !!document.querySelector('.details.collapsed'); const show = anyCollapsed;
   document.querySelectorAll('.details').forEach(el=>setCardDetails(el.id.replace('dt-',''), show));
-  const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = show ? '\U0001f4c1 收走全部详情' : '\U0001f4c2 展开全部详情'; }
+  const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = show ? '📁 收走全部详情' : '📂 展开全部详情'; }
 function applyStoredDetails(){ DATA.forEach(d=>{ let st=null; try{ st=localStorage.getItem('vocab_details_'+d.id); }catch(e){}
   if(st==='open') setCardDetails(d.id, true); });
-  const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = document.querySelector('.details.collapsed') ? '\U0001f4c2 展开全部详情' : '\U0001f4c1 收走全部详情'; }
+  const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = document.querySelector('.details.collapsed') ? '📂 展开全部详情' : '📁 收走全部详情'; }
 function mColor(v){ return v<=2?'#dc2626':(v<=4?'#d97706':'#16a34a'); }
 function setMbar(sid,v){ const bar=document.getElementById('mbar-'+sid);
   if(bar){ const f=bar.querySelector('.mfill'); f.style.width=(v*20)+'%'; f.style.background=mColor(v); }
