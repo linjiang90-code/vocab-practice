@@ -19,6 +19,11 @@ MASTER = os.path.join(BASE, "master.json")
 PORT = 3279
 lock = threading.Lock()
 
+# 构建版本号：每次页面有大改或修复乱码后递增，serve.py 会对所有 *.html 请求
+# 302 跳转到带 ?v=BUILD 的 URL，强制浏览器 / 省流量代理重新拉取最新内容，
+# 彻底破除「8-20~8-22 期间缓存的坏副本」导致的整页中文乱码假象。
+BUILD = "20260824b"
+
 CORS = {
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
@@ -76,6 +81,15 @@ class H(SimpleHTTPRequestHandler):
         return super().do_HEAD()
 
     def do_GET(self):
+        # 缓存击穿：所有静态 HTML 请求强制带版本号，杜绝旧缓存副本（含代理缓存）
+        p = self.path.split("?", 1)[0]
+        if p.endswith(".html") and "v=" not in self.path:
+            sep = "&" if "?" in self.path else "?"
+            self.send_response(302)
+            self.send_header("Location", self.path + sep + "v=" + BUILD)
+            self.send_header("Cache-Control", "no-store")
+            self.end_headers()
+            return
         if self.path == "/api/status":
             return self._send(200, json.dumps({"ok": True, "port": PORT}))
         if self.path == "/api/mastery":
