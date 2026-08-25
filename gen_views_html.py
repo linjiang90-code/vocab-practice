@@ -166,6 +166,7 @@ const CAL_DATA = /*CAL_DATA*/;
 const DOW = ['日','一','二','三','四','五','六'];
 let practiced = new Set(CAL_DATA.days || []);
 let preview = new Set(CAL_DATA.previewDays || []);
+let recovered = new Set(CAL_DATA.recoveredDays || []);
 let sMap = CAL_DATA.smap || {};
 let dayIds = CAL_DATA.dayIds || {};
 let viewY = 0, viewM = 0;
@@ -203,11 +204,13 @@ function renderCalendar(){
     const c=document.createElement('div'); c.className='calcell';
     const isPrac = practiced.has(ds);
     const isPrev = preview.has(ds);
+    const isRec = recovered.has(ds);
     if (isPrac) c.className += ' prac';
     if (isPrev) c.className += ' preview';
+    if (isRec) c.className += ' prac';
     if (ds === tStr) c.className += ' today';
     c.textContent = d;
-    if (isPrac || isPrev){
+    if (isPrac || isPrev || isRec){
       const dot=document.createElement('span'); dot.className='dot'; c.appendChild(dot);
       c.onclick=()=>showDay(ds);
     }
@@ -271,10 +274,13 @@ def main():
     today_str = datetime.date.today().isoformat()
     practiced_set = set(days)
     preview_days = sorted(d for d in day_ids if d > today_str and d not in practiced_set)
+    # 容错：有侧车内容、日期已过、但当日自动化漏登记进 days.json 的「孤儿日」，
+    # 也作为可点击的已练习日显示（绿色、无 🔓 横幅），避免日历出现点不了/无数据的死格
+    recovered_days = sorted(d for d in day_ids if d <= today_str and d not in practiced_set)
 
     review_html = REVIEW_TMPL.replace("/*REVIEW_DATA*/", safe_json(learned))
     cal_data = {"days": days, "smap": smap, "dayIds": day_ids,
-                "previewDays": preview_days, "todayStr": today_str}
+                "previewDays": preview_days, "recoveredDays": recovered_days, "todayStr": today_str}
     cal_html = CAL_TMPL.replace("/*CAL_DATA*/", safe_json(cal_data))
 
     with open(os.path.join(BASE, "review.html"), "w", encoding="utf-8") as f:
