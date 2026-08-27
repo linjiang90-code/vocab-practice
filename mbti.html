@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MBTI 性格自测 · 93 题</title>
+<style>
+  :root{--bg:#f5f7fa;--card:#fff;--ink:#1f2933;--sub:#6b7280;--line:#e5e7eb;--accent:#2f6fed;--accent2:#0e9f6e;--warn:#b45309;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",Segoe UI,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;padding:18px 14px 90px}
+  .wrap{max-width:640px;margin:0 auto}
+  .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+  .top a{text-decoration:none;font-size:13px;color:#475569;border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-weight:600}
+  .top a:hover{border-color:var(--accent);color:var(--accent);background:#f0f6ff}
+  h1{font-size:21px}
+  p.lead{color:var(--sub);font-size:13.5px;margin:6px 0 16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 16px;margin-bottom:14px;box-shadow:0 2px 10px rgba(0,0,0,.04)}
+  /* progress */
+  .prog{position:sticky;top:0;z-index:5;background:rgba(245,247,250,.92);backdrop-filter:blur(6px);padding:8px 0;margin-bottom:10px}
+  .prog .bar{height:8px;background:#e2e8f0;border-radius:999px;overflow:hidden}
+  .prog .bar>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .2s}
+  .prog .lab{font-size:12px;color:var(--sub);margin-top:5px;text-align:right}
+  /* question */
+  .q{margin-bottom:18px}
+  .q .qt{font-size:15px;font-weight:600;margin-bottom:9px}
+  .q .qno{color:var(--accent);margin-right:6px}
+  .opts{display:flex;gap:6px}
+  .opts button{flex:1;border:1px solid var(--line);background:#fff;border-radius:10px;padding:9px 2px;font-size:12px;color:var(--sub);cursor:pointer;transition:.12s;line-height:1.25}
+  .opts button:hover{border-color:var(--accent)}
+  .opts button.on{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:700}
+  /* sticky footer */
+  .foot{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);padding:10px 14px;display:flex;gap:10px;justify-content:center;z-index:10}
+  .foot button{border:none;border-radius:12px;padding:13px 26px;font-size:15px;font-weight:700;cursor:pointer}
+  .btn-go{background:var(--accent);color:#fff}
+  .btn-go:disabled{background:#cbd5e1;cursor:not-allowed}
+  .btn-reset{background:#eef2f7;color:#475569}
+  /* result */
+  .result{text-align:center}
+  .result .type{font-size:46px;font-weight:800;letter-spacing:3px;color:var(--accent);margin:6px 0}
+  .result .nick{font-size:16px;color:var(--accent2);font-weight:700;margin-bottom:10px}
+  .result .desc{font-size:14px;color:var(--ink);text-align:left;margin:10px 0 16px}
+  .dim{text-align:left;margin:12px 0}
+  .dim .row{display:flex;justify-content:space-between;font-size:13px;color:var(--sub);margin-bottom:4px}
+  .dim .track{height:10px;background:#e2e8f0;border-radius:999px;position:relative;overflow:hidden}
+  .dim .fill{position:absolute;top:0;bottom:0;left:0;background:var(--accent);border-radius:999px}
+  .dim .note{font-size:12.5px;color:var(--sub);margin-top:6px;text-align:left}
+  .legend{font-size:11.5px;color:#94a3b8;margin-top:16px;line-height:1.7}
+  .hidden{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a href="index.html">← 返回首页</a>
+    <a href="index.html">🗣 英语口语</a>
+  </div>
+  <h1>🧠 MBTI 性格自测</h1>
+  <p class="lead">93 道题，约 8–12 分钟。凭第一感觉作答即可，没有标准答案。结果仅供参考与自我探索。</p>
+
+  <!-- 答题区 -->
+  <div id="quiz">
+    <div class="prog">
+      <div class="bar"><i id="progBar"></i></div>
+      <div class="lab"><span id="progTxt">0</span> / 93 题</div>
+    </div>
+    <div class="card" id="qlist"></div>
+  </div>
+
+  <!-- 结果区 -->
+  <div id="resultBox" class="card result hidden"></div>
+
+  <div class="legend">
+    说明：本测试为自设计的 93 题量表，基于 MBTI 四组二元维度（外向/内向、实感/直觉、思考/情感、判断/知觉）构建，用于个人兴趣与自我了解，并非临床或官方认证工具。
+  </div>
+</div>
+
+<div class="foot">
+  <button class="btn-reset" id="resetBtn" onclick="resetAll()">重置</button>
+  <button class="btn-go" id="goBtn" onclick="showResult()" disabled>查看结果</button>
+</div>
+
+<script>
+/* ===== 93 题数据：d=维度, p=该陈述倾向的极 (E/I/S/N/T/F/J/P) ===== */
+const Q = [
+  // —— E/I（外向 / 内向）24 题 ——
+  {q:"在聚会中我通常主动找人聊天、带动气氛。",d:"EI",p:"E"},
+  {q:"遇到新环境我很快就能和陌生人熟络起来。",d:"EI",p:"E"},
+  {q:"感到疲惫时，和朋友待在一起反而能让我恢复精力。",d:"EI",p:"E"},
+  {q:"我倾向于先说出来，边说边整理自己的想法。",d:"EI",p:"E"},
+  {q:"周末我更喜欢安排社交活动，而不是一个人待着。",d:"EI",p:"E"},
+  {q:"我愿意在团队中公开发表自己的看法。",d:"EI",p:"E"},
+  {q:"我说话通常比大多数人都多。",d:"EI",p:"E"},
+  {q:"我很容易被热闹的环境吸引。",d:"EI",p:"E"},
+  {q:"我更喜欢通过讨论来理清思路。",d:"EI",p:"E"},
+  {q:"我乐意成为大家关注的焦点。",d:"EI",p:"E"},
+  {q:"空闲时我更愿意约人出去，而不是独自待着。",d:"EI",p:"E"},
+  {q:"我做事喜欢边做边和别人交流进度。",d:"EI",p:"E"},
+  {q:"独处是我恢复精力的重要方式。",d:"EI",p:"I"},
+  {q:"在人群中待久了我会感到疲惫，需要安静。",d:"EI",p:"I"},
+  {q:"我更倾向于先想清楚再开口。",d:"EI",p:"I"},
+  {q:"我不喜欢成为人群中的焦点。",d:"EI",p:"I"},
+  {q:"我更愿意深交几个朋友，而非广交朋友。",d:"EI",p:"I"},
+  {q:"周末我常想一个人安静地做喜欢的事。",d:"EI",p:"I"},
+  {q:"我思考问题时喜欢不被打扰。",d:"EI",p:"I"},
+  {q:"我在小团体中比在大聚会中更自在。",d:"EI",p:"I"},
+  {q:"我通常把想法想透后才分享。",d:"EI",p:"I"},
+  {q:"我更享受倾听，而非主导对话。",d:"EI",p:"I"},
+  {q:"新环境里我倾向先观察再参与。",d:"EI",p:"I"},
+  {q:"我需要独处时间来整理情绪。",d:"EI",p:"I"},
+  // —— S/N（实感 / 直觉）24 题 ——
+  {q:"我更相信亲身经验，而非理论推测。",d:"SN",p:"S"},
+  {q:"我关注事情的具体细节和实际情况。",d:"SN",p:"S"},
+  {q:"我更喜欢按部就班、有明确步骤的做事方式。",d:"SN",p:"S"},
+  {q:"我更看重事实和已经发生的东西。",d:"SN",p:"S"},
+  {q:"说明书或步骤清晰时，我才安心动手。",d:"SN",p:"S"},
+  {q:"我习惯关注当下正在发生的事。",d:"SN",p:"S"},
+  {q:"我更喜欢实用、能立刻用上的知识。",d:"SN",p:"S"},
+  {q:"我对具体的数字和细节记得更牢。",d:"SN",p:"S"},
+  {q:"我更喜欢处理已经明确的问题。",d:"SN",p:"S"},
+  {q:"我说话喜欢直截了当、举具体例子。",d:"SN",p:"S"},
+  {q:"我更相信看得见、摸得着的事物。",d:"SN",p:"S"},
+  {q:"我做事喜欢先完成手头这件，再做下一件。",d:"SN",p:"S"},
+  {q:"我常被事物各种可能性吸引。",d:"SN",p:"N"},
+  {q:"我更关注事情背后的含义和未来趋势。",d:"SN",p:"N"},
+  {q:"我喜欢想象「如果……会怎样」的新点子。",d:"SN",p:"N"},
+  {q:"我更容易注意到事物的整体模式，而非细节。",d:"SN",p:"N"},
+  {q:"我对新鲜、未知的领域充满好奇。",d:"SN",p:"N"},
+  {q:"我更喜欢探讨概念和理论。",d:"SN",p:"N"},
+  {q:"我常能联想到别人没想到的联系。",d:"SN",p:"N"},
+  {q:"我做事时更看重长远意义。",d:"SN",p:"N"},
+  {q:"我容易被有创意的想法打动。",d:"SN",p:"N"},
+  {q:"我更喜欢开放、没有标准答案的问题。",d:"SN",p:"N"},
+  {q:"我常从一句话里读出言外之意。",d:"SN",p:"N"},
+  {q:"我更喜欢构思蓝图，而不是执行细节。",d:"SN",p:"N"},
+  // —— T/F（思考 / 情感）22 题 ——
+  {q:"我做决定时更看重逻辑和客观事实。",d:"TF",p:"T"},
+  {q:"我倾向于就事论事，不被情绪左右。",d:"TF",p:"T"},
+  {q:"我对别人观点的对错，比其感受更敏感。",d:"TF",p:"T"},
+  {q:"我更喜欢分析问题的因果关系。",d:"TF",p:"T"},
+  {q:"争端中我更想弄清谁更有道理。",d:"TF",p:"T"},
+  {q:"我看重公平，胜过和睦。",d:"TF",p:"T"},
+  {q:"我习惯先质疑，再接受。",d:"TF",p:"T"},
+  {q:"我更擅长发现论证中的漏洞。",d:"TF",p:"T"},
+  {q:"我更信任数据和证据，而非直觉。",d:"TF",p:"T"},
+  {q:"批评别人时，我直指问题本身。",d:"TF",p:"T"},
+  {q:"我更在意事情是否合理。",d:"TF",p:"T"},
+  {q:"我做决定时很在意别人的感受。",d:"TF",p:"F"},
+  {q:"我努力维护人与人之间的和谐。",d:"TF",p:"F"},
+  {q:"别人的情绪容易影响我的心情。",d:"TF",p:"F"},
+  {q:"我更看重一段关系是否温暖。",d:"TF",p:"F"},
+  {q:"我尽量避免伤害他人。",d:"TF",p:"F"},
+  {q:"我更容易对他人的处境产生共情。",d:"TF",p:"F"},
+  {q:"我说话会特别注意不让人难堪。",d:"TF",p:"F"},
+  {q:"我更看重自己是否被理解和接纳。",d:"TF",p:"F"},
+  {q:"我倾向用鼓励的方式与人相处。",d:"TF",p:"F"},
+  {q:"我做选择时常问：这样对大家好吗？",d:"TF",p:"F"},
+  {q:"我更容易原谅别人的过失。",d:"TF",p:"F"},
+  // —— J/P（判断 / 知觉）23 题 ——
+  {q:"我喜欢把事情提前安排好、列清单。",d:"JP",p:"J"},
+  {q:"我做事喜欢有个明确的截止和结论。",d:"JP",p:"J"},
+  {q:"我偏好生活有规律、可预期。",d:"JP",p:"J"},
+  {q:"我倾向于尽早把任务完成，而不是拖到最后。",d:"JP",p:"J"},
+  {q:"做决定后，我就不太喜欢反复更改。",d:"JP",p:"J"},
+  {q:"我更喜欢凡事有清晰的结构和秩序。",d:"JP",p:"J"},
+  {q:"旅行前我会做好详细攻略。",d:"JP",p:"J"},
+  {q:"我受不了长期悬而未决的状态。",d:"JP",p:"J"},
+  {q:"我更愿意按计划推进，而非随机应变。",d:"JP",p:"J"},
+  {q:"我倾向于把物品整理得井井有条。",d:"JP",p:"J"},
+  {q:"我更喜欢先做正事，再放松。",d:"JP",p:"J"},
+  {q:"我对目标的完成度要求很高。",d:"JP",p:"J"},
+  {q:"我更喜欢保持灵活、随机应变。",d:"JP",p:"P"},
+  {q:"我做事常常边做边调整方向。",d:"JP",p:"P"},
+  {q:"我不喜欢被严格的计划束缚。",d:"JP",p:"P"},
+  {q:"我更容易被新出现的有趣事情吸引而分心。",d:"JP",p:"P"},
+  {q:"我倾向于把决定留到最后一刻。",d:"JP",p:"P"},
+  {q:"我更喜欢保留多种可能性。",d:"JP",p:"P"},
+  {q:"我做事节奏比较随性。",d:"JP",p:"P"},
+  {q:"临时起意的变化会让我感到兴奋。",d:"JP",p:"P"},
+  {q:"我更享受探索过程，而非赶着出结果。",d:"JP",p:"P"},
+  {q:"我常同时开启好几件事。",d:"JP",p:"P"},
+  {q:"我不太喜欢被时间表驱赶。",d:"JP",p:"P"}
+];
+
+const OPP = {E:"I",I:"E",S:"N",N:"S",T:"F",F:"T",J:"P",P:"J"};
+const LABELS = ["很不符","不符","中立","符合","很符合"];
+const KEY = "mbti_answers_v1";
+
+let answers = loadAnswers();
+
+function loadAnswers(){
+  try{ return JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){ return {}; }
+}
+function saveAnswers(){ try{ localStorage.setItem(KEY, JSON.stringify(answers)); }catch(e){} }
+
+function render(){
+  const box = document.getElementById('qlist');
+  box.innerHTML = Q.map((q,i)=>{
+    const cur = answers[i];
+    const opts = LABELS.map((lab,k)=>{
+      const v=k+1; const on = (cur===v)?'on':'';
+      return '<button class="'+on+'" onclick="pick('+i+','+v+')">'+lab+'</button>';
+    }).join('');
+    return '<div class="q"><div class="qt"><span class="qno">'+(i+1)+'.</span>'+q.q+'</div><div class="opts">'+opts+'</div></div>';
+  }).join('');
+  updateProgress();
+}
+function pick(i,v){
+  answers[i]=v; saveAnswers(); render(); updateProgress();
+}
+function updateProgress(){
+  const n = Object.keys(answers).length;
+  document.getElementById('progBar').style.width = (n/Q.length*100)+'%';
+  document.getElementById('progTxt').textContent = n;
+  document.getElementById('goBtn').disabled = (n < Q.length);
+}
+function resetAll(){
+  answers = {}; saveAnswers(); render();
+  document.getElementById('resultBox').classList.add('hidden');
+  document.getElementById('quiz').classList.remove('hidden');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function compute(){
+  const sc = {E:0,I:0,S:0,N:0,T:0,F:0,J:0,P:0};
+  Q.forEach((q,i)=>{
+    const v = answers[i]; if(!v) return;
+    sc[q.p]+=v; sc[OPP[q.p]]+=(6-v);
+  });
+  const type =
+    (sc.E>=sc.I?'E':'I')+(sc.S>=sc.N?'S':'N')+
+    (sc.T>=sc.F?'T':'F')+(sc.J>=sc.P?'J':'P');
+  const pct = {
+    E: Math.round(sc.E/(sc.E+sc.I)*100),
+    S: Math.round(sc.S/(sc.S+sc.N)*100),
+    T: Math.round(sc.T/(sc.T+sc.F)*100),
+    J: Math.round(sc.J/(sc.J+sc.P)*100)
+  };
+  return {type,pct,sc};
+}
+const NICK = {
+  ISTJ:"物流师",ISFJ:"守卫者",INFJ:"提倡者",INTJ:"建筑师",
+  ISTP:"鉴赏家",ISFP:"探险家",INFP:"调停者",INTP:"逻辑学家",
+  ESTP:"企业家",ESFP:"表演者",ENFP:"竞选者",ENTP:"辩论家",
+  ESTJ:"总经理",ESFJ:"执政官",ENFJ:"主人公",ENTJ:"指挥官"
+};
+const DESC = {
+  ISTJ:"务实、有责任心，重视秩序与可靠，是值得信赖的执行者。",
+  ISFJ:"细心、温和，默默照顾他人，重视稳定与和谐。",
+  INFJ:"理想主义又富有洞察，关心他人成长，追求意义。",
+  INTJ:"独立、有远见，擅长全局规划与系统性思考。",
+  ISTP:"冷静灵活，动手能力强，喜欢在行动中解决问题。",
+  ISFP:"温和感性，热爱美与自由，活在当下。",
+  INFP:"内心丰富、价值观坚定，追求真诚与意义。",
+  INTP:"好奇善思，热爱拆解复杂问题、探求原理。",
+  ESTP:"精力充沛、反应快，擅长在现实中把握机会。",
+  ESFP:"热情活泼，享受当下，善于带动气氛。",
+  ENFP:"热情创意，点子多，乐于激发人与可能性。",
+  ENTP:"机敏善辩，爱挑战常规，擅长概念创新。",
+  ESTJ:"果断务实，擅长组织与执行，重视规则效率。",
+  ESFJ:"热心周到，重视人际和谐，乐于服务他人。",
+  ENFJ:"富有感染力与责任感，善于激励和凝聚他人。",
+  ENTJ:"战略果断，目标导向，天生具备领导力。"
+};
+const DIMNOTE = {
+  E:"外向（E）：从与人互动中获得能量；内向（I）：从独处中恢复精力。",
+  S:"实感（S）：关注具体事实与当下；直觉（N）：关注可能性与未来。",
+  T:"思考（T）：依据逻辑与客观；情感（F）：依据价值与他人感受。",
+  J:"判断（J）：喜欢计划与结论；知觉（P）：喜欢灵活与开放。"
+};
+function showResult(){
+  if(Object.keys(answers).length < Q.length){ alert('还有题目未作答'); return; }
+  const {type,pct} = compute();
+  const dims = [
+    {a:"E",b:"I",v:pct.E,n:DIMNOTE.E},
+    {a:"S",b:"N",v:pct.S,n:DIMNOTE.S},
+    {a:"T",b:"F",v:pct.T,n:DIMNOTE.T},
+    {a:"J",b:"P",v:pct.J,n:DIMNOTE.J}
+  ];
+  const dimHtml = dims.map(d=>{
+    const left = d.v, right = 100-d.v;
+    const leftName = d.a, rightName = d.b;
+    return '<div class="dim"><div class="row"><span>'+leftName+' '+left+'%</span><span>'+right+'% '+rightName+'</span></div>'+
+      '<div class="track"><i class="fill" style="width:'+left+'%"></i></div>'+
+      '<div class="note">'+d.n+'</div></div>';
+  }).join('');
+  const box = document.getElementById('resultBox');
+  box.innerHTML =
+    '<div class="type">'+type+'</div>'+
+    '<div class="nick">'+type+' · '+NICK[type]+'</div>'+
+    '<div class="desc">'+DESC[type]+'</div>'+
+    dimHtml+
+    '<div class="legend">百分比表示该倾向的相对强弱，越接近 50% 说明两种偏好越均衡。</div>';
+  box.classList.remove('hidden');
+  document.getElementById('quiz').classList.add('hidden');
+  box.scrollIntoView({behavior:'smooth',block:'start'});
+}
+render();
+</script>
+</body>
+</html>
