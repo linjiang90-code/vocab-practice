@@ -297,7 +297,7 @@ PAGE = """<!DOCTYPE html>
   <a href="calendar.html">📅 日历</a>
 </nav>
   <header>
-    <h1>🖣 英语口语 · Day __DAY__（增强版）</h1>
+    <h1>🗣️ 英语口语 · Day __DAY__（增强版）</h1>
     <p>旅游 + 日常混合 · __N__ 句/天 · 中英对照 + 生词音标 + 原声伴读 + 变体 + 场景俗语 + 语法 + 发音提示</p>
   </header>
   <div class="summary">
