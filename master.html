@@ -151,7 +151,7 @@
   <div class="stats">
       <div class="stat"><span class="num" id="stLearned">65</span><span class="lbl">/ <span id="stTotal">100</span> 已学句数</span></div>
       <div class="stat"><span class="num" id="stAvg">1.2</span><span class="lbl">/ 5 平均掌握度<span class="hint">（已学句口径）</span></span></div>
-      <div class="gbarwrap"><div class="gbar"><i id="stBar" style="width:15%;background:#dc2626"></i></div><span class="glbl" id="stPct">总掌握度 15%</span></div>
+      <div class="gbarwrap"><div class="gbar"><i id="stBar" style="width:16%;background:#dc2626"></i></div><span class="glbl" id="stPct">总掌握度 16%</span></div>
     </div>
   <div class="bar">
     <button class="tbtn" id="filterToggle" onclick="toggleFilters()">🔍 筛选条件（已折叠 ▸）</button>
@@ -250,7 +250,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">英式日常</span> · <b>Sorry? / Pardon?</b> → <span class="dn">英式最地道，朋友间</span></li><li><span class="d-occ">美式日常</span> · <b>Excuse me? / What was that?</b> → <span class="dn">美式更自然，不易误会</span></li><li><span class="d-occ">职场/客服</span> · <b>Could you repeat that, please?</b> → <span class="dn">比 say again 更职业</span></li><li><span class="d-occ">电话听不清</span> · <b>Sorry, I didn't catch that. / You're breaking up.</b> → <span class="dn">信号差时</span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">Could you + 动词原形 比 Can you 更礼貌（could 表委婉，不是过去式）。say 过去式是 said，但 say that again 用原形；again 重音在第二音节 /əˈɡɛn/。</div></div></div>
     </div>
-    <div class="card" id="s3" data-theme="travel" data-cat="餐厅/预订" data-learned="yes" data-mastery="1">
+    <div class="card" id="s3" data-theme="travel" data-cat="餐厅/预订" data-learned="yes" data-mastery="2">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -278,7 +278,7 @@
           <option value="0.6">0.6倍</option>
         </select>
       </div>
-      <div class="assess" data-mid="3"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-3"><div class="mfill" style="width:20%;background:#dc2626"></div></div><span class="mbadge" id="mb-3">1/5</span><button class="c" onclick="VocabMastery.assess('3','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('3','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('3','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-3"></span></div>
+      <div class="assess" data-mid="3"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-3"><div class="mfill" style="width:40%;background:#dc2626"></div></div><span class="mbadge" id="mb-3">2/5</span><button class="c" onclick="VocabMastery.assess('3','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('3','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('3','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-3"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/aɪd laɪk tə bʊk ə ˈteɪbəl fɔr tu/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：like to→/laɪk tə/（可连成 /laɪktə/）；book a→/bʊ kə/（k 与 a 连读）；table for→/ˈteɪbə wɔr/（l 后加 w 滑音）。滑音：table for 中 /l/ 与 /ɔ/ 间插入 /w/。弱读：to→/tə/、a→/ə/、for→/fər/（功能词均弱读）。缩读：I'd = I would（/aɪd/，'d 为 would 缩读）。浊化：like to 快读 t→d：/laɪ də/。失去爆破：无（无爆破音相邻）。闪音：无。</div></div>
@@ -286,7 +286,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">电话订位</span> · <b>I'd like to book a table for two at 7.</b> → <span class="dn">加时间；对方回 Sure, window or inside?</span></li><li><span class="d-occ">现场有没有位</span> · <b>Do you have a table for two?</b> → <span class="dn">对方回 It's fully booked.(满座) / Your name, please?</span></li><li><span class="d-occ">等位</span> · <b>Can we put our name down?</b> → <span class="dn">留名等位</span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">I'd like to… = I would like to…，比 I want 礼貌，点单/预订万能句。book/reserve 在餐厅酒店都表预订；for two 表两人份。</div></div></div>
     </div>
-    <div class="card" id="s4" data-theme="daily" data-cat="寒暄/初次见面" data-learned="yes" data-mastery="1">
+    <div class="card" id="s4" data-theme="daily" data-cat="寒暄/初次见面" data-learned="yes" data-mastery="2">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -314,7 +314,7 @@
           <option value="0.6">0.6倍</option>
         </select>
       </div>
-      <div class="assess" data-mid="4"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-4"><div class="mfill" style="width:20%;background:#dc2626"></div></div><span class="mbadge" id="mb-4">1/5</span><button class="c" onclick="VocabMastery.assess('4','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('4','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('4','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-4"></span></div>
+      <div class="assess" data-mid="4"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-4"><div class="mfill" style="width:40%;background:#dc2626"></div></div><span class="mbadge" id="mb-4">2/5</span><button class="c" onclick="VocabMastery.assess('4','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('4','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('4','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-4"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/ɪts naɪs tə miːt ju/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">同化：meet you→/miː tʃu/（t+j 同化为 tʃ，关键！）。连读：It's nice→/ɪ tsnaɪs/（ts 连读）；nice to→/naɪs tə/（s 与 t 连读）；to meet→/tə wmiːt/（加 w 滑音）。滑音：to meet 中 /tə/ 与 /miːt/ 间插入 /w/。弱读：to→/tə/；you 句末常弱读 /ju/（此处保留）。缩读：It's = It is（/ɪts/，'s 为 is 缩读）。浊化：无典型。失去爆破/闪音：无典型。</div></div>
@@ -358,7 +358,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">砍价前问价</span> · <b>How much is it?</b> → <span class="dn">对方报价，可接 That's a bit much.(有点贵)</span></li><li><span class="d-occ">问单位价</span> · <b>How much per kilo / each?</b> → <span class="dn">按斤/个计价</span></li><li><span class="d-occ">自由市场</span> · <b>Is the price negotiable?</b> → <span class="dn">问能否议价</span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">How much + do/does + 主语 + cost? cost 此处作动词花费；this 单数用 does。口语更常省去 cost 直接说 How much is this?</div></div></div>
     </div>
-    <div class="card" id="s6" data-theme="daily" data-cat="闲聊/周末" data-learned="yes" data-mastery="1">
+    <div class="card" id="s6" data-theme="daily" data-cat="闲聊/周末" data-learned="yes" data-mastery="2">
       <div class="top">
         <span class="badge daily">日常</span>
         <span class="lng lng-short">短句</span>
@@ -386,7 +386,7 @@
           <option value="0.6">0.6倍</option>
         </select>
       </div>
-      <div class="assess" data-mid="6"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-6"><div class="mfill" style="width:20%;background:#dc2626"></div></div><span class="mbadge" id="mb-6">1/5</span><button class="c" onclick="VocabMastery.assess('6','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('6','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('6','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-6"></span></div>
+      <div class="assess" data-mid="6"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-6"><div class="mfill" style="width:40%;background:#dc2626"></div></div><span class="mbadge" id="mb-6">2/5</span><button class="c" onclick="VocabMastery.assess('6','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('6','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('6','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-6"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/wʌt du ju ˈjuːʒuəli du ɑːn ˈwiːkendz/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">同化：do you→/dʒu/（d+j 同化为 dʒ，关键！）。连读：What do→/wʌ dʊ/（t 与 d 连读）；do on→/dʊ wɑn/（元音间加 w 滑音）；on weekends→/ɑːn ˈwiːkendz/（n 与 w 连读）。浊化：What do 快读 /wʌ dʊ/（t→d，极典型）；usually do 顺接 /ˈjuːʒuəli dʊ/。弱读：you 弱读 /jə/（亦可保留 /ju/）；do 作助动词弱读 /də/；on→/ən/。缩读：场景里 wanna = want to（口语缩读）。失去爆破/闪音：本句无典型（参考：better→/bɛɾɚ/、city→/sɪɾi/ 元音间 /t/ 标闪音；good boy→/ɡʊ bɔɪ/ 相邻爆破音标失去爆破）。</div></div>
@@ -394,7 +394,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">破冰闲聊</span> · <b>What do you usually do on weekends?</b> → <span class="dn">对方答 I usually… / Not much.(没啥特别的)</span></li><li><span class="d-occ">约人出去</span> · <b>Do you wanna hang out this weekend?</b> → <span class="dn">wanna = want to，问要不要一起玩</span></li><li><span class="d-occ">不同回答</span> · <b>I just chill at home. / I go hiking. / Work, unfortunately.</b> → <span class="dn">宅家 / 去徒步 / 无奈要加班</span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">一般现在时表习惯性动作；usually 放在主语和实义动词之间（do you usually do）。weekend 英式常用 at weekends，美式用 on weekends。</div></div></div>
     </div>
-    <div class="card" id="s7" data-theme="travel" data-cat="酒店/预订" data-learned="yes" data-mastery="1">
+    <div class="card" id="s7" data-theme="travel" data-cat="酒店/预订" data-learned="yes" data-mastery="2">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -422,7 +422,7 @@
           <option value="0.6">0.6倍</option>
         </select>
       </div>
-      <div class="assess" data-mid="7"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-7"><div class="mfill" style="width:20%;background:#dc2626"></div></div><span class="mbadge" id="mb-7">1/5</span><button class="c" onclick="VocabMastery.assess('7','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('7','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('7','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-7"></span></div>
+      <div class="assess" data-mid="7"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-7"><div class="mfill" style="width:40%;background:#dc2626"></div></div><span class="mbadge" id="mb-7">2/5</span><button class="c" onclick="VocabMastery.assess('7','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('7','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('7','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-7"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/ɪz ˈbrekfəst ɪnˈkluːdɪd ɪn ðə praɪs/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">连读：Is breakfast→/ɪz ˈbrekfəst/（z 与 b 连读）；breakfast included→/ˈbrekfəst ɪnˈkluːdɪd/（t 与 ɪ 连读）；included in→/ɪnˈkluːdɪd ɪn/（d 与 ɪ）；in the→/ɪn ðə/（n 与 ð）。失去爆破：breakfast 词尾 /t/ 在 /ɪ/ 前为不完全爆破 /ˈbrekfəs(t) ɪn/；included 词尾 /d/ 在 /ɪn/ 前 /ɪnˈkluːdɪ(d) ɪn/。浊化：breakfast 词尾 t 在 ɪ 前快读可浊化为 d：/ˈbrekfəsd ɪn/。弱读：the→/ðə/；in→/ɪn/。同化/滑音/缩读：无典型。</div></div>
@@ -718,7 +718,7 @@
 <div class="d-row"><div class="d-k">场景用法</div><ul class="d-list"><li><span class="d-occ">机场找行李</span> · <b>Excuse me, where is the baggage claim?</b> → <span class="dn">对方指方向 This way, follow the signs.</span></li><li><span class="d-occ">看屏幕</span> · <b>Which carousel is for flight XX?</b> → <span class="dn">问几号转盘</span></li><li><span class="d-occ">不同回答</span> · <b>It's downstairs. / Belt 3 on the left. / Turn right after customs.</b> → <span class="dn"></span></li></ul></div>
 <div class="d-row"><div class="d-k">语法提示</div><div class="d-v">baggage 与 luggage 都表行李，baggage 偏美、luggage 通用且不可数。claim 此处作名词『领取处』；Where is + 地点 问位置。</div></div></div>
     </div>
-    <div class="card" id="s16" data-theme="travel" data-cat="机场/行李" data-learned="yes" data-mastery="0">
+    <div class="card" id="s16" data-theme="travel" data-cat="机场/行李" data-learned="yes" data-mastery="1">
       <div class="top">
         <span class="badge travel">旅游</span>
         <span class="lng lng-short">短句</span>
@@ -746,7 +746,7 @@
           <option value="0.6">0.6倍</option>
         </select>
       </div>
-      <div class="assess" data-mid="16"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-16"><div class="mfill" style="width:0%;background:#dc2626"></div></div><span class="mbadge" id="mb-16">0/5</span><button class="c" onclick="VocabMastery.assess('16','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('16','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('16','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-16"></span></div>
+      <div class="assess" data-mid="16"><span class="lbl">自评掌握度：</span><div class="mbar" id="mbar-16"><div class="mfill" style="width:20%;background:#dc2626"></div></div><span class="mbadge" id="mb-16">1/5</span><button class="c" onclick="VocabMastery.assess('16','clear',this)">✅ 认识 +1</button><button class="f" onclick="VocabMastery.assess('16','fuzzy',this)">🟡 模糊</button><button class="u" onclick="VocabMastery.assess('16','unknown',this)">🔴 不认识 -1</button><span class="astat" id="as-16"></span></div>
       <button class="toggle ready" onclick="this.parentElement.querySelector('.detail').classList.toggle('open')">🔤 发音详情 ▾</button>
       <div class="detail"><div class="d-row"><div class="d-k">整句音标</div><div class="d-v ipa">/maɪ ˈlʌɡɪdʒ ˈdɪdənt əˈraɪv/</div></div>
 <div class="d-row"><div class="d-k">发音提示</div><div class="d-v">缩读：didn't = did not（/ˈdɪdənt/）。连读：My luggage→/maɪ ˈlʌɡɪdʒ/（aɪ 与 l）；luggage didn't→/ˈlʌɡɪdʒ ˈdɪdənt/（dʒ 与 d）；didn't arrive→/ˈdɪdənt əˈraɪv/（t 与 ə）。弱读：my→/maɪ/（重读）；didn't 弱读 /ˈdɪdənt/。失去爆破：luggage didn't /ˈlʌɡɪ(dʒ) ˈdɪ/（dʒ 轻微）；didn't arrive /ˈdɪdən(t) ə/（t 在 ə 前不完全爆破）。浊化：无。同化/滑音/闪音：无典型。</div></div>
