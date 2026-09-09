@@ -7,6 +7,7 @@
 - GET  /api/status     -> 健康检查
 - GET  /api/mastery    -> 返回全部句掌握度
 - POST /api/mastery    -> 回写某句掌握度 {id, action: clear|fuzzy|unknown}
+- GET  /cars-2026.html -> 2026 市售车型统计表（动态转发到车展项目源文件，始终最新）
 跨域（CORS）已放开，因此从 WorkBuddy 预览页(其他端口)打开也能回写。
 （已取消 HTTP Basic Auth，访问无需账号密码。）
 """
@@ -23,6 +24,11 @@ lock = threading.Lock()
 # 302 跳转到带 ?v=BUILD 的 URL，强制浏览器 / 省流量代理重新拉取最新内容，
 # 彻底破除「8-20~8-22 期间缓存的坏副本」导致的整页中文乱码假象。
 BUILD = "20260824b"
+
+# 2026 市售车型统计表：由「2026 成都车展」项目持续维护的活文档（在外部工作区）。
+# /cars-2026.html 动态读取该源文件返回 —— 源文件更新即站点同步最新，无需复制副本。
+# vocab-practice/cars-2026.html 仅是接入前的快照兜底；本路由优先级高于静态文件。
+CARS_SRC = r"C:\Users\Win10\WorkBuddy\2026-08-21-13-30-20\2026市售车型统计表.html"
 
 CORS = {
     "Access-Control-Allow-Origin": "*",
@@ -92,6 +98,14 @@ class H(SimpleHTTPRequestHandler):
             return
         if self.path == "/api/status":
             return self._send(200, json.dumps({"ok": True, "port": PORT}))
+        # 2026 市售车型统计表：动态读车展项目源文件（每次请求现读，始终最新）
+        if p == "/cars-2026.html":
+            try:
+                with open(CARS_SRC, "rb") as f:
+                    return self._send(200, f.read(), "text/html; charset=utf-8")
+            except Exception as e:
+                return self._send(500, json.dumps(
+                    {"error": "cars source unreadable: %r" % e}))
         if self.path == "/api/mastery":
             try:
                 d = load_master()
