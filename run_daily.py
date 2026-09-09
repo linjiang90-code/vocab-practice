@@ -143,9 +143,15 @@ if dayIndex <= introDays:
     selected = pool[:dailyCount]
     mode = "new"
 else:
+    # 复习模式：按 id 轮转取 dailyCount 句（与 gen_future 预习页同公式），
+    # 每天窗口右移，天天句式不同，20 天完整滚完一轮全部句式。
+    # （旧版按「掌握度最低优先」排序：批量补引入的句子会连续霸榜多日，
+    #   页面看起来像还在逐批学新句，而非滚动复习 —— 2026-09-09 修正）
     pool = [s for s in S if s["learn"]["introduced"]]
-    pool.sort(key=lambda s: (s["learn"]["mastery"], -(int(s["learn"]["reviewCount"] or 0))))
-    selected = pool[:dailyCount]
+    pool.sort(key=lambda s: s["id"])
+    total = len(pool)
+    off = (dayIndex * dailyCount) % total if total else 0
+    selected = [pool[(off + j) % total] for j in range(min(dailyCount, total))]
     mode = "review"
 
 selected_ids = [s["id"] for s in selected]

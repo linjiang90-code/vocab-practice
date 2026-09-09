@@ -47,13 +47,23 @@ ENH = {
       "pron":"连读：How much→/haʊ mʌtʃ/（w 与 m 连读）；much does→/mʌtʃ dʌz/（tʃ 与 d）；does this→/dʌz ðɪs/（z 与 ð）。弱读：does→/dʌz/（弱读形式 /dəz/）；this 此处重读 /ðɪs/。浊化：this cost 中 s 后接清 k，保持清音（无浊化）。失去爆破/闪音：无典型（注：含 that thing / hot day 等相邻爆破或 /t/+/θ/ 时标失去爆破）。缩读：无。"},
 }
 
-# 1) 选句：优先取「今日已引入」的句；否则取前 dailyCount 个未学（干净启动 20 天学完 100 句）
+# 1) 选句：优先取「今日已引入」的句；否则取前 dailyCount 个未学；全部学完进复习轮转
 already = [s for s in data["sentences"] if s["learn"]["introducedDay"] == dayIndex]
 if already:
     selected = already[:meta["dailyCount"]]
 else:
     pool = [s for s in data["sentences"] if not s["learn"]["introduced"]]
-    selected = pool[:meta["dailyCount"]]
+    pool.sort(key=lambda s: s["id"])
+    if pool:
+        selected = pool[:meta["dailyCount"]]
+    else:
+        # 复习模式：与 run_daily 同公式按 id 轮转，滚动覆盖全部句式
+        rp = sorted([s for s in data["sentences"] if s["learn"]["introduced"]],
+                    key=lambda s: s["id"])
+        tot = len(rp)
+        off = (dayIndex * meta["dailyCount"]) % tot if tot else 0
+        selected = [rp[(off + j) % tot]
+                    for j in range(min(meta["dailyCount"], tot))]
 
 # 3) 写回增强内容 + 标记
 introduced_today = 0
