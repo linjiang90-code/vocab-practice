@@ -102,7 +102,21 @@ class H(SimpleHTTPRequestHandler):
         if p == "/cars-2026.html":
             try:
                 with open(CARS_SRC, "rb") as f:
-                    return self._send(200, f.read(), "text/html; charset=utf-8")
+                    body = f.read()
+                # 站点侧注入「返回首页」浮动按钮（右下角，避开 sticky 表头）。
+                # 只改转发内容、不碰源文件——车展项目继续维护原文件，按钮永不丢失。
+                inject = ('<div style="position:fixed;bottom:16px;right:14px;z-index:99999;">'
+                          '<a href="/index.html" style="display:block;text-decoration:none;'
+                          'background:#2f6fed;color:#fff;font-size:14px;font-weight:700;'
+                          'padding:11px 18px;border-radius:999px;box-shadow:0 3px 10px rgba(0,0,0,.25);'
+                          'font-family:-apple-system,PingFang SC,Microsoft YaHei,sans-serif;">'
+                          '🏠 返回首页</a></div>').encode("utf-8")
+                i = body.find(b"<body")
+                if i != -1:
+                    j = body.find(b">", i)
+                    if j != -1:
+                        body = body[:j + 1] + inject + body[j + 1:]
+                return self._send(200, body, "text/html; charset=utf-8")
             except Exception as e:
                 return self._send(500, json.dumps(
                     {"error": "cars source unreadable: %r" % e}))
