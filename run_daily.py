@@ -3,7 +3,7 @@
 用法：python run_daily.py
 自动：计算 dayIndex -> 阶段扩展(每30天) -> 选句(5) -> 注入增强内容 -> 生成音频 -> 生成当日页 -> 更新 learn -> 重生成 master.html
 """
-import json, os, sys, subprocess, datetime, shutil
+import json, os, sys, subprocess, datetime, shutil, random
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 MASTER = os.path.join(BASE, "master.json")
@@ -88,7 +88,7 @@ ENH = {
     },
 }
 
-# 阶段扩展用的新句（仅在 dayIndex == nextExpansionDay 且未覆盖时提供；今日不触发，留作模板）
+# （已废弃：阶段扩展改为调 meta.activeCount，语料已由 expand_corpus.py 预置 1000 句）
 NEW_SENTENCES = []
 
 # ============ 逻辑 ============
@@ -104,54 +104,36 @@ dayIndex = (today - start).days + 1
 today_str = today.isoformat()
 
 expanded = 0
-# 阶段扩展
-if dayIndex == meta.get("nextExpansionDay") and dayIndex not in (meta.get("_expanded_days") or []):
-    if NEW_SENTENCES:
-        max_id = max(s["id"] for s in S)
-        existing_en = {s["en"].strip().lower() for s in S}
-        new_ids = []
-        for i, ns in enumerate(NEW_SENTENCES):
-            nid = max_id + 1 + i
-            if ns["en"].strip().lower() in existing_en:
-                continue
-            rec = {
-                "id": nid,
-                "en": ns["en"], "zh": ns["zh"], "theme": ns["theme"],
-                "category": ns["category"], "length": ns["length"],
-                "keyvocab": ns["keyvocab"],
-                "audio": meta["audioPattern"].format(id=nid),
-                "learn": {"introduced": False, "introducedDay": None, "mastery": 0,
-                          "reviewCount": 0, "lastReviewed": None, "dueDate": None,
-                          "enh": {"fullIpa": "", "variants": [], "scenes": [], "grammar": "", "pron": ""}},
-            }
-            S.append(rec)
-            by_id[nid] = rec
-            new_ids.append(nid)
-        expanded = len(new_ids)
-        meta["expansionsDone"] = meta.get("expansionsDone", 0) + 1
-        meta["nextExpansionDay"] = meta["nextExpansionDay"] + meta.get("expandIntervalDays", 30)
-        ed = meta.get("_expanded_days") or []
-        ed.append(dayIndex)
-        meta["_expanded_days"] = ed
+# 阶段扩展：每 30 天激活 +50 句（100→150→200→…→1000 封顶）。
+# 语料已全部预置在 master.json（ids 1-1000），扩展只调 meta.activeCount，
+# 不再逐批追加句记录（旧 NEW_SENTENCES 机制已废弃）。
+total_now = len(S)
+while dayIndex >= int(meta.get("nextExpansionDay", 10**9)) and \
+        int(meta.get("activeCount", 0)) < total_now:
+    meta["activeCount"] = min(total_now, int(meta.get("activeCount", 0)) +
+                              int(meta.get("expandCount", 50)))
+    meta["nextExpansionDay"] = int(meta["nextExpansionDay"]) + \
+        int(meta.get("expandIntervalDays", 30))
+    meta["expansionsDone"] = int(meta.get("expansionsDone", 0)) + 1
+    expanded = meta["activeCount"]
 
-# 选句
+# 选句：每天 5 句随机推送（以 dayIndex 为种子：同日重跑结果一致=幂等，
+# 跨日随机=天天句式不同；与 push_day/gen_future 公式完全一致）
 dailyCount = int(meta["dailyCount"])
 introDays = int(meta["introDays"])
-if dayIndex <= introDays:
-    pool = [s for s in S if not s["learn"]["introduced"]]
-    pool.sort(key=lambda s: s["id"])
-    selected = pool[:dailyCount]
+activeCount = min(int(meta.get("activeCount", 0)) or total_now, total_now)
+intro_pool = [s for s in S if s["id"] <= activeCount and not s["learn"]["introduced"]]
+if dayIndex <= introDays and intro_pool:
+    # 引入期：按 id 顺序取前 5 个未引入的可用句
+    intro_pool.sort(key=lambda s: s["id"])
+    selected = intro_pool[:dailyCount]
     mode = "new"
 else:
-    # 复习模式：按 id 轮转取 dailyCount 句（与 gen_future 预习页同公式），
-    # 每天窗口右移，天天句式不同，20 天完整滚完一轮全部句式。
-    # （旧版按「掌握度最低优先」排序：批量补引入的句子会连续霸榜多日，
-    #   页面看起来像还在逐批学新句，而非滚动复习 —— 2026-09-09 修正）
-    pool = [s for s in S if s["learn"]["introduced"]]
-    pool.sort(key=lambda s: s["id"])
-    total = len(pool)
-    off = (dayIndex * dailyCount) % total if total else 0
-    selected = [pool[(off + j) % total] for j in range(min(dailyCount, total))]
+    # 复习/日常模式：从可用句库随机抽 5 句（新激活句被抽中即视为引入）
+    act_ids = sorted(s["id"] for s in S if s["id"] <= activeCount)
+    rng = random.Random(dayIndex)
+    pick = sorted(rng.sample(act_ids, min(dailyCount, len(act_ids))))
+    selected = [by_id[i] for i in pick]
     mode = "review"
 
 selected_ids = [s["id"] for s in selected]

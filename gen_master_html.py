@@ -38,7 +38,7 @@ def render_detail(s):
     if gm:
         parts.append(f'<div class="d-row"><div class="d-k">语法提示</div><div class="d-v">{esc(gm)}</div></div>')
     if not parts:
-        return ('<div class="d-empty">完整音变 / 变体 / 场景 / 语法标注将在该句被每日推送学习时自动生成 ✨'
+        return ('<div class="d-empty">该句的完整音变 / 变体 / 场景标注暂未撰写（语料扩展中逐步补充）'
                 '<br>目前可先用 🔁 朗读 + 生词音标学习。</div>', False)
     return "\n".join(parts), True
 
@@ -111,6 +111,7 @@ catbtns = "".join(f'<button class="fbtn" data-cat="{esc(c)}">{esc(c)}</button>' 
 
 # 顶部总进度统计
 total = len(S)
+active = min(int(meta.get("activeCount", 0)) or total, total)
 learned = sum(1 for s in S if s.get("learn", {}).get("introduced"))
 sum_all = sum(int(s.get("learn", {}).get("mastery", 0) or 0) for s in S)
 sum_learned = sum(int(s.get("learn", {}).get("mastery", 0) or 0) for s in S if s.get("learn", {}).get("introduced"))
@@ -260,7 +261,7 @@ html = f'''<!DOCTYPE html>
 <header>
   <div class="htitle">
     <h1>旅游 + 日常英语 · {total} 句范式总览</h1>
-    <p>每天 5 句随机推送 · 每 30 天 +50 新句（{total}→{total+50}→{total+100}…）· 点击 ▶ 听原声（en-US-Andrew 标准美音）· 点「🔤 发音详情」看完整音变标注</p>
+    <p>每天 5 句随机推送 · 每 30 天解锁 +50 新句（当前可用 {active} 句 / 语料共 {total} 句）· 点击 ▶ 听原声（en-US-Andrew 标准美音）· 点「🔤 发音详情」看完整音变标注</p>
   </div>
   <nav class="pagenav">
     <a href="index.html">🏠 首页</a>

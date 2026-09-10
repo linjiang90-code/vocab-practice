@@ -5,8 +5,9 @@
 - 不修改 master.json 的 introduced / mastery（进度仍由每日自动化 run_daily.py 在真实日期接管）。
 - 仅生成静态 day<date>.html + day<date>.json 侧车，便于日历提前展示、用户提前学习。
 - 日练习页模板直接从 run_daily.py 提取（run_daily 是每日自动化的权威模板，提取可自动与之保持一致）。
-- 选句逻辑与未来自动化行为一致：从「首个未引入句」起按 id 顺序每 5 句一批（dayIndex<=introDays 时为新句日；
-  超出总句数或 dayIndex>introDays 时为复习日，取当前掌握度最低的 5 句作为预览）。
+- 选句逻辑与每日自动化完全一致（run_daily.py / push_day.py 同公式）：
+  可用句库 = meta.activeCount（每 30 天 +50，100→150→…→1000）；
+  引入期取前 5 个未引入可用句，否则按 dayIndex 种子随机抽 5 句（同日幂等）。
 
 用法：
   python gen_future.py                 # 默认：起始=明天，天数=22
@@ -18,6 +19,7 @@ import re
 import sys
 import datetime
 import glob
+import random
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 MASTER = os.path.join(BASE, "master.json")
@@ -79,23 +81,35 @@ def build_data_list(selected):
     return out
 
 
+def active_at(dayIndex):
+    """模拟某 dayIndex 的可用句库大小：每 30 天 +50（与 run_daily 扩展一致）。"""
+    active = min(int(meta.get("activeCount", 0)) or total, total)
+    nxt = int(meta.get("nextExpansionDay", 10**9))
+    step = int(meta.get("expandCount", 50))
+    interval = int(meta.get("expandIntervalDays", 30))
+    while dayIndex >= nxt and active < total:
+        active = min(total, active + step)
+        nxt += interval
+    return active
+
 def select_for(D):
-    """返回该日期应展示的句子与元信息，逻辑与未来自动化一致。"""
+    """返回该日期应展示的句子与元信息，逻辑与 run_daily / push_day 完全一致。"""
     k = (D - today).days  # >=1
     dayIndex = (D - start).days + 1
-    base = first_un
-    start_id = base + dailyCount * (k - 1)
-    block = [start_id + i for i in range(dailyCount)]
-    if dayIndex <= introDays and start_id + dailyCount - 1 <= total:
-        selected = [by_id[i] for i in block if i in by_id]
+    activeCount = active_at(dayIndex)
+    intro_pool = sorted([i for i in by_id
+                         if i <= activeCount and not by_id[i]["learn"]["introduced"]])
+    if dayIndex <= introDays and intro_pool:
+        selected = [by_id[i] for i in intro_pool[:dailyCount]]
         mode = "new"
         proj_total = introduced + dailyCount * k
         intro_n = len(selected)
     else:
-        # 复习预览：按 id 顺序轮转取 5 句，使不同未来日展示不同句式（真实自动化当日会用掌握度重选并覆盖）
-        all_ids = sorted(by_id.keys())
-        off = (dayIndex * dailyCount) % total
-        selected = [by_id[all_ids[(off + j) % total]] for j in range(dailyCount)]
+        # 复习/日常：按 dayIndex 种子随机抽 5 句（同日幂等，与真实自动化一致）
+        act_ids = sorted(i for i in by_id if i <= activeCount)
+        rng = random.Random(dayIndex)
+        pick = sorted(rng.sample(act_ids, min(dailyCount, len(act_ids))))
+        selected = [by_id[i] for i in pick]
         mode = "review"
         proj_total = total
         intro_n = 0

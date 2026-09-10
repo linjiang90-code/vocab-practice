@@ -2,7 +2,7 @@
 """每日正式推送脚本：复用 day1.html 卡片模板，按 master.json 逻辑出当日 5 句。
 python push_day.py [YYYY-MM-DD]  # 不传日期则默认今天(手动跑用 2026-08-13)
 """
-import json, datetime, os, sys
+import json, datetime, os, sys, random
 
 BASE = r"C:/Users/Win10/WorkBuddy/2026-08-13-11-34-42/vocab-practice"
 master_path = os.path.join(BASE, "master.json")
@@ -47,23 +47,21 @@ ENH = {
       "pron":"连读：How much→/haʊ mʌtʃ/（w 与 m 连读）；much does→/mʌtʃ dʌz/（tʃ 与 d）；does this→/dʌz ðɪs/（z 与 ð）。弱读：does→/dʌz/（弱读形式 /dəz/）；this 此处重读 /ðɪs/。浊化：this cost 中 s 后接清 k，保持清音（无浊化）。失去爆破/闪音：无典型（注：含 that thing / hot day 等相邻爆破或 /t/+/θ/ 时标失去爆破）。缩读：无。"},
 }
 
-# 1) 选句：优先取「今日已引入」的句；否则取前 dailyCount 个未学；全部学完进复习轮转
-already = [s for s in data["sentences"] if s["learn"]["introducedDay"] == dayIndex]
-if already:
-    selected = already[:meta["dailyCount"]]
-else:
-    pool = [s for s in data["sentences"] if not s["learn"]["introduced"]]
-    pool.sort(key=lambda s: s["id"])
-    if pool:
-        selected = pool[:meta["dailyCount"]]
-    else:
-        # 复习模式：与 run_daily 同公式按 id 轮转，滚动覆盖全部句式
-        rp = sorted([s for s in data["sentences"] if s["learn"]["introduced"]],
+# 1) 选句：与 run_daily 完全一致 —— 引入期顺序取前 5 个未引入的可用句；
+# 否则从可用句库（activeCount）按 dayIndex 种子随机抽 5 句（同日幂等）
+S = data["sentences"]
+total_now = len(S)
+activeCount = min(int(meta.get("activeCount", 0)) or total_now, total_now)
+intro_pool = sorted([s for s in S if s["id"] <= activeCount and not s["learn"]["introduced"]],
                     key=lambda s: s["id"])
-        tot = len(rp)
-        off = (dayIndex * meta["dailyCount"]) % tot if tot else 0
-        selected = [rp[(off + j) % tot]
-                    for j in range(min(meta["dailyCount"], tot))]
+if dayIndex <= int(meta["introDays"]) and intro_pool:
+    selected = intro_pool[:meta["dailyCount"]]
+else:
+    act_ids = sorted(s["id"] for s in S if s["id"] <= activeCount)
+    rng = random.Random(dayIndex)
+    pick = sorted(rng.sample(act_ids, min(meta["dailyCount"], len(act_ids))))
+    by_id = {s["id"]: s for s in S}
+    selected = [by_id[i] for i in pick]
 
 # 3) 写回增强内容 + 标记
 introduced_today = 0
