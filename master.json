@@ -19,10 +19,10 @@
     "voiceRate": "-10%",
     "audioDir": "audio/",
     "audioPattern": "audio/s{id}.mp3",
-    "expansionsDone": 0,
-    "nextExpansionDay": 31,
+    "expansionsDone": 1,
+    "nextExpansionDay": 61,
     "cumulativeTargetNote": "100 -> (每30天+50) -> 150 -> 200 -> ... -> 1000；每日 5 句随机推送",
-    "activeCount": 100,
+    "activeCount": 150,
     "totalTarget": 1000
   },
   "sentences": [
@@ -249,9 +249,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 1,
-        "mastery": 3,
-        "reviewCount": 3,
-        "lastReviewed": "2026-09-11",
+        "mastery": 4,
+        "reviewCount": 4,
+        "lastReviewed": "2026-09-12",
         "dueDate": "2026-08-14",
         "enh": {
           "fullIpa": "/ɪts naɪs tə miːt ju/",
@@ -1881,9 +1881,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 7,
-        "mastery": 1,
-        "reviewCount": 1,
-        "lastReviewed": "2026-08-19",
+        "mastery": 2,
+        "reviewCount": 2,
+        "lastReviewed": "2026-09-12",
         "dueDate": null,
         "enh": {
           "fullIpa": "/ðə ɛr kənˈdɪʃənɪŋ ˈdʌzənt wɜrk/",
@@ -2391,9 +2391,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 8,
-        "mastery": 1,
-        "reviewCount": 1,
-        "lastReviewed": "2026-08-20",
+        "mastery": 2,
+        "reviewCount": 2,
+        "lastReviewed": "2026-09-12",
         "dueDate": null,
         "enh": {
           "fullIpa": "/ðæts ə bɪt ɪkˈspɛnsɪv fɔr mi/",
@@ -6445,11 +6445,11 @@
       ],
       "audio": "audio/s101.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
+        "introduced": true,
+        "introducedDay": 31,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-09-12",
         "dueDate": null,
         "enh": {
           "fullIpa": "/aɪd laɪk tə tʃɛk ɪn fɔr ðə ˈtɛn ˌeɪˈɛm flaɪt tu ˈlʌndən/",
@@ -7665,11 +7665,11 @@
       ],
       "audio": "audio/s121.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
+        "introduced": true,
+        "introducedDay": 31,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-09-12",
         "dueDate": null,
         "enh": {
           "fullIpa": "/kʊd ju hɛlp mi lɪft ðɪs bæɡ ˈɑntu ðə bɛlt/",
