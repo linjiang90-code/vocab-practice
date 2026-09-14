@@ -2775,9 +2775,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 8,
-        "mastery": 2,
-        "reviewCount": 2,
-        "lastReviewed": "2026-09-09",
+        "mastery": 3,
+        "reviewCount": 3,
+        "lastReviewed": "2026-09-14",
         "dueDate": null,
         "enh": {
           "fullIpa": "/wʌt taɪm dʌz ðə mjuˈziəm ˈoʊpən/",
@@ -3861,9 +3861,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 19,
-        "mastery": 1,
-        "reviewCount": 1,
-        "lastReviewed": "2026-08-31",
+        "mastery": 2,
+        "reviewCount": 2,
+        "lastReviewed": "2026-09-14",
         "dueDate": null,
         "enh": {
           "fullIpa": "/lɔŋ taɪm no si/",
@@ -4569,9 +4569,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 22,
-        "mastery": 2,
-        "reviewCount": 2,
-        "lastReviewed": "2026-09-10",
+        "mastery": 3,
+        "reviewCount": 3,
+        "lastReviewed": "2026-09-14",
         "dueDate": null,
         "enh": {
           "fullIpa": "/aɪm stʌk ɪn ˈtræfɪk so aɪ maɪt bi ə fju ˈmɪnɪts leɪt/",
@@ -7787,11 +7787,11 @@
       ],
       "audio": "audio/s123.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
+        "introduced": true,
+        "introducedDay": 33,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-09-14",
         "dueDate": null,
         "enh": {
           "fullIpa": "/aɪd laɪk tu rɪˈpɔrt ə lɔst ˈsuːtkeɪs pliz/",
@@ -9251,11 +9251,11 @@
       ],
       "audio": "audio/s147.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
+        "introduced": true,
+        "introducedDay": 33,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-09-14",
         "dueDate": null,
         "enh": {
           "fullIpa": "/wɪtʃ ˈsʌbweɪ laɪn ɡoʊz tu ðə mjuˈziəm/",
