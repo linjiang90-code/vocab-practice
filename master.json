@@ -513,9 +513,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 2,
-        "mastery": 2,
-        "reviewCount": 2,
-        "lastReviewed": "2026-09-03",
+        "mastery": 3,
+        "reviewCount": 3,
+        "lastReviewed": "2026-09-15",
         "dueDate": null,
         "enh": {
           "fullIpa": "/kʊd ju ˌrekəˈmend ə ɡʊd ˈloʊkəl ˈrestərənt ðæts nɑːt tuː ɪkˈspensɪv ənd ˈwɪðɪn ˈwɔːkɪŋ ˈdɪstəns/",
@@ -3801,9 +3801,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 19,
-        "mastery": 1,
-        "reviewCount": 1,
-        "lastReviewed": "2026-08-31",
+        "mastery": 2,
+        "reviewCount": 2,
+        "lastReviewed": "2026-09-15",
         "dueDate": null,
         "enh": {
           "fullIpa": "/haʊ ɑr ju ˈduɪŋ təˈdeɪ/",
@@ -5889,9 +5889,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 22,
-        "mastery": 1,
-        "reviewCount": 1,
-        "lastReviewed": "2026-09-09",
+        "mastery": 2,
+        "reviewCount": 2,
+        "lastReviewed": "2026-09-15",
         "dueDate": null,
         "enh": {
           "fullIpa": "/dʒʌst tə bi klɪr/",
@@ -8580,11 +8580,11 @@
       ],
       "audio": "audio/s136.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
+        "introduced": true,
+        "introducedDay": 34,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-09-15",
         "dueDate": null,
         "enh": {
           "fullIpa": "/hæz ˈbɔrdɪŋ ˈstɑrtɪd fɔr ɡeɪt ˈtwɛntiˈtuː/",
@@ -9434,11 +9434,11 @@
       ],
       "audio": "audio/s150.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
+        "introduced": true,
+        "introducedDay": 34,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-09-15",
         "dueDate": null,
         "enh": {
           "fullIpa": "/dʌz ðɪs treɪn stɑp ət ˈɛvri ˈsteɪʃən/",
