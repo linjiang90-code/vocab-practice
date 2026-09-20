@@ -645,9 +645,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 2,
-        "mastery": 3,
-        "reviewCount": 3,
-        "lastReviewed": "2026-09-10",
+        "mastery": 4,
+        "reviewCount": 4,
+        "lastReviewed": "2026-09-18",
         "dueDate": null,
         "enh": {
           "fullIpa": "/aɪ siːm tə hæv lɔst maɪ weɪ kʊd ju tel miː haʊ tə ɡet tə ðə ˈsɪti ˈsentər frəm hɪr/",
@@ -1563,9 +1563,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 7,
-        "mastery": 1,
-        "reviewCount": 1,
-        "lastReviewed": "2026-08-19",
+        "mastery": 2,
+        "reviewCount": 2,
+        "lastReviewed": "2026-09-18",
         "dueDate": null,
         "enh": {
           "fullIpa": "/ɪz ðɛr ə ˈfɑrməsi ˈnɪrbaɪ/",
@@ -6075,9 +6075,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 22,
-        "mastery": 1,
-        "reviewCount": 1,
-        "lastReviewed": "2026-09-09",
+        "mastery": 2,
+        "reviewCount": 2,
+        "lastReviewed": "2026-09-18",
         "dueDate": null,
         "enh": {
           "fullIpa": "/teɪk kɛr/",
@@ -7177,11 +7177,11 @@
       ],
       "audio": "audio/s113.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
+        "introduced": true,
+        "introducedDay": 37,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-09-18",
         "dueDate": null,
         "enh": {
           "fullIpa": "/ɪz wʌn ˈaʊər ɪˈnʌf fɔr ðə kəˈnɛkʃən/",
@@ -8336,11 +8336,11 @@
       ],
       "audio": "audio/s132.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
+        "introduced": true,
+        "introducedDay": 37,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-09-18",
         "dueDate": null,
         "enh": {
           "fullIpa": "/hɪr ɑr maɪ ˈpæspɔrt ənd rɪˈtɜrn ˈtɪkɪt/",
