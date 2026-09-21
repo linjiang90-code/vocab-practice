@@ -579,9 +579,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 2,
-        "mastery": 2,
-        "reviewCount": 2,
-        "lastReviewed": "2026-09-03",
+        "mastery": 3,
+        "reviewCount": 3,
+        "lastReviewed": "2026-09-21",
         "dueDate": null,
         "enh": {
           "fullIpa": "/aɪ wʌz ˈwʌndərɪŋ ɪf juːd laɪk tə ɡræb ə ˈkɔːfi wɪð miː ˈsʌmtaɪm ðɪs wiːk/",
@@ -4047,9 +4047,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 20,
-        "mastery": 1,
-        "reviewCount": 1,
-        "lastReviewed": "2026-09-01",
+        "mastery": 2,
+        "reviewCount": 2,
+        "lastReviewed": "2026-09-21",
         "dueDate": null,
         "enh": {
           "fullIpa": "/naɪs ˈtɔkɪŋ tə ju/",
@@ -7482,11 +7482,11 @@
       ],
       "audio": "audio/s118.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
+        "introduced": true,
+        "introducedDay": 40,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-09-21",
         "dueDate": null,
         "enh": {
           "fullIpa": "/wɛr kæn aɪ kleɪm maɪ tʃɛkt ˈlʌɡɪdʒ/",
@@ -8519,11 +8519,11 @@
       ],
       "audio": "audio/s135.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
+        "introduced": true,
+        "introducedDay": 40,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-09-21",
         "dueDate": null,
         "enh": {
           "fullIpa": "/kʊd ju tɛl mi wɛr ðə dɪˈpɑrtʃər ɡeɪt ɪz/",
@@ -9373,11 +9373,11 @@
       ],
       "audio": "audio/s149.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
+        "introduced": true,
+        "introducedDay": 40,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-09-21",
         "dueDate": null,
         "enh": {
           "fullIpa": "/ɪz ə deɪ pæs wɜrθ ɪt fɔr ˈɡɛtɪŋ əˈraʊnd/",
