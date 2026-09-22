@@ -1,205 +1,9 @@
-# -*- coding: utf-8 -*-
-"""每日英语口语推送 驱动脚本（词力词汇教练）。
-用法：python run_daily.py
-自动：计算 dayIndex -> 阶段扩展(每30天) -> 选句(5) -> 注入增强内容 -> 生成音频 -> 生成当日页 -> 更新 learn -> 重生成 master.html
-"""
-import json, os, sys, subprocess, datetime, shutil, random
-
-BASE = os.path.dirname(os.path.abspath(__file__))
-MASTER = os.path.join(BASE, "master.json")
-VENV_PY = r"C:\Users\Win10\.workbuddy\binaries\python\envs\default\Scripts\python.exe"
-
-# ============ 本日增强内容覆盖（由词汇教练手工撰写，注入 learn.enh）============
-# 仅在选中句 enh 为空时写入。结构：fullIpa / variants / scenes / grammar / pron
-ENH = {
-    6: {
-        "fullIpa": "/wʌt du ju ˈjuːʒuəli du ɑːn ˈwiːkendz/",
-        "variants": [
-            ["What do you do on weekends?", "省掉 usually，依然自然"],
-            ["Any plans for the weekend?", "更偏闲聊，直接问有没有安排"],
-            ["How do you usually spend your weekends?", "稍正式，spend 表『度过』"],
-        ],
-        "scenes": [
-            ["破冰闲聊", "What do you usually do on weekends?", "对方答 I usually… / Not much.(没啥特别的)"],
-            ["约人出去", "Do you wanna hang out this weekend?", "wanna = want to，问要不要一起玩"],
-            ["不同回答", "I just chill at home. / I go hiking. / Work, unfortunately.", "宅家 / 去徒步 / 无奈要加班"],
-        ],
-        "grammar": "一般现在时表习惯性动作；usually 放在主语和实义动词之间（do you usually do）。weekend 英式常用 at weekends，美式用 on weekends。",
-        "pron": "同化：do you→/dʒu/（d+j 同化为 dʒ，关键！）。连读：What do→/wʌ dʊ/（t 与 d 连读）；do on→/dʊ wɑn/（元音间加 w 滑音）；on weekends→/ɑːn ˈwiːkendz/（n 与 w 连读）。浊化：What do 快读 /wʌ dʊ/（t→d，极典型）；usually do 顺接 /ˈjuːʒuəli dʊ/。弱读：you 弱读 /jə/（亦可保留 /ju/）；do 作助动词弱读 /də/；on→/ən/。缩读：场景里 wanna = want to（口语缩读）。失去爆破/闪音：本句无典型（参考：better→/bɛɾɚ/、city→/sɪɾi/ 元音间 /t/ 标闪音；good boy→/ɡʊ bɔɪ/ 相邻爆破音标失去爆破）。",
-    },
-    7: {
-        "fullIpa": "/ɪz ˈbrekfəst ɪnˈkluːdɪd ɪn ðə praɪs/",
-        "variants": [
-            ["Does the price include breakfast?", "更顺口，主动语态"],
-            ["Is breakfast free?", "最简，但 free 不如 included 准确表达『含在房费里』"],
-        ],
-        "scenes": [
-            ["订酒店问含早", "Is breakfast included?", "对方回 Yes, it's a buffet. / No, it's extra.(另收费) / Continental breakfast only.(仅欧式简早)"],
-            ["顺带问是否含税/服务费", "Does it include tax and service?", "延展问法"],
-            ["顺带问 wifi", "Is Wi-Fi included?", "一并确认网络"],
-        ],
-        "grammar": "be included in + 名词 是被动结构，表『被包含在…里』；price 单数用 is。included /ɪnˈkluːdɪd/ 是 include 的过去分词作形容词。",
-        "pron": "连读：Is breakfast→/ɪz ˈbrekfəst/（z 与 b 连读）；breakfast included→/ˈbrekfəst ɪnˈkluːdɪd/（t 与 ɪ 连读）；included in→/ɪnˈkluːdɪd ɪn/（d 与 ɪ）；in the→/ɪn ðə/（n 与 ð）。失去爆破：breakfast 词尾 /t/ 在 /ɪ/ 前为不完全爆破 /ˈbrekfəs(t) ɪn/；included 词尾 /d/ 在 /ɪn/ 前 /ɪnˈkluːdɪ(d) ɪn/。浊化：breakfast 词尾 t 在 ɪ 前快读可浊化为 d：/ˈbrekfəsd ɪn/。弱读：the→/ðə/；in→/ɪn/。同化/滑音/缩读：无典型。",
-    },
-    8: {
-        "fullIpa": "/kʊd ju ˌrekəˈmend ə ɡʊd ˈloʊkəl ˈrestərənt ðæts nɑːt tuː ɪkˈspensɪv ənd ˈwɪðɪn ˈwɔːkɪŋ ˈdɪstəns/",
-        "variants": [
-            ["Any good local spots around here?", "spots = 地点，极口语"],
-            ["Where do locals eat?", "问本地人去哪吃，更地道"],
-            ["Do you know a place that won't break the bank?", "break the bank 俚语『花太多钱』"],
-        ],
-        "scenes": [
-            ["问酒店前台", "Can you recommend a good restaurant nearby?", "对方直接给名字"],
-            ["问路人", "Where's a nice place to eat around here?", "对方指路"],
-            ["不同回答", "Try the place on 5th St. / It's a bit touristy.(偏游客) / Book ahead, it's popular.(要预定)", ],
-        ],
-        "grammar": "recommend 后接名词或动名词：recommend a restaurant / recommend going there。within walking distance 是固定搭配『步行范围内』；that's = that is 引导定语从句修饰 restaurant。",
-        "pron": "同化：Could you→/kʊdʒu/（d+j 同化为 dʒ，关键！）；that's not→/ðæts nɑt/（s 与 n 相邻）。连读：good local→/ɡʊ wˈloʊkəl/（d 后加 w 滑音）；not too→/nɑ tʊ/（两个 t 只读一次，后接元音）；too expensive 顺接 /tuː ɪkˈspensɪv/；and within→/ənd ˈwɪðɪn/（d 与 w）。浊化：not too 快读 /nɑ dʊ/（t→d）。失去爆破：good local /ɡʊ(d) ˈloʊkəl/（d 在 l 前不完全爆破）。弱读：a→/ə/；and→/ən/；that's→/ðæts/。缩读：that's = that is（口语缩读）。闪音：无典型。",
-    },
-    9: {
-        "fullIpa": "/aɪ wʌz ˈwʌndərɪŋ ɪf juːd laɪk tə ɡræb ə ˈkɔːfi wɪð miː ˈsʌmtaɪm ðɪs wiːk/",
-        "variants": [
-            ["Want to get a coffee sometime?", "最口语，直接用 want"],
-            ["Let's grab a coffee.", "已默认能成，更熟"],
-            ["How about a coffee later?", "更轻的提议"],
-        ],
-        "scenes": [
-            ["委婉邀约(不太熟)", "I was wondering if you'd like to…", "最礼貌，给对方余地"],
-            ["熟人间", "Wanna grab a drink?", "drink 可含咖啡/酒，看语境"],
-            ["不同回答", "Sure, Tuesday works. / I'd love to but I'm swamped.(想去但忙) / Rain check?(改天呗)"],
-        ],
-        "grammar": "I was wondering if… 用过去进行时表委婉，比 Do you want 客气得多，是邀约神句。would like to = 想（礼貌）；grab 本义抓，口语常指『快速喝/吃一杯』。",
-        "pron": "连读：was wondering→/wʌz ˈwʌndərɪŋ/（z 与 w）；grab a→/ɡræb ə/（b 与 a）；coffee with→/ˈkɔfi wɪð/（i 与 w 滑音）；sometime this→/ˈsʌmtaɪm ðɪs/（m 与 ð）。浊化：like to→/laɪ də/（t→d，同 wanna 规律）；grab a 中 b 保持浊。弱读：to→/tə/；a→/ə/；me→/mi/(可弱读 /mə/)；if→/ɪf/。缩读：you'd = you would（口语缩读）；场景中 wanna = want to。失去爆破：grab a /ɡræ(b) ə/（b 在 a 前轻微不完全爆破）。闪音：无典型。",
-    },
-    10: {
-        "fullIpa": "/aɪ siːm tə hæv lɔst maɪ weɪ kʊd ju tel miː haʊ tə ɡet tə ðə ˈsɪti ˈsentər frəm hɪr/",
-        "variants": [
-            ["I'm lost.", "最简，最常用"],
-            ["I think I'm lost.", "更柔和"],
-            ["Can you help me find my way?", "直接请帮忙指路"],
-        ],
-        "scenes": [
-            ["问路人", "Excuse me, I seem to have lost my way.", "对方指路或 Follow me.(跟我来)"],
-            ["用手机", "Can you help me find this on Maps?", "请对方帮忙查地图"],
-            ["不同回答", "Go back to the main road. / I'll walk you there. / You're going the wrong way.(你走反了)"],
-        ],
-        "grammar": "I seem to have + 过去分词 表『我好像（已经）…了』，比 I'm lost 委婉。lost my way 固定搭配『迷路』；city center（英）/ downtown（美）都表市中心。",
-        "pron": "同化：Could you→/kʊdʒu/（d+j 同化为 dʒ，关键！）。连读：seem to→/siːm p tə/（m 后加 p 滑音）；lost my→/lɔs maɪ/（t 与 m 连读）；my way→/maɪ weɪ/（aɪ 与 w 滑音）；from here→/frəm hɪr/（m 与 h）；tell me→/tɛl mi/（l 与 m）。浊化：lost my 快读 /lɔz maɪ/ 或 /lɔd maɪ/（t→d，典型）；have 的 v 保持浊。失去爆破：lost my /lɔ(s)t maɪ/（s-t，/t/ 在 m 前不完全爆破）；get to /ɡe(t) tə/；center /ˈsɛn(t)ər/（t 在 ər 前不完全爆破）。闪音：city→/ˈsɪɾi/（美式，元音间 /t/ 标闪音 /ɾ/，关键！）。弱读：to→/tə/；the→/ðə/。缩读：无典型。",
-    },
-}
-
-# （已废弃：阶段扩展改为调 meta.activeCount，语料已由 expand_corpus.py 预置 1000 句）
-NEW_SENTENCES = []
-
-# ============ 逻辑 ============
-with open(MASTER, encoding="utf-8") as f:
-    data = json.load(f)
-meta = data["meta"]
-S = data["sentences"]
-by_id = {s["id"]: s for s in S}
-
-today = datetime.date.today()
-start = datetime.date.fromisoformat(meta["startDate"])
-dayIndex = (today - start).days + 1
-today_str = today.isoformat()
-
-expanded = 0
-# 阶段扩展：每 30 天激活 +50 句（100→150→200→…→1000 封顶）。
-# 语料已全部预置在 master.json（ids 1-1000），扩展只调 meta.activeCount，
-# 不再逐批追加句记录（旧 NEW_SENTENCES 机制已废弃）。
-total_now = len(S)
-while dayIndex >= int(meta.get("nextExpansionDay", 10**9)) and \
-        int(meta.get("activeCount", 0)) < total_now:
-    meta["activeCount"] = min(total_now, int(meta.get("activeCount", 0)) +
-                              int(meta.get("expandCount", 50)))
-    meta["nextExpansionDay"] = int(meta["nextExpansionDay"]) + \
-        int(meta.get("expandIntervalDays", 30))
-    meta["expansionsDone"] = int(meta.get("expansionsDone", 0)) + 1
-    expanded = meta["activeCount"]
-
-# 选句：每天 5 句随机推送（以 dayIndex 为种子：同日重跑结果一致=幂等，
-# 跨日随机=天天句式不同；与 push_day/gen_future 公式完全一致）
-dailyCount = int(meta["dailyCount"])
-introDays = int(meta["introDays"])
-activeCount = min(int(meta.get("activeCount", 0)) or total_now, total_now)
-intro_pool = [s for s in S if s["id"] <= activeCount and not s["learn"]["introduced"]]
-if dayIndex <= introDays and intro_pool:
-    # 引入期：按 id 顺序取前 5 个未引入的可用句
-    intro_pool.sort(key=lambda s: s["id"])
-    selected = intro_pool[:dailyCount]
-    mode = "new"
-else:
-    # 复习/日常模式：从可用句库随机抽 5 句（新激活句被抽中即视为引入）
-    act_ids = sorted(s["id"] for s in S if s["id"] <= activeCount)
-    rng = random.Random(dayIndex)
-    pick = sorted(rng.sample(act_ids, min(dailyCount, len(act_ids))))
-    selected = [by_id[i] for i in pick]
-    mode = "review"
-
-selected_ids = [s["id"] for s in selected]
-
-# 注入增强内容 + 生成音频
-for s in selected:
-    enh = s["learn"]["enh"]
-    if not enh.get("fullIpa") and s["id"] in ENH:
-        enh.update(ENH[s["id"]])
-    # 音频
-    apath = os.path.join(BASE, s["audio"])
-    if not os.path.exists(apath):
-        try:
-            subprocess.run([VENV_PY, "gen_one.py", str(s["id"]), s["en"]],
-                           cwd=BASE, check=True, capture_output=True, text=True)
-        except Exception as e:
-            print("AUDIO_FAIL", s["id"], e)
-
-# 更新 learn
-for s in selected:
-    L = s["learn"]
-    if not L["introduced"]:
-        L["introduced"] = True
-        L["introducedDay"] = dayIndex
-    L["lastReviewed"] = today_str
-    L["reviewCount"] = (L["reviewCount"] or 0) + 1
-    L["mastery"] = min(5, (int(L["mastery"] or 0)) + 1)
-
-# 写回 master.json
-with open(MASTER, "w", encoding="utf-8") as f:
-    json.dump(data, f, ensure_ascii=False, indent=2)
-
-# ============ 生成当日练习页 ============
-# 预计算汇总数据（模板需要）
-total = len(S)
-learned = sum(1 for s in S if s["learn"]["introduced"])
-
-def esc(x):
-    return str(x).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
-
-data_list = []
-for s in selected:
-    enh = s["learn"]["enh"]
-    data_list.append({
-        "id": "s%d" % s["id"], "nid": s["id"],
-        "type": "long" if s["length"] == "long" else "short",
-        "topic": s["theme"], "en": s["en"], "ipa": enh.get("fullIpa", ""),
-        "zh": s["zh"],
-        "kw": [[k["term"], k["ipa"], "%s%s" % (k.get("pos", ""), k.get("zh", ""))] for k in s["keyvocab"]],
-        "variants": enh.get("variants", []) or [],
-        "scenes": enh.get("scenes", []) or [],
-        "grammar": enh.get("grammar", ""),
-        "pron": enh.get("pron", ""),
-        "mastery": s["learn"].get("mastery", 0) or 0,
-    })
-DATA_JSON = json.dumps(data_list, ensure_ascii=False)
-
-shorts = [d for d in data_list if d["type"] == "short"]
-longs = [d for d in data_list if d["type"] == "long"]
-
-PAGE = """<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>英语口语 Day __DAY__ · 增强版</title>
+<title>英语口语 Day 58 · 增强版</title>
 <style>
   :root{
     --bg:#f5f7fa; --card:#ffffff; --text:#1f2329; --sub:#6b7280;
@@ -275,6 +79,7 @@ PAGE = """<!DOCTYPE html>
   .pagenav{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap;margin-bottom:6px}
   .pagenav a{text-decoration:none;font-size:13px;color:#475569;border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-weight:600;transition:.15s}
   .pagenav a:hover{border-color:var(--accent);color:var(--accent);background:#f0f6ff}
+.preview-banner{background:#fff7ed;border:1px solid #fed7aa;color:#b45309;border-radius:10px;padding:9px 12px;font-size:13px;margin:10px 0 4px;text-align:center;line-height:1.5}
 </style>
 </head>
 <body>
@@ -285,14 +90,15 @@ PAGE = """<!DOCTYPE html>
   <a href="calendar.html">📅 日历</a>
 </nav>
   <header>
-    <h1>🗣️ 英语口语 · Day __DAY__（增强版）</h1>
-    <p>旅游 + 日常混合 · __N__ 句/天 · 中英对照 + 生词音标 + 原声伴读 + 变体 + 场景俗语 + 语法 + 发音提示</p>
+    <h1>🗣️ 英语口语 · Day 58（增强版）</h1>
+    <p>旅游 + 日常混合 · 5 句/天 · 中英对照 + 生词音标 + 原声伴读 + 变体 + 场景俗语 + 语法 + 发音提示</p>
   </header>
+  <div class="preview-banner">🔓 预习模式 · 该日尚未到（2026-10-09），可提前学习；每日 9:00 自动推送后会与此页内容同步。</div>
   <div class="summary">
-    <div class="box"><b>第 __DAY__ 天</b><span>连续学习</span></div>
-    <div class="box"><b>__INTRO__ 句</b><span>今日新学</span></div>
-    <div class="box"><b>__TOTAL__/__POOL__</b><span>累计已学</span></div>
-    <div class="box"><b>__POOL__ 句</b><span>当前总池</span></div>
+    <div class="box"><b>第 58 天</b><span>连续学习</span></div>
+    <div class="box"><b>0 句</b><span>今日新学</span></div>
+    <div class="box"><b>1000/1000</b><span>累计已学</span></div>
+    <div class="box"><b>1000 句</b><span>当前总池</span></div>
   </div>
   <div class="legend">
     <span>🔻 <b>简化/口语变体</b></span>
@@ -320,7 +126,7 @@ PAGE = """<!DOCTYPE html>
 <script src="audio-engine.js"></script>
 <script>
 (function(){ const d=new Date().toISOString().slice(0,10); document.querySelectorAll('.today-nav').forEach(a=>a.href='day'+d+'.html'); })();
-const DATA = __DATA_JSON__;
+const DATA = [{"id": "s11", "nid": 11, "type": "short", "topic": "travel", "en": "Where can I buy a ticket to the city center?", "ipa": "/wɛr kən aɪ baɪ ə ˈtɪkɪt tə ðə ˈsɪti ˈsɛntər/", "zh": "我在哪里可以买到去市中心的票？", "kw": [["ticket", "/ˈtɪkɪt/", "n.票"], ["city", "/ˈsɪti/", "n.城市"]], "variants": [["Where do I get a ticket to downtown?", "downtown 是美式『市中心』"], ["Can I buy a ticket here?", "问当场/本地能否买票"], ["One ticket to the center, please.", "窗口极简说法"]], "scenes": [["问售票柜台", "Where can I buy a ticket to the city center?", "对方指柜台 Over there at the counter."], ["问自助机", "Is there a ticket machine around here?", "对方回 Yes, by the entrance."], ["不同回答", "Single or return? / It's 3 dollars. / Platform 2 is that way."]], "grammar": "Where can I + 动词原形 用于询问地点/请求信息；buy a ticket to + 地点 表『买去…的票』。city center（英）/ downtown（美）同义。ticket 单数即可泛指『一张票』。", "pron": "连读：Where can→/wɛr kən/（r 与 k）；can I→/kə naɪ/（n 与 a）；buy a→/baɪ ə/（aɪ 与 ə）；ticket to→/ˈtɪkɪ tə/（t 与 tə）；to the→/tə ðə/。弱读：can→/kən/；a→/ə/；to→/tə/；the→/ðə/。失去爆破：ticket /ˈtɪkɪ(t)/（词尾 t 轻微不完全爆破）；center /ˈsɛn(t)ər/（t 在 ər 前）。闪音：city→/ˈsɪɾi/（美式元音间 t 标闪音 /ɾ/，关键！）。同化/滑音/浊化/缩读：无典型。", "mastery": 2}, {"id": "s51", "nid": 51, "type": "short", "topic": "travel", "en": "Can you speak more slowly, please?", "ipa": "/kæn ju spiːk mɔr ˈsloʊli pliz/", "zh": "你能说慢一点吗？", "kw": [["slowly", "/ˈsloʊli/", "adv.慢地"], ["speak", "/spik/", "v.说"]], "variants": [["Could you slow down, please?", "slow down 口语"], ["Can you speak slower?", "slower 也可"], ["Sorry, I didn't catch that.", "先说没听懂"]], "scenes": [["请慢点", "Can you speak more slowly, please?", "对方回 Of course, sorry."], ["换语言", "Do you speak Chinese?", "问会不会中文"], ["不同回答", "Let me repeat. / I'll go slower. / Like this?"]], "grammar": "Can you + 动词原形（speak）请求；more + 副词原级（slowly）构成比较级『更慢』。speak slower / more slowly 都对，slowly 多音节用 more。", "pron": "连读：Can you→/kæn ju/（n 与 j，可同化 /kændʒu/）；you speak→/ju spiːk/；speak more→/spiːk mɔr/（k 与 m）；more slowly→/mɔr ˈsloʊli/（r 与 s）。弱读：you→/jə/（可保留 /ju/）。同化：Can you 快读 /kændʒu/（n+j）。失去爆破：speak more /spiː(k) mɔr/（k 在 m 前轻）。浊化：无。滑音/闪音/缩读：无典型。", "mastery": 1}, {"id": "s52", "nid": 52, "type": "short", "topic": "travel", "en": "I don't understand.", "ipa": "/aɪ doʊnt ˌʌndərˈstænd/", "zh": "我不明白。", "kw": [["understand", "/ˌʌndərˈstænd/", "v.理解"]], "variants": [["I don't get it.", "get it 口语=懂"], ["Sorry, I'm lost.", "说跟不上"], ["What do you mean?", "反问什么意思"]], "scenes": [["表示不懂", "I don't understand.", "对方回 Let me explain again. / In simpler words…"], ["部分懂", "I get part of it.", "说懂一部分"], ["不同回答", "It's like this. / Do you follow now? / I'll write it down."]], "grammar": "don't = do not 缩读；understand 动词『理解』，否定用 don't + 原形。get it 口语同义。mean 动词『意思是』。", "pron": "缩读：don't = do not（/doʊnt/）。连读：I don't→/aɪ doʊnt/（aɪ 与 d）；don't understand→/doʊnt ˌʌndərˈstænd/（t 与 ʌ）。弱读：I→/aɪ/（重读）。失去爆破：don't understand /doʊn(t) ˌʌn/（t 在 ʌ 前不完全爆破）。浊化：无。同化/滑音/闪音：无典型。", "mastery": 1}, {"id": "s53", "nid": 53, "type": "short", "topic": "travel", "en": "Does anyone here speak English?", "ipa": "/dʌz ˈɛniwʌn hɪr spik ˈɪŋɡlɪʃ/", "zh": "这里有人会说英语吗？", "kw": [["anyone", "/ˈeniwʌn/", "pron.任何人"], ["English", "/ˈɪŋɡlɪʃ/", "n.英语"]], "variants": [["Does anyone here speak English?", "标准"], ["Who speaks English?", "问谁会英语"], ["Is there an English speaker?", "问有无会说英语的人"]], "scenes": [["求助问语言", "Does anyone here speak English?", "对方回 A little. / Yes, I do."], ["翻译", "Can you translate for me?", "请翻译"], ["不同回答", "My English is poor. / Try the young man. / Slowly, please."]], "grammar": "Does anyone + 动词原形（speak）疑问；anyone 复合不定代词单数用 does。here 副词。speak English 『说英语』。translate 动词『翻译』。", "pron": "连读：Does anyone→/dʌz ˈɛniwʌn/（z 与 ɛ）；anyone here→/ˈɛniwʌn hɪr/（n 与 h）；here speak→/hɪr spik/（r 与 s）；speak English→/spik ˈɪŋɡlɪʃ/（k 与 ɪ）。弱读：does→/dəz/。失去爆破：anyone here /ˈɛniwʌ(n) hɪr/（n 轻微）；speak English /spi(k) ˈɪŋ/（k 在 ɪ 前不完全爆破）。浊化：无。同化/滑音/闪音/缩读：无典型。", "mastery": 1}, {"id": "s149", "nid": 149, "type": "long", "topic": "travel", "en": "Is a day pass worth it for getting around?", "ipa": "/ɪz ə deɪ pæs wɜrθ ɪt fɔr ˈɡɛtɪŋ əˈraʊnd/", "zh": "买张一日票划算吗？", "kw": [["day pass", "/deɪ pæs/", "phr.一日通票"]], "variants": [["Is a day pass worth it?", "省目的状语"], ["Would a day pass save me money?", "save 换角度"], ["Should I just get single tickets instead?", "反向比较"]], "scenes": [["票务咨询", "Is a day pass worth it for getting around?", "工作人员回 If you take more than three rides, yes."], ["算账决策", "How many rides to break even?", "问回本次数"], ["多人同行", "Is there a group day pass?", "问团体票"]], "grammar": "be worth it 固定搭配『值得（花这个钱）』；动名词短语 for getting around 表用途（get around 固定短语『四处走动/出行』）。", "pron": "连读：Is a day pass→/ɪz ə deɪ pæs/（z 与 ə；eɪ 与 p）；day pass worth→/deɪ pæs wɜrθ/（s 与 w）；pass worth it→/pæs wɜrθ ɪt/（θ 与 ɪ）；worth it for→/wɜrθ ɪt fər/（t 与 f）；it for getting→/ɪt fər ˈɡɛtɪŋ/（r 与 ɡ）；getting around→/ˈɡɛtɪŋ əˈraʊnd/（ŋ 与 ə）。弱读：a→/ə/；for→/fər/。失去爆破：worth it /wɜrθ ɪt/ 常并作 /wɜr θɪt/。", "mastery": 1}];
 let speed = 1;
 let cardSpeed = {};
 try { DATA.forEach(d => { const sv = localStorage.getItem('vocab_speed_'+String(d.id).replace('s','')); if(sv) cardSpeed[d.id]=parseFloat(sv); }); } catch(e){}
@@ -452,57 +258,4 @@ function stopAll(){ queue=[]; if(window.VocabAudio) VocabAudio.stopAll();
   document.querySelectorAll('.readBtn.run').forEach(b=>{ b.classList.remove('run'); b.textContent='▶ 开始'; }); }
 </script>
 </body>
-</html>"""
-
-PAGE = (PAGE
-        .replace("__DAY__", str(dayIndex))
-        .replace("__N__", str(dailyCount))
-        .replace("__INTRO__", str(sum(1 for s in selected if s["learn"].get("introducedDay") == dayIndex)))
-        .replace("__DATA_JSON__", DATA_JSON)
-        .replace("__TOTAL__", str(learned))
-        .replace("__POOL__", str(total)))
-
-day_file = os.path.join(BASE, "day%s.html" % today_str)
-with open(day_file, "w", encoding="utf-8") as f:
-    f.write(PAGE)
-
-# 写每日侧车 JSON + 更新 days.json 清单（供「日历 / 已学回顾」页读取）
-# 与 push_day.py 完全一致：缺了这段，日历会把当日当成死格（点不了/无数据）
-day_json = {"date": today_str, "ids": selected_ids}
-with open(os.path.join(BASE, "day%s.json" % today_str), "w", encoding="utf-8") as f:
-    json.dump(day_json, f, ensure_ascii=False, indent=2)
-manifest_path = os.path.join(BASE, "days.json")
-days = []
-if os.path.exists(manifest_path):
-    try:
-        with open(manifest_path, encoding="utf-8") as f:
-            days = json.load(f)
-    except Exception:
-        days = []
-if today_str not in days:
-    days.append(today_str)
-days = sorted(set(days))
-with open(manifest_path, "w", encoding="utf-8") as f:
-    json.dump(days, f, ensure_ascii=False, indent=2)
-
-# 重生成 master.html
-try:
-    subprocess.run([VENV_PY, "gen_master_html.py"], cwd=BASE, check=True, capture_output=True, text=True)
-except Exception as e:
-    print("MASTER_HTML_FAIL", e)
-
-# 重生成「已学回顾 / 学习日历」页（内嵌数据，与 master.json / days.json 同步）
-try:
-    subprocess.run([VENV_PY, "gen_views_html.py"], cwd=BASE, check=True, capture_output=True, text=True)
-except Exception as e:
-    print("GEN_VIEWS_FAIL", e)
-
-# ============ 汇总 ============
-streak_note = "连续天数≈%d（自 %s 起）" % (dayIndex, meta["startDate"])
-print("==== DAILY SUMMARY ====")
-print("today:", today_str, "dayIndex:", dayIndex, "mode:", mode)
-print("selected:", selected_ids)
-print("expanded_new:", expanded)
-print("learned_total:", learned, "/", total)
-print("today_new:", sum(1 for s in selected if s["learn"]["introducedDay"] == dayIndex))
-print("day_file:", day_file)
+</html>
