@@ -1365,9 +1365,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 7,
-        "mastery": 2,
-        "reviewCount": 2,
-        "lastReviewed": "2026-09-17",
+        "mastery": 3,
+        "reviewCount": 3,
+        "lastReviewed": "2026-09-26",
         "dueDate": null,
         "enh": {
           "fullIpa": "/haʊ fɑr ɪz ɪt frəm hɪr/",
@@ -4245,9 +4245,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 22,
-        "mastery": 1,
-        "reviewCount": 1,
-        "lastReviewed": "2026-09-04",
+        "mastery": 2,
+        "reviewCount": 2,
+        "lastReviewed": "2026-09-26",
         "dueDate": null,
         "enh": {
           "fullIpa": "/ɑr ju fri ðɪs ˈwikɛnd/",
@@ -4503,9 +4503,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 22,
-        "mastery": 2,
-        "reviewCount": 2,
-        "lastReviewed": "2026-09-11",
+        "mastery": 3,
+        "reviewCount": 3,
+        "lastReviewed": "2026-09-26",
         "dueDate": null,
         "enh": {
           "fullIpa": "/ɪts ˈreɪnɪŋ kæts ənd dɔɡz/",
@@ -6811,11 +6811,11 @@
       ],
       "audio": "audio/s107.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
+        "introduced": true,
+        "introducedDay": 45,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-09-26",
         "dueDate": null,
         "enh": {
           "fullIpa": "/kæn aɪ peɪ fɔr ði ˈɛkstrə bæɡ ət ðə ˈkaʊntər/",
@@ -7909,11 +7909,11 @@
       ],
       "audio": "audio/s125.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
+        "introduced": true,
+        "introducedDay": 45,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-09-26",
         "dueDate": null,
         "enh": {
           "fullIpa": "/ˈpæspɔrt ənd ˈbɔrdɪŋ pæs pliz/",
