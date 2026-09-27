@@ -711,9 +711,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 5,
-        "mastery": 2,
-        "reviewCount": 2,
-        "lastReviewed": "2026-09-03",
+        "mastery": 3,
+        "reviewCount": 3,
+        "lastReviewed": "2026-09-27",
         "dueDate": "2026-08-18",
         "enh": {
           "fullIpa": "/wɛr kən aɪ baɪ ə ˈtɪkɪt tə ðə ˈsɪti ˈsɛntər/",
@@ -1305,9 +1305,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 6,
-        "mastery": 2,
-        "reviewCount": 2,
-        "lastReviewed": "2026-09-13",
+        "mastery": 3,
+        "reviewCount": 3,
+        "lastReviewed": "2026-09-27",
         "dueDate": "2026-08-19",
         "enh": {
           "fullIpa": "/pliz drɑp mi ɔf ət ðə treɪn ˈsteɪʃən/",
@@ -3801,9 +3801,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 19,
-        "mastery": 2,
-        "reviewCount": 2,
-        "lastReviewed": "2026-09-15",
+        "mastery": 3,
+        "reviewCount": 3,
+        "lastReviewed": "2026-09-27",
         "dueDate": null,
         "enh": {
           "fullIpa": "/haʊ ɑr ju ˈduɪŋ təˈdeɪ/",
@@ -6567,11 +6567,11 @@
       ],
       "audio": "audio/s103.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
+        "introduced": true,
+        "introducedDay": 46,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-09-27",
         "dueDate": null,
         "enh": {
           "fullIpa": "/kʊd aɪ ɡɛt ə ˈwɪndoʊ siːt ðɪs taɪm/",
@@ -8397,11 +8397,11 @@
       ],
       "audio": "audio/s133.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
+        "introduced": true,
+        "introducedDay": 46,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-09-27",
         "dueDate": null,
         "enh": {
           "fullIpa": "/wɛr ʃʊd aɪ ɡoʊ θruː ˈkʌstəmz/",
