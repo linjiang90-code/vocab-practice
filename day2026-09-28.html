@@ -50,7 +50,7 @@
   .kw{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
   .kw .chip{background:var(--chip);border-radius:8px;padding:5px 10px;font-size:13px}
   .kw .chip b{color:#b45309} .kw .chip .p{color:#9a3412;font-style:italic;margin-left:4px}
-  .block ul{margin:0;padding:left:18px} .block li{margin:3px 0}
+  .block ul{margin:0;padding-left:18px} .block li{margin:3px 0}
   .block li .ex{font-weight:600} .block li .nt{color:#6b7280}
   .scene li .occ{color:#0e9f6e;font-weight:600} .scene li .resp{color:#6b7280}
   footer{text-align:center;color:var(--sub);font-size:12px;margin-top:24px}
@@ -79,7 +79,6 @@
   .pagenav{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap;margin-bottom:6px}
   .pagenav a{text-decoration:none;font-size:13px;color:#475569;border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-weight:600;transition:.15s}
   .pagenav a:hover{border-color:var(--accent);color:var(--accent);background:#f0f6ff}
-.preview-banner{background:#fff7ed;border:1px solid #fed7aa;color:#b45309;border-radius:10px;padding:9px 12px;font-size:13px;margin:10px 0 4px;text-align:center;line-height:1.5}
 </style>
 </head>
 <body>
@@ -90,18 +89,17 @@
   <a href="calendar.html">📅 日历</a>
 </nav>
   <header>
-    <h1>🗣️ 英语口语 · Day 47（增强版）</h1>
-    <p>旅游 + 日常混合 · 5 句/天 · 中英对照 + 生词音标 + 原声伴读 + 变体 + 场景俗语 + 语法 + 发音提示</p>
+    <h1>🗣 英语口语 · Day 47（增强版）</h1>
+    <p>旅游 + 日常混合 · 5 句/天 · 中英对照 + 生词音标 + 原声伴读 + 变体 + 场景俚语 + 语法 + 发音提示</p>
   </header>
-  <div class="preview-banner">🔓 预习模式 · 该日尚未到（2026-09-28），可提前学习；每日 9:00 自动推送后会与此页内容同步。</div>
   <div class="summary">
     <div class="box"><b>第 47 天</b><span>连续学习</span></div>
-    <div class="box"><b>0 句</b><span>今日新学</span></div>
-    <div class="box"><b>1000/1000</b><span>累计已学</span></div>
+    <div class="box"><b>5 句</b><span>今日新学</span></div>
+    <div class="box"><b>122/1000</b><span>累计已学</span></div>
     <div class="box"><b>1000 句</b><span>当前总池</span></div>
   </div>
   <div class="legend">
-    <span>🔻 <b>简化/口语变体</b></span>
+    <span>🔹 <b>简化/口语变体</b></span>
     <span>🎭 <b>场景化表达 + 不同回答</b></span>
     <span>📝 <b>语法提示</b></span>
     <span>🔤 <b>发音提示(连读/同化/滑音/浊化/失去爆破/闪音/弱读/缩读)</b></span>
@@ -109,7 +107,7 @@
   <div class="toolbar">
     <button class="btn primary" onclick="playAll()">▶ 全部伴读</button>
     <label class="spd">语速(批量预设)
-      <select id="speedSel" onchange="setSpeed(this.value)" title="设为统一语速应用到全部句子">
+      <select id="speedSel" onchange="setSpeed(this.value)" title="设为统一语速并应用到全部句子">
         <option value="1">1倍</option>
         <option value="0.8">0.8倍</option>
         <option value="0.7">0.7倍</option>
@@ -121,12 +119,12 @@
   </div>
   <div id="short"></div>
   <div id="long"></div>
-  <footer>每天 9:00 自动推送新一批（同款增强版） · 进度本地保存，不外传</footer>
+  <footer>每天 9:00 自动推送新一批（同款增强版）· 进度本地保存，不外传</footer>
 </div>
 <script src="audio-engine.js"></script>
 <script>
 (function(){ const d=new Date().toISOString().slice(0,10); document.querySelectorAll('.today-nav').forEach(a=>a.href='day'+d+'.html'); })();
-const DATA = [{"id": "s17", "nid": 17, "type": "short", "topic": "travel", "en": "Do I need a visa for this country?", "ipa": "/du aɪ nid ə ˈvizə fɔr ðɪs ˈkʌntri/", "zh": "去这个国家需要签证吗？", "kw": [["visa", "/ˈvizə/", "n.签证"], ["country", "/ˈkʌntri/", "n.国家"]], "variants": [["Do I need a visa to enter?", "enter 强调『入境』"], ["Is a visa required here?", "被动，更正式"], ["Do you need a visa for X?", "问别人是否需要"]], "scenes": [["查签证要求", "Do I need a visa for this country?", "对方回 Citizens of your country do. / No, visa-free for 30 days."], ["问落地签", "Can I get a visa on arrival?", "问能否落地办"], ["不同回答", "You need to apply online. / Just bring your passport. / It's visa-free."]], "grammar": "Do I need + 名词/不定式 问『我是否需要…』；for + 国家 表『去某国』。visa 单数可数，a visa。required 是 require 过去分词作形容词。", "pron": "连读：Do I→/du aɪ/（u 与 a）；I need→/aɪ nid/（aɪ 与 n）；need a→/nid ə/（d 与 ə）；visa for→/ˈvizə fɔr/（ə 与 f）；for this→/fɔr ðɪs/（r 与 ð）。弱读：do→/də/；a→/ə/；for→/fər/。失去爆破：need a /ni(d) ə/（d 在 ə 前不完全爆破）。浊化：need a 快读 /ni də/（d 本就浊）。同化/滑音/闪音/缩读：无典型。", "mastery": 1}, {"id": "s91", "nid": 91, "type": "short", "topic": "daily", "en": "What do you mean by that?", "ipa": "/wʌt du ju min baɪ ðæt/", "zh": "你那么说是什么意思？", "kw": [["mean", "/min/", "v.意思是"]], "variants": [["What do you mean by that?", "标准"], ["What do you mean?", "省 by that 也通"], ["What are you getting at?", "get at 表暗示什么"]], "scenes": [["请求澄清", "What do you mean by that?", "对方回 I mean it's not a big deal. / I just meant…"], ["误解", "Sorry, I misheard you.", "说听错了"], ["不同回答", "Let me rephrase. / I didn't mean it that way. / Like, no offense."]], "grammar": "What do you mean by + 名词/代词 问『你…是什么意思』；mean 动词『意思是』。get at『暗示』。rephrase 动词『重新表述』。", "pron": "同化：Do you→/dʒu/（d+j 同化为 dʒ，关键！）。连读：What do→/wʌt du/（t 与 d）；do you→/dʒu/；you mean→/ju min/；mean by→/min baɪ/（n 与 b）；by that→/baɪ ðæt/（aɪ 与 ð）。弱读：you→/jə/（可保留 /ju/）；do→/də/。失去爆破：mean by /mi(n) baɪ/（n 轻）；by that /baɪ(ð) ðæt/（ð 轻）。浊化：What do 快读 /wʌ dʊ/（t→d，典型）。同化：Do you→/dʒu/。滑音/闪音/缩读：无典型。", "mastery": 1}, {"id": "s111", "nid": 111, "type": "long", "topic": "travel", "en": "Do I need to pick up my luggage and check it in again?", "ipa": "/du aɪ niːd tu pɪk ʌp maɪ ˈlʌɡɪdʒ ənd tʃɛk ɪt ɪn əˈɡɛn/", "zh": "我需要取出行李重新托运吗？", "kw": [["pick up", "/pɪk ʌp/", "phr.领取"]], "variants": [["Do I have to recheck my baggage?", "recheck 一个词搞定"], ["Is my luggage checked through?", "问是否直挂"], ["Will my bag go all the way through?", "口语化问直挂"]], "scenes": [["转机咨询", "Do I need to pick up my luggage and check it in again?", "地勤回 No, it's checked through to your final destination. / Yes, you must recheck it here."], ["不同航司联程", "I booked separately, do I need to recheck?", "分开买票通常要重新托运"], ["入境美国/澳洲特别提醒", "Do I have to claim and recheck at the first stop?", "美澳转机必取行李"]], "grammar": "pick up 固定短语『领取/取走』；check in again = recheck；need to + 原形。注意 luggage 不可数。", "pron": "连读：need to→/niːtə/；pick up→/pɪ kʌp/（k 与 ʌ）；up my→/ʌp maɪ/；and check→/ən tʃɛk/（d 失去）；check it→/tʃɛ kɪt/（k 与 ɪ）；it in→/ɪ tɪn/；in again→/ɪ nəˈɡɛn/。弱读：and→/ən/；to→/tə/；it→/ɪt/。失去爆破：up my /ʌ(p) maɪ/。", "mastery": 0}, {"id": "s117", "nid": 117, "type": "short", "topic": "travel", "en": "How long is the flight expected to be delayed?", "ipa": "/haʊ lɔŋ ɪz ðə flaɪt ɪkˈspɛktɪd tə bi dɪˈleɪd/", "zh": "预计延误多久？", "kw": [["expected", "/ɪkˈspɛktɪd/", "adj.预期的"]], "variants": [["How long is the delay expected to be?", "宾语从句版"], ["What's the new departure time?", "问新起飞时间"], ["When will we know more?", "问信息更新"]], "scenes": [["登机口问乘务", "How long is the flight expected to be delayed?", "回 We're waiting for an update, maybe an hour."], ["广播没听清问邻座", "Did they say how long the delay is?", "复述确认"], ["改高铁决策", "If it's more than two hours I'll take the train.", "设定底线"]], "grammar": "be expected to be + 过去分词『预计被…』被动结构；delay 被动语态。", "pron": "连读：How long is→/haʊ lɔŋ ɪz/（ŋ 与 ɪ）；is the→/ɪz ðə/；flight is→/flaɪt ɪz/（t 与 ɪ 连读加轻爆破）；expected to be→/ɪkˈspɛktɪd tə bi/（d 与 t 只读一次）；to be delayed→/tə bi dɪˈleɪd/。弱读：to→/tə/；be→/bi/。失去爆破：expected to /ɪkˈspɛk(tɪ)d tə/。", "mastery": 0}, {"id": "s142", "nid": 142, "type": "short", "topic": "travel", "en": "Could you open the trunk for my luggage?", "ipa": "/kʊd ju ˈoʊpən ðə trʌŋk fɔr maɪ ˈlʌɡɪdʒ/", "zh": "能打开后备箱放行李吗？", "kw": [["trunk", "/trʌŋk/", "n.后备箱"]], "variants": [["Could you pop the trunk?", "pop 口语『打开』"], ["Can you open the boot?", "boot 英式后备箱"], ["Trunk, please.", "手势+短语"]], "scenes": [["上出租车", "Could you open the trunk for my luggage?", "司机按遥控开后备箱"], ["放行李", "Mind if I put my bags in the trunk?", "先征得同意"], ["取行李", "I'll get my luggage from the trunk.", "下车时说"]], "grammar": "trunk 美式『后备箱』（英式 boot）；for my luggage 表用途；open 及物动词。", "pron": "连读：Could you open→/kʊdʒu ˈoʊpən/（d+j 同化；ə 与 oʊ）；you open the→/ju ˈoʊpən ðə/；open the trunk→/ˈoʊpən ðə trʌŋk/（n 与 ð）；the trunk for→/ðə trʌŋk fər/；trunk for my→/trʌŋk fər maɪ/（k 与 f；r 与 m）。弱读：you→/jə/；the→/ðə/；for→/fər/。失去爆破：trunk for /trʌŋ(k) fər/。", "mastery": 0}];
+const DATA = [{"id": "s17", "type": "short", "topic": "travel", "en": "Do I need a visa for this country?", "ipa": "/du aɪ nid ə ˈvizə fɔr ðɪs ˈkʌntri/", "zh": "去这个国家需要签证吗？", "kw": [["visa", "/ˈvizə/", "n.签证"], ["country", "/ˈkʌntri/", "n.国家"]], "variants": [["Do I need a visa to enter?", "enter 强调『入境』"], ["Is a visa required here?", "被动，更正式"], ["Do you need a visa for X?", "问别人是否需要"]], "scenes": [["查签证要求", "Do I need a visa for this country?", "对方回 Citizens of your country do. / No, visa-free for 30 days."], ["问落地签", "Can I get a visa on arrival?", "问能否落地办"], ["不同回答", "You need to apply online. / Just bring your passport. / It's visa-free."]], "grammar": "Do I need + 名词/不定式 问『我是否需要…』；for + 国家 表『去某国』。visa 单数可数，a visa。required 是 require 过去分词作形容词。", "pron": "连读：Do I→/du aɪ/（u 与 a）；I need→/aɪ nid/（aɪ 与 n）；need a→/nid ə/（d 与 ə）；visa for→/ˈvizə fɔr/（ə 与 f）；for this→/fɔr ðɪs/（r 与 ð）。弱读：do→/də/；a→/ə/；for→/fər/。失去爆破：need a /ni(d) ə/（d 在 ə 前不完全爆破）。浊化：need a 快读 /ni də/（d 本就浊）。同化/滑音/闪音/缩读：无典型。", "mastery": 2}, {"id": "s91", "type": "short", "topic": "daily", "en": "What do you mean by that?", "ipa": "/wʌt du ju min baɪ ðæt/", "zh": "你那么说是什么意思？", "kw": [["mean", "/min/", "v.意思是"]], "variants": [["What do you mean by that?", "标准"], ["What do you mean?", "省 by that 也通"], ["What are you getting at?", "get at 表暗示什么"]], "scenes": [["请求澄清", "What do you mean by that?", "对方回 I mean it's not a big deal. / I just meant…"], ["误解", "Sorry, I misheard you.", "说听错了"], ["不同回答", "Let me rephrase. / I didn't mean it that way. / Like, no offense."]], "grammar": "What do you mean by + 名词/代词 问『你…是什么意思』；mean 动词『意思是』。get at『暗示』。rephrase 动词『重新表述』。", "pron": "同化：Do you→/dʒu/（d+j 同化为 dʒ，关键！）。连读：What do→/wʌt du/（t 与 d）；do you→/dʒu/；you mean→/ju min/；mean by→/min baɪ/（n 与 b）；by that→/baɪ ðæt/（aɪ 与 ð）。弱读：you→/jə/（可保留 /ju/）；do→/də/。失去爆破：mean by /mi(n) baɪ/（n 轻）；by that /baɪ(ð) ðæt/（ð 轻）。浊化：What do 快读 /wʌ dʊ/（t→d，典型）。同化：Do you→/dʒu/。滑音/闪音/缩读：无典型。", "mastery": 2}, {"id": "s111", "type": "long", "topic": "travel", "en": "Do I need to pick up my luggage and check it in again?", "ipa": "/du aɪ niːd tu pɪk ʌp maɪ ˈlʌɡɪdʒ ənd tʃɛk ɪt ɪn əˈɡɛn/", "zh": "我需要取出行李重新托运吗？", "kw": [["pick up", "/pɪk ʌp/", "phr.领取"]], "variants": [["Do I have to recheck my baggage?", "recheck 一个词搞定"], ["Is my luggage checked through?", "问是否直挂"], ["Will my bag go all the way through?", "口语化问直挂"]], "scenes": [["转机咨询", "Do I need to pick up my luggage and check it in again?", "地勤回 No, it's checked through to your final destination. / Yes, you must recheck it here."], ["不同航司联程", "I booked separately, do I need to recheck?", "分开买票通常要重新托运"], ["入境美国/澳洲特别提醒", "Do I have to claim and recheck at the first stop?", "美澳转机必取行李"]], "grammar": "pick up 固定短语『领取/取走』；check in again = recheck；need to + 原形。注意 luggage 不可数。", "pron": "连读：need to→/niːtə/；pick up→/pɪ kʌp/（k 与 ʌ）；up my→/ʌp maɪ/；and check→/ən tʃɛk/（d 失去）；check it→/tʃɛ kɪt/（k 与 ɪ）；it in→/ɪ tɪn/；in again→/ɪ nəˈɡɛn/。弱读：and→/ən/；to→/tə/；it→/ɪt/。失去爆破：up my /ʌ(p) maɪ/。", "mastery": 1}, {"id": "s117", "type": "short", "topic": "travel", "en": "How long is the flight expected to be delayed?", "ipa": "/haʊ lɔŋ ɪz ðə flaɪt ɪkˈspɛktɪd tə bi dɪˈleɪd/", "zh": "预计延误多久？", "kw": [["expected", "/ɪkˈspɛktɪd/", "adj.预期的"]], "variants": [["How long is the delay expected to be?", "宾语从句版"], ["What's the new departure time?", "问新起飞时间"], ["When will we know more?", "问信息更新"]], "scenes": [["登机口问乘务", "How long is the flight expected to be delayed?", "回 We're waiting for an update, maybe an hour."], ["广播没听清问邻座", "Did they say how long the delay is?", "复述确认"], ["改高铁决策", "If it's more than two hours I'll take the train.", "设定底线"]], "grammar": "be expected to be + 过去分词『预计被…』被动结构；delay 被动语态。", "pron": "连读：How long is→/haʊ lɔŋ ɪz/（ŋ 与 ɪ）；is the→/ɪz ðə/；flight is→/flaɪt ɪz/（t 与 ɪ 连读加轻爆破）；expected to be→/ɪkˈspɛktɪd tə bi/（d 与 t 只读一次）；to be delayed→/tə bi dɪˈleɪd/。弱读：to→/tə/；be→/bi/。失去爆破：expected to /ɪkˈspɛk(tɪ)d tə/。", "mastery": 1}, {"id": "s142", "type": "short", "topic": "travel", "en": "Could you open the trunk for my luggage?", "ipa": "/kʊd ju ˈoʊpən ðə trʌŋk fɔr maɪ ˈlʌɡɪdʒ/", "zh": "能打开后备箱放行李吗？", "kw": [["trunk", "/trʌŋk/", "n.后备箱"]], "variants": [["Could you pop the trunk?", "pop 口语『打开』"], ["Can you open the boot?", "boot 英式后备箱"], ["Trunk, please.", "手势+短语"]], "scenes": [["上出租车", "Could you open the trunk for my luggage?", "司机按遥控开后备箱"], ["放行李", "Mind if I put my bags in the trunk?", "先征得同意"], ["取行李", "I'll get my luggage from the trunk.", "下车时说"]], "grammar": "trunk 美式『后备箱』（英式 boot）；for my luggage 表用途；open 及物动词。", "pron": "连读：Could you open→/kʊdʒu ˈoʊpən/（d+j 同化；ə 与 oʊ）；you open the→/ju ˈoʊpən ðə/；open the trunk→/ˈoʊpən ðə trʌŋk/（n 与 ð）；the trunk for→/ðə trʌŋk fər/；trunk for my→/trʌŋk fər maɪ/（k 与 f；r 与 m）。弱读：you→/jə/；the→/ðə/；for→/fər/。失去爆破：trunk for /trʌŋ(k) fər/。", "mastery": 1}];
 let speed = 1;
 let cardSpeed = {};
 try { DATA.forEach(d => { const sv = localStorage.getItem('vocab_speed_'+String(d.id).replace('s','')); if(sv) cardSpeed[d.id]=parseFloat(sv); }); } catch(e){}
@@ -178,7 +176,7 @@ function cardHTML(d){
     <div class="kw">${kw}</div>
     <button class="detailsBtn" id="db-${d.id}" onclick="toggleDetails('${d.id}')">📂 展开详情（变体 / 场景 / 语法 / 发音）</button>
     <div class="details collapsed" id="dt-${d.id}">
-      <div class="block var"><div class="h">🔻 简化 / 口语变体</div><ul>${v}</ul></div>
+      <div class="block var"><div class="h">🔹 简化 / 口语变体</div><ul>${v}</ul></div>
       <div class="block scene"><div class="h">🎭 场景化表达 + 不同回答</div><ul>${sc}</ul></div>
       <div class="block gram"><div class="h">📝 语法提示</div><div>${d.grammar}</div></div>
       <div class="block pr"><div class="h">🔤 发音提示（连读/同化/滑音/浊化/失去爆破/闪音/弱读/缩读）</div><div>${d.pron}</div></div>
@@ -231,10 +229,10 @@ function setCardDetails(id, show){ const el=document.getElementById('dt-'+id); i
 function toggleDetails(id){ const el=document.getElementById('dt-'+id); if(el) setCardDetails(id, el.classList.contains('collapsed')); }
 function toggleAllDetails(){ const anyCollapsed = !!document.querySelector('.details.collapsed'); const show = anyCollapsed;
   document.querySelectorAll('.details').forEach(el=>setCardDetails(el.id.replace('dt-',''), show));
-  const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = show ? '📁 收走全部详情' : '📂 展开全部详情'; }
+  const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = show ? '📁 收起全部详情' : '📂 展开全部详情'; }
 function applyStoredDetails(){ DATA.forEach(d=>{ let st=null; try{ st=localStorage.getItem('vocab_details_'+d.id); }catch(e){}
   if(st==='open') setCardDetails(d.id, true); });
-  const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = document.querySelector('.details.collapsed') ? '📂 展开全部详情' : '📁 收走全部详情'; }
+  const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = document.querySelector('.details.collapsed') ? '📂 展开全部详情' : '📁 收起全部详情'; }
 function mColor(v){ return v<=2?'#dc2626':(v<=4?'#d97706':'#16a34a'); }
 function setMbar(sid,v){ const bar=document.getElementById('mbar-'+sid);
   if(bar){ const f=bar.querySelector('.mfill'); f.style.width=(v*20)+'%'; f.style.background=mColor(v); }

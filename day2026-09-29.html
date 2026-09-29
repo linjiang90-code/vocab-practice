@@ -50,7 +50,7 @@
   .kw{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
   .kw .chip{background:var(--chip);border-radius:8px;padding:5px 10px;font-size:13px}
   .kw .chip b{color:#b45309} .kw .chip .p{color:#9a3412;font-style:italic;margin-left:4px}
-  .block ul{margin:0;padding:left:18px} .block li{margin:3px 0}
+  .block ul{margin:0;padding-left:18px} .block li{margin:3px 0}
   .block li .ex{font-weight:600} .block li .nt{color:#6b7280}
   .scene li .occ{color:#0e9f6e;font-weight:600} .scene li .resp{color:#6b7280}
   footer{text-align:center;color:var(--sub);font-size:12px;margin-top:24px}
@@ -79,7 +79,6 @@
   .pagenav{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap;margin-bottom:6px}
   .pagenav a{text-decoration:none;font-size:13px;color:#475569;border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-weight:600;transition:.15s}
   .pagenav a:hover{border-color:var(--accent);color:var(--accent);background:#f0f6ff}
-.preview-banner{background:#fff7ed;border:1px solid #fed7aa;color:#b45309;border-radius:10px;padding:9px 12px;font-size:13px;margin:10px 0 4px;text-align:center;line-height:1.5}
 </style>
 </head>
 <body>
@@ -90,18 +89,17 @@
   <a href="calendar.html">📅 日历</a>
 </nav>
   <header>
-    <h1>🗣️ 英语口语 · Day 48（增强版）</h1>
-    <p>旅游 + 日常混合 · 5 句/天 · 中英对照 + 生词音标 + 原声伴读 + 变体 + 场景俗语 + 语法 + 发音提示</p>
+    <h1>🗣 英语口语 · Day 48（增强版）</h1>
+    <p>旅游 + 日常混合 · 5 句/天 · 中英对照 + 生词音标 + 原声伴读 + 变体 + 场景俚语 + 语法 + 发音提示</p>
   </header>
-  <div class="preview-banner">🔓 预习模式 · 该日尚未到（2026-09-29），可提前学习；每日 9:00 自动推送后会与此页内容同步。</div>
   <div class="summary">
     <div class="box"><b>第 48 天</b><span>连续学习</span></div>
-    <div class="box"><b>0 句</b><span>今日新学</span></div>
-    <div class="box"><b>1000/1000</b><span>累计已学</span></div>
+    <div class="box"><b>5 句</b><span>今日新学</span></div>
+    <div class="box"><b>124/1000</b><span>累计已学</span></div>
     <div class="box"><b>1000 句</b><span>当前总池</span></div>
   </div>
   <div class="legend">
-    <span>🔻 <b>简化/口语变体</b></span>
+    <span>🔹 <b>简化/口语变体</b></span>
     <span>🎭 <b>场景化表达 + 不同回答</b></span>
     <span>📝 <b>语法提示</b></span>
     <span>🔤 <b>发音提示(连读/同化/滑音/浊化/失去爆破/闪音/弱读/缩读)</b></span>
@@ -109,7 +107,7 @@
   <div class="toolbar">
     <button class="btn primary" onclick="playAll()">▶ 全部伴读</button>
     <label class="spd">语速(批量预设)
-      <select id="speedSel" onchange="setSpeed(this.value)" title="设为统一语速应用到全部句子">
+      <select id="speedSel" onchange="setSpeed(this.value)" title="设为统一语速并应用到全部句子">
         <option value="1">1倍</option>
         <option value="0.8">0.8倍</option>
         <option value="0.7">0.7倍</option>
@@ -121,12 +119,12 @@
   </div>
   <div id="short"></div>
   <div id="long"></div>
-  <footer>每天 9:00 自动推送新一批（同款增强版） · 进度本地保存，不外传</footer>
+  <footer>每天 9:00 自动推送新一批（同款增强版）· 进度本地保存，不外传</footer>
 </div>
 <script src="audio-engine.js"></script>
 <script>
 (function(){ const d=new Date().toISOString().slice(0,10); document.querySelectorAll('.today-nav').forEach(a=>a.href='day'+d+'.html'); })();
-const DATA = [{"id": "s34", "nid": 34, "type": "short", "topic": "travel", "en": "Is the tip included?", "ipa": "/ɪz ðə tɪp ɪnˈkludɪd/", "zh": "小费包含在内吗？", "kw": [["tip", "/tɪp/", "n.小费"], ["included", "/ɪnˈkludɪd/", "adj.包含在内的"]], "variants": [["Is the service included?", "service 指服务费"], ["Do I need to tip?", "问是否还要另给小费"], ["Is gratuity included?", "gratuity 正式=小费"]], "scenes": [["确认小费", "Is the tip included?", "对方回 Yes, it's on the bill. / No, 10% extra."], ["给现金", "I'll leave the tip in cash.", "说留现金小费"], ["不同回答", "It's already added. / Tip as you like. / 15% is standard."]], "grammar": "be included 被动形容词『被包含』；the tip 单数用 is。tip 名词『小费』；included 是 include 过去分词。service charge 常指『服务费』。", "pron": "连读：Is the→/ɪ zðə/（z 与 ð）；the tip→/ðə tɪp/；tip included→/tɪp ɪnˈkludɪd/（p 与 ɪ）。弱读：the→/ðə/。失去爆破：tip included /tɪ(p) ɪn/（p 在 ɪ 前不完全爆破）。浊化：无。同化/滑音/闪音/缩读：无典型。", "mastery": 2}, {"id": "s81", "nid": 81, "type": "short", "topic": "daily", "en": "This food is delicious!", "ipa": "/ðɪs fud ɪz dɪˈlɪʃəs/", "zh": "这食物真好吃！", "kw": [["delicious", "/dɪˈlɪʃəs/", "adj.美味的"]], "variants": [["This is so tasty!", "tasty 口语=好吃"], ["This tastes amazing.", "taste 系动词"], ["Yum, this is great!", "yum 拟声夸赞"]], "scenes": [["夸食物", "This food is delicious!", "对方回 Glad you like it! / Try the soup too."], ["赞厨艺", "You're a great cook.", "夸做饭的人"], ["不同回答", "Help yourself. / Eat up. / It's a family recipe."]], "grammar": "This food 单数用 is；delicious 形容词『美味的』作表语。taste 系动词 + 形容词（amazing）；tasty 同义口语。recipe 名词『食谱』。", "pron": "连读：This food→/ðɪs fud/（s 与 f）；food is→/fud ɪz/（d 与 ɪ）；is delicious→/ɪz dɪˈlɪʃəs/（z 与 d）。弱读：is→/ɪz/。失去爆破：this food /ðɪ(s) fud/（s 轻）；delicious /dɪˈlɪʃəs/ 词尾 s 轻。浊化：无。同化/滑音/闪音/缩读：无典型。", "mastery": 1}, {"id": "s137", "nid": 137, "type": "short", "topic": "travel", "en": "What time does boarding begin?", "ipa": "/wʌt taɪm dʌz ˈbɔrdɪŋ bɪˈɡɪn/", "zh": "什么时候开始登机？", "kw": [["begin", "/bɪˈɡɪn/", "v.开始"]], "variants": [["When does boarding start?", "when 通用"], ["When do we start boarding?", "we 亲切"], ["What's the boarding time?", "名词问法"]], "scenes": [["候机楼问", "What time does boarding begin?", "回 Usually forty minutes before departure."], ["广播确认", "They said boarding at nine twenty?", "复述确认"], ["赶时间", "How long is full boarding?", "问全程时长"]], "grammar": "What time 助动词 does + 主语 + 动词原形；begin/start 同义，begin 稍正式。", "pron": "连读：What time does→/wʌt taɪm dʌz/（t 与 t 相邻只读一次；m 与 d）；time does boarding→/taɪm dʌz ˈbɔrdɪŋ/（z 与 b）；does boarding begin→/dʌz ˈbɔrdɪŋ bɪˈɡɪn/（ŋ 与 b）。弱读：does→/dəz/。重音：begin /bɪˈɡɪn/ 在后。失去爆破：What time /wʌ(t) taɪm/。", "mastery": 0}, {"id": "s141", "nid": 141, "type": "short", "topic": "travel", "en": "Do you take credit cards or cash only?", "ipa": "/du ju teɪk ˈkrɛdɪt kɑrdz ɔr kæʃ ˈoʊnli/", "zh": "你们刷卡还是只收现金？", "kw": [["cash", "/kæʃ/", "n.现金"]], "variants": [["Do you take cards?", "极简"], ["Card or cash?", "口语二选一"], ["Is cash the only option?", "反向确认"]], "scenes": [["出租车/商店", "Do you take credit cards or cash only?", "回 Cards are fine. / Cash only, sorry."], ["小摊", "Can I scan the QR code?", "问扫码支付"], ["备用方案", "Where's the nearest ATM?", "只收现金时找取款机"]], "grammar": "take 动词『接受（支付方式）』；credit cards 复数泛指；or 连接选择疑问句。", "pron": "连读：Do you take→/du ju teɪk/（u 与 j）；you take credit→/ju teɪk ˈkrɛdɪt/（k 与 k 相邻只读一次轻擦）；credit cards or→/ˈkrɛdɪt kɑrdz ɔr/（t 与 k；z 与 ɔ）；or cash only→/ɔr kæʃ ˈoʊnli/（r 与 k）。弱读：do→/də/；you→/jə/；or→/ər/。失去爆破：take credit /teɪ(k) ˈkrɛdɪt/。缩读注意：or 弱读 /ər/。", "mastery": 1}, {"id": "s143", "nid": 143, "type": "short", "topic": "travel", "en": "Please drop me off at the main entrance.", "ipa": "/pliz drɑp mi ˈɔf ət ðə meɪn ˈɛntrəns/", "zh": "请让我在正门下车。", "kw": [["drop off", "/drɑp ɔːf/", "phr.让…下车"]], "variants": [["Please drop me at the main entrance.", "省 off 也自然"], ["Could you drop me off at the front door?", "front door 换法"], ["Main entrance, please.", "极简报地点"]], "scenes": [["出租车报目的地", "Please drop me off at the main entrance.", "司机回 Got it, the big glass doors?"], ["商场/景区", "Drop me at the north entrance, please.", "指定入口"], ["临近修正", "Actually, drop me at the corner instead.", "临时改地点"]], "grammar": "drop sb. off 固定短语『让某人下车』（off 副词，宾语可插中间 drop me off / drop off me ×）；the main entrance 正门（还有 side entrance 侧门）。", "pron": "连读：drop me off→/drɑp mi ˈɔf/（p 与 m）；me off at→/mi ˈɔf ət/（f 与 ə）；off at the→/ɔf ət ðə/；at the main→/ət ðə meɪn/；the main entrance→/ðə meɪn ˈɛntrəns/（n 与 ɛ）。弱读：at→/ət/；the→/ðə/。失去爆破：drop me /drɑ(p) miː/。重音：entrance /ˈɛntrəns/ 在前。", "mastery": 0}];
+const DATA = [{"id": "s34", "type": "short", "topic": "travel", "en": "Is the tip included?", "ipa": "/ɪz ðə tɪp ɪnˈkludɪd/", "zh": "小费包含在内吗？", "kw": [["tip", "/tɪp/", "n.小费"], ["included", "/ɪnˈkludɪd/", "adj.包含在内的"]], "variants": [["Is the service included?", "service 指服务费"], ["Do I need to tip?", "问是否还要另给小费"], ["Is gratuity included?", "gratuity 正式=小费"]], "scenes": [["确认小费", "Is the tip included?", "对方回 Yes, it's on the bill. / No, 10% extra."], ["给现金", "I'll leave the tip in cash.", "说留现金小费"], ["不同回答", "It's already added. / Tip as you like. / 15% is standard."]], "grammar": "be included 被动形容词『被包含』；the tip 单数用 is。tip 名词『小费』；included 是 include 过去分词。service charge 常指『服务费』。", "pron": "连读：Is the→/ɪ zðə/（z 与 ð）；the tip→/ðə tɪp/；tip included→/tɪp ɪnˈkludɪd/（p 与 ɪ）。弱读：the→/ðə/。失去爆破：tip included /tɪ(p) ɪn/（p 在 ɪ 前不完全爆破）。浊化：无。同化/滑音/闪音/缩读：无典型。", "mastery": 3}, {"id": "s81", "type": "short", "topic": "daily", "en": "This food is delicious!", "ipa": "/ðɪs fud ɪz dɪˈlɪʃəs/", "zh": "这食物真好吃！", "kw": [["delicious", "/dɪˈlɪʃəs/", "adj.美味的"]], "variants": [["This is so tasty!", "tasty 口语=好吃"], ["This tastes amazing.", "taste 系动词"], ["Yum, this is great!", "yum 拟声夸赞"]], "scenes": [["夸食物", "This food is delicious!", "对方回 Glad you like it! / Try the soup too."], ["赞厨艺", "You're a great cook.", "夸做饭的人"], ["不同回答", "Help yourself. / Eat up. / It's a family recipe."]], "grammar": "This food 单数用 is；delicious 形容词『美味的』作表语。taste 系动词 + 形容词（amazing）；tasty 同义口语。recipe 名词『食谱』。", "pron": "连读：This food→/ðɪs fud/（s 与 f）；food is→/fud ɪz/（d 与 ɪ）；is delicious→/ɪz dɪˈlɪʃəs/（z 与 d）。弱读：is→/ɪz/。失去爆破：this food /ðɪ(s) fud/（s 轻）；delicious /dɪˈlɪʃəs/ 词尾 s 轻。浊化：无。同化/滑音/闪音/缩读：无典型。", "mastery": 2}, {"id": "s137", "type": "short", "topic": "travel", "en": "What time does boarding begin?", "ipa": "/wʌt taɪm dʌz ˈbɔrdɪŋ bɪˈɡɪn/", "zh": "什么时候开始登机？", "kw": [["begin", "/bɪˈɡɪn/", "v.开始"]], "variants": [["When does boarding start?", "when 通用"], ["When do we start boarding?", "we 亲切"], ["What's the boarding time?", "名词问法"]], "scenes": [["候机楼问", "What time does boarding begin?", "回 Usually forty minutes before departure."], ["广播确认", "They said boarding at nine twenty?", "复述确认"], ["赶时间", "How long is full boarding?", "问全程时长"]], "grammar": "What time 助动词 does + 主语 + 动词原形；begin/start 同义，begin 稍正式。", "pron": "连读：What time does→/wʌt taɪm dʌz/（t 与 t 相邻只读一次；m 与 d）；time does boarding→/taɪm dʌz ˈbɔrdɪŋ/（z 与 b）；does boarding begin→/dʌz ˈbɔrdɪŋ bɪˈɡɪn/（ŋ 与 b）。弱读：does→/dəz/。重音：begin /bɪˈɡɪn/ 在后。失去爆破：What time /wʌ(t) taɪm/。", "mastery": 1}, {"id": "s141", "type": "short", "topic": "travel", "en": "Do you take credit cards or cash only?", "ipa": "/du ju teɪk ˈkrɛdɪt kɑrdz ɔr kæʃ ˈoʊnli/", "zh": "你们刷卡还是只收现金？", "kw": [["cash", "/kæʃ/", "n.现金"]], "variants": [["Do you take cards?", "极简"], ["Card or cash?", "口语二选一"], ["Is cash the only option?", "反向确认"]], "scenes": [["出租车/商店", "Do you take credit cards or cash only?", "回 Cards are fine. / Cash only, sorry."], ["小摊", "Can I scan the QR code?", "问扫码支付"], ["备用方案", "Where's the nearest ATM?", "只收现金时找取款机"]], "grammar": "take 动词『接受（支付方式）』；credit cards 复数泛指；or 连接选择疑问句。", "pron": "连读：Do you take→/du ju teɪk/（u 与 j）；you take credit→/ju teɪk ˈkrɛdɪt/（k 与 k 相邻只读一次轻擦）；credit cards or→/ˈkrɛdɪt kɑrdz ɔr/（t 与 k；z 与 ɔ）；or cash only→/ɔr kæʃ ˈoʊnli/（r 与 k）。弱读：do→/də/；you→/jə/；or→/ər/。失去爆破：take credit /teɪ(k) ˈkrɛdɪt/。缩读注意：or 弱读 /ər/。", "mastery": 2}, {"id": "s143", "type": "short", "topic": "travel", "en": "Please drop me off at the main entrance.", "ipa": "/pliz drɑp mi ˈɔf ət ðə meɪn ˈɛntrəns/", "zh": "请让我在正门下车。", "kw": [["drop off", "/drɑp ɔːf/", "phr.让…下车"]], "variants": [["Please drop me at the main entrance.", "省 off 也自然"], ["Could you drop me off at the front door?", "front door 换法"], ["Main entrance, please.", "极简报地点"]], "scenes": [["出租车报目的地", "Please drop me off at the main entrance.", "司机回 Got it, the big glass doors?"], ["商场/景区", "Drop me at the north entrance, please.", "指定入口"], ["临近修正", "Actually, drop me at the corner instead.", "临时改地点"]], "grammar": "drop sb. off 固定短语『让某人下车』（off 副词，宾语可插中间 drop me off / drop off me ×）；the main entrance 正门（还有 side entrance 侧门）。", "pron": "连读：drop me off→/drɑp mi ˈɔf/（p 与 m）；me off at→/mi ˈɔf ət/（f 与 ə）；off at the→/ɔf ət ðə/；at the main→/ət ðə meɪn/；the main entrance→/ðə meɪn ˈɛntrəns/（n 与 ɛ）。弱读：at→/ət/；the→/ðə/。失去爆破：drop me /drɑ(p) miː/。重音：entrance /ˈɛntrəns/ 在前。", "mastery": 1}];
 let speed = 1;
 let cardSpeed = {};
 try { DATA.forEach(d => { const sv = localStorage.getItem('vocab_speed_'+String(d.id).replace('s','')); if(sv) cardSpeed[d.id]=parseFloat(sv); }); } catch(e){}
@@ -178,7 +176,7 @@ function cardHTML(d){
     <div class="kw">${kw}</div>
     <button class="detailsBtn" id="db-${d.id}" onclick="toggleDetails('${d.id}')">📂 展开详情（变体 / 场景 / 语法 / 发音）</button>
     <div class="details collapsed" id="dt-${d.id}">
-      <div class="block var"><div class="h">🔻 简化 / 口语变体</div><ul>${v}</ul></div>
+      <div class="block var"><div class="h">🔹 简化 / 口语变体</div><ul>${v}</ul></div>
       <div class="block scene"><div class="h">🎭 场景化表达 + 不同回答</div><ul>${sc}</ul></div>
       <div class="block gram"><div class="h">📝 语法提示</div><div>${d.grammar}</div></div>
       <div class="block pr"><div class="h">🔤 发音提示（连读/同化/滑音/浊化/失去爆破/闪音/弱读/缩读）</div><div>${d.pron}</div></div>
@@ -231,10 +229,10 @@ function setCardDetails(id, show){ const el=document.getElementById('dt-'+id); i
 function toggleDetails(id){ const el=document.getElementById('dt-'+id); if(el) setCardDetails(id, el.classList.contains('collapsed')); }
 function toggleAllDetails(){ const anyCollapsed = !!document.querySelector('.details.collapsed'); const show = anyCollapsed;
   document.querySelectorAll('.details').forEach(el=>setCardDetails(el.id.replace('dt-',''), show));
-  const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = show ? '📁 收走全部详情' : '📂 展开全部详情'; }
+  const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = show ? '📁 收起全部详情' : '📂 展开全部详情'; }
 function applyStoredDetails(){ DATA.forEach(d=>{ let st=null; try{ st=localStorage.getItem('vocab_details_'+d.id); }catch(e){}
   if(st==='open') setCardDetails(d.id, true); });
-  const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = document.querySelector('.details.collapsed') ? '📂 展开全部详情' : '📁 收走全部详情'; }
+  const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = document.querySelector('.details.collapsed') ? '📂 展开全部详情' : '📁 收起全部详情'; }
 function mColor(v){ return v<=2?'#dc2626':(v<=4?'#d97706':'#16a34a'); }
 function setMbar(sid,v){ const bar=document.getElementById('mbar-'+sid);
   if(bar){ const f=bar.querySelector('.mfill'); f.style.width=(v*20)+'%'; f.style.background=mColor(v); }

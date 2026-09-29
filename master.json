@@ -1106,11 +1106,11 @@
       "audio": "audio/s17.mp3",
       "learn": {
         "introduced": true,
-        "introducedDay": 6,
-        "mastery": 1,
-        "reviewCount": 1,
-        "lastReviewed": "2026-08-18",
-        "dueDate": "2026-08-19",
+        "introducedDay": 47,
+        "mastery": 2,
+        "reviewCount": 2,
+        "lastReviewed": "2026-09-28",
+        "dueDate": "2026-09-29",
         "enh": {
           "fullIpa": "/du aɪ nid ə ˈvizə fɔr ðɪs ˈkʌntri/",
           "variants": [
@@ -2204,11 +2204,11 @@
       "audio": "audio/s34.mp3",
       "learn": {
         "introduced": true,
-        "introducedDay": 7,
-        "mastery": 2,
-        "reviewCount": 2,
-        "lastReviewed": "2026-09-16",
-        "dueDate": null,
+        "introducedDay": 48,
+        "mastery": 3,
+        "reviewCount": 3,
+        "lastReviewed": "2026-09-29",
+        "dueDate": "2026-09-30",
         "enh": {
           "fullIpa": "/ɪz ðə tɪp ɪnˈkludɪd/",
           "variants": [
@@ -5198,11 +5198,11 @@
       "audio": "audio/s81.mp3",
       "learn": {
         "introduced": true,
-        "introducedDay": 22,
-        "mastery": 1,
-        "reviewCount": 1,
-        "lastReviewed": "2026-09-07",
-        "dueDate": null,
+        "introducedDay": 48,
+        "mastery": 2,
+        "reviewCount": 2,
+        "lastReviewed": "2026-09-29",
+        "dueDate": "2026-09-30",
         "enh": {
           "fullIpa": "/ðɪs fud ɪz dɪˈlɪʃəs/",
           "variants": [
@@ -5828,11 +5828,11 @@
       "audio": "audio/s91.mp3",
       "learn": {
         "introduced": true,
-        "introducedDay": 22,
-        "mastery": 1,
-        "reviewCount": 1,
-        "lastReviewed": "2026-09-09",
-        "dueDate": null,
+        "introducedDay": 47,
+        "mastery": 2,
+        "reviewCount": 2,
+        "lastReviewed": "2026-09-28",
+        "dueDate": "2026-09-29",
         "enh": {
           "fullIpa": "/wʌt du ju min baɪ ðæt/",
           "variants": [
@@ -7055,12 +7055,12 @@
       ],
       "audio": "audio/s111.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
-        "dueDate": null,
+        "introduced": true,
+        "introducedDay": 47,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-09-28",
+        "dueDate": "2026-09-29",
         "enh": {
           "fullIpa": "/du aɪ niːd tu pɪk ʌp maɪ ˈlʌɡɪdʒ ənd tʃɛk ɪt ɪn əˈɡɛn/",
           "variants": [
@@ -7421,12 +7421,12 @@
       ],
       "audio": "audio/s117.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
-        "dueDate": null,
+        "introduced": true,
+        "introducedDay": 47,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-09-28",
+        "dueDate": "2026-09-29",
         "enh": {
           "fullIpa": "/haʊ lɔŋ ɪz ðə flaɪt ɪkˈspɛktɪd tə bi dɪˈleɪd/",
           "variants": [
@@ -8641,12 +8641,12 @@
       ],
       "audio": "audio/s137.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
-        "dueDate": null,
+        "introduced": true,
+        "introducedDay": 48,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-09-29",
+        "dueDate": "2026-09-30",
         "enh": {
           "fullIpa": "/wʌt taɪm dʌz ˈbɔrdɪŋ bɪˈɡɪn/",
           "variants": [
@@ -8886,11 +8886,11 @@
       "audio": "audio/s141.mp3",
       "learn": {
         "introduced": true,
-        "introducedDay": 35,
-        "mastery": 1,
-        "reviewCount": 1,
-        "lastReviewed": "2026-09-16",
-        "dueDate": null,
+        "introducedDay": 48,
+        "mastery": 2,
+        "reviewCount": 2,
+        "lastReviewed": "2026-09-29",
+        "dueDate": "2026-09-30",
         "enh": {
           "fullIpa": "/du ju teɪk ˈkrɛdɪt kɑrdz ɔr kæʃ ˈoʊnli/",
           "variants": [
@@ -8946,12 +8946,12 @@
       ],
       "audio": "audio/s142.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
-        "dueDate": null,
+        "introduced": true,
+        "introducedDay": 47,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-09-28",
+        "dueDate": "2026-09-29",
         "enh": {
           "fullIpa": "/kʊd ju ˈoʊpən ðə trʌŋk fɔr maɪ ˈlʌɡɪdʒ/",
           "variants": [
@@ -9007,12 +9007,12 @@
       ],
       "audio": "audio/s143.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
-        "dueDate": null,
+        "introduced": true,
+        "introducedDay": 48,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-09-29",
+        "dueDate": "2026-09-30",
         "enh": {
           "fullIpa": "/pliz drɑp mi ˈɔf ət ðə meɪn ˈɛntrəns/",
           "variants": [
