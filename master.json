@@ -2709,9 +2709,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 8,
-        "mastery": 2,
-        "reviewCount": 2,
-        "lastReviewed": "2026-09-09",
+        "mastery": 3,
+        "reviewCount": 3,
+        "lastReviewed": "2026-10-02",
         "dueDate": null,
         "enh": {
           "fullIpa": "/ɪz ðɛr ə ˈdɪskaʊnt fɔr ˈstudənts/",
@@ -3861,9 +3861,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 19,
-        "mastery": 3,
-        "reviewCount": 3,
-        "lastReviewed": "2026-09-22",
+        "mastery": 4,
+        "reviewCount": 4,
+        "lastReviewed": "2026-10-02",
         "dueDate": null,
         "enh": {
           "fullIpa": "/lɔŋ taɪm no si/",
@@ -4047,9 +4047,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 20,
-        "mastery": 3,
-        "reviewCount": 3,
-        "lastReviewed": "2026-10-01",
+        "mastery": 4,
+        "reviewCount": 4,
+        "lastReviewed": "2026-10-02",
         "dueDate": null,
         "enh": {
           "fullIpa": "/naɪs ˈtɔkɪŋ tə ju/",
@@ -8153,11 +8153,11 @@
       ],
       "audio": "audio/s129.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
+        "introduced": true,
+        "introducedDay": 51,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-10-02",
         "dueDate": null,
         "enh": {
           "fullIpa": "/wʌts ðə ˈpɜrpəs əv jʊr ˈvɪzɪt/",
@@ -8948,9 +8948,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 47,
-        "mastery": 1,
-        "reviewCount": 1,
-        "lastReviewed": "2026-09-28",
+        "mastery": 2,
+        "reviewCount": 2,
+        "lastReviewed": "2026-10-02",
         "dueDate": "2026-09-29",
         "enh": {
           "fullIpa": "/kʊd ju ˈoʊpən ðə trʌŋk fɔr maɪ ˈlʌɡɪdʒ/",
