@@ -909,9 +909,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 5,
-        "mastery": 4,
-        "reviewCount": 5,
-        "lastReviewed": "2026-08-17",
+        "mastery": 5,
+        "reviewCount": 6,
+        "lastReviewed": "2026-10-03",
         "dueDate": "2026-08-18",
         "enh": {
           "fullIpa": "/aɪd laɪk ə ˈwɪndoʊ sit pliz/",
@@ -4437,9 +4437,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 22,
-        "mastery": 2,
-        "reviewCount": 2,
-        "lastReviewed": "2026-10-01",
+        "mastery": 3,
+        "reviewCount": 3,
+        "lastReviewed": "2026-10-03",
         "dueDate": null,
         "enh": {
           "fullIpa": "/wʌts ðə ˈwɛðər laɪk təˈdeɪ/",
@@ -6075,9 +6075,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 22,
-        "mastery": 2,
-        "reviewCount": 2,
-        "lastReviewed": "2026-09-18",
+        "mastery": 3,
+        "reviewCount": 3,
+        "lastReviewed": "2026-10-03",
         "dueDate": null,
         "enh": {
           "fullIpa": "/teɪk kɛr/",
@@ -7848,11 +7848,11 @@
       ],
       "audio": "audio/s124.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
+        "introduced": true,
+        "introducedDay": 52,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-10-03",
         "dueDate": null,
         "enh": {
           "fullIpa": "/hɪrz maɪ kleɪm tæɡ fɔr ðə ˈmɪsɪŋ bæɡ/",
@@ -8338,9 +8338,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 37,
-        "mastery": 1,
-        "reviewCount": 1,
-        "lastReviewed": "2026-09-18",
+        "mastery": 2,
+        "reviewCount": 2,
+        "lastReviewed": "2026-10-03",
         "dueDate": null,
         "enh": {
           "fullIpa": "/hɪr ɑr maɪ ˈpæspɔrt ənd rɪˈtɜrn ˈtɪkɪt/",
