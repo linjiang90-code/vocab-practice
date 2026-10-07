@@ -186,9 +186,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 1,
-        "mastery": 2,
-        "reviewCount": 2,
-        "lastReviewed": "2026-09-02",
+        "mastery": 3,
+        "reviewCount": 3,
+        "lastReviewed": "2026-10-07",
         "dueDate": "2026-08-14",
         "enh": {
           "fullIpa": "/aɪd laɪk tə bʊk ə ˈteɪbəl fɔr tu/",
@@ -5013,9 +5013,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 22,
-        "mastery": 4,
-        "reviewCount": 4,
-        "lastReviewed": "2026-10-06",
+        "mastery": 5,
+        "reviewCount": 5,
+        "lastReviewed": "2026-10-07",
         "dueDate": null,
         "enh": {
           "fullIpa": "/θæŋk ju fɔr ɪnˈvaɪtɪŋ mi/",
@@ -7728,9 +7728,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 50,
-        "mastery": 1,
-        "reviewCount": 1,
-        "lastReviewed": "2026-10-01",
+        "mastery": 2,
+        "reviewCount": 2,
+        "lastReviewed": "2026-10-07",
         "dueDate": null,
         "enh": {
           "fullIpa": "/ɪz ðer ə ˈtrɑli aɪ kæn juz ˈnɪrbaɪ/",
@@ -8460,9 +8460,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 44,
-        "mastery": 2,
-        "reviewCount": 2,
-        "lastReviewed": "2026-10-04",
+        "mastery": 3,
+        "reviewCount": 3,
+        "lastReviewed": "2026-10-07",
         "dueDate": null,
         "enh": {
           "fullIpa": "/du aɪ hæv ˈɛniθɪŋ tə dɪˈklɛr naɪθɪŋ tə dɪˈklɛr/",
@@ -9068,11 +9068,11 @@
       ],
       "audio": "audio/s144.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
+        "introduced": true,
+        "introducedDay": 56,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-10-07",
         "dueDate": null,
         "enh": {
           "fullIpa": "/kʊd ju sloʊ daʊn ə ˈlɪtəl pliz/",
