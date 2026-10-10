@@ -50,7 +50,7 @@
   .kw{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
   .kw .chip{background:var(--chip);border-radius:8px;padding:5px 10px;font-size:13px}
   .kw .chip b{color:#b45309} .kw .chip .p{color:#9a3412;font-style:italic;margin-left:4px}
-  .block ul{margin:0;padding:left:18px} .block li{margin:3px 0}
+  .block ul{margin:0;padding-left:18px} .block li{margin:3px 0}
   .block li .ex{font-weight:600} .block li .nt{color:#6b7280}
   .scene li .occ{color:#0e9f6e;font-weight:600} .scene li .resp{color:#6b7280}
   footer{text-align:center;color:var(--sub);font-size:12px;margin-top:24px}
@@ -79,7 +79,6 @@
   .pagenav{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap;margin-bottom:6px}
   .pagenav a{text-decoration:none;font-size:13px;color:#475569;border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-weight:600;transition:.15s}
   .pagenav a:hover{border-color:var(--accent);color:var(--accent);background:#f0f6ff}
-.preview-banner{background:#fff7ed;border:1px solid #fed7aa;color:#b45309;border-radius:10px;padding:9px 12px;font-size:13px;margin:10px 0 4px;text-align:center;line-height:1.5}
 </style>
 </head>
 <body>
@@ -90,18 +89,17 @@
   <a href="calendar.html">📅 日历</a>
 </nav>
   <header>
-    <h1>🗣️ 英语口语 · Day 57（增强版）</h1>
-    <p>旅游 + 日常混合 · 5 句/天 · 中英对照 + 生词音标 + 原声伴读 + 变体 + 场景俗语 + 语法 + 发音提示</p>
+    <h1>🗣 英语口语 · Day 57（增强版）</h1>
+    <p>旅游 + 日常混合 · 5 句/天 · 中英对照 + 生词音标 + 原声伴读 + 变体 + 场景俚语 + 语法 + 发音提示</p>
   </header>
-  <div class="preview-banner">🔓 预习模式 · 该日尚未到（2026-10-08），可提前学习；每日 9:00 自动推送后会与此页内容同步。</div>
   <div class="summary">
     <div class="box"><b>第 57 天</b><span>连续学习</span></div>
-    <div class="box"><b>0 句</b><span>今日新学</span></div>
-    <div class="box"><b>1000/1000</b><span>累计已学</span></div>
+    <div class="box"><b>5 句</b><span>今日新学</span></div>
+    <div class="box"><b>129/1000</b><span>累计已学</span></div>
     <div class="box"><b>1000 句</b><span>当前总池</span></div>
   </div>
   <div class="legend">
-    <span>🔻 <b>简化/口语变体</b></span>
+    <span>🔹 <b>简化/口语变体</b></span>
     <span>🎭 <b>场景化表达 + 不同回答</b></span>
     <span>📝 <b>语法提示</b></span>
     <span>🔤 <b>发音提示(连读/同化/滑音/浊化/失去爆破/闪音/弱读/缩读)</b></span>
@@ -109,7 +107,7 @@
   <div class="toolbar">
     <button class="btn primary" onclick="playAll()">▶ 全部伴读</button>
     <label class="spd">语速(批量预设)
-      <select id="speedSel" onchange="setSpeed(this.value)" title="设为统一语速应用到全部句子">
+      <select id="speedSel" onchange="setSpeed(this.value)" title="设为统一语速并应用到全部句子">
         <option value="1">1倍</option>
         <option value="0.8">0.8倍</option>
         <option value="0.7">0.7倍</option>
@@ -121,12 +119,12 @@
   </div>
   <div id="short"></div>
   <div id="long"></div>
-  <footer>每天 9:00 自动推送新一批（同款增强版） · 进度本地保存，不外传</footer>
+  <footer>每天 9:00 自动推送新一批（同款增强版）· 进度本地保存，不外传</footer>
 </div>
 <script src="audio-engine.js"></script>
 <script>
 (function(){ const d=new Date().toISOString().slice(0,10); document.querySelectorAll('.today-nav').forEach(a=>a.href='day'+d+'.html'); })();
-const DATA = [{"id": "s5", "nid": 5, "type": "short", "topic": "travel", "en": "How much does this cost?", "ipa": "/haʊ mʌtʃ dʌz ðɪs kɔst/", "zh": "这个多少钱？", "kw": [["cost", "/kɔst/", "v.花费，价格为"], ["much", "/mʌtʃ/", "adv.多少"]], "variants": [["How much is this?", "最简，口语最常用"], ["What's the price?", "偏正式"], ["How much are these?", "复数/多个时"]], "scenes": [["砍价前问价", "How much is it?", "对方报价，可接 That's a bit much.(有点贵)"], ["问单位价", "How much per kilo / each?", "按斤/个计价"], ["自由市场", "Is the price negotiable?", "问能否议价"]], "grammar": "How much + do/does + 主语 + cost? cost 此处作动词花费；this 单数用 does。口语更常省去 cost 直接说 How much is this?", "pron": "连读：How much→/haʊ mʌtʃ/（w 与 m 连读）；much does→/mʌtʃ dʌz/（tʃ 与 d）；does this→/dʌz ðɪs/（z 与 ð）。弱读：does→/dʌz/（弱读形式 /dəz/）；this 此处重读 /ðɪs/。浊化：this cost 中 s 后接清 k，保持清音（无浊化）。失去爆破/闪音：无典型（注：含 that thing / hot day 等相邻爆破或 /t/+/θ/ 时标失去爆破）。缩读：无。", "mastery": 5}, {"id": "s11", "nid": 11, "type": "short", "topic": "travel", "en": "Where can I buy a ticket to the city center?", "ipa": "/wɛr kən aɪ baɪ ə ˈtɪkɪt tə ðə ˈsɪti ˈsɛntər/", "zh": "我在哪里可以买到去市中心的票？", "kw": [["ticket", "/ˈtɪkɪt/", "n.票"], ["city", "/ˈsɪti/", "n.城市"]], "variants": [["Where do I get a ticket to downtown?", "downtown 是美式『市中心』"], ["Can I buy a ticket here?", "问当场/本地能否买票"], ["One ticket to the center, please.", "窗口极简说法"]], "scenes": [["问售票柜台", "Where can I buy a ticket to the city center?", "对方指柜台 Over there at the counter."], ["问自助机", "Is there a ticket machine around here?", "对方回 Yes, by the entrance."], ["不同回答", "Single or return? / It's 3 dollars. / Platform 2 is that way."]], "grammar": "Where can I + 动词原形 用于询问地点/请求信息；buy a ticket to + 地点 表『买去…的票』。city center（英）/ downtown（美）同义。ticket 单数即可泛指『一张票』。", "pron": "连读：Where can→/wɛr kən/（r 与 k）；can I→/kə naɪ/（n 与 a）；buy a→/baɪ ə/（aɪ 与 ə）；ticket to→/ˈtɪkɪ tə/（t 与 tə）；to the→/tə ðə/。弱读：can→/kən/；a→/ə/；to→/tə/；the→/ðə/。失去爆破：ticket /ˈtɪkɪ(t)/（词尾 t 轻微不完全爆破）；center /ˈsɛn(t)ər/（t 在 ər 前）。闪音：city→/ˈsɪɾi/（美式元音间 t 标闪音 /ɾ/，关键！）。同化/滑音/浊化/缩读：无典型。", "mastery": 2}, {"id": "s58", "nid": 58, "type": "long", "topic": "travel", "en": "I'd like to extend my stay by two nights if that's possible.", "ipa": "/aɪd laɪk tə ɪkˈstɛnd maɪ steɪ baɪ tu naɪts ɪf ðæts ˈpɑsəbəl/", "zh": "如果可能的话，我想把住宿延长两晚。", "kw": [["extend", "/ɪkˈstɛnd/", "v.延长"], ["stay", "/steɪ/", "n.停留"]], "variants": [["I'd like to stay two more nights.", "more nights 更口语"], ["Can I extend my stay?", "问能否续住"], ["I want to add two nights.", "add 表加"]], "scenes": [["续住", "I'd like to extend my stay by two nights if that's possible.", "前台回 Sure, room 305 again. / An extra 40 a night."], ["问价", "How much for two more nights?", "问加价"], ["不同回答", "No problem. / We're fully booked then. / I'll check availability."]], "grammar": "I'd like to + 动词原形（extend）礼貌表达；extend 动词『延长』。by + 时间段 表『多出…』。if that's possible 是插入条件『如果可能』，that's = that is。", "pron": "缩读：I'd = I would（/aɪd/）；that's = that is（/ðæts/）。连读：like to→/laɪk tə/（可 /laɪktə/）；to extend→/tə ɪkˈstɛnd/；extend my→/ɪkˈstɛnd maɪ/（d 与 m）；my stay→/maɪ steɪ/（aɪ 与 s）；stay by→/steɪ baɪ/（aɪ 与 b）；by two→/baɪ tu/；two nights→/tu naɪts/（u 与 n）；if that's→/ɪf ðæts/（f 与 s）；that's possible→/ðæts ˈpɑsəbəl/（s 与 p）。弱读：to→/tə/；my→/maɪ/；if→/ɪf/。浊化：like to 快读 /laɪ də/（t→d）。失去爆破：extend my /ɪkˈstɛn(d) maɪ/（d 轻）；two nights /tu naɪ(t)s/（t 在 s 前不完全爆破）。闪音：无典型。同化：无。", "mastery": 1}, {"id": "s95", "nid": 95, "type": "short", "topic": "daily", "en": "Take care!", "ipa": "/teɪk kɛr/", "zh": "保重！", "kw": [["take care", "/teɪk kɛr/", "phr.保重"]], "variants": [["Take care!", "标准"], ["Take good care.", "加强"], ["Look after yourself.", "更正式关心"]], "scenes": [["道别叮嘱", "Take care!", "对方回 You too! / Will do."], ["送人", "Drive safe!", "叮嘱开车小心"], ["不同回答", "See you. / Same. / Bye now."]], "grammar": "Take care 固定短语『保重』，祈使句。look after yourself『照顾好自己』。drive safe『开车小心』。", "pron": "连读：Take care→/teɪk kɛr/（k 与 k）。弱读：care 重读 /kɛr/。失去爆破：Take care /teɪ(k) kɛr/（k 在 k 前不完全爆破，只读一次）。浊化：无。同化/滑音/闪音/缩读：无典型。", "mastery": 2}, {"id": "s132", "nid": 132, "type": "short", "topic": "travel", "en": "Here are my passport and return ticket.", "ipa": "/hɪr ɑr maɪ ˈpæspɔrt ənd rɪˈtɜrn ˈtɪkɪt/", "zh": "这是我的护照和返程机票。", "kw": [["return ticket", "/rɪˈtɜːrn ˈtɪkɪt/", "phr.返程票"]], "variants": [["Here's my passport and my return ticket.", "单数逐件递"], ["This is my passport, and here's the return flight.", "边说边分开递"], ["Passport and return ticket, here you go.", "here you go 收尾"]], "scenes": [["边检窗口", "Here are my passport and return ticket.", "官员翻看并扫描"], ["要求补材料", "Anything else? Hotel booking?", "主动配合"], ["复印件备用", "Would you like a copy?", "问要不要复印"]], "grammar": "Here are + 并列复数宾语（口语中 passport and ticket 连用时 are 常见，逐件也可 here's）；return ticket 固定『返程票』。", "pron": "连读：Here are my→/hɪr ɑr maɪ/（r 与 ɑ）；are my passport→/ɑr maɪ ˈpæspɔrt/；passport and→/ˈpæspɔrt ən/（t 失去）；and return→/ən rɪˈtɜrn/（n 与 r）；return ticket→/rɪˈtɜrn ˈtɪkɪt/（n 与 t）。弱读：and→/ən/。失去爆破：passport and /ˈpæspɔr(t) ən/。重音：return /rɪˈtɜrn/ 在后、ticket /ˈtɪkɪt/ 在前。", "mastery": 1}];
+const DATA = [{"id": "s5", "type": "short", "topic": "travel", "en": "How much does this cost?", "ipa": "/haʊ mʌtʃ dʌz ðɪs kɔst/", "zh": "这个多少钱？", "kw": [["cost", "/kɔst/", "v.花费，价格为"], ["much", "/mʌtʃ/", "adv.多少"]], "variants": [["How much is this?", "最简，口语最常用"], ["What's the price?", "偏正式"], ["How much are these?", "复数/多个时"]], "scenes": [["砍价前问价", "How much is it?", "对方报价，可接 That's a bit much.(有点贵)"], ["问单位价", "How much per kilo / each?", "按斤/个计价"], ["自由市场", "Is the price negotiable?", "问能否议价"]], "grammar": "How much + do/does + 主语 + cost? cost 此处作动词花费；this 单数用 does。口语更常省去 cost 直接说 How much is this?", "pron": "连读：How much→/haʊ mʌtʃ/（w 与 m 连读）；much does→/mʌtʃ dʌz/（tʃ 与 d）；does this→/dʌz ðɪs/（z 与 ð）。弱读：does→/dʌz/（弱读形式 /dəz/）；this 此处重读 /ðɪs/。浊化：this cost 中 s 后接清 k，保持清音（无浊化）。失去爆破/闪音：无典型（注：含 that thing / hot day 等相邻爆破或 /t/+/θ/ 时标失去爆破）。缩读：无。", "mastery": 5}, {"id": "s11", "type": "short", "topic": "travel", "en": "Where can I buy a ticket to the city center?", "ipa": "/wɛr kən aɪ baɪ ə ˈtɪkɪt tə ðə ˈsɪti ˈsɛntər/", "zh": "我在哪里可以买到去市中心的票？", "kw": [["ticket", "/ˈtɪkɪt/", "n.票"], ["city", "/ˈsɪti/", "n.城市"]], "variants": [["Where do I get a ticket to downtown?", "downtown 是美式『市中心』"], ["Can I buy a ticket here?", "问当场/本地能否买票"], ["One ticket to the center, please.", "窗口极简说法"]], "scenes": [["问售票柜台", "Where can I buy a ticket to the city center?", "对方指柜台 Over there at the counter."], ["问自助机", "Is there a ticket machine around here?", "对方回 Yes, by the entrance."], ["不同回答", "Single or return? / It's 3 dollars. / Platform 2 is that way."]], "grammar": "Where can I + 动词原形 用于询问地点/请求信息；buy a ticket to + 地点 表『买去…的票』。city center（英）/ downtown（美）同义。ticket 单数即可泛指『一张票』。", "pron": "连读：Where can→/wɛr kən/（r 与 k）；can I→/kə naɪ/（n 与 a）；buy a→/baɪ ə/（aɪ 与 ə）；ticket to→/ˈtɪkɪ tə/（t 与 tə）；to the→/tə ðə/。弱读：can→/kən/；a→/ə/；to→/tə/；the→/ðə/。失去爆破：ticket /ˈtɪkɪ(t)/（词尾 t 轻微不完全爆破）；center /ˈsɛn(t)ər/（t 在 ər 前）。闪音：city→/ˈsɪɾi/（美式元音间 t 标闪音 /ɾ/，关键！）。同化/滑音/浊化/缩读：无典型。", "mastery": 4}, {"id": "s58", "type": "long", "topic": "travel", "en": "I'd like to extend my stay by two nights if that's possible.", "ipa": "/aɪd laɪk tə ɪkˈstɛnd maɪ steɪ baɪ tu naɪts ɪf ðæts ˈpɑsəbəl/", "zh": "如果可能的话，我想把住宿延长两晚。", "kw": [["extend", "/ɪkˈstɛnd/", "v.延长"], ["stay", "/steɪ/", "n.停留"]], "variants": [["I'd like to stay two more nights.", "more nights 更口语"], ["Can I extend my stay?", "问能否续住"], ["I want to add two nights.", "add 表加"]], "scenes": [["续住", "I'd like to extend my stay by two nights if that's possible.", "前台回 Sure, room 305 again. / An extra 40 a night."], ["问价", "How much for two more nights?", "问加价"], ["不同回答", "No problem. / We're fully booked then. / I'll check availability."]], "grammar": "I'd like to + 动词原形（extend）礼貌表达；extend 动词『延长』。by + 时间段 表『多出…』。if that's possible 是插入条件『如果可能』，that's = that is。", "pron": "缩读：I'd = I would（/aɪd/）；that's = that is（/ðæts/）。连读：like to→/laɪk tə/（可 /laɪktə/）；to extend→/tə ɪkˈstɛnd/；extend my→/ɪkˈstɛnd maɪ/（d 与 m）；my stay→/maɪ steɪ/（aɪ 与 s）；stay by→/steɪ baɪ/（aɪ 与 b）；by two→/baɪ tu/；two nights→/tu naɪts/（u 与 n）；if that's→/ɪf ðæts/（f 与 s）；that's possible→/ðæts ˈpɑsəbəl/（s 与 p）。弱读：to→/tə/；my→/maɪ/；if→/ɪf/。浊化：like to 快读 /laɪ də/（t→d）。失去爆破：extend my /ɪkˈstɛn(d) maɪ/（d 轻）；two nights /tu naɪ(t)s/（t 在 s 前不完全爆破）。闪音：无典型。同化：无。", "mastery": 2}, {"id": "s95", "type": "short", "topic": "daily", "en": "Take care!", "ipa": "/teɪk kɛr/", "zh": "保重！", "kw": [["take care", "/teɪk kɛr/", "phr.保重"]], "variants": [["Take care!", "标准"], ["Take good care.", "加强"], ["Look after yourself.", "更正式关心"]], "scenes": [["道别叮嘱", "Take care!", "对方回 You too! / Will do."], ["送人", "Drive safe!", "叮嘱开车小心"], ["不同回答", "See you. / Same. / Bye now."]], "grammar": "Take care 固定短语『保重』，祈使句。look after yourself『照顾好自己』。drive safe『开车小心』。", "pron": "连读：Take care→/teɪk kɛr/（k 与 k）。弱读：care 重读 /kɛr/。失去爆破：Take care /teɪ(k) kɛr/（k 在 k 前不完全爆破，只读一次）。浊化：无。同化/滑音/闪音/缩读：无典型。", "mastery": 4}, {"id": "s132", "type": "short", "topic": "travel", "en": "Here are my passport and return ticket.", "ipa": "/hɪr ɑr maɪ ˈpæspɔrt ənd rɪˈtɜrn ˈtɪkɪt/", "zh": "这是我的护照和返程机票。", "kw": [["return ticket", "/rɪˈtɜːrn ˈtɪkɪt/", "phr.返程票"]], "variants": [["Here's my passport and my return ticket.", "单数逐件递"], ["This is my passport, and here's the return flight.", "边说边分开递"], ["Passport and return ticket, here you go.", "here you go 收尾"]], "scenes": [["边检窗口", "Here are my passport and return ticket.", "官员翻看并扫描"], ["要求补材料", "Anything else? Hotel booking?", "主动配合"], ["复印件备用", "Would you like a copy?", "问要不要复印"]], "grammar": "Here are + 并列复数宾语（口语中 passport and ticket 连用时 are 常见，逐件也可 here's）；return ticket 固定『返程票』。", "pron": "连读：Here are my→/hɪr ɑr maɪ/（r 与 ɑ）；are my passport→/ɑr maɪ ˈpæspɔrt/；passport and→/ˈpæspɔrt ən/（t 失去）；and return→/ən rɪˈtɜrn/（n 与 r）；return ticket→/rɪˈtɜrn ˈtɪkɪt/（n 与 t）。弱读：and→/ən/。失去爆破：passport and /ˈpæspɔr(t) ən/。重音：return /rɪˈtɜrn/ 在后、ticket /ˈtɪkɪt/ 在前。", "mastery": 3}];
 let speed = 1;
 let cardSpeed = {};
 try { DATA.forEach(d => { const sv = localStorage.getItem('vocab_speed_'+String(d.id).replace('s','')); if(sv) cardSpeed[d.id]=parseFloat(sv); }); } catch(e){}
@@ -178,7 +176,7 @@ function cardHTML(d){
     <div class="kw">${kw}</div>
     <button class="detailsBtn" id="db-${d.id}" onclick="toggleDetails('${d.id}')">📂 展开详情（变体 / 场景 / 语法 / 发音）</button>
     <div class="details collapsed" id="dt-${d.id}">
-      <div class="block var"><div class="h">🔻 简化 / 口语变体</div><ul>${v}</ul></div>
+      <div class="block var"><div class="h">🔹 简化 / 口语变体</div><ul>${v}</ul></div>
       <div class="block scene"><div class="h">🎭 场景化表达 + 不同回答</div><ul>${sc}</ul></div>
       <div class="block gram"><div class="h">📝 语法提示</div><div>${d.grammar}</div></div>
       <div class="block pr"><div class="h">🔤 发音提示（连读/同化/滑音/浊化/失去爆破/闪音/弱读/缩读）</div><div>${d.pron}</div></div>
@@ -231,10 +229,10 @@ function setCardDetails(id, show){ const el=document.getElementById('dt-'+id); i
 function toggleDetails(id){ const el=document.getElementById('dt-'+id); if(el) setCardDetails(id, el.classList.contains('collapsed')); }
 function toggleAllDetails(){ const anyCollapsed = !!document.querySelector('.details.collapsed'); const show = anyCollapsed;
   document.querySelectorAll('.details').forEach(el=>setCardDetails(el.id.replace('dt-',''), show));
-  const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = show ? '📁 收走全部详情' : '📂 展开全部详情'; }
+  const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = show ? '📁 收起全部详情' : '📂 展开全部详情'; }
 function applyStoredDetails(){ DATA.forEach(d=>{ let st=null; try{ st=localStorage.getItem('vocab_details_'+d.id); }catch(e){}
   if(st==='open') setCardDetails(d.id, true); });
-  const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = document.querySelector('.details.collapsed') ? '📂 展开全部详情' : '📁 收走全部详情'; }
+  const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = document.querySelector('.details.collapsed') ? '📂 展开全部详情' : '📁 收起全部详情'; }
 function mColor(v){ return v<=2?'#dc2626':(v<=4?'#d97706':'#16a34a'); }
 function setMbar(sid,v){ const bar=document.getElementById('mbar-'+sid);
   if(bar){ const f=bar.querySelector('.mfill'); f.style.width=(v*20)+'%'; f.style.background=mColor(v); }

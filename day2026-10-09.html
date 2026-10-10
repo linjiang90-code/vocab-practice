@@ -50,7 +50,7 @@
   .kw{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
   .kw .chip{background:var(--chip);border-radius:8px;padding:5px 10px;font-size:13px}
   .kw .chip b{color:#b45309} .kw .chip .p{color:#9a3412;font-style:italic;margin-left:4px}
-  .block ul{margin:0;padding:left:18px} .block li{margin:3px 0}
+  .block ul{margin:0;padding-left:18px} .block li{margin:3px 0}
   .block li .ex{font-weight:600} .block li .nt{color:#6b7280}
   .scene li .occ{color:#0e9f6e;font-weight:600} .scene li .resp{color:#6b7280}
   footer{text-align:center;color:var(--sub);font-size:12px;margin-top:24px}
@@ -79,7 +79,6 @@
   .pagenav{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap;margin-bottom:6px}
   .pagenav a{text-decoration:none;font-size:13px;color:#475569;border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-weight:600;transition:.15s}
   .pagenav a:hover{border-color:var(--accent);color:var(--accent);background:#f0f6ff}
-.preview-banner{background:#fff7ed;border:1px solid #fed7aa;color:#b45309;border-radius:10px;padding:9px 12px;font-size:13px;margin:10px 0 4px;text-align:center;line-height:1.5}
 </style>
 </head>
 <body>
@@ -90,18 +89,17 @@
   <a href="calendar.html">📅 日历</a>
 </nav>
   <header>
-    <h1>🗣️ 英语口语 · Day 58（增强版）</h1>
-    <p>旅游 + 日常混合 · 5 句/天 · 中英对照 + 生词音标 + 原声伴读 + 变体 + 场景俗语 + 语法 + 发音提示</p>
+    <h1>🗣 英语口语 · Day 58（增强版）</h1>
+    <p>旅游 + 日常混合 · 5 句/天 · 中英对照 + 生词音标 + 原声伴读 + 变体 + 场景俚语 + 语法 + 发音提示</p>
   </header>
-  <div class="preview-banner">🔓 预习模式 · 该日尚未到（2026-10-09），可提前学习；每日 9:00 自动推送后会与此页内容同步。</div>
   <div class="summary">
     <div class="box"><b>第 58 天</b><span>连续学习</span></div>
-    <div class="box"><b>0 句</b><span>今日新学</span></div>
-    <div class="box"><b>1000/1000</b><span>累计已学</span></div>
+    <div class="box"><b>5 句</b><span>今日新学</span></div>
+    <div class="box"><b>129/1000</b><span>累计已学</span></div>
     <div class="box"><b>1000 句</b><span>当前总池</span></div>
   </div>
   <div class="legend">
-    <span>🔻 <b>简化/口语变体</b></span>
+    <span>🔹 <b>简化/口语变体</b></span>
     <span>🎭 <b>场景化表达 + 不同回答</b></span>
     <span>📝 <b>语法提示</b></span>
     <span>🔤 <b>发音提示(连读/同化/滑音/浊化/失去爆破/闪音/弱读/缩读)</b></span>
@@ -109,7 +107,7 @@
   <div class="toolbar">
     <button class="btn primary" onclick="playAll()">▶ 全部伴读</button>
     <label class="spd">语速(批量预设)
-      <select id="speedSel" onchange="setSpeed(this.value)" title="设为统一语速应用到全部句子">
+      <select id="speedSel" onchange="setSpeed(this.value)" title="设为统一语速并应用到全部句子">
         <option value="1">1倍</option>
         <option value="0.8">0.8倍</option>
         <option value="0.7">0.7倍</option>
@@ -121,12 +119,12 @@
   </div>
   <div id="short"></div>
   <div id="long"></div>
-  <footer>每天 9:00 自动推送新一批（同款增强版） · 进度本地保存，不外传</footer>
+  <footer>每天 9:00 自动推送新一批（同款增强版）· 进度本地保存，不外传</footer>
 </div>
 <script src="audio-engine.js"></script>
 <script>
 (function(){ const d=new Date().toISOString().slice(0,10); document.querySelectorAll('.today-nav').forEach(a=>a.href='day'+d+'.html'); })();
-const DATA = [{"id": "s11", "nid": 11, "type": "short", "topic": "travel", "en": "Where can I buy a ticket to the city center?", "ipa": "/wɛr kən aɪ baɪ ə ˈtɪkɪt tə ðə ˈsɪti ˈsɛntər/", "zh": "我在哪里可以买到去市中心的票？", "kw": [["ticket", "/ˈtɪkɪt/", "n.票"], ["city", "/ˈsɪti/", "n.城市"]], "variants": [["Where do I get a ticket to downtown?", "downtown 是美式『市中心』"], ["Can I buy a ticket here?", "问当场/本地能否买票"], ["One ticket to the center, please.", "窗口极简说法"]], "scenes": [["问售票柜台", "Where can I buy a ticket to the city center?", "对方指柜台 Over there at the counter."], ["问自助机", "Is there a ticket machine around here?", "对方回 Yes, by the entrance."], ["不同回答", "Single or return? / It's 3 dollars. / Platform 2 is that way."]], "grammar": "Where can I + 动词原形 用于询问地点/请求信息；buy a ticket to + 地点 表『买去…的票』。city center（英）/ downtown（美）同义。ticket 单数即可泛指『一张票』。", "pron": "连读：Where can→/wɛr kən/（r 与 k）；can I→/kə naɪ/（n 与 a）；buy a→/baɪ ə/（aɪ 与 ə）；ticket to→/ˈtɪkɪ tə/（t 与 tə）；to the→/tə ðə/。弱读：can→/kən/；a→/ə/；to→/tə/；the→/ðə/。失去爆破：ticket /ˈtɪkɪ(t)/（词尾 t 轻微不完全爆破）；center /ˈsɛn(t)ər/（t 在 ər 前）。闪音：city→/ˈsɪɾi/（美式元音间 t 标闪音 /ɾ/，关键！）。同化/滑音/浊化/缩读：无典型。", "mastery": 2}, {"id": "s51", "nid": 51, "type": "short", "topic": "travel", "en": "Can you speak more slowly, please?", "ipa": "/kæn ju spiːk mɔr ˈsloʊli pliz/", "zh": "你能说慢一点吗？", "kw": [["slowly", "/ˈsloʊli/", "adv.慢地"], ["speak", "/spik/", "v.说"]], "variants": [["Could you slow down, please?", "slow down 口语"], ["Can you speak slower?", "slower 也可"], ["Sorry, I didn't catch that.", "先说没听懂"]], "scenes": [["请慢点", "Can you speak more slowly, please?", "对方回 Of course, sorry."], ["换语言", "Do you speak Chinese?", "问会不会中文"], ["不同回答", "Let me repeat. / I'll go slower. / Like this?"]], "grammar": "Can you + 动词原形（speak）请求；more + 副词原级（slowly）构成比较级『更慢』。speak slower / more slowly 都对，slowly 多音节用 more。", "pron": "连读：Can you→/kæn ju/（n 与 j，可同化 /kændʒu/）；you speak→/ju spiːk/；speak more→/spiːk mɔr/（k 与 m）；more slowly→/mɔr ˈsloʊli/（r 与 s）。弱读：you→/jə/（可保留 /ju/）。同化：Can you 快读 /kændʒu/（n+j）。失去爆破：speak more /spiː(k) mɔr/（k 在 m 前轻）。浊化：无。滑音/闪音/缩读：无典型。", "mastery": 1}, {"id": "s52", "nid": 52, "type": "short", "topic": "travel", "en": "I don't understand.", "ipa": "/aɪ doʊnt ˌʌndərˈstænd/", "zh": "我不明白。", "kw": [["understand", "/ˌʌndərˈstænd/", "v.理解"]], "variants": [["I don't get it.", "get it 口语=懂"], ["Sorry, I'm lost.", "说跟不上"], ["What do you mean?", "反问什么意思"]], "scenes": [["表示不懂", "I don't understand.", "对方回 Let me explain again. / In simpler words…"], ["部分懂", "I get part of it.", "说懂一部分"], ["不同回答", "It's like this. / Do you follow now? / I'll write it down."]], "grammar": "don't = do not 缩读；understand 动词『理解』，否定用 don't + 原形。get it 口语同义。mean 动词『意思是』。", "pron": "缩读：don't = do not（/doʊnt/）。连读：I don't→/aɪ doʊnt/（aɪ 与 d）；don't understand→/doʊnt ˌʌndərˈstænd/（t 与 ʌ）。弱读：I→/aɪ/（重读）。失去爆破：don't understand /doʊn(t) ˌʌn/（t 在 ʌ 前不完全爆破）。浊化：无。同化/滑音/闪音：无典型。", "mastery": 1}, {"id": "s53", "nid": 53, "type": "short", "topic": "travel", "en": "Does anyone here speak English?", "ipa": "/dʌz ˈɛniwʌn hɪr spik ˈɪŋɡlɪʃ/", "zh": "这里有人会说英语吗？", "kw": [["anyone", "/ˈeniwʌn/", "pron.任何人"], ["English", "/ˈɪŋɡlɪʃ/", "n.英语"]], "variants": [["Does anyone here speak English?", "标准"], ["Who speaks English?", "问谁会英语"], ["Is there an English speaker?", "问有无会说英语的人"]], "scenes": [["求助问语言", "Does anyone here speak English?", "对方回 A little. / Yes, I do."], ["翻译", "Can you translate for me?", "请翻译"], ["不同回答", "My English is poor. / Try the young man. / Slowly, please."]], "grammar": "Does anyone + 动词原形（speak）疑问；anyone 复合不定代词单数用 does。here 副词。speak English 『说英语』。translate 动词『翻译』。", "pron": "连读：Does anyone→/dʌz ˈɛniwʌn/（z 与 ɛ）；anyone here→/ˈɛniwʌn hɪr/（n 与 h）；here speak→/hɪr spik/（r 与 s）；speak English→/spik ˈɪŋɡlɪʃ/（k 与 ɪ）。弱读：does→/dəz/。失去爆破：anyone here /ˈɛniwʌ(n) hɪr/（n 轻微）；speak English /spi(k) ˈɪŋ/（k 在 ɪ 前不完全爆破）。浊化：无。同化/滑音/闪音/缩读：无典型。", "mastery": 1}, {"id": "s149", "nid": 149, "type": "long", "topic": "travel", "en": "Is a day pass worth it for getting around?", "ipa": "/ɪz ə deɪ pæs wɜrθ ɪt fɔr ˈɡɛtɪŋ əˈraʊnd/", "zh": "买张一日票划算吗？", "kw": [["day pass", "/deɪ pæs/", "phr.一日通票"]], "variants": [["Is a day pass worth it?", "省目的状语"], ["Would a day pass save me money?", "save 换角度"], ["Should I just get single tickets instead?", "反向比较"]], "scenes": [["票务咨询", "Is a day pass worth it for getting around?", "工作人员回 If you take more than three rides, yes."], ["算账决策", "How many rides to break even?", "问回本次数"], ["多人同行", "Is there a group day pass?", "问团体票"]], "grammar": "be worth it 固定搭配『值得（花这个钱）』；动名词短语 for getting around 表用途（get around 固定短语『四处走动/出行』）。", "pron": "连读：Is a day pass→/ɪz ə deɪ pæs/（z 与 ə；eɪ 与 p）；day pass worth→/deɪ pæs wɜrθ/（s 与 w）；pass worth it→/pæs wɜrθ ɪt/（θ 与 ɪ）；worth it for→/wɜrθ ɪt fər/（t 与 f）；it for getting→/ɪt fər ˈɡɛtɪŋ/（r 与 ɡ）；getting around→/ˈɡɛtɪŋ əˈraʊnd/（ŋ 与 ə）。弱读：a→/ə/；for→/fər/。失去爆破：worth it /wɜrθ ɪt/ 常并作 /wɜr θɪt/。", "mastery": 1}];
+const DATA = [{"id": "s11", "type": "short", "topic": "travel", "en": "Where can I buy a ticket to the city center?", "ipa": "/wɛr kən aɪ baɪ ə ˈtɪkɪt tə ðə ˈsɪti ˈsɛntər/", "zh": "我在哪里可以买到去市中心的票？", "kw": [["ticket", "/ˈtɪkɪt/", "n.票"], ["city", "/ˈsɪti/", "n.城市"]], "variants": [["Where do I get a ticket to downtown?", "downtown 是美式『市中心』"], ["Can I buy a ticket here?", "问当场/本地能否买票"], ["One ticket to the center, please.", "窗口极简说法"]], "scenes": [["问售票柜台", "Where can I buy a ticket to the city center?", "对方指柜台 Over there at the counter."], ["问自助机", "Is there a ticket machine around here?", "对方回 Yes, by the entrance."], ["不同回答", "Single or return? / It's 3 dollars. / Platform 2 is that way."]], "grammar": "Where can I + 动词原形 用于询问地点/请求信息；buy a ticket to + 地点 表『买去…的票』。city center（英）/ downtown（美）同义。ticket 单数即可泛指『一张票』。", "pron": "连读：Where can→/wɛr kən/（r 与 k）；can I→/kə naɪ/（n 与 a）；buy a→/baɪ ə/（aɪ 与 ə）；ticket to→/ˈtɪkɪ tə/（t 与 tə）；to the→/tə ðə/。弱读：can→/kən/；a→/ə/；to→/tə/；the→/ðə/。失去爆破：ticket /ˈtɪkɪ(t)/（词尾 t 轻微不完全爆破）；center /ˈsɛn(t)ər/（t 在 ər 前）。闪音：city→/ˈsɪɾi/（美式元音间 t 标闪音 /ɾ/，关键！）。同化/滑音/浊化/缩读：无典型。", "mastery": 5}, {"id": "s51", "type": "short", "topic": "travel", "en": "Can you speak more slowly, please?", "ipa": "/kæn ju spiːk mɔr ˈsloʊli pliz/", "zh": "你能说慢一点吗？", "kw": [["slowly", "/ˈsloʊli/", "adv.慢地"], ["speak", "/spik/", "v.说"]], "variants": [["Could you slow down, please?", "slow down 口语"], ["Can you speak slower?", "slower 也可"], ["Sorry, I didn't catch that.", "先说没听懂"]], "scenes": [["请慢点", "Can you speak more slowly, please?", "对方回 Of course, sorry."], ["换语言", "Do you speak Chinese?", "问会不会中文"], ["不同回答", "Let me repeat. / I'll go slower. / Like this?"]], "grammar": "Can you + 动词原形（speak）请求；more + 副词原级（slowly）构成比较级『更慢』。speak slower / more slowly 都对，slowly 多音节用 more。", "pron": "连读：Can you→/kæn ju/（n 与 j，可同化 /kændʒu/）；you speak→/ju spiːk/；speak more→/spiːk mɔr/（k 与 m）；more slowly→/mɔr ˈsloʊli/（r 与 s）。弱读：you→/jə/（可保留 /ju/）。同化：Can you 快读 /kændʒu/（n+j）。失去爆破：speak more /spiː(k) mɔr/（k 在 m 前轻）。浊化：无。滑音/闪音/缩读：无典型。", "mastery": 3}, {"id": "s52", "type": "short", "topic": "travel", "en": "I don't understand.", "ipa": "/aɪ doʊnt ˌʌndərˈstænd/", "zh": "我不明白。", "kw": [["understand", "/ˌʌndərˈstænd/", "v.理解"]], "variants": [["I don't get it.", "get it 口语=懂"], ["Sorry, I'm lost.", "说跟不上"], ["What do you mean?", "反问什么意思"]], "scenes": [["表示不懂", "I don't understand.", "对方回 Let me explain again. / In simpler words…"], ["部分懂", "I get part of it.", "说懂一部分"], ["不同回答", "It's like this. / Do you follow now? / I'll write it down."]], "grammar": "don't = do not 缩读；understand 动词『理解』，否定用 don't + 原形。get it 口语同义。mean 动词『意思是』。", "pron": "缩读：don't = do not（/doʊnt/）。连读：I don't→/aɪ doʊnt/（aɪ 与 d）；don't understand→/doʊnt ˌʌndərˈstænd/（t 与 ʌ）。弱读：I→/aɪ/（重读）。失去爆破：don't understand /doʊn(t) ˌʌn/（t 在 ʌ 前不完全爆破）。浊化：无。同化/滑音/闪音：无典型。", "mastery": 2}, {"id": "s53", "type": "short", "topic": "travel", "en": "Does anyone here speak English?", "ipa": "/dʌz ˈɛniwʌn hɪr spik ˈɪŋɡlɪʃ/", "zh": "这里有人会说英语吗？", "kw": [["anyone", "/ˈeniwʌn/", "pron.任何人"], ["English", "/ˈɪŋɡlɪʃ/", "n.英语"]], "variants": [["Does anyone here speak English?", "标准"], ["Who speaks English?", "问谁会英语"], ["Is there an English speaker?", "问有无会说英语的人"]], "scenes": [["求助问语言", "Does anyone here speak English?", "对方回 A little. / Yes, I do."], ["翻译", "Can you translate for me?", "请翻译"], ["不同回答", "My English is poor. / Try the young man. / Slowly, please."]], "grammar": "Does anyone + 动词原形（speak）疑问；anyone 复合不定代词单数用 does。here 副词。speak English 『说英语』。translate 动词『翻译』。", "pron": "连读：Does anyone→/dʌz ˈɛniwʌn/（z 与 ɛ）；anyone here→/ˈɛniwʌn hɪr/（n 与 h）；here speak→/hɪr spik/（r 与 s）；speak English→/spik ˈɪŋɡlɪʃ/（k 与 ɪ）。弱读：does→/dəz/。失去爆破：anyone here /ˈɛniwʌ(n) hɪr/（n 轻微）；speak English /spi(k) ˈɪŋ/（k 在 ɪ 前不完全爆破）。浊化：无。同化/滑音/闪音/缩读：无典型。", "mastery": 2}, {"id": "s149", "type": "long", "topic": "travel", "en": "Is a day pass worth it for getting around?", "ipa": "/ɪz ə deɪ pæs wɜrθ ɪt fɔr ˈɡɛtɪŋ əˈraʊnd/", "zh": "买张一日票划算吗？", "kw": [["day pass", "/deɪ pæs/", "phr.一日通票"]], "variants": [["Is a day pass worth it?", "省目的状语"], ["Would a day pass save me money?", "save 换角度"], ["Should I just get single tickets instead?", "反向比较"]], "scenes": [["票务咨询", "Is a day pass worth it for getting around?", "工作人员回 If you take more than three rides, yes."], ["算账决策", "How many rides to break even?", "问回本次数"], ["多人同行", "Is there a group day pass?", "问团体票"]], "grammar": "be worth it 固定搭配『值得（花这个钱）』；动名词短语 for getting around 表用途（get around 固定短语『四处走动/出行』）。", "pron": "连读：Is a day pass→/ɪz ə deɪ pæs/（z 与 ə；eɪ 与 p）；day pass worth→/deɪ pæs wɜrθ/（s 与 w）；pass worth it→/pæs wɜrθ ɪt/（θ 与 ɪ）；worth it for→/wɜrθ ɪt fər/（t 与 f）；it for getting→/ɪt fər ˈɡɛtɪŋ/（r 与 ɡ）；getting around→/ˈɡɛtɪŋ əˈraʊnd/（ŋ 与 ə）。弱读：a→/ə/；for→/fər/。失去爆破：worth it /wɜrθ ɪt/ 常并作 /wɜr θɪt/。", "mastery": 2}];
 let speed = 1;
 let cardSpeed = {};
 try { DATA.forEach(d => { const sv = localStorage.getItem('vocab_speed_'+String(d.id).replace('s','')); if(sv) cardSpeed[d.id]=parseFloat(sv); }); } catch(e){}
@@ -178,7 +176,7 @@ function cardHTML(d){
     <div class="kw">${kw}</div>
     <button class="detailsBtn" id="db-${d.id}" onclick="toggleDetails('${d.id}')">📂 展开详情（变体 / 场景 / 语法 / 发音）</button>
     <div class="details collapsed" id="dt-${d.id}">
-      <div class="block var"><div class="h">🔻 简化 / 口语变体</div><ul>${v}</ul></div>
+      <div class="block var"><div class="h">🔹 简化 / 口语变体</div><ul>${v}</ul></div>
       <div class="block scene"><div class="h">🎭 场景化表达 + 不同回答</div><ul>${sc}</ul></div>
       <div class="block gram"><div class="h">📝 语法提示</div><div>${d.grammar}</div></div>
       <div class="block pr"><div class="h">🔤 发音提示（连读/同化/滑音/浊化/失去爆破/闪音/弱读/缩读）</div><div>${d.pron}</div></div>
@@ -231,10 +229,10 @@ function setCardDetails(id, show){ const el=document.getElementById('dt-'+id); i
 function toggleDetails(id){ const el=document.getElementById('dt-'+id); if(el) setCardDetails(id, el.classList.contains('collapsed')); }
 function toggleAllDetails(){ const anyCollapsed = !!document.querySelector('.details.collapsed'); const show = anyCollapsed;
   document.querySelectorAll('.details').forEach(el=>setCardDetails(el.id.replace('dt-',''), show));
-  const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = show ? '📁 收走全部详情' : '📂 展开全部详情'; }
+  const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = show ? '📁 收起全部详情' : '📂 展开全部详情'; }
 function applyStoredDetails(){ DATA.forEach(d=>{ let st=null; try{ st=localStorage.getItem('vocab_details_'+d.id); }catch(e){}
   if(st==='open') setCardDetails(d.id, true); });
-  const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = document.querySelector('.details.collapsed') ? '📂 展开全部详情' : '📁 收走全部详情'; }
+  const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = document.querySelector('.details.collapsed') ? '📂 展开全部详情' : '📁 收起全部详情'; }
 function mColor(v){ return v<=2?'#dc2626':(v<=4?'#d97706':'#16a34a'); }
 function setMbar(sid,v){ const bar=document.getElementById('mbar-'+sid);
   if(bar){ const f=bar.querySelector('.mfill'); f.style.width=(v*20)+'%'; f.style.background=mColor(v); }
