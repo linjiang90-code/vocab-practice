@@ -19,10 +19,10 @@
     "voiceRate": "-10%",
     "audioDir": "audio/",
     "audioPattern": "audio/s{id}.mp3",
-    "expansionsDone": 1,
-    "nextExpansionDay": 61,
+    "expansionsDone": 2,
+    "nextExpansionDay": 91,
     "cumulativeTargetNote": "100 -> (每30天+50) -> 150 -> 200 -> ... -> 1000；每日 5 句随机推送",
-    "activeCount": 150,
+    "activeCount": 200,
     "totalTarget": 1000
   },
   "sentences": [
@@ -3669,9 +3669,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 19,
-        "mastery": 1,
-        "reviewCount": 1,
-        "lastReviewed": "2026-08-31",
+        "mastery": 2,
+        "reviewCount": 2,
+        "lastReviewed": "2026-10-16",
         "dueDate": null,
         "enh": {
           "fullIpa": "/ɪf ɪts nɑt tu mʌtʃ ˈtrʌbəl kʊd ju lɛt mi noʊ wɛn wi əˈraɪv ət ðə mjuˈziəm/",
@@ -4755,9 +4755,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 22,
-        "mastery": 1,
-        "reviewCount": 1,
-        "lastReviewed": "2026-09-05",
+        "mastery": 2,
+        "reviewCount": 2,
+        "lastReviewed": "2026-10-16",
         "dueDate": null,
         "enh": {
           "fullIpa": "/kʊd ju du mi ə ˈfeɪvər/",
@@ -6813,9 +6813,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 45,
-        "mastery": 1,
-        "reviewCount": 1,
-        "lastReviewed": "2026-09-26",
+        "mastery": 2,
+        "reviewCount": 2,
+        "lastReviewed": "2026-10-16",
         "dueDate": null,
         "enh": {
           "fullIpa": "/kæn aɪ peɪ fɔr ði ˈɛkstrə bæɡ ət ðə ˈkaʊntər/",
@@ -7238,11 +7238,11 @@
       ],
       "audio": "audio/s114.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
+        "introduced": true,
+        "introducedDay": 65,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-10-16",
         "dueDate": null,
         "enh": {
           "fullIpa": "/aɪ mɪst maɪ kəˈnɛkʃən bɪˈkɔz əv ðə dɪˈleɪ/",
@@ -8338,9 +8338,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 57,
-        "mastery": 3,
-        "reviewCount": 3,
-        "lastReviewed": "2026-10-08",
+        "mastery": 4,
+        "reviewCount": 4,
+        "lastReviewed": "2026-10-16",
         "dueDate": "2026-10-09",
         "enh": {
           "fullIpa": "/hɪr ɑr maɪ ˈpæspɔrt ənd rɪˈtɜrn ˈtɪkɪt/",
