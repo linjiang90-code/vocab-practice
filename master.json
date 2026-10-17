@@ -1239,9 +1239,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 6,
-        "mastery": 1,
-        "reviewCount": 1,
-        "lastReviewed": "2026-08-18",
+        "mastery": 2,
+        "reviewCount": 2,
+        "lastReviewed": "2026-10-17",
         "dueDate": "2026-08-19",
         "enh": {
           "fullIpa": "/kʊd ju kɔl mi ə ˈtæksi pliz/",
@@ -4113,9 +4113,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 20,
-        "mastery": 1,
-        "reviewCount": 1,
-        "lastReviewed": "2026-09-01",
+        "mastery": 2,
+        "reviewCount": 2,
+        "lastReviewed": "2026-10-17",
         "dueDate": null,
         "enh": {
           "fullIpa": "/kʊd aɪ ɡɛt jʊr foʊn ˈnʌmbər/",
@@ -5139,9 +5139,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 22,
-        "mastery": 2,
-        "reviewCount": 2,
-        "lastReviewed": "2026-09-11",
+        "mastery": 3,
+        "reviewCount": 3,
+        "lastReviewed": "2026-10-17",
         "dueDate": null,
         "enh": {
           "fullIpa": "/ɪkˈskjuz mi kʊd ju pæs ðə sɔlt/",
@@ -7116,11 +7116,11 @@
       ],
       "audio": "audio/s112.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
+        "introduced": true,
+        "introducedDay": 66,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-10-17",
         "dueDate": null,
         "enh": {
           "fullIpa": "/haʊ mʌtʃ ˈleɪoʊvər taɪm du aɪ hæv bɪˈtwin ðə flaɪts/",
@@ -7299,11 +7299,11 @@
       ],
       "audio": "audio/s115.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
+        "introduced": true,
+        "introducedDay": 66,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-10-17",
         "dueDate": null,
         "enh": {
           "fullIpa": "/wɪl ðə ˈerlaɪn pʊt miː ɑn ðə nɛkst flaɪt fɔr friː/",
