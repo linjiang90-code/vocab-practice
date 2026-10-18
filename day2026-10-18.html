@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>英语口语 Day 67 · 增强版</title>
+<style>
+  :root{
+    --bg:#f5f7fa; --card:#ffffff; --text:#1f2329; --sub:#6b7280;
+    --line:#e5e7eb; --accent:#2f6fed; --accent2:#0e9f6e; --warn:#b45309; --pron:#0369a1;
+    --travel:#eef4ff; --daily:#eafaf3; --chip:#fff4e5;
+    --var:#f3f0ff; --scene:#eafaf3; --gram:#fff7ed; --pr:#eaf4ff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",Segoe UI,Roboto,sans-serif;
+    background:var(--bg);color:var(--text);line-height:1.65;padding:24px 16px 60px}
+  .wrap{max-width:820px;margin:0 auto}
+  header{text-align:center;margin-bottom:14px}
+  header h1{font-size:22px;font-weight:700}
+  header p{color:var(--sub);font-size:13.5px;margin-top:6px}
+  .summary{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:14px 0 4px}
+  .summary .box{background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 14px;text-align:center;min-width:96px}
+  .summary .box b{display:block;font-size:18px;color:var(--accent)}
+  .summary .box span{font-size:12px;color:var(--sub)}
+  .legend{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;font-size:12px;color:var(--sub);margin:14px 0 18px}
+  .legend b{color:var(--text)}
+  .toolbar{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:0 0 22px}
+  .btn{border:1px solid var(--line);background:#fff;color:var(--text);border-radius:999px;
+    padding:7px 16px;font-size:14px;cursor:pointer;transition:.15s}
+  .btn:hover{border-color:var(--accent);color:var(--accent)}
+  .btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .sec-title{font-size:15px;font-weight:700;color:var(--sub);margin:24px 4px 12px;display:flex;align-items:center;gap:8px}
+  .sec-title .tag{background:var(--accent);color:#fff;font-size:12px;padding:2px 9px;border-radius:6px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:14px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+  .card .top{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+  .num{width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex:none}
+  .pill{font-size:12px;padding:2px 10px;border-radius:999px;font-weight:600}
+  .pill.travel{background:var(--travel);color:#2f6fed}
+  .pill.daily{background:var(--daily);color:#0e9f6e}
+  .play{margin-left:auto;display:flex;gap:6px}
+  .ic{border:1px solid var(--line);background:#fff;border-radius:8px;width:34px;height:30px;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center}
+  .ic:hover{border-color:var(--accent);background:#f0f6ff}
+  .en{font-size:19px;font-weight:600;letter-spacing:.2px}
+  .ipa{color:var(--sub);font-size:13px;margin:4px 0 6px;font-style:italic}
+  .zh{font-size:15px;color:#374151}
+  .block{margin-top:12px;border-radius:10px;padding:10px 12px;font-size:13.5px}
+  .block .h{font-weight:700;font-size:13px;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+  .var{background:var(--var)} .scene{background:var(--scene)} .gram{background:var(--gram)} .pr{background:var(--pr)}
+  .var .h{color:#6d28d9} .scene .h{color:#0e9f6e} .gram .h{color:var(--warn)} .pr .h{color:var(--pron)}
+  .kw{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+  .kw .chip{background:var(--chip);border-radius:8px;padding:5px 10px;font-size:13px}
+  .kw .chip b{color:#b45309} .kw .chip .p{color:#9a3412;font-style:italic;margin-left:4px}
+  .block ul{margin:0;padding:left:18px} .block li{margin:3px 0}
+  .block li .ex{font-weight:600} .block li .nt{color:#6b7280}
+  .scene li .occ{color:#0e9f6e;font-weight:600} .scene li .resp{color:#6b7280}
+  footer{text-align:center;color:var(--sub);font-size:12px;margin-top:24px}
+  .assess{display:flex;align-items:center;gap:8px;margin-top:12px;flex-wrap:wrap;border-top:1px dashed var(--line);padding-top:10px}
+  .assess .lbl{font-size:13px;color:var(--sub)}
+  .assess button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:5px 12px;font-size:13px;cursor:pointer}
+  .assess button:hover{filter:brightness(.97)}
+  .assess .c{color:#16a34a}.assess .f{color:#d97706}.assess .u{color:#dc2626}
+  .astat{font-size:12px;color:var(--sub);margin-left:auto}
+  .mbadge{font-size:12px;font-weight:600;padding:2px 8px;border-radius:6px;background:#f1f5f9;color:#475569}
+  .spd{font-size:14px;color:var(--sub);display:flex;align-items:center;gap:6px}
+  .spd select{padding:6px 8px;border:1px solid var(--line);border-radius:8px;background:#fff;font-size:13px;color:var(--text);cursor:pointer}
+  .readwrap{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:12px 0 2px;font-size:13px;color:var(--sub)}
+  .readwrap audio{width:100%;height:32px;margin-bottom:2px}
+  .readwrap select{padding:5px 8px;border:1px solid var(--line);border-radius:8px;background:#fff;font-size:13px;color:var(--text);cursor:pointer}
+  .readwrap .rlbl{font-weight:600;color:#475569}
+  .readwrap .spdlbl{color:var(--sub)}
+  .readBtn{border:1px solid var(--accent2);background:var(--accent2);color:#fff;border-radius:8px;padding:5px 14px;font-size:13px;cursor:pointer}
+  .readBtn:hover{filter:brightness(1.05)}
+  .readBtn.run{background:#dc2626;border-color:#dc2626}
+  .detailsBtn{width:100%;text-align:left;border:1px solid var(--line);background:#f8fafc;color:var(--sub);border-radius:10px;padding:8px 12px;font-size:13px;font-weight:600;cursor:pointer;margin-top:12px}
+  .detailsBtn:hover{border-color:var(--accent);color:var(--accent)}
+  .details.collapsed>.block{display:none}
+  .mbar{width:96px;height:9px;border-radius:5px;background:#e5e7eb;overflow:hidden;flex:none}
+  .mbar .mfill{height:100%;border-radius:5px;transition:width .25s,background .25s}
+  .pagenav{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap;margin-bottom:6px}
+  .pagenav a{text-decoration:none;font-size:13px;color:#475569;border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-weight:600;transition:.15s}
+  .pagenav a:hover{border-color:var(--accent);color:var(--accent);background:#f0f6ff}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="pagenav">
+  <a href="index.html">🏠 首页</a>
+  <a href="review.html">📚 已学回顾</a>
+  <a href="calendar.html">📅 日历</a>
+</nav>
+  <header>
+    <h1>🗣️ 英语口语 · Day 67（增强版）</h1>
+    <p>旅游 + 日常混合 · 5 句/天 · 中英对照 + 生词音标 + 原声伴读 + 变体 + 场景俗语 + 语法 + 发音提示</p>
+  </header>
+  <div class="summary">
+    <div class="box"><b>第 67 天</b><span>连续学习</span></div>
+    <div class="box"><b>2 句</b><span>今日新学</span></div>
+    <div class="box"><b>135/1000</b><span>累计已学</span></div>
+    <div class="box"><b>1000 句</b><span>当前总池</span></div>
+  </div>
+  <div class="legend">
+    <span>🔻 <b>简化/口语变体</b></span>
+    <span>🎭 <b>场景化表达 + 不同回答</b></span>
+    <span>📝 <b>语法提示</b></span>
+    <span>🔤 <b>发音提示(连读/同化/滑音/浊化/失去爆破/闪音/弱读/缩读)</b></span>
+  </div>
+  <div class="toolbar">
+    <button class="btn primary" onclick="playAll()">▶ 全部伴读</button>
+    <label class="spd">语速(批量预设)
+      <select id="speedSel" onchange="setSpeed(this.value)" title="设为统一语速应用到全部句子">
+        <option value="1">1倍</option>
+        <option value="0.8">0.8倍</option>
+        <option value="0.7">0.7倍</option>
+        <option value="0.6">0.6倍</option>
+      </select>
+    </label>
+    <button class="btn" onclick="stopAll()">⏹ 停止</button>
+    <button class="btn" id="allDetBtn" onclick="toggleAllDetails()">📂 展开全部详情</button>
+  </div>
+  <div id="short"></div>
+  <div id="long"></div>
+  <footer>每天 9:00 自动推送新一批（同款增强版） · 进度本地保存，不外传</footer>
+</div>
+<script src="audio-engine.js"></script>
+<script>
+(function(){ const d=new Date().toISOString().slice(0,10); document.querySelectorAll('.today-nav').forEach(a=>a.href='day'+d+'.html'); })();
+const DATA = [{"id": "s20", "nid": 20, "type": "short", "topic": "travel", "en": "Please drop me off at the train station.", "ipa": "/pliz drɑp mi ɔf ət ðə treɪn ˈsteɪʃən/", "zh": "请在火车站让我下车。", "kw": [["drop", "/drɑp/", "v.放下，卸下"], ["station", "/ˈsteɪʃən/", "n.车站"]], "variants": [["Drop me off at the station, please.", "省略 train 也懂"], ["Can you stop at the train station?", "stop 表『停车』"], ["I'll get off at the station.", "get off 表下车"]], "scenes": [["打车报目的地", "Please drop me off at the train station.", "司机回 Sure. / Got it."], ["提前提醒", "Could you let me know when we're close?", "请快到提醒"], ["不同回答", "Here we are. / That's 12 dollars. / Watch your step."]], "grammar": "drop off 短语动词『让…下车/卸下』，宾语为代词时必放中间：drop me off。at + 车站 表地点。train station / subway station 表车站。", "pron": "连读：drop me→/drɑp mi/（p 与 m）；me off→/mi ɔf/（i 与 ɔ）；off at→/ɔ fæt/（f 与 æ）；at the→/ət ðə/；the train→/ðə treɪn/；train station→/treɪn ˈsteɪʃən/（n 与 s）。弱读：me→/mi/；at→/ət/；the→/ðə/。失去爆破：drop me /drɑ(p) mi/（p 在 m 前不完全爆破）；train station /treɪ(n) ˈsteɪ/（n 轻微）。浊化：无。同化/滑音/闪音：无典型。缩读：无。", "mastery": 4}, {"id": "s30", "nid": 30, "type": "short", "topic": "travel", "en": "What's the Wi-Fi password?", "ipa": "/wʌts ðə ˈwaɪ faɪ ˈpæswɜrd/", "zh": "Wi-Fi 密码是多少？", "kw": [["password", "/ˈpæswɜrd/", "n.密码"], ["Wi-Fi", "/ˈwaɪ faɪ/", "n.无线网"]], "variants": [["What's the Wi-Fi code?", "code 也常指密码"], ["How do I connect to the Wi-Fi?", "问怎么连"], ["Can I have the Wi-Fi password?", "更完整请求"]], "scenes": [["问 wifi 密码", "What's the Wi-Fi password?", "对方给 A-P-1-2-3 之类"], ["问前台", "Is the Wi-Fi free?", "问是否免费"], ["不同回答", "It's on the card. / All lowercase, no spaces. / Network name is 'Hotel_Guest'."]], "grammar": "What's = What is 缩读；the Wi-Fi password 单数用 is。password / code 都表『密码』。Wi-Fi 读作 /ˈwaɪ faɪ/。", "pron": "缩读：What's = What is（/wʌts/）。连读：What's the→/wʌts ðə/（s 与 ð）；the Wi-Fi→/ðə ˈwaɪ/；Wi-Fi password→/ˈwaɪ faɪ ˈpæswɜrd/（faɪ 与 p）。弱读：the→/ðə/。失去爆破：password /ˈpæs(w)ɜrd/（s 轻微）。浊化：无。同化/滑音/闪音：无典型。", "mastery": 3}, {"id": "s105", "nid": 105, "type": "short", "topic": "travel", "en": "What's the baggage allowance for economy class?", "ipa": "/wʌts ðə ˈbæɡɪdʒ əˈlaʊəns fər ɪˈkɑnəmi klæs/", "zh": "经济舱的行李额度是多少？", "kw": [["allowance", "/əˈlaʊəns/", "n.限额"]], "variants": [["How much luggage can I bring?", "口语最常用"], ["What's the checked baggage limit?", "专问托运额度"], ["How many kilos are allowed?", "直问公斤数"]], "scenes": [["值机前确认", "What's the baggage allowance for economy class?", "地勤回 23 kilos for checked bags, 8 for carry-on."], ["超重现场", "Is my bag over the allowance?", "称重后告知"], ["买票前看规则", "What's the baggage allowance on this ticket?", "购票页或客服查询"]], "grammar": "allowance 名词『限额』（allow 允许 → allowance）；baggage 美式（英式常用 luggage），不可数；economy class 机舱等级（还有 business / first class）。", "pron": "同化：What's the→/wʌts ðə/（ts 与 ð 相邻）；连读：allowance for→/əˈlaʊəns fər/（s 与 f）；for economy→/fər ɪˈkɑnəmi/（r 与 ɪ 加滑音）。弱读：the→/ðə/；for→/fər/。重音：allowance /əˈlaʊəns/、economy /ɪˈkɑnəmi/ 都是第二音节重读。", "mastery": 2}, {"id": "s120", "nid": 120, "type": "short", "topic": "travel", "en": "My luggage seems to be damaged.", "ipa": "/maɪ ˈlʌɡɪdʒ siz tə bi ˈdæmɪdʒd/", "zh": "我的行李好像被弄坏了。", "kw": [["damaged", "/ˈdæmɪdʒd/", "adj.损坏的"]], "variants": [["My suitcase is damaged.", "直接肯定句"], ["There's a big crack in my luggage.", "具体描述损坏"], ["My bag got damaged on the flight.", "指明环节"]], "scenes": [["报损登记", "My luggage seems to be damaged.", "工作人员拍照登记并给单据"], ["理赔说明", "The wheel broke off and there's a tear.", "具体伤情"], ["当场开箱检查", "Can I check the contents? It looks badly hit.", "怕内容物碎"]], "grammar": "seem to be + 形容词/过去分词『似乎处于…状态』（比 is 语气弱、留余地）；damaged 过去分词作表语。", "pron": "连读：luggage seems→/ˈlʌɡɪdʒ siːmz/（dʒ 与 s）；seems to be→/siːmz tə bi/（z 与 t）；to be damaged→/tə bi ˈdæmɪdʒd/（i 与 d）。弱读：to→/tə/；be→/bi/。失去爆破：seems to /siːm(z) tə/ 轻微。重音：damaged /ˈdæmɪdʒd/ 在前。", "mastery": 1}, {"id": "s197", "nid": 197, "type": "short", "topic": "travel", "en": "Is room service available around the clock?", "ipa": "/ɪz ruːm ˈsɜːrvɪs əˈveɪləbəl əˈraʊnd ðə ˈklɑk/", "zh": "客房送餐服务是全天候的吗？", "kw": [["room service", "/ruːm ˈsɜːrvɪs/", "phr.客房服务"]], "variants": [["Is room service available around the clock?", "标准"], ["Do you do 24-hour room service?", "24-hour 更口语"], ["Can I order food to the room?", "问送餐到房"]], "scenes": [["问客房送餐", "Is room service available around the clock?", "对方回 Yes, till midnight."], ["深夜", "I'd like a late-night snack.", "深夜小吃"], ["菜单", "What's on the menu?", "问有啥"]], "grammar": "room service『客房送餐/服务』；around the clock『全天候/24小时』；available『可用的』。there is / is 系表结构。", "pron": "连读：Is room→/ɪz ruːm/（z 与 r）；room service→/ruːm ˈsɜːrvɪs/（m 与 s）；service available→/ˈsɜːrvɪs əˈveɪləbəl/（s 与 ə）；available around→/əˈveɪləbəl əˈraʊnd/（l 与 ə）；around the→/əˈraʊnd ðə/（d 与 ð）；the clock→/ðə klɑk/（ð 与 k）。弱读：is→/ɪz/（重读）、the→/ðə/、around→/əˈraʊnd/。失去爆破：service /ˈsɜːr(v)ɪs/；clock /klɑ(k)/。浊化/同化/缩读：无典型。", "mastery": 1}];
+let speed = 1;
+let cardSpeed = {};
+try { DATA.forEach(d => { const sv = localStorage.getItem('vocab_speed_'+String(d.id).replace('s','')); if(sv) cardSpeed[d.id]=parseFloat(sv); }); } catch(e){}
+const API_PORT = 3279;
+try { const sv = localStorage.getItem('vocab_speed'); if (sv) { speed = parseFloat(sv); document.getElementById('speedSel').value = sv; } } catch(e){}
+async function apiFetch(path, opts){
+  for(const b of ['', 'http://127.0.0.1:'+API_PORT]){
+    try{ const r = await fetch(b+path, opts); if(r && r.ok) return r; }catch(e){}
+  }
+  return null;
+}
+async function assess(sid, action, btn){
+  const id = parseInt(String(sid).replace('s',''),10);
+  const r = await apiFetch('/api/mastery', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({id, action})});
+  const el = document.getElementById('mb-'+sid);
+  const st = document.getElementById('as-'+sid);
+  const cur = parseInt((el?el.textContent:'0/5').replace('/5',''),10)||0;
+  let nv = cur;
+  if(r){
+    const j = await r.json(); nv = j.mastery;
+    if(st) st.textContent = (action==='clear'?'已 +1':action==='unknown'?'已 -1':'已记录')+' · 已回写 ✓';
+  } else {
+    nv = action==='clear'?Math.min(5,cur+1):action==='unknown'?Math.max(0,cur-1):cur;
+    if(st) st.textContent = '已本地记录（启动本地服务后可回写）';
+  }
+  setMbar(sid, nv);
+  try{ localStorage.setItem('vocab_mastery_'+id, String(nv)); }catch(e){}
+  if(btn) btn.blur();
+}
+function setSpeed(v){ speed=parseFloat(v); try{ localStorage.setItem('vocab_speed', String(speed)); }catch(e){}
+  document.querySelectorAll('.spdSel').forEach(s=>s.value=v);
+  DATA.forEach(d=>{ const sid=String(d.id).replace('s',''); cardSpeed[d.id]=speed; try{ localStorage.setItem('vocab_speed_'+sid, v); }catch(e){} }); }
+function cardHTML(d){
+  const kw=d.kw.map(k=>`<span class="chip"><b>${k[0]}</b><span class="p">${k[1]}</span> ${k[2]}</span>`).join('');
+  const v=d.variants.map(x=>`<li><span class="ex">${x[0]}</span> <span class="nt">— ${x[1]}</span></li>`).join('');
+  const sc=d.scenes.map(x=>`<li><span class="occ">【${x[0]}】</span> ${x[1]} <span class="resp">→ ${x[2]}</span></li>`).join('');
+  return `<div class="card">
+    <div class="top">
+      <span class="num">${d.id.replace('s','')}</span>
+      <span class="pill ${d.topic}">${d.topic==='travel'?'旅游':'日常'}</span>
+      <span class="play">
+        <span class="ic" title="原声伴读" onclick="playAudio('${d.id}')">🔊</span>
+        <span class="ic" title="慢速朗读" onclick="playAudio('${d.id}', 0.7)">🐢</span>
+      </span>
+    </div>
+    <div class="en">${d.en}</div>
+    <div class="ipa">${d.ipa}</div>
+    <div class="zh">${d.zh}</div>
+    <div class="kw">${kw}</div>
+    <button class="detailsBtn" id="db-${d.id}" onclick="toggleDetails('${d.id}')">📂 展开详情（变体 / 场景 / 语法 / 发音）</button>
+    <div class="details collapsed" id="dt-${d.id}">
+      <div class="block var"><div class="h">🔻 简化 / 口语变体</div><ul>${v}</ul></div>
+      <div class="block scene"><div class="h">🎭 场景化表达 + 不同回答</div><ul>${sc}</ul></div>
+      <div class="block gram"><div class="h">📝 语法提示</div><div>${d.grammar}</div></div>
+      <div class="block pr"><div class="h">🔤 发音提示（连读/同化/滑音/浊化/失去爆破/闪音/弱读/缩读）</div><div>${d.pron}</div></div>
+    </div>
+    <audio id="au-${d.id}" preload="none" src="audio/${d.id}.mp3"></audio>
+    <div class="readwrap">
+      <span class="rlbl">🔁 朗读</span>
+      <select id="rp-${d.id}" class="repsSel">
+        <option value="2">2 遍</option>
+        <option value="3" selected>3 遍</option>
+        <option value="5">5 遍</option>
+        <option value="8">8 遍</option>
+      </select>
+      <button id="rb-${d.id}" class="readBtn" onclick="loopSpeak('${d.id}')">▶ 开始</button>
+      <span class="spdlbl">语速</span>
+      <select class="spdSel" onchange="setCardSpeed('${d.id}',this.value)">
+        <option value="1">1倍</option>
+        <option value="0.8">0.8倍</option>
+        <option value="0.7">0.7倍</option>
+        <option value="0.6">0.6倍</option>
+      </select>
+    </div>
+    <div class="assess">
+      <span class="lbl">自评掌握度：</span>
+      <div class="mbar" id="mbar-${d.id}"><div class="mfill" style="width:${d.mastery*20}%;background:${d.mastery<=2?'#dc2626':d.mastery<=4?'#d97706':'#16a34a'}"></div></div>
+      <span class="mbadge" id="mb-${d.id}">${d.mastery}/5</span>
+      <button class="c" onclick="assess('${d.id}','clear',this)">✅ 认识 +1</button>
+      <button class="f" onclick="assess('${d.id}','fuzzy',this)">🟡 模糊</button>
+      <button class="u" onclick="assess('${d.id}','unknown',this)">🔴 不认识 -1</button>
+      <span class="astat" id="as-${d.id}"></span>
+    </div>
+  </div>`;
+}
+if(DATA.some(d=>d.type==='short')){
+  const n=DATA.filter(d=>d.type==='short').length;
+  const st=document.createElement('div'); st.className='sec-title';
+  st.innerHTML=`<span class="tag">短句</span> Short sentences（${n}）`; document.querySelector('.wrap').insertBefore(st, document.getElementById('short'));
+  document.getElementById('short').innerHTML=DATA.filter(d=>d.type==='short').map(cardHTML).join('');
+}
+if(DATA.some(d=>d.type==='long')){
+  const n=DATA.filter(d=>d.type==='long').length;
+  const st=document.createElement('div'); st.className='sec-title';
+  st.innerHTML=`<span class="tag">长句</span> Long sentences（${n}）`; document.querySelector('.wrap').insertBefore(st, document.getElementById('long'));
+  document.getElementById('long').innerHTML=DATA.filter(d=>d.type==='long').map(cardHTML).join('');
+}
+applyStoredDetails();
+function setCardDetails(id, show){ const el=document.getElementById('dt-'+id); if(!el) return; el.classList.toggle('collapsed', !show);
+  const btn=document.getElementById('db-'+id); if(btn) btn.textContent = show ? '📁 收起详情（变体 / 场景 / 语法 / 发音）' : '📂 展开详情（变体 / 场景 / 语法 / 发音）';
+  try{ localStorage.setItem('vocab_details_'+id, show?'open':'closed'); }catch(e){} }
+function toggleDetails(id){ const el=document.getElementById('dt-'+id); if(el) setCardDetails(id, el.classList.contains('collapsed')); }
+function toggleAllDetails(){ const anyCollapsed = !!document.querySelector('.details.collapsed'); const show = anyCollapsed;
+  document.querySelectorAll('.details').forEach(el=>setCardDetails(el.id.replace('dt-',''), show));
+  const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = show ? '📁 收起全部详情' : '📂 展开全部详情'; }
+function applyStoredDetails(){ DATA.forEach(d=>{ let st=null; try{ st=localStorage.getItem('vocab_details_'+d.id); }catch(e){}
+  if(st==='open') setCardDetails(d.id, true); });
+  const gb=document.getElementById('allDetBtn'); if(gb) gb.textContent = document.querySelector('.details.collapsed') ? '📂 展开全部详情' : '📁 收起全部详情'; }
+function mColor(v){ return v<=2?'#dc2626':(v<=4?'#d97706':'#16a34a'); }
+function setMbar(sid,v){ const bar=document.getElementById('mbar-'+sid);
+  if(bar){ const f=bar.querySelector('.mfill'); f.style.width=(v*20)+'%'; f.style.background=mColor(v); }
+  const b=document.getElementById('mb-'+sid); if(b) b.textContent=v+'/5'; }
+function playAudio(id, rate){ if(window.VocabAudio){ VocabAudio.play(id, rate || cardSpeed[id] || speed); } }
+function loopSpeak(id){ const btn=document.getElementById('rb-'+id); if(!btn) return;
+  if(btn.classList.contains('run')){ if(window.VocabAudio) VocabAudio.stopId(id); btn.classList.remove('run'); btn.textContent='▶ 开始'; return; }
+  const reps=parseInt(document.getElementById('rp-'+id).value,10)||3;
+  btn.classList.add('run'); btn.textContent='⏹ 停止';
+  if(window.VocabAudio){ VocabAudio.loop(id, cardSpeed[id]||speed, reps, { onEnd: ()=>{ btn.classList.remove('run'); btn.textContent='▶ 开始'; } }); }
+  else { btn.classList.remove('run'); btn.textContent='▶ 开始'; } }
+function setCardSpeed(id,v){ cardSpeed[id]=parseFloat(v);
+  try{ localStorage.setItem('vocab_speed_'+String(id).replace('s',''), v); }catch(e){} }
+function speak(t){ /* deprecated: 所有播放统一走服务器音频 VocabAudio */ }
+let queue=[]; function playAll(){ stopAll(); queue=DATA.map(d=>d.id); next(); }
+function next(){ if(!queue.length){ stopAll(); return; }
+  const id=queue.shift();
+  if(window.VocabAudio){ VocabAudio.play(id, cardSpeed[id]||speed, ()=>{ next(); }); }
+  else { stopAll(); return; } }
+function stopAll(){ queue=[]; if(window.VocabAudio) VocabAudio.stopAll();
+  document.querySelectorAll('.readBtn.run').forEach(b=>{ b.classList.remove('run'); b.textContent='▶ 开始'; }); }
+</script>
+</body>
+</html>
