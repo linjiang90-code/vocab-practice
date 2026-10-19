@@ -7606,9 +7606,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 67,
-        "mastery": 1,
-        "reviewCount": 1,
-        "lastReviewed": "2026-10-18",
+        "mastery": 2,
+        "reviewCount": 2,
+        "lastReviewed": "2026-10-19",
         "dueDate": null,
         "enh": {
           "fullIpa": "/maɪ ˈlʌɡɪdʒ siz tə bi ˈdæmɪdʒd/",
@@ -8155,9 +8155,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 51,
-        "mastery": 2,
-        "reviewCount": 2,
-        "lastReviewed": "2026-10-04",
+        "mastery": 3,
+        "reviewCount": 3,
+        "lastReviewed": "2026-10-19",
         "dueDate": null,
         "enh": {
           "fullIpa": "/wʌts ðə ˈpɜrpəs əv jʊr ˈvɪzɪt/",
@@ -11081,11 +11081,11 @@
       ],
       "audio": "audio/s177.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
+        "introduced": true,
+        "introducedDay": 68,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-10-19",
         "dueDate": null,
         "enh": {
           "fullIpa": "/wɪtʃ ˈɛɡzɪt ʃʊd aɪ teɪk fɔr ðə ˈʃɑpɪŋ mɔl/",
@@ -11874,11 +11874,11 @@
       ],
       "audio": "audio/s190.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
+        "introduced": true,
+        "introducedDay": 68,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-10-19",
         "dueDate": null,
         "enh": {
           "fullIpa": "/kʊdʒu ɡɪv mi ə rɪˈsiːt fɔr ðə ˈpeɪmənt/",
@@ -11996,11 +11996,11 @@
       ],
       "audio": "audio/s192.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
+        "introduced": true,
+        "introducedDay": 68,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-10-19",
         "dueDate": null,
         "enh": {
           "fullIpa": "/kʊdʒu hæv ə ˈweɪk ʌp kɔːl æt sɪks təˈmɑroʊ/",
