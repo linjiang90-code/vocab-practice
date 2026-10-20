@@ -645,9 +645,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 2,
-        "mastery": 4,
-        "reviewCount": 4,
-        "lastReviewed": "2026-09-18",
+        "mastery": 5,
+        "reviewCount": 5,
+        "lastReviewed": "2026-10-20",
         "dueDate": null,
         "enh": {
           "fullIpa": "/aɪ siːm tə hæv lɔst maɪ weɪ kʊd ju tel miː haʊ tə ɡet tə ðə ˈsɪti ˈsentər frəm hɪr/",
@@ -1173,9 +1173,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 6,
-        "mastery": 1,
-        "reviewCount": 1,
-        "lastReviewed": "2026-08-18",
+        "mastery": 2,
+        "reviewCount": 2,
+        "lastReviewed": "2026-10-20",
         "dueDate": "2026-08-19",
         "enh": {
           "fullIpa": "/wɛr ʃʊd aɪ ɡoʊ fɔr ˈpæspɔrt kənˈtroʊl/",
@@ -1623,9 +1623,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 7,
-        "mastery": 1,
-        "reviewCount": 1,
-        "lastReviewed": "2026-08-19",
+        "mastery": 2,
+        "reviewCount": 2,
+        "lastReviewed": "2026-10-20",
         "dueDate": null,
         "enh": {
           "fullIpa": "/aɪd laɪk tə tʃɛk ɪn pliz/",
@@ -2775,9 +2775,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 8,
-        "mastery": 4,
-        "reviewCount": 4,
-        "lastReviewed": "2026-09-22",
+        "mastery": 5,
+        "reviewCount": 5,
+        "lastReviewed": "2026-10-20",
         "dueDate": null,
         "enh": {
           "fullIpa": "/wʌt taɪm dʌz ðə mjuˈziəm ˈoʊpən/",
@@ -11020,11 +11020,11 @@
       ],
       "audio": "audio/s176.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
+        "introduced": true,
+        "introducedDay": 69,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-10-20",
         "dueDate": null,
         "enh": {
           "fullIpa": "/ɪz ðə mjuːˈziːəm wɪˈðɪn ðɪs ˈdɪstrɪkt/",
