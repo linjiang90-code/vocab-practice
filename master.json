@@ -186,9 +186,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 1,
-        "mastery": 3,
-        "reviewCount": 3,
-        "lastReviewed": "2026-10-07",
+        "mastery": 4,
+        "reviewCount": 4,
+        "lastReviewed": "2026-10-22",
         "dueDate": "2026-08-14",
         "enh": {
           "fullIpa": "/aɪd laɪk tə bʊk ə ˈteɪbəl fɔr tu/",
@@ -4377,9 +4377,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 22,
-        "mastery": 2,
-        "reviewCount": 2,
-        "lastReviewed": "2026-10-11",
+        "mastery": 3,
+        "reviewCount": 3,
+        "lastReviewed": "2026-10-22",
         "dueDate": null,
         "enh": {
           "fullIpa": "/ˈmeɪbi əˈnʌðər taɪm/",
@@ -5325,9 +5325,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 22,
-        "mastery": 1,
-        "reviewCount": 1,
-        "lastReviewed": "2026-09-07",
+        "mastery": 2,
+        "reviewCount": 2,
+        "lastReviewed": "2026-10-22",
         "dueDate": null,
         "enh": {
           "fullIpa": "/aɪ fil ə bɪt ˈʌndər ðə ˈwɛðər/",
@@ -8275,11 +8275,11 @@
       ],
       "audio": "audio/s131.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
+        "introduced": true,
+        "introducedDay": 71,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-10-22",
         "dueDate": null,
         "enh": {
           "fullIpa": "/haʊ lɔŋ wɪl ju bi ˈsteɪɪŋ ɪn ðə ˈkʌntri/",
@@ -9983,11 +9983,11 @@
       ],
       "audio": "audio/s159.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
+        "introduced": true,
+        "introducedDay": 71,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-10-22",
         "dueDate": null,
         "enh": {
           "fullIpa": "/du aɪ niːd ən ˌɪntərˈnæʃənəl ˈdraɪvɪŋ ˈpɜːrmɪt/",
