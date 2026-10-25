@@ -1947,9 +1947,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 7,
-        "mastery": 3,
-        "reviewCount": 3,
-        "lastReviewed": "2026-10-18",
+        "mastery": 4,
+        "reviewCount": 4,
+        "lastReviewed": "2026-10-25",
         "dueDate": null,
         "enh": {
           "fullIpa": "/wʌts ðə ˈwaɪ faɪ ˈpæswɜrd/",
@@ -2007,9 +2007,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 7,
-        "mastery": 2,
-        "reviewCount": 2,
-        "lastReviewed": "2026-10-21",
+        "mastery": 3,
+        "reviewCount": 3,
+        "lastReviewed": "2026-10-25",
         "dueDate": null,
         "enh": {
           "fullIpa": "/kʊd wi hæv ðə ˈmɛnju pliz/",
@@ -5265,9 +5265,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 22,
-        "mastery": 1,
-        "reviewCount": 1,
-        "lastReviewed": "2026-09-07",
+        "mastery": 2,
+        "reviewCount": 2,
+        "lastReviewed": "2026-10-25",
         "dueDate": null,
         "enh": {
           "fullIpa": "/aɪm ɑn ə ˈdaɪət/",
@@ -8338,9 +8338,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 57,
-        "mastery": 4,
-        "reviewCount": 4,
-        "lastReviewed": "2026-10-16",
+        "mastery": 5,
+        "reviewCount": 5,
+        "lastReviewed": "2026-10-25",
         "dueDate": "2026-10-09",
         "enh": {
           "fullIpa": "/hɪr ɑr maɪ ˈpæspɔrt ənd rɪˈtɜrn ˈtɪkɪt/",
@@ -9861,11 +9861,11 @@
       ],
       "audio": "audio/s157.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
+        "introduced": true,
+        "introducedDay": 74,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-10-25",
         "dueDate": null,
         "enh": {
           "fullIpa": "/aɪd laɪk tə rɛnt ə ˈkɑmpækt kɑr fɔr θri daɪz/",
