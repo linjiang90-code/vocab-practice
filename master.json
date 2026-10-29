@@ -1623,9 +1623,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 7,
-        "mastery": 2,
-        "reviewCount": 2,
-        "lastReviewed": "2026-10-20",
+        "mastery": 3,
+        "reviewCount": 3,
+        "lastReviewed": "2026-10-29",
         "dueDate": null,
         "enh": {
           "fullIpa": "/aɪd laɪk tə tʃɛk ɪn pliz/",
@@ -3153,9 +3153,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 9,
-        "mastery": 2,
-        "reviewCount": 2,
-        "lastReviewed": "2026-09-10",
+        "mastery": 3,
+        "reviewCount": 3,
+        "lastReviewed": "2026-10-29",
         "dueDate": null,
         "enh": {
           "fullIpa": "/kɔl ðə pəˈlis pliz/",
@@ -4953,9 +4953,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 22,
-        "mastery": 3,
-        "reviewCount": 3,
-        "lastReviewed": "2026-10-05",
+        "mastery": 4,
+        "reviewCount": 4,
+        "lastReviewed": "2026-10-29",
         "dueDate": null,
         "enh": {
           "fullIpa": "/kənˌɡrætʃəˈleɪʃənz ɑn jʊr prəˈmoʊʃən/",
@@ -10715,11 +10715,11 @@
       ],
       "audio": "audio/s171.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
+        "introduced": true,
+        "introducedDay": 78,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-10-29",
         "dueDate": null,
         "enh": {
           "fullIpa": "/æm aɪ ˈhɛdɪŋ ɪn ðə raɪt dəˈrɛkʃən fɔr ðə pɑrk/",
@@ -11691,11 +11691,11 @@
       ],
       "audio": "audio/s187.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
+        "introduced": true,
+        "introducedDay": 78,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-10-29",
         "dueDate": null,
         "enh": {
           "fullIpa": "/kʊdʒu liːv maɪ ˈlʌɡɪdʒ hɪr ənˈtɪl ðə ruːm ɪz ˈrɛdi/",
