@@ -513,9 +513,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 2,
-        "mastery": 3,
-        "reviewCount": 3,
-        "lastReviewed": "2026-09-15",
+        "mastery": 4,
+        "reviewCount": 4,
+        "lastReviewed": "2026-11-06",
         "dueDate": null,
         "enh": {
           "fullIpa": "/kʊd ju ˌrekəˈmend ə ɡʊd ˈloʊkəl ˈrestərənt ðæts nɑːt tuː ɪkˈspensɪv ənd ˈwɪðɪn ˈwɔːkɪŋ ˈdɪstəns/",
@@ -5265,9 +5265,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 22,
-        "mastery": 2,
-        "reviewCount": 2,
-        "lastReviewed": "2026-10-25",
+        "mastery": 3,
+        "reviewCount": 3,
+        "lastReviewed": "2026-11-06",
         "dueDate": null,
         "enh": {
           "fullIpa": "/aɪm ɑn ə ˈdaɪət/",
@@ -9009,9 +9009,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 48,
-        "mastery": 2,
-        "reviewCount": 2,
-        "lastReviewed": "2026-10-05",
+        "mastery": 3,
+        "reviewCount": 3,
+        "lastReviewed": "2026-11-06",
         "dueDate": "2026-09-30",
         "enh": {
           "fullIpa": "/pliz drɑp mi ˈɔf ət ðə meɪn ˈɛntrəns/",
@@ -11935,11 +11935,11 @@
       ],
       "audio": "audio/s191.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
+        "introduced": true,
+        "introducedDay": 86,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-11-06",
         "dueDate": null,
         "enh": {
           "fullIpa": "/ɪz ðɛr ə leɪt ˈtʃɛk aʊt ˈɑpʃən əˈveɪləbəl/",
@@ -12484,11 +12484,11 @@
       ],
       "audio": "audio/s200.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
+        "introduced": true,
+        "introducedDay": 86,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-11-06",
         "dueDate": null,
         "enh": {
           "fullIpa": "/wʊd ɪt bi pəˈsɪbəl tə muːv tə ə ˈkwaɪətər ruːm/",
