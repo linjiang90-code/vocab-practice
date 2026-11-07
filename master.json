@@ -1755,9 +1755,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 7,
-        "mastery": 1,
-        "reviewCount": 1,
-        "lastReviewed": "2026-08-19",
+        "mastery": 2,
+        "reviewCount": 2,
+        "lastReviewed": "2026-11-07",
         "dueDate": null,
         "enh": {
           "fullIpa": "/wʌt taɪm ɪz ˈbrɛkfəst sɜrvd/",
@@ -2457,9 +2457,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 8,
-        "mastery": 4,
-        "reviewCount": 4,
-        "lastReviewed": "2026-10-30",
+        "mastery": 5,
+        "reviewCount": 5,
+        "lastReviewed": "2026-11-07",
         "dueDate": null,
         "enh": {
           "fullIpa": "/du ju əkˈsɛpt ˈkrɛdɪt kɑrdz/",
@@ -3153,9 +3153,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 9,
-        "mastery": 3,
-        "reviewCount": 3,
-        "lastReviewed": "2026-10-29",
+        "mastery": 4,
+        "reviewCount": 4,
+        "lastReviewed": "2026-11-07",
         "dueDate": null,
         "enh": {
           "fullIpa": "/kɔl ðə pəˈlis pliz/",
@@ -8765,9 +8765,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 44,
-        "mastery": 1,
-        "reviewCount": 1,
-        "lastReviewed": "2026-09-25",
+        "mastery": 2,
+        "reviewCount": 2,
+        "lastReviewed": "2026-11-07",
         "dueDate": null,
         "enh": {
           "fullIpa": "/kʊd ju kɔl ə ˈtæksi fɔr mi pliz/",
@@ -11813,11 +11813,11 @@
       ],
       "audio": "audio/s189.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
+        "introduced": true,
+        "introducedDay": 87,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-11-07",
         "dueDate": null,
         "enh": {
           "fullIpa": "/wʌt taɪm du wi hæv tə ˈtʃɛk aʊt baɪ/",
