@@ -327,12 +327,21 @@ _DEFAULT_BOT = None
 
 
 def start_from_config(on_message=None):
-    """读取 wecom_config.json 并启动长连接。未配置/无 aiohttp 时返回 None（服务照常运行）。"""
+    """读取 wecom_config.json 并启动长连接。未配置/无 aiohttp 时返回 None（服务照常运行）。
+
+    默认**不**在服务启动时抢占长连接：该机器人同一时刻只允许 1 条长连接，
+    而桌面端 WorkBuddy 自身也可能连着同一个机器人，两边常驻会互相「踢」，
+    表现为 disconnected_event + 偶发回执超时。因此默认按需直连（wecom_push 兜底），
+    只有配置里显式 "persistent": true 时才常驻（用于「发今日」这类聊天交互）。
+    """
     global _DEFAULT_BOT
     cfg = load_config()
     bot_id = (cfg.get("bot_id") or "").strip()
     secret = (cfg.get("secret") or "").strip()
     if not bot_id or not secret:
+        return None
+    if not cfg.get("persistent"):
+        _log("persistent=false，按需直连模式（不常驻长连接）")
         return None
     try:
         import aiohttp  # noqa: F401

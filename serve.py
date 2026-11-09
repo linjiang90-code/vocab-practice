@@ -183,9 +183,12 @@ class H(SimpleHTTPRequestHandler):
                 date = data.get("date") or datetime.date.today().isoformat()
                 content = data.get("content") or wecom_push.build_card(date)
                 if WECOM_BOT is None:
-                    return self._send(503, json.dumps(
-                        {"ok": False, "error": "wecom bot 未启用（缺 wecom_config.json 或 aiohttp）"},
-                        ensure_ascii=False))
+                    # 未常驻长连接（默认按需模式）：直接用短连接发一次，避免与桌面端抢连接
+                    res = wecom_push._push_direct(content)
+                    res["date"] = date
+                    res["mode"] = "direct"
+                    return self._send(200 if res.get("ok") else 502,
+                                      json.dumps(res, ensure_ascii=False))
                 res = WECOM_BOT.send_markdown(content, data.get("chatid"), data.get("chat_type"))
                 # 长连接可能正在重连（该机器人同时只允许 1 条连接，可能被其它客户端顶掉，
                 # 表现为 not_connected 或回执超时），短暂等待后重试，避免每日推送整体失败。
