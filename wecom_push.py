@@ -14,6 +14,7 @@
 import datetime
 import json
 import os
+import re
 import sys
 import urllib.request
 
@@ -25,6 +26,16 @@ LOCAL_API = "http://127.0.0.1:3279/api/wecom/push"
 DEFAULT_SITE = "http://125.71.210.3:3279"
 
 WEEK = ["周一", "周二", "周三", "周四", "周五", "周六", "周日"]
+
+# 企业微信「智能机器人（API 模式）」的 markdown 只支持标准语法，
+# 不支持 <font color="..."> 这类 HTML（那是群机器人 Webhook 才有的扩展），
+# 传进去会被原样显示成乱码般的标签文本，所以这里统一清洗掉。
+_TAG_RE = re.compile(r"</?[a-zA-Z][^>]{0,80}>")
+
+
+def _sanitize_md(text):
+    """去掉 markdown 正文里不被支持的 HTML 标签。"""
+    return _TAG_RE.sub("", text)
 
 
 def _load(path, default):
@@ -77,13 +88,13 @@ def build_card(date=None, master=None):
         kv = s.get("keyvocab") or []
         if kv:
             terms = " · ".join("%s %s" % (k.get("term", ""), k.get("ipa", "")) for k in kv[:4])
-            lines.append("　<font color=\"comment\">%s</font>" % terms.strip())
+            lines.append("　🔈 %s" % terms.strip())
         lines.append("")
     lines.append("[👉 打开今日练习页（点读 / 跟读 / 自评掌握度）](%s/day%s.html)" % (_site(), date))
     lines.append("")
     lines.append("> 累计已学 %d 句 ｜ 已练习 %d 天 ｜ 词库 %d 句" % (
         introduced, practiced, len(m["sentences"])))
-    return "\n".join(lines)
+    return _sanitize_md("\n".join(lines))
 
 
 def push_via_local_api(card, date):
