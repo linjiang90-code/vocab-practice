@@ -8,17 +8,51 @@
 - GET  /api/mastery    -> 返回全部句掌握度
 - POST /api/mastery    -> 回写某句掌握度 {id, action: clear|fuzzy|unknown}
 - GET  /cars-2026.html -> 2026 市售车型统计表（动态转发到车展项目源文件，始终最新）
+- GET  /api/wecom/state-> 企业微信机器人长连接状态（是否已连、是否已拿到 chatid）
+- POST /api/wecom/push -> 把某天的 5 句推送到企业微信 {date?, content?}
 跨域（CORS）已放开，因此从 WorkBuddy 预览页(其他端口)打开也能回写。
 （已取消 HTTP Basic Auth，访问无需账号密码。）
+
+企业微信机器人（2026-11-09 接入）：
+  本服务同时持有「智能机器人 · API 模式（长连接）」的 WebSocket。
+  放在常驻服务里而不是单独进程，是因为该机器人同一时刻只允许 1 条长连接，
+  且推送必须依赖连接存活——serve.py 已由任务计划开机自启 + 崩溃自重启，
+  天然满足常驻要求，无需再建一个计划任务。
+  前置条件：用户须先在企业微信里给机器人发过消息，chatid 才会被缓存。
 """
 import json, os, threading, datetime
 from http.server import HTTPServer, ThreadingHTTPServer, SimpleHTTPRequestHandler
 import gen_views_html  # 自评回写后重建「已学回顾/学习日历」内嵌数据页
+import wecom_push       # 组装每日 5 句 markdown 卡片
+
+try:
+    import wecom_bot
+except Exception:        # 未装 aiohttp / 缺依赖时不影响站点其它功能
+    wecom_bot = None
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 MASTER = os.path.join(BASE, "master.json")
 PORT = 3279
 lock = threading.Lock()
+WECOM_BOT = None        # 由 __main__ 启动后赋值；HTTP 线程只读
+
+
+def _wecom_reply(body, bot):
+    """收到用户消息时的自动回复：发「今日/明天」回对应卡片，其它给一句提示。"""
+    text = ((body.get("text") or {}).get("content") or "").strip().lower()
+    today = datetime.date.today()
+    try:
+        if any(k in text for k in ("今日", "今天", "today", "学", "句子", "推送")):
+            return wecom_push.build_card(today.isoformat())
+        if any(k in text for k in ("明日", "明天", "tomorrow", "预览")):
+            return wecom_push.build_card((today + datetime.timedelta(days=1)).isoformat())
+    except SystemExit as e:
+        return "⚠️ %s" % e
+    except Exception as e:
+        return "⚠️ 生成失败：%r" % e
+    return ("👋 我是「词力」口语教练的推送机器人。\n"
+            "发 **今日** → 今天的 5 句\n发 **明天** → 明天的预习句\n"
+            "每天 09:00 也会自动推一次。")
 
 # 构建版本号：每次页面有大改或修复乱码后递增，serve.py 会对所有 *.html 请求
 # 302 跳转到带 ?v=BUILD 的 URL，强制浏览器 / 省流量代理重新拉取最新内容，
@@ -98,6 +132,11 @@ class H(SimpleHTTPRequestHandler):
             return
         if self.path == "/api/status":
             return self._send(200, json.dumps({"ok": True, "port": PORT}))
+        if p == "/api/wecom/state":
+            if WECOM_BOT is None:
+                return self._send(200, json.dumps(
+                    {"enabled": False, "reason": "未配置 wecom_config.json 或缺少 aiohttp"}))
+            return self._send(200, json.dumps(WECOM_BOT.state(), ensure_ascii=False))
         # 2026 市售车型统计表：动态读车展项目源文件（每次请求现读，始终最新）
         if p == "/cars-2026.html":
             try:
@@ -135,6 +174,36 @@ class H(SimpleHTTPRequestHandler):
         return super().do_GET()
 
     def do_POST(self):
+        if self.path == "/api/wecom/push":
+            # 每日推送入口：自动化/命令行只需 POST 一个日期，内容由服务端组装
+            try:
+                ln = int(self.headers.get("Content-Length", 0) or 0)
+                raw = self.rfile.read(ln) if ln else b"{}"
+                data = json.loads(raw or b"{}")
+                date = data.get("date") or datetime.date.today().isoformat()
+                content = data.get("content") or wecom_push.build_card(date)
+                if WECOM_BOT is None:
+                    return self._send(503, json.dumps(
+                        {"ok": False, "error": "wecom bot 未启用（缺 wecom_config.json 或 aiohttp）"},
+                        ensure_ascii=False))
+                res = WECOM_BOT.send_markdown(content, data.get("chatid"), data.get("chat_type"))
+                # 长连接可能正在重连（该机器人同时只允许 1 条连接，可能被其它客户端顶掉，
+                # 表现为 not_connected 或回执超时），短暂等待后重试，避免每日推送整体失败。
+                tries = 0
+                while (not res.get("ok")) and tries < 3:
+                    tries += 1
+                    import time as _t
+                    _t.sleep(5)
+                    res = WECOM_BOT.send_markdown(content, data.get("chatid"), data.get("chat_type"))
+                if tries:
+                    res["retries"] = tries
+                res["date"] = date
+                return self._send(200 if res.get("ok") else 502,
+                                  json.dumps(res, ensure_ascii=False))
+            except SystemExit as e:
+                return self._send(404, json.dumps({"ok": False, "error": str(e)}, ensure_ascii=False))
+            except Exception as e:
+                return self._send(500, json.dumps({"ok": False, "error": repr(e)}, ensure_ascii=False))
         if self.path == "/api/mastery":
             try:
                 ln = int(self.headers.get("Content-Length", 0) or 0)
@@ -184,6 +253,14 @@ if __name__ == "__main__":
         signal.signal(signal.SIGPIPE, signal.SIG_IGN)
     except Exception:
         pass
+    # 企业微信机器人长连接：由本常驻服务持有（同一机器人只允许 1 条长连接）
+    if wecom_bot is not None:
+        try:
+            WECOM_BOT = wecom_bot.start_from_config(_wecom_reply)
+            print("wecom bot: %s" % ("long link starting…" if WECOM_BOT else
+                                     "not configured (缺 wecom_config.json)"), flush=True)
+        except Exception as e:
+            print("wecom bot start failed: %r" % (e,), flush=True)
     # 崩溃自重启：serve_forever 若异常退出，等待后自动拉起，避免长时间假死无服务
     while True:
         try:
