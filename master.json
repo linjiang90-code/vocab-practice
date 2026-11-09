@@ -1364,11 +1364,11 @@
       "audio": "audio/s21.mp3",
       "learn": {
         "introduced": true,
-        "introducedDay": 7,
-        "mastery": 4,
-        "reviewCount": 4,
-        "lastReviewed": "2026-10-06",
-        "dueDate": null,
+        "introducedDay": 89,
+        "mastery": 5,
+        "reviewCount": 6,
+        "lastReviewed": "2026-11-09",
+        "dueDate": "2026-11-10",
         "enh": {
           "fullIpa": "/haʊ fɑr ɪz ɪt frəm hɪr/",
           "variants": [
@@ -4310,11 +4310,11 @@
       "audio": "audio/s67.mp3",
       "learn": {
         "introduced": true,
-        "introducedDay": 22,
-        "mastery": 1,
-        "reviewCount": 1,
-        "lastReviewed": "2026-09-04",
-        "dueDate": null,
+        "introducedDay": 89,
+        "mastery": 3,
+        "reviewCount": 3,
+        "lastReviewed": "2026-11-09",
+        "dueDate": "2026-11-10",
         "enh": {
           "fullIpa": "/ˈsɑri aɪ kænt meɪk ɪt/",
           "variants": [
@@ -9800,12 +9800,12 @@
       ],
       "audio": "audio/s156.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
-        "dueDate": null,
+        "introduced": true,
+        "introducedDay": 89,
+        "mastery": 2,
+        "reviewCount": 2,
+        "lastReviewed": "2026-11-09",
+        "dueDate": "2026-11-10",
         "enh": {
           "fullIpa": "/wɛrz ðə ˈnɪrɪst bʌs stɑp/",
           "variants": [
@@ -11325,12 +11325,12 @@
       ],
       "audio": "audio/s181.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
-        "dueDate": null,
+        "introduced": true,
+        "introducedDay": 89,
+        "mastery": 2,
+        "reviewCount": 2,
+        "lastReviewed": "2026-11-09",
+        "dueDate": "2026-11-10",
         "enh": {
           "fullIpa": "/du ju hæv ˈɛniθɪŋ əˈveɪləbəl fɔr təˈnaɪt/",
           "variants": [
@@ -12302,11 +12302,11 @@
       "audio": "audio/s197.mp3",
       "learn": {
         "introduced": true,
-        "introducedDay": 67,
-        "mastery": 1,
-        "reviewCount": 1,
-        "lastReviewed": "2026-10-18",
-        "dueDate": null,
+        "introducedDay": 89,
+        "mastery": 3,
+        "reviewCount": 3,
+        "lastReviewed": "2026-11-09",
+        "dueDate": "2026-11-10",
         "enh": {
           "fullIpa": "/ɪz ruːm ˈsɜːrvɪs əˈveɪləbəl əˈraʊnd ðə ˈklɑk/",
           "variants": [
@@ -12552,11 +12552,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/ðə vjuː frʌm ðɪs ruːm ɪz əˈmeɪzɪŋ/",
+          "variants": [
+            [
+              "The view from this room is amazing.",
+              "标准"
+            ],
+            [
+              "What a view!",
+              "感叹式，更口语"
+            ],
+            [
+              "The view here is stunning.",
+              "stunning 比 amazing 更书面"
+            ]
+          ],
+          "scenes": [
+            [
+              "入住后感叹",
+              "The view from this room is amazing.",
+              "对方回 Glad you like it."
+            ],
+            [
+              "拍照分享",
+              "Check out this view!",
+              "发照片给朋友"
+            ],
+            [
+              "请求换房",
+              "Could I get a room with a better view?",
+              "想换海景/城景房"
+            ]
+          ],
+          "grammar": "view 景色，from this room『从这个房间（看出去）』。amazing 令人惊叹；同类词：breathtaking / stunning / spectacular。",
+          "pron": "连读：The view→/ðə vjuː/；view from→/vjuː frʌm/；from this→/frʌm ðɪs/；this room→/ðɪs ruːm/；room is→/ruː mɪz/（m 与 ɪ 连读）；is amazing→/ɪ zəˈmeɪzɪŋ/。弱读：The→/ðə/、from→/frʌm/、is→/ɪz/。失去爆破/同化/浊化/缩读：无典型。"
         }
       }
     },
@@ -12584,11 +12613,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/dʌz ðə ruːm kʌm wɪð ə seɪf fɔr ˈvæljuəbəlz/",
+          "variants": [
+            [
+              "Does the room come with a safe for valuables?",
+              "标准"
+            ],
+            [
+              "Is there a safe in the room?",
+              "更简"
+            ],
+            [
+              "Can I get a safety deposit box?",
+              "前台保管箱说法"
+            ]
+          ],
+          "scenes": [
+            [
+              "入住时问",
+              "Does the room come with a safe for valuables?",
+              "对方回 Yes, it's in the closet."
+            ],
+            [
+              "贵重物品寄存",
+              "Can I leave my passport at the front desk?",
+              "寄存前台"
+            ],
+            [
+              "保险箱打不开",
+              "The safe won't open. Could someone help?",
+              "叫人修"
+            ]
+          ],
+          "grammar": "come with…『自带/配有…』（房间设施万能句式）。safe 此处名词『保险箱』（形容词安全是 safe，重音不同语境区分）。valuables 贵重物品（形容词变名词，定冠词泛指一类）。",
+          "pron": "连读：Does the→/dʌz ðə/；room come→/ruːm kʌm/；come with→/kʌm wɪð/；with a→/wɪð ə/；a safe→/ə seɪf/；safe for→/seɪ f fɔr/；for valuables→/fər ˈvæljuəbəlz/。弱读：the→/ðə/、a→/ə/、for→/fər/、does→/dʌz/。失去爆破：valuables /ˈvæljuə(b)əlz/。同化/浊化/缩读：无典型。"
         }
       }
     },
@@ -12616,11 +12674,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/ɪz ðə ˈmɪnibɑːr ɪnˈkluːdɪd ɪn ðə ruːm reɪt/",
+          "variants": [
+            [
+              "Is the minibar included in the room rate?",
+              "标准"
+            ],
+            [
+              "Is the minibar free?",
+              "更直接"
+            ],
+            [
+              "Do I have to pay for the minibar?",
+              "确认是否收费"
+            ]
+          ],
+          "scenes": [
+            [
+              "入住确认",
+              "Is the minibar included in the room rate?",
+              "对方回 No, items are charged separately."
+            ],
+            [
+              "退房争议",
+              "I didn't touch the minibar.",
+              "声明没动过迷你吧"
+            ],
+            [
+              "问计价",
+              "How much is a bottle of water from the minibar?",
+              "问单品价"
+            ]
+          ],
+          "grammar": "included in…『包含在…里』（be included in 固定搭配）。room rate 房价。minibar 迷你酒吧（复合名词，重音在前）。",
+          "pron": "连读：Is the→/ɪz ðə/；minibar included→/ˈmɪnibɑː rɪnˈkluːdɪd/（r 与 ɪ 连读）；included in→/ɪnˈkluː dɪdɪn/（d 与 ɪ）；in the→/ɪn ðə/；the room→/ðə ruːm/；room rate→/ruːm reɪt/。弱读：the→/ðə/、in→/ɪn/。同化：included /ɪnˈkluːdɪd/ 中 n 在 k 前可为 ŋ 音。浊化/缩读：无典型。"
         }
       }
     },
@@ -12648,11 +12735,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/kʊd aɪ ɡɛt ə spɛr ki kɑːrd fɔr maɪ ˈpɑːrtnər/",
+          "variants": [
+            [
+              "Could I get a spare key card for my partner?",
+              "标准"
+            ],
+            [
+              "Can we have two key cards?",
+              "直接要两张"
+            ],
+            [
+              "Could you make another key card for us?",
+              "请再制作一张"
+            ]
+          ],
+          "scenes": [
+            [
+              "入住时",
+              "Could I get a spare key card for my partner?",
+              "对方回 Sure, how many cards?"
+            ],
+            [
+              "房卡消磁",
+              "My key card stopped working.",
+              "重新做卡"
+            ],
+            [
+              "同伴晚到",
+              "My friend will arrive later — can he check in with this?",
+              "问代取卡"
+            ]
+          ],
+          "grammar": "spare『备用的』（形容词）。key card 房卡。Could I get… 比 Can I have… 更委婉，要东西万能句。",
+          "pron": "同化/缩读：无典型。连读：Could I→/kʊ d aɪ/（d 与 aɪ）；get a→/ɡɛ tə/；a spare→/ə spɛr/；spare key→/spɛr ki/；key card→/ki kɑːrd/；card for→/kɑːr d fɔr/；for my→/fər maɪ/；my partner→/maɪ ˈpɑːrtnər/。弱读：for→/fər/、a→/ə/。失去爆破：get /ɡɛ(t)/ 在 a 前；spare /spɛ(r)/。"
         }
       }
     },
@@ -12680,11 +12796,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/aɪd laɪk tʊ ɪkˈstɛnd maɪ steɪ fɔr tu mɔr naɪts/",
+          "variants": [
+            [
+              "I'd like to extend my stay for two more nights.",
+              "标准"
+            ],
+            [
+              "Can I extend my stay by two nights?",
+              "by + 数量"
+            ],
+            [
+              "Is it possible to stay two extra nights?",
+              "extra nights 更口语"
+            ]
+          ],
+          "scenes": [
+            [
+              "前台续住",
+              "I'd like to extend my stay for two more nights.",
+              "对方回 Let me check availability."
+            ],
+            [
+              "房间没空",
+              "I'm sorry, we're fully booked. I can move you to a sister hotel.",
+              "满房调店"
+            ],
+            [
+              "涨价确认",
+              "Will the rate be the same?",
+              "确认续房价"
+            ]
+          ],
+          "grammar": "extend my stay『延长住宿』固定搭配；extend v. 延长（续签合同也用它）。for + 数量 + more + 名词『再多…』= 多住两晚。",
+          "pron": "同化/缩读：I'd = I would（/aɪd/）。连读：like to→/laɪk tə/；to extend→/tʊ ɪkˈstɛnd/；extend my→/ɪkˈstɛn(d) maɪ/；my stay→/maɪ steɪ/；stay for→/steɪ fər/；for two→/fər tu/；two more→/tu mɔr/；more nights→/mɔr naɪts/。弱读：to→/tə/、for→/fər/。失去爆破：extend /ɪkˈstɛn(d)/。"
         }
       }
     },
@@ -12712,11 +12857,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/ɪz ðə ruːm reɪt ðə seɪm ɪf aɪ steɪ ˈlɔːŋɡər/",
+          "variants": [
+            [
+              "Is the room rate the same if I stay longer?",
+              "标准"
+            ],
+            [
+              "Does the price change if I stay longer?",
+              "价格变不变"
+            ],
+            [
+              "Any discount for a longer stay?",
+              "长住有无折扣"
+            ]
+          ],
+          "scenes": [
+            [
+              "续住问价",
+              "Is the room rate the same if I stay longer?",
+              "对方回 Long stays get 10% off."
+            ],
+            [
+              "还价",
+              "What's your best rate for a week?",
+              "问周价"
+            ],
+            [
+              "确认含早",
+              "Does that include breakfast?",
+              "确认含早"
+            ]
+          ],
+          "grammar": "the same『一样的』；if 引导条件从句。rate 价格/费率；stay longer 待更久（stay 动词）。",
+          "pron": "连读：Is the→/ɪz ðə/；room rate→/ruːm reɪt/；rate the→/reɪ(t) ðə/；the same→/ðə seɪm/；same if→/seɪ mɪf/（m 与 ɪ 连读）；if I→/ɪ faɪ/；I stay→/aɪ steɪ/；stay longer→/steɪ ˈlɔːŋɡər/。弱读：the→/ðə/、if→/ɪf/。失去爆破：rate /reɪ(t)/；same /seɪ(m)/。同化/浊化/缩读：无典型。"
         }
       }
     },
@@ -12744,11 +12918,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/duː juː ˈɔfər ˈɛrpɔːrt ˈpɪkʌp fɔr ɡɛsts/",
+          "variants": [
+            [
+              "Do you offer airport pickup for guests?",
+              "标准"
+            ],
+            [
+              "Is there an airport shuttle?",
+              "shuttle 摆渡车，酒店常用"
+            ],
+            [
+              "Can you arrange a pickup from the airport?",
+              "请酒店安排"
+            ]
+          ],
+          "scenes": [
+            [
+              "订房时问",
+              "Do you offer airport pickup for guests?",
+              "对方回 Yes, it's 200 yuan per trip."
+            ],
+            [
+              "免费班车",
+              "Is the shuttle free? What's the schedule?",
+              "问班车时刻"
+            ],
+            [
+              "报航班号",
+              "My flight is CZ3456, landing at 14:30.",
+              "预约接机"
+            ]
+          ],
+          "grammar": "offer + 名词『提供…』。pickup 接载（名词，重音在前 /ˈpɪkʌp/；动词 pick up 重音在后）。for guests 为住客提供。",
+          "pron": "连读：Do you→/duː ju/（常缩读 /dʒə/）；offer airport→/ˈɔfər ˈɛrpɔːrt/；airport pickup→/ˈɛrpɔːrt ˈpɪkʌp/；pickup for→/ˈpɪkʌ p fər/；for guests→/fər ɡɛsts/。弱读：for→/fər/。缩读：Do you→/djə/（常见口语缩读）。失去爆破：airport /ˈɛrpɔː(r)t/。"
         }
       }
     },
@@ -12776,11 +12979,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/ɪz ˈbrɛkfəst sɜrvd ɪn ðə ˈlɑbi ɔr ɪn ðə ˈrɛstrɑnt/",
+          "variants": [
+            [
+              "Is breakfast served in the lobby or in the restaurant?",
+              "标准"
+            ],
+            [
+              "Where is breakfast served?",
+              "更简"
+            ],
+            [
+              "Which floor is breakfast on?",
+              "问楼层"
+            ]
+          ],
+          "scenes": [
+            [
+              "前台问",
+              "Is breakfast served in the lobby or in the restaurant?",
+              "对方回 In the restaurant, on the second floor."
+            ],
+            [
+              "找位置",
+              "Could you show me where the restaurant is?",
+              "请人指路"
+            ],
+            [
+              "打包",
+              "Can I get breakfast to go?",
+              "问能否外带"
+            ]
+          ],
+          "grammar": "is served 被动语态『被供应』（服务场景高频句式）。or 连接选择疑问。lobby 大堂；restaurant 餐厅。",
+          "pron": "连读：Is breakfast→/ɪz ˈbrɛkfəst/；breakfast served→/ˈbrɛkfəs(t) sɜrvd/（t 与 s 相邻，前 t 失去爆破）；served in→/sɜrv dɪn/（d 与 ɪ）；in the→/ɪn ðə/；lobby or→/ˈlɑ bi ɔr/；or in→/ɔr ɪn/；in the restaurant→/ɪn ðə ˈrɛstrɑnt/。弱读：the→/ðə/、in→/ɪn/、or→/ər/。失去爆破：breakfast /ˈbrɛk(f)əst/。"
         }
       }
     },
@@ -12808,11 +13040,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/wʌt taɪm dʌz ˈbrɛkfəst stɑːrt ɪn ðə ˈmɔrnɪŋ/",
+          "variants": [
+            [
+              "What time does breakfast start in the morning?",
+              "标准"
+            ],
+            [
+              "When does breakfast start?",
+              "when 更简"
+            ],
+            [
+              "What are your breakfast hours?",
+              "问时段更地道"
+            ]
+          ],
+          "scenes": [
+            [
+              "前台问",
+              "What time does breakfast start in the morning?",
+              "对方回 From 6:30 to 10:00."
+            ],
+            [
+              "赶早班机",
+              "Can I get breakfast earlier? My flight is at 7.",
+              "问能否提前"
+            ],
+            [
+              "最后时间",
+              "Until what time is it served?",
+              "问截止"
+            ]
+          ],
+          "grammar": "What time does + 主语 + 动词原形…? 问具体时刻。start 开始（不及物）；in the morning 泛指早上。",
+          "pron": "连读：What time→/wʌ(t) taɪm/（t 与 t 重叠，只读一次）；does breakfast→/dʌz ˈbrɛkfəst/；breakfast start→/ˈbrɛkfəs(t) stɑːrt/；start in→/stɑːr tɪn/；in the→/ɪn ðə/；the morning→/ðə ˈmɔrnɪŋ/。弱读：does→/dəz/、in the→/ɪn ðə/。失去爆破：What /wʌ(t)/；breakfast /ˈbrɛk(f)əst/。同化/浊化/缩读：无典型。"
         }
       }
     },
@@ -12840,11 +13101,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/kʊd juː ˌrɛkəˈmɛnd ə ˈloʊkəl dɪʃ wɜrθ ˈtraɪɪŋ/",
+          "variants": [
+            [
+              "Could you recommend a local dish worth trying?",
+              "标准"
+            ],
+            [
+              "What's a must-try local dish?",
+              "must-try 更口语"
+            ],
+            [
+              "Any local food you'd suggest?",
+              "更随意"
+            ]
+          ],
+          "scenes": [
+            [
+              "问前台/店员",
+              "Could you recommend a local dish worth trying?",
+              "对方回 Try the hotpot — it's famous here."
+            ],
+            [
+              "问店",
+              "Where can I get authentic local food?",
+              "问哪家店正宗"
+            ],
+            [
+              "怕辣确认",
+              "Is it very spicy? I'm not good with spicy food.",
+              "确认口味"
+            ]
+          ],
+          "grammar": "recommend + 名词『推荐…』。worth + doing『值得做…』（worth trying，固定用法，worth 后接动名词）。local dish 本地菜。",
+          "pron": "连读：Could you→/kʊ dʒu/（d+j 同化为 dʒ）；recommend a→/ˌrɛkəˈmɛn də/；a local→/ə ˈloʊkəl/；local dish→/ˈloʊkəl dɪʃ/；dish worth→/dɪʃ wɜrθ/；worth trying→/wɜrθ ˈtraɪɪŋ/。弱读：a→/ə/、you→/ju/。同化：Could you→/kʊdʒu/（关键！d+j→dʒ）。失去爆破/浊化/缩读：无典型。"
         }
       }
     },
@@ -12872,11 +13162,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/duː juː hæv ˈɛni ˈteɪbəlz friː fɔr tuː təˈnaɪt/",
+          "variants": [
+            [
+              "Do you have any tables free for two tonight?",
+              "标准"
+            ],
+            [
+              "Is there a table for two available tonight?",
+              "available 更正式"
+            ],
+            [
+              "Got a table for two tonight?",
+              "美式口语极简"
+            ]
+          ],
+          "scenes": [
+            [
+              "进店问位",
+              "Do you have any tables free for two tonight?",
+              "对方回 Yes, right this way."
+            ],
+            [
+              "满座等位",
+              "It's about a 20-minute wait.",
+              "等位 20 分钟"
+            ],
+            [
+              "没订位",
+              "Do you take walk-ins?",
+              "问能否不预约直接吃"
+            ]
+          ],
+          "grammar": "tables free『空着的桌子』（形容词后置修饰）。for two『两位的』。any 用于疑问句表『有没有一些』。",
+          "pron": "连读：Do you→/dʒə/（缩读）；have any→/hæ vəˈni/（v 与 ə）；any tables→/ˈɛni ˈteɪbəlz/；tables free→/ˈteɪbəlz friː/；free for→/friː fər/；for two→/fər tu/；two tonight→/tu təˈnaɪt/（t 与 t 重叠只读一次）。弱读：for→/fər/。同化/浊化/失去爆破：无典型。缩读：Do you→/dʒə/。"
         }
       }
     },
@@ -12904,11 +13223,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/aɪd laɪk tə meɪk ə ˌrɛzərˈveɪʃən fɔr sɪks æt ˈsɛvən piː ɛm/",
+          "variants": [
+            [
+              "I'd like to make a reservation for six at seven p.m.",
+              "标准"
+            ],
+            [
+              "A table for six at 7 tonight, please.",
+              "极简"
+            ],
+            [
+              "Can I book a table for six at seven?",
+              "book 比 make a reservation 随意"
+            ]
+          ],
+          "scenes": [
+            [
+              "电话订位",
+              "I'd like to make a reservation for six at seven p.m.",
+              "对方回 May I have your name?"
+            ],
+            [
+              "确认座位",
+              "Is that inside or outside seating?",
+              "问堂内还是户外"
+            ],
+            [
+              "改时间",
+              "Can we push it to 7:30?",
+              "改晚半小时"
+            ]
+          ],
+          "grammar": "make a reservation 预订（固定搭配）；book = reserve = make a reservation。for six『六个人的』（数字直接表人数）；at + 时刻『在…点』。p.m. 下午。",
+          "pron": "同化/缩读：I'd = I would（/aɪd/）。连读：like to→/laɪk tə/；to make→/tə meɪk/；make a→/meɪ kə/；a reservation→/ə ˌrɛzərˈveɪʃən/；reservation for→/ˌrɛzərˈveɪʃən fər/；for six→/fər sɪks/；six at→/sɪk sæt/（s 与 æ 连读）；at seven→/æt ˈsɛvən/；seven p.m.→/ˈsɛvən piːɛm/。弱读：to→/tə/、a→/ə/、for→/fər/、at→/ət/。失去爆破：make /meɪ(k)/。"
         }
       }
     },
@@ -12936,11 +13284,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/wil teɪk ðə ˈteɪbəl baɪ ðə ˈwɪndoʊ ɪf ˈpɑsəbəl/",
+          "variants": [
+            [
+              "We'll take the table by the window if possible.",
+              "标准"
+            ],
+            [
+              "Can we sit by the window?",
+              "直接问"
+            ],
+            [
+              "Window seat if you have one, please.",
+              "更简"
+            ]
+          ],
+          "scenes": [
+            [
+              "选位",
+              "We'll take the table by the window if possible.",
+              "对方回 Of course, this way please."
+            ],
+            [
+              "被安排别处",
+              "Could we move closer to the window?",
+              "请求换位"
+            ],
+            [
+              "安静角落",
+              "Somewhere quieter would be great.",
+              "想坐安静处"
+            ]
+          ],
+          "grammar": "We'll take…『我们要…』（点单/选位万能开头）。by the window『靠窗』（by 表『在…旁边』）。if possible『如果可以的话』插入语。",
+          "pron": "缩读：We'll = We will（/wil/）。连读：take the→/teɪk ðə/；the table→/ðə ˈteɪbəl/；table by→/ˈteɪbəl baɪ/；by the→/baɪ ðə/；the window→/ðə ˈwɪndoʊ/；window if→/ˈwɪndoʊ wɪf/（d 与 ɪ 连读；if 轻读）；if possible→/ɪf ˈpɑsəbəl/。弱读：the→/ðə/、if→/ɪf/。失去爆破：take /teɪ(k)/。同化/浊化：无典型。"
         }
       }
     },
@@ -12968,11 +13345,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/kʊd aɪ siː ðə ˈmɛnjuː pliːz/",
+          "variants": [
+            [
+              "Could I see the menu, please?",
+              "标准"
+            ],
+            [
+              "Can I get a menu, please?",
+              "美式常用"
+            ],
+            [
+              "Menu, please.",
+              "极简"
+            ]
+          ],
+          "scenes": [
+            [
+              "入座要菜单",
+              "Could I see the menu, please?",
+              "对方回 Here you are."
+            ],
+            [
+              "要看中文菜单",
+              "Do you have a menu in English/Chinese?",
+              "要外语菜单"
+            ],
+            [
+              "扫码点餐",
+              "Can I scan a QR code to order?",
+              "扫码点单"
+            ]
+          ],
+          "grammar": "Could I see…? 索要东西万能句（see 此处=拿到看）。please 放句尾更自然。",
+          "pron": "连读：Could I→/kʊ d aɪ/（d 与 aɪ）；I see→/aɪ siː/；see the→/siː ðə/；the menu→/ðə ˈmɛnjuː/；menu please→/ˈmɛnju pliːz/。弱读：the→/ðə/。失去爆破：Could /kʊ(d)/。同化/浊化/缩读：无典型。"
         }
       }
     },
@@ -13000,11 +13406,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/wʌt duː juː ˌrɛkəˈmɛnd æz ə ˈstɑrtər/",
+          "variants": [
+            [
+              "What do you recommend as a starter?",
+              "标准"
+            ],
+            [
+              "Any good starters?",
+              "更简"
+            ],
+            [
+              "What's popular for starters?",
+              "问招牌前菜"
+            ]
+          ],
+          "scenes": [
+            [
+              "问服务员",
+              "What do you recommend as a starter?",
+              "对方回 The soup of the day is very popular."
+            ],
+            [
+              "跟进主菜",
+              "And for the main course?",
+              "接着问主菜"
+            ],
+            [
+              "犹豫时",
+              "What do most people order?",
+              "问大众选择"
+            ]
+          ],
+          "grammar": "recommend + 名词；as a starter『作为前菜』（as 表角色）。starter 前菜（英式）；美式常说 appetizer。",
+          "pron": "连读：What do→/wʌ(t) du/；do you→/dʒə/（缩读）；recommend as→/ˌrɛkəˈmɛn dəz/（d 与 ə）；as a→/ə zə/（z 与 ə 连读）；a starter→/ə ˈstɑrtər/。弱读：do→/də/、as→/əz/、a→/ə/。失去爆破：What /wʌ(t)/；recommend /ˌrɛkəˈmɛn(d)/。同化/浊化：无典型。缩读：do you→/dʒə/。"
         }
       }
     },
@@ -13032,11 +13467,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/aɪl hæv ðə seɪm æz wʌt ʃiːz ˈhævɪŋ/",
+          "variants": [
+            [
+              "I'll have the same as what she's having.",
+              "标准"
+            ],
+            [
+              "Same for me, please.",
+              "极简，最常用"
+            ],
+            [
+              "I'll have what she's having.",
+              "更简（经典梗 When Harry Met Sally）"
+            ]
+          ],
+          "scenes": [
+            [
+              "跟点",
+              "I'll have the same as what she's having.",
+              "服务员直接记两份"
+            ],
+            [
+              "拼桌参考",
+              "That looks good — I'll have one of those.",
+              "指着别人菜点"
+            ],
+            [
+              "人多跟点",
+              "Make it two.",
+              "来两份一样的"
+            ]
+          ],
+          "grammar": "I'll have… 点餐万能句（have=吃/点）。the same as…『和…一样』。what she's having 名词性从句（她正在点的）。",
+          "pron": "缩读：I'll = I will（/aɪl/）；she's = she is（/ʃiːz/）。连读：have the→/hæv ðə/；the same→/ðə seɪm/；same as→/seɪ məz/（m 与 ə 连读）；as what→/əz wʌt/；what she's→/wʌt ʃiːz/；she's having→/ʃiːz ˈhævɪŋ/。弱读：the→/ðə/、as→/əz/、what→/wət/。失去爆破：What /wʌ(t)/。同化：what she's→/wʌt ʃiːz/（t 与 ʃ 相邻，t 可塞擦成 /tʃ/）。"
         }
       }
     },
@@ -13064,11 +13528,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/kʊd aɪ ɡɛt ðɪs wɪˈðaʊt ˈʌnjənz/",
+          "variants": [
+            [
+              "Could I get this without onions?",
+              "标准"
+            ],
+            [
+              "No onions, please.",
+              "极简"
+            ],
+            [
+              "Could you hold the onions?",
+              "hold = 不加，美式餐馆黑话"
+            ]
+          ],
+          "scenes": [
+            [
+              "点餐忌口",
+              "Could I get this without onions?",
+              "对方回 Sure, no problem."
+            ],
+            [
+              "不吃香菜",
+              "Could you hold the cilantro?",
+              "香菜说法"
+            ],
+            [
+              "上错菜",
+              "This has onions — I asked for no onions.",
+              "礼貌指错"
+            ]
+          ],
+          "grammar": "without + 名词『不含…』。hold + 食材 = 不放该食材（餐馆用语）。get this『做这道（菜）』。",
+          "pron": "连读：Could I→/kʊ d aɪ/；get this→/ɡɛ(t) ðɪs/；this without→/ðɪs wɪˈðaʊt/；without onions→/wɪˈðaʊ tˈʌnjənz/（t 与 ʌ 连读）。弱读：a→/ə/（a 未出现），this→/ðɪs/。失去爆破：get /ɡɛ(t)/。同化：无典型。浊化/缩读：无典型。"
         }
       }
     },
@@ -13096,11 +13589,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/ɪz ðɪs dɪʃ ˈvɛri ˈspaɪsi/",
+          "variants": [
+            [
+              "Is this dish very spicy?",
+              "标准"
+            ],
+            [
+              "How spicy is it?",
+              "问辣度等级更实用"
+            ],
+            [
+              "Is it hot? I can't handle spicy food.",
+              "hot 也指辣"
+            ]
+          ],
+          "scenes": [
+            [
+              "点餐确认",
+              "Is this dish very spicy?",
+              "对方回 Mild/Medium/Very spicy."
+            ],
+            [
+              "要求减辣",
+              "Could you make it less spicy?",
+              "要求微辣"
+            ],
+            [
+              "小朋友吃",
+              "Is it kid-friendly? Not too spicy?",
+              "给娃点菜"
+            ]
+          ],
+          "grammar": "spicy 辣的（口语也用 hot，但 hot 兼指温度，需语境）。How spicy…? 问程度（very / a little / not at all）。",
+          "pron": "连读：Is this→/ɪz ðɪs/；this dish→/ðɪs dɪʃ/；dish very→/dɪʃ ˈvɛri/；very spicy→/ˈvɛri ˈspaɪsi/。弱读：is→/ɪz/、this→/ðɪs/。浊化：spicy /ˈspaɪsi/ 的 s 后 p 清辅音送气强（非浊化，标准送气）。失去爆破/同化/缩读：无典型。"
         }
       }
     },
@@ -13128,11 +13650,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/aɪm əˈlɜrdʒɪk tuː ˈpiːnʌts soʊ pliːz biː ˈkɛrfəl/",
+          "variants": [
+            [
+              "I'm allergic to peanuts, so please be careful.",
+              "标准"
+            ],
+            [
+              "I have a peanut allergy.",
+              "名词说法，更正式"
+            ],
+            [
+              "No peanuts, please — severe allergy.",
+              "强调严重性"
+            ]
+          ],
+          "scenes": [
+            [
+              "点餐声明",
+              "I'm allergic to peanuts, so please be careful.",
+              "对方回 Noted, I'll inform the chef."
+            ],
+            [
+              "强调严重",
+              "Even a small amount could cause a reaction.",
+              "微量也不行"
+            ],
+            [
+              "随身卡",
+              "Here's my allergy card.",
+              "出示过敏提示卡"
+            ]
+          ],
+          "grammar": "be allergic to + 食物『对…过敏』（介词 to，不是 with）。so 表因果承接。please be careful 礼貌叮嘱。",
+          "pron": "缩读：I'm = I am（/aɪm/）。连读：allergic to→/əˈlɜrdʒɪk tu/；to peanuts→/tə ˈpiːnʌts/；peanuts so→/ˈpiːnʌ(t) soʊ/（ts 与 s 相邻）；so please→/soʊ pliːz/；please be→/pliːz bi/；be careful→/bi ˈkɛrfəl/。弱读：to→/tə/、so→/sə/。失去爆破：peanuts /ˈpiːnʌ(t)s/。同化/浊化：无典型。"
         }
       }
     },
@@ -13160,11 +13711,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/kʊd juː tɛl miː wʌts ɪn ðɪs sɔs/",
+          "variants": [
+            [
+              "Could you tell me what's in this sauce?",
+              "标准"
+            ],
+            [
+              "What's in the sauce?",
+              "更简"
+            ],
+            [
+              "What does the sauce contain?",
+              "正式问法"
+            ]
+          ],
+          "scenes": [
+            [
+              "过敏排查",
+              "Could you tell me what's in this sauce?",
+              "确认不含过敏原"
+            ],
+            [
+              "好奇配方",
+              "This sauce is amazing — what's in it?",
+              "好奇成分"
+            ],
+            [
+              "素食确认",
+              "Is the sauce vegetarian?",
+              "问是否素食"
+            ]
+          ],
+          "grammar": "tell me + what 引导宾语从句（what's in…）。sauce 酱汁；与 source（来源）同音异义。contain 含有（及物，不接 in）。",
+          "pron": "连读：Could you→/kʊ dʒu/（d+j→dʒ 同化）；tell me→/tɛl mi/；me what's→/mi wʌts/；what's in→/wʌ(t) sɪn/（t 与 s 相邻，可连读 /wʌtsɪn/）；in this→/ɪn ðɪs/；this sauce→/ðɪs sɔs/。弱读：me→/mɪ/、this→/ðɪs/。同化：Could you→/kʊdʒu/（关键）。失去爆破：What's /wʌts/ 结尾。缩读：what's = what is。"
         }
       }
     },
@@ -13192,11 +13772,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/dʌz ɪt kənˈteɪn ˈɛni ˈsiːfuːd/",
+          "variants": [
+            [
+              "Does it contain any seafood?",
+              "标准"
+            ],
+            [
+              "Is there any seafood in it?",
+              "更口语"
+            ],
+            [
+              "Any shellfish in this?",
+              "问贝类更具体"
+            ]
+          ],
+          "scenes": [
+            [
+              "过敏排查",
+              "Does it contain any seafood?",
+              "对方回 No seafood, just chicken."
+            ],
+            [
+              "素食确认",
+              "I'm vegetarian — does this have any meat?",
+              "素食者泛问肉类的说法"
+            ],
+            [
+              "海鲜忌口",
+              "I avoid shellfish. Is this safe for me?",
+              "贝类过敏"
+            ]
+          ],
+          "grammar": "contain 及物动词直接接宾语（不接 in）。any 用于疑问句。seafood 海鲜（集合名词不可数）。",
+          "pron": "连读：Does it→/dʌ zɪt/（z 与 ɪ）；it contain→/ɪ(t) kənˈteɪn/；contain any→/kənˈteɪ nəni/（n 与 ɛ）；any seafood→/ˈɛni ˈsiːfuːd/。弱读：it→/ɪt/、any→/ˈɛni/。失去爆破：it /ɪ(t)/。同化/浊化/缩读：无典型。"
         }
       }
     },
@@ -13224,11 +13833,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/aɪl ˈɔrdər ðə sɛt miːl fɔr tuː/",
+          "variants": [
+            [
+              "I'll order the set meal for two.",
+              "标准"
+            ],
+            [
+              "The set menu for two, please.",
+              "set menu 英式说法"
+            ],
+            [
+              "Two set meals, please.",
+              "更直接"
+            ]
+          ],
+          "scenes": [
+            [
+              "点套餐",
+              "I'll order the set meal for two.",
+              "对方回 Any drinks with that?"
+            ],
+            [
+              "问套餐内容",
+              "What does the set meal include?",
+              "问包含什么"
+            ],
+            [
+              "升级套餐",
+              "Can we upgrade to the deluxe set?",
+              "问升级"
+            ]
+          ],
+          "grammar": "I'll order… 点单万能句。set meal 套餐（英式）；美式说 combo / combo meal。for two『两人份』。",
+          "pron": "缩读：I'll = I will（/aɪl/）。连读：order the→/ˈɔrdər ðə/；the set→/ðə sɛt/；set meal→/sɛ(t) miːl/（t 失去爆破后连读）；meal for→/miːl fər/；for two→/fər tu/。弱读：the→/ðə/、for→/fər/。失去爆破：set /sɛ(t)/。同化/浊化：无典型。"
         }
       }
     },
@@ -13256,11 +13894,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/haʊ wʊd juː laɪk jʊr steɪk dʌn/",
+          "variants": [
+            [
+              "How would you like your steak done?",
+              "标准（服务员问句）"
+            ],
+            [
+              "How do you want your steak?",
+              "更直接"
+            ],
+            [
+              "How should it be cooked?",
+              "问做法"
+            ]
+          ],
+          "scenes": [
+            [
+              "服务员问熟度",
+              "How would you like your steak done?",
+              "客人答 Medium, please."
+            ],
+            [
+              "客人反问",
+              "What do you suggest?",
+              "请服务员建议"
+            ],
+            [
+              "担心生熟",
+              "Is rare safe to eat here?",
+              "问几分熟安全性"
+            ]
+          ],
+          "grammar": "How would you like…? 服务业高频问句（=你想要…怎么样）。your steak done 中 done 是过去分词作宾补（做完的状态）。",
+          "pron": "连读：How would→/haʊ wʊd/；would you→/wʊ dʒu/（d+j→dʒ 同化）；you like→/dʒu laɪk/；like your→/laɪk jʊr/（k 与 j 滑音过渡）；your steak→/jʊr steɪk/；steak done→/steɪk dʌn/。弱读：would→/wəd/、your→/jər/。同化：would you→/wʊdʒu/（关键！）。浊化：steak /steɪk/ 的 s 后 t 送气（标准）。缩读：无典型。"
         }
       }
     },
@@ -13288,11 +13955,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/ˈmiːdiəm wɛl fɔr miː pliːz/",
+          "variants": [
+            [
+              "Medium well for me, please.",
+              "标准"
+            ],
+            [
+              "Medium, please.",
+              "更简"
+            ],
+            [
+              "I'll go with medium well.",
+              "go with 表选择"
+            ]
+          ],
+          "scenes": [
+            [
+              "答熟度",
+              "Medium well for me, please.",
+              "服务员记下"
+            ],
+            [
+              "牛排偏生",
+              "This is more rare than medium — could you cook it a bit more?",
+              "回炉重烤"
+            ],
+            [
+              "熟度等级",
+              "Rare → Medium rare → Medium → Medium well → Well done（生到全熟）",
+              "点餐前记住等级"
+            ]
+          ],
+          "grammar": "熟度五档：rare（一分）/ medium rare（三分）/ medium（五分）/ medium well（七分）/ well done（全熟）。for me『我的那份』；please 放句尾。",
+          "pron": "连读：Medium well→/ˈmiːdiəm wɛl/（m 与 w 滑音）；well for→/wɛl fər/；for me→/fər mi/；me please→/mi pliːz/。弱读：for→/fər/。浊化：无（medium m 清音起）。失去爆破/同化/缩读：无典型。"
         }
       }
     },
@@ -13320,11 +14016,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/kʊd wiː ɡɛt sʌm mɔr ˈwɔtər fɔr ðə ˈteɪbəl/",
+          "variants": [
+            [
+              "Could we get some more water for the table?",
+              "标准"
+            ],
+            [
+              "More water, please.",
+              "极简"
+            ],
+            [
+              "Could we have a refill on the water?",
+              "refill 续杯"
+            ]
+          ],
+          "scenes": [
+            [
+              "加水",
+              "Could we get some more water for the table?",
+              "对方回 Sure, still or sparkling?"
+            ],
+            [
+              "问水型",
+              "Just tap water is fine.",
+              "免费自来水"
+            ],
+            [
+              "续杯",
+              "Can I get a refill?",
+              "美式免费续杯场景"
+            ]
+          ],
+          "grammar": "some more + 不可数名词『再来一些…』。for the table『全桌的』（不是一个人的）。refill 续杯/续水。",
+          "pron": "连读：Could we→/kʊd wi/；we get→/wi ɡɛt/；get some→/ɡɛ(t) sʌm/；some more→/sʌm mɔr/；more water→/mɔr ˈwɔtər/；water for→/ˈwɔtər fər/；for the→/fər ðə/；the table→/ðə ˈteɪbəl/。弱读：some→/səm/、for→/fər/、the→/ðə/。失去爆破：get /ɡɛ(t)/。闪音：water 美式 /ˈwɔɾər/（t 在两元音间闪音化，关键！）。同化/浊化：无典型。"
         }
       }
     },
@@ -13352,11 +14077,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/ðɪs ˈɪzənt wʌt aɪ ˈɔrdərd aɪm əˈfrɛd/",
+          "variants": [
+            [
+              "This isn't what I ordered, I'm afraid.",
+              "标准"
+            ],
+            [
+              "I didn't order this.",
+              "更直接"
+            ],
+            [
+              "I think there's a mistake with my order.",
+              "委婉指错"
+            ]
+          ],
+          "scenes": [
+            [
+              "上错菜",
+              "This isn't what I ordered, I'm afraid.",
+              "对方回 I'm so sorry, I'll fix it right away."
+            ],
+            [
+              "指认订单",
+              "I ordered the chicken, not the beef.",
+              "说清点的是什么"
+            ],
+            [
+              "外卖错单",
+              "My delivery is missing an item.",
+              "外卖少件"
+            ]
+          ],
+          "grammar": "This isn't what I ordered 中 what I ordered 是表语从句（我点的东西）。I'm afraid 句尾缓和语气（礼貌指出问题）。",
+          "pron": "缩读：isn't = is not（/ˈɪzənt/）；I'm = I am（/aɪm/）。连读：This isn't→/ðɪ sɪzənt/（s 与 ɪ）；isn't what→/ˈɪzən(t) wʌt/；what I→/wʌ təɪ/（t 与 aɪ）；I ordered→/aɪ ˈɔrdərd/；ordered I'm→/ˈɔrdər d aɪm/；I'm afraid→/aɪ məˈfrɛd/（m 与 ə 连读）。弱读：what→/wət/。失去爆破：isn't /ˈɪzən(t)/。闪音：ordered 美式 /ˈɔrdɚd/。同化/浊化：无典型。"
         }
       }
     },
@@ -13384,11 +14138,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/ðə fuːd wʌz ˈɛksələnt θæŋk juː/",
+          "variants": [
+            [
+              "The food was excellent, thank you.",
+              "标准"
+            ],
+            [
+              "The food was great, thanks.",
+              "更口语"
+            ],
+            [
+              "Everything was delicious.",
+              "泛指全部菜"
+            ]
+          ],
+          "scenes": [
+            [
+              "结账夸赞",
+              "The food was excellent, thank you.",
+              "对方回 Thank you, hope to see you again."
+            ],
+            [
+              "当面夸厨师",
+              "Compliments to the chef!",
+              "向厨师致意，地道表达"
+            ],
+            [
+              "写好评",
+              "I'll leave a good review.",
+              "说要给好评"
+            ]
+          ],
+          "grammar": "was 过去时（用餐已结束）。excellent 极好的（比 good 强一档）。compliments to the chef 是夸厨师固定用语。",
+          "pron": "连读：The food→/ðə fuːd/；food was→/fuː d wʌz/（d 与 w）；was excellent→/wʌ zˈɛksələnt/（z 与 ɛ）；excellent thank→/ˈɛksələn(t) θæŋk/（t 与 θ）；thank you→/θæŋk ju/。弱读：The→/ðə/、was→/wəz/。失去爆破：excellent /ˈɛksələn(t)/。θ 音：thank 咬舌 /θ/，勿读成 /s/。同化/缩读：无典型。"
         }
       }
     },
@@ -13416,11 +14199,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/kʊd wiː hæv ðə bɪl pliːz/",
+          "variants": [
+            [
+              "Could we have the bill, please?",
+              "标准（英式用 bill）"
+            ],
+            [
+              "Check, please.",
+              "美式用 check"
+            ],
+            [
+              "Could we get the bill?",
+              "更随意"
+            ]
+          ],
+          "scenes": [
+            [
+              "招手结账",
+              "Could we have the bill, please?",
+              "对方回 Right away."
+            ],
+            [
+              "分开付",
+              "Could we get separate bills?",
+              "分单"
+            ],
+            [
+              "一起付",
+              "One bill, please.",
+              "合单"
+            ]
+          ],
+          "grammar": "the bill 账单（英式）；美式说 the check。Could we have…? 索要万能句。",
+          "pron": "连读：Could we→/kʊd wi/；we have→/wi hæv/；have the→/hæv ðə/；the bill→/ðə bɪl/；bill please→/bɪl pliːz/。弱读：the→/ðə/。失去爆破：Could /kʊ(d)/。同化/浊化/缩读：无典型。"
         }
       }
     },
@@ -13448,11 +14260,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/kʊd wiː splɪt ðə bɪl θriː weɪz/",
+          "variants": [
+            [
+              "Could we split the bill three ways?",
+              "标准"
+            ],
+            [
+              "Can we split it three ways?",
+              "split it 更简"
+            ],
+            [
+              "Let's split the bill evenly.",
+              "均摊说法"
+            ]
+          ],
+          "scenes": [
+            [
+              "朋友聚餐分摊",
+              "Could we split the bill three ways?",
+              "对方回 Sure, that's 68 each."
+            ],
+            [
+              "各付各的",
+              "We'd like to pay separately.",
+              "separately 各自付"
+            ],
+            [
+              "请客抢付",
+              "It's on me tonight.",
+              "我请客"
+            ]
+          ],
+          "grammar": "split the bill 分摊账单；three ways『按三份』（way 表份额）。split 过去式/过去分词同为 split。pay separately 各自付。",
+          "pron": "连读：Could we→/kʊd wi/；we split→/wi splɪt/；split the→/splɪ(t) ðə/（t 失去爆破）；the bill→/ðə bɪl/；bill three→/bɪl θriː/；three ways→/θriː weɪz/。弱读：the→/ðə/。失去爆破：split /splɪ(t)/。θ 音：three /θriː/ 咬舌。同化/浊化/缩读：无典型。"
         }
       }
     },
@@ -13480,11 +14321,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/ɪz ˈsɜrvɪs tʃɑrdʒ ɪnˈkluːdɪd ɪn ðə bɪl/",
+          "variants": [
+            [
+              "Is service charge included in the bill?",
+              "标准"
+            ],
+            [
+              "Is the tip included?",
+              "美式问法"
+            ],
+            [
+              "Is there a service fee?",
+              "问有无服务费"
+            ]
+          ],
+          "scenes": [
+            [
+              "结账看单",
+              "Is service charge included in the bill?",
+              "对方回 Yes, 10% is added automatically."
+            ],
+            [
+              "要不要另给",
+              "Should I leave any extra tip?",
+              "问是否另给小费"
+            ],
+            [
+              "多收了",
+              "I think we've been overcharged.",
+              "发现多收费"
+            ]
+          ],
+          "grammar": "service charge 服务费（英式餐厅常自动加 10-12.5%）。included in… 含在…里。overcharge 多收费（over- 前缀表过度）。",
+          "pron": "连读：Is service→/ɪz ˈsɜrvɪs/；service charge→/ˈsɜrvɪs tʃɑrdʒ/；charge included→/tʃɑrdʒ ɪnˈkluːdɪd/（dʒ 与 ɪ）；included in→/ɪnˈkluː dɪdɪn/；in the→/ɪn ðə/；the bill→/ðə bɪl/。弱读：in the→/ɪn ðə/。失去爆破：included /ɪnˈkluː(d)ɪd/。同化/浊化/缩读：无典型。"
         }
       }
     },
@@ -13512,11 +14382,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/kiːp ðə rɛst æz jʊr tɪp/",
+          "variants": [
+            [
+              "Keep the rest as your tip.",
+              "标准"
+            ],
+            [
+              "Keep the change.",
+              "最常用简版！"
+            ],
+            [
+              "The rest is for you.",
+              "更随意"
+            ]
+          ],
+          "scenes": [
+            [
+              "付现不找零",
+              "Keep the change.",
+              "出租车/餐馆通用"
+            ],
+            [
+              "指定小费",
+              "Here's 100 — keep the rest as your tip.",
+              "给整额当小费"
+            ],
+            [
+              "不给小费地区",
+              "在中国/日本无需小费，直接付清即可",
+              "文化提示"
+            ]
+          ],
+          "grammar": "Keep the change 是最高频变体（留着零钱别找了）。as your tip『作为你的小费』。rest 此处名词『剩余的钱』。",
+          "pron": "连读：Keep the→/kiːp ðə/；the rest→/ðə rɛst/；rest as→/rɛs təz/（t 与 ə）；as your→/əz jər/；your tip→/jər tɪp/。弱读：the→/ðə/、as→/əz/、your→/jər/。失去爆破：rest /rɛs(t)/。同化：rest as→/rɛs təz/（t 与 ə 连读）。浊化：rest as 快读 t→d /rɛs dəz/。缩读：无典型。"
         }
       }
     },
@@ -13544,11 +14443,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/aɪd laɪk ðɪs tə teɪk əˈweɪ pliːz/",
+          "variants": [
+            [
+              "I'd like this to take away, please.",
+              "标准（英式 take away）"
+            ],
+            [
+              "To go, please.",
+              "美式最简"
+            ],
+            [
+              "Could I get this to go?",
+              "美式常用"
+            ]
+          ],
+          "scenes": [
+            [
+              "打包外带",
+              "I'd like this to take away, please.",
+              "对方回 Sure, just a moment."
+            ],
+            [
+              "剩菜打包",
+              "Could you pack this up for me?",
+              "堂食剩菜打包"
+            ],
+            [
+              "自带杯",
+              "I have my own cup — can you use it?",
+              "环保自带容器"
+            ]
+          ],
+          "grammar": "take away 外带（英式）；to go（美式）。pack up 打包剩菜。I'd like + 名词 + to take away 结构表意图。",
+          "pron": "同化/缩读：I'd = I would（/aɪd/）。连读：like this→/laɪk ðɪs/；this to→/ðɪs tə/；to take→/tə teɪk/；take away→/teɪ kəˈweɪ/（k 与 ə 连读）；away please→/əˈweɪ pliːz/。弱读：to→/tə/。失去爆破：like /laɪ(k)/；take /teɪ(k)/。同化/浊化：无典型。"
         }
       }
     },
@@ -13576,11 +14504,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/duː juː duː dɪˈlɪvəri tuː ˈnɪrbaɪ hoʊˈtɛlz/",
+          "variants": [
+            [
+              "Do you do delivery to nearby hotels?",
+              "标准"
+            ],
+            [
+              "Do you deliver to hotels around here?",
+              "deliver 动词更简"
+            ],
+            [
+              "Can you deliver to my hotel?",
+              "指明目的地"
+            ]
+          ],
+          "scenes": [
+            [
+              "电话叫外卖",
+              "Do you do delivery to nearby hotels?",
+              "对方回 Yes, what's the room number?"
+            ],
+            [
+              "问配送费",
+              "Is there a delivery fee?",
+              "问配送费"
+            ],
+            [
+              "问时间",
+              "How long will it take to arrive?",
+              "问送达时间"
+            ]
+          ],
+          "grammar": "Do you do…? 第一个 do 助动词、第二个 do 实义动词『做/提供』。delivery 配送（名词）；deliver 配送（动词）。nearby 邻近的（形容词，不需 of）。",
+          "pron": "缩读：Do you→/dʒə/（两处，缩读关键）。连读：do delivery→/də dɪˈlɪvəri/；delivery to→/dɪˈlɪvəri tə/；to nearby→/tə ˈnɪrbaɪ/；nearby hotels→/ˈnɪrbaɪ hoʊˈtɛlz/。弱读：to→/tə/。同化：Do you→/dʒu/→/dʒə/。失去爆破/浊化：无典型。"
         }
       }
     },
@@ -13608,11 +14565,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/aɪl hæv ə ˈbɜrɡər wɪð fraɪz tə ɡoʊ/",
+          "variants": [
+            [
+              "I'll have a burger with fries to go.",
+              "标准"
+            ],
+            [
+              "One burger and fries to go, please.",
+              "更简"
+            ],
+            [
+              "Burger meal to go, please.",
+              "点套餐带走"
+            ]
+          ],
+          "scenes": [
+            [
+              "快餐点单",
+              "I'll have a burger with fries to go.",
+              "对方回 For here or to go?"
+            ],
+            [
+              "加购",
+              "Could you make it a combo?",
+              "升级套餐"
+            ],
+            [
+              "饮料确认",
+              "What drink would you like with that?",
+              "问配饮"
+            ]
+          ],
+          "grammar": "I'll have… 点餐万能句。with fries『配薯条』；to go 带走（美式固定说法，作状语）。combo 套餐。",
+          "pron": "缩读：I'll = I will（/aɪl/）。连读：have a→/hæ və/；a burger→/ə ˈbɜrɡər/；burger with→/ˈbɜrɡər wɪð/；with fries→/wɪð fraɪz/；fries to→/fraɪz tə/；to go→/tə ɡoʊ/。弱读：with→/wɪð/、to→/tə/、a→/ə/。失去爆破/同化/浊化：无典型。闪音：burger 美式 /ˈbɜɾɚ/（r 元音间闪音趋势）。"
         }
       }
     },
@@ -13640,11 +14626,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/fɔr hɪr ɔr tə ɡoʊ/",
+          "variants": [
+            [
+              "For here or to go?",
+              "标准（美式服务员问句）"
+            ],
+            [
+              "Is that for here or to go?",
+              "完整版"
+            ],
+            [
+              "Are you eating in or taking out?",
+              "英式说法"
+            ]
+          ],
+          "scenes": [
+            [
+              "服务员问",
+              "For here or to go?",
+              "客人答 To go, please."
+            ],
+            [
+              "堂食答",
+              "For here, please.",
+              "堂食"
+            ],
+            [
+              "犹豫",
+              "Actually, to go — I'm in a hurry.",
+              "改带走"
+            ]
+          ],
+          "grammar": "For here 在店吃；to go 带走（美式）。英式对应：eat in or take away。这是收银员必问句，听懂关键词即可。",
+          "pron": "连读：For here→/fər hɪr/（h 音轻）；here or→/hɪ rər/（r 与 ə 连读）；or to→/ər tə/；to go→/tə ɡoʊ/。弱读：For→/fər/、to→/tə/、or→/ər/。失去爆破/同化/浊化/缩读：无典型。"
         }
       }
     },
@@ -13672,11 +14687,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/kʊd aɪ ɡɛt ˈɛkstrə ˈkɛtʃəp ˈpækɪts/",
+          "variants": [
+            [
+              "Could I get extra ketchup packets?",
+              "标准"
+            ],
+            [
+              "Can I have some more ketchup?",
+              "更简"
+            ],
+            [
+              "A few more ketchup packets, please?",
+              "a few 更口语"
+            ]
+          ],
+          "scenes": [
+            [
+              "要酱包",
+              "Could I get extra ketchup packets?",
+              "对方回 Sure, how many?"
+            ],
+            [
+              "要纸巾",
+              "Could I get some napkins, please?",
+              "同理要纸巾"
+            ],
+            [
+              "自取台",
+              "Where's the condiment station?",
+              "问调料自取台"
+            ]
+          ],
+          "grammar": "extra 额外的（= more）。packet 小包装袋；ketchup packets 番茄酱包。condiment 调味品。",
+          "pron": "连读：Could I→/kʊ d aɪ/；I get→/aɪ ɡɛt/；get extra→/ɡɛ tɛkstrə/（t 与 ɛ）；extra ketchup→/ˈɛkstrə ˈkɛtʃəp/；ketchup packets→/ˈkɛtʃəp ˈpækɪts/。弱读：a→/ə/。失去爆破：get /ɡɛ(t)/。同化/浊化/缩读：无典型。"
         }
       }
     },
@@ -13704,11 +14748,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/haʊ mʌtʃ dʌz ðɪs kɔst ɪn ˈtoʊtəl/",
+          "variants": [
+            [
+              "How much does this cost in total?",
+              "标准"
+            ],
+            [
+              "What's the total?",
+              "结账时最常用"
+            ],
+            [
+              "How much all together?",
+              "口语化"
+            ]
+          ],
+          "scenes": [
+            [
+              "结账问总价",
+              "How much does this cost in total?",
+              "对方回 That comes to 260 yuan."
+            ],
+            [
+              "逐项核对",
+              "Could you itemize the bill?",
+              "要求列明细"
+            ],
+            [
+              "觉得贵",
+              "That seems higher than I expected.",
+              "委婉说贵"
+            ]
+          ],
+          "grammar": "How much does + 主语 + cost…? cost 动词花费。in total 总共（= altogether）。come to『合计为』（结账高频）。",
+          "pron": "连读：How much→/haʊ mʌtʃ/；much does→/mʌtʃ dʌz/；does this→/dʌz ðɪs/；this cost→/ðɪs kɔst/（s 与 k）；cost in→/kɔs tɪn/（t 与 ɪ）；in total→/ɪn ˈtoʊtəl/。弱读：does→/dəz/、in→/ɪn/。失去爆破：cost /kɔs(t)/。同化/浊化/缩读：无典型。"
         }
       }
     },
@@ -13736,11 +14809,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/ɪz ðɪs ɑn seɪl æt ðə ˈmoʊmənt/",
+          "variants": [
+            [
+              "Is this on sale at the moment?",
+              "标准"
+            ],
+            [
+              "Is this on discount?",
+              "discount 更直白"
+            ],
+            [
+              "Any deals on this right now?",
+              "deals 更口语"
+            ]
+          ],
+          "scenes": [
+            [
+              "问折扣",
+              "Is this on sale at the moment?",
+              "对方回 Yes, 20% off this week."
+            ],
+            [
+              "问活动截止",
+              "When does the sale end?",
+              "问活动截止"
+            ],
+            [
+              "要会员价",
+              "Do you have a member price?",
+              "问会员价"
+            ]
+          ],
+          "grammar": "on sale 两义：①打折中（英式/美式通用）②在售（美式）。at the moment『目前』（= right now）。20% off 打八折（off 表减掉的百分比）。",
+          "pron": "连读：Is this→/ɪz ðɪs/；this on→/ðɪ sɑn/（s 与 ɑ）；on sale→/ɑn seɪl/；sale at→/seɪ lət/（l 与 ə）；at the→/ət ðə/；the moment→/ðə ˈmoʊmənt/。弱读：at→/ət/、the→/ðə/、is→/ɪz/。失去爆破：at /ə(t)/；moment /ˈmoʊmən(t)/。同化/浊化：无典型。缩读：无典型。"
         }
       }
     },
@@ -13768,11 +14870,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/duː juː hæv ðɪs ʃɜrt ɪn ə ˈmiːdiəm/",
+          "variants": [
+            [
+              "Do you have this shirt in a medium?",
+              "标准"
+            ],
+            [
+              "Do you have a medium in this?",
+              "换语序更简"
+            ],
+            [
+              "Got this in a medium?",
+              "美式极简"
+            ]
+          ],
+          "scenes": [
+            [
+              "要尺码",
+              "Do you have this shirt in a medium?",
+              "对方回 Let me check the back."
+            ],
+            [
+              "尺码表",
+              "What size is this one? / I usually wear L.",
+              "报自己尺码"
+            ],
+            [
+              "断码",
+              "Sorry, we're out of mediums — only S and XL left.",
+              "缺货说法"
+            ]
+          ],
+          "grammar": "in a medium『有中号的』（in + 尺码/颜色 表『有…款的』）。尺码：S 小 / M 中 / L 大 / XL 特大。out of stock 缺货。",
+          "pron": "缩读：Do you→/dʒə/。连读：have this→/hæv ðɪs/；this shirt→/ðɪs ʃɜrt/；shirt in→/ʃɜr tɪn/（t 与 ɪ）；in a→/ɪnə/（连读）；a medium→/ə ˈmiːdiəm/。弱读：in→/ɪn/、a→/ə/。同化：Do you→/dʒu/。失去爆破：shirt /ʃɜr(t)/。浊化/缩读其他：无典型。"
         }
       }
     },
@@ -13800,11 +14931,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/kʊd aɪ traɪ ðiːz ʃuːz ɑn ɪn ə naɪn/",
+          "variants": [
+            [
+              "Could I try these shoes on in a nine?",
+              "标准"
+            ],
+            [
+              "Can I try these in a size nine?",
+              "size nine 更清楚"
+            ],
+            [
+              "Nine in these, please?",
+              "极简"
+            ]
+          ],
+          "scenes": [
+            [
+              "要试穿",
+              "Could I try these shoes on in a nine?",
+              "对方回 Of course, have a seat."
+            ],
+            [
+              "偏小换码",
+              "They're a bit small — do you have a half size up?",
+              "要大半码"
+            ],
+            [
+              "试穿评价",
+              "They pinch a little at the toe.",
+              "挤脚说法"
+            ]
+          ],
+          "grammar": "try on 试穿（动词短语，代词放中间：try them on）。in a nine『有九码的』（in + 尺码）。half size up 大半码。",
+          "pron": "连读：Could I→/kʊ d aɪ/；I try→/aɪ traɪ/；try these→/traɪ ðiːz/；these shoes→/ðiːz ʃuːz/；shoes on→/ʃuː zɑn/（z 与 ɑ）；on in→/ɑ nɪn/；in a→/ɪnə/；a nine→/ə naɪn/。弱读：a→/ə/、in→/ɪn/。失去爆破：Could /kʊ(d)/。同化/浊化/缩读：无典型。"
         }
       }
     },
@@ -13832,11 +14992,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/wɛr ɑr ðə ˈfɪtɪŋ ruːmz pliːz/",
+          "variants": [
+            [
+              "Where are the fitting rooms, please?",
+              "标准（英式 fitting room）"
+            ],
+            [
+              "Where's the dressing room?",
+              "美式 dressing room"
+            ],
+            [
+              "Can I try these on somewhere?",
+              "更随意"
+            ]
+          ],
+          "scenes": [
+            [
+              "问试衣间",
+              "Where are the fitting rooms, please?",
+              "对方回 Over there, on your left."
+            ],
+            [
+              "问能试几件",
+              "How many items can I take in?",
+              "问限带件数"
+            ],
+            [
+              "排队",
+              "Is there a line for the fitting room?",
+              "试衣间排队"
+            ]
+          ],
+          "grammar": "fitting room 试衣间（英式）；dressing room / changing room（美式/通用）。Where are + 复数名词…? 问位置。",
+          "pron": "连读：Where are→/wɛr ər/（r 与 ə 连读）；are the→/ər ðə/；the fitting→/ðə ˈfɪtɪŋ/；fitting rooms→/ˈfɪtɪŋ ruːmz/（ŋ 与 r）；rooms please→/ruːmz pliːz/。弱读：are→/ər/、the→/ðə/。失去爆破/同化/浊化/缩读：无典型。"
         }
       }
     },
@@ -13864,11 +15053,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/ɪts ə bɪt taɪt əˈraʊnd ðə ˈʃoʊldərz/",
+          "variants": [
+            [
+              "It's a bit tight around the shoulders.",
+              "标准"
+            ],
+            [
+              "It's a little tight here.",
+              "指位置更简"
+            ],
+            [
+              "The shoulders are too narrow.",
+              "直接说问题"
+            ]
+          ],
+          "scenes": [
+            [
+              "试衣反馈",
+              "It's a bit tight around the shoulders.",
+              "对方回 Let me get you a larger size."
+            ],
+            [
+              "要大一号",
+              "Could I try one size up?",
+              "要大一号"
+            ],
+            [
+              "其他问题",
+              "The sleeves are too long.",
+              "袖子太长"
+            ]
+          ],
+          "grammar": "a bit + 形容词『有点…』（比 very 委婉）。tight 紧的 ↔ loose 松的。around the shoulders『肩部周围』。size up 大一号 / size down 小一号。",
+          "pron": "缩读：It's = It is（/ɪts/）。连读：a bit→/ə bɪt/；bit tight→/bɪ(t) taɪt/（t 与 t 重叠只读一次）；tight around→/taɪ təˈraʊnd/（t 与 ə）；around the→/əˈraʊn(d) ðə/；the shoulders→/ðə ˈʃoʊldərz/。弱读：a→/ə/、the→/ðə/。失去爆破：It's /ɪts/；around /əˈraʊn(d)/。同化/浊化：无典型。缩读：无典型。"
         }
       }
     },
@@ -13896,11 +15114,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/duː juː hæv ɪt ɪn ˈɛni ˈʌðər ˈkʌlərz/",
+          "variants": [
+            [
+              "Do you have it in any other colors?",
+              "标准"
+            ],
+            [
+              "What other colors does it come in?",
+              "come in 问款式更地道"
+            ],
+            [
+              "Got this in black?",
+              "直接点名颜色"
+            ]
+          ],
+          "scenes": [
+            [
+              "问色号",
+              "Do you have it in any other colors?",
+              "对方回 We have black and navy."
+            ],
+            [
+              "指名要色",
+              "I'd like it in white, please.",
+              "要白色"
+            ],
+            [
+              "看实物",
+              "Could you show me the navy one?",
+              "请拿来看"
+            ]
+          ],
+          "grammar": "in + 颜色『有…色的』。come in + 颜色『有…色款』。any other + 复数名词『其他任何…』。",
+          "pron": "缩读：Do you→/dʒə/。连读：have it→/hæ vɪt/（v 与 ɪ）；it in→/ɪ tɪn/（t 与 ɪ）；in any→/ɪ nɛni/（n 与 ɛ）；any other→/ˈɛni ˈʌðər/；other colors→/ˈʌðər ˈkʌlərz/。弱读：it→/ɪt/、in→/ɪn/、any→/ˈɛni/。同化：Do you→/dʒu/。闪音：other 美式 /ˈʌðɚ/（轻闪趋势）。失去爆破/浊化：无典型。"
         }
       }
     },
@@ -13928,11 +15175,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/ðɪs wʌn suːts juː ˈrɪli wɛl/",
+          "variants": [
+            [
+              "This one suits you really well.",
+              "标准"
+            ],
+            [
+              "That looks great on you.",
+              "look good on sb 更常用"
+            ],
+            [
+              "It's very flattering.",
+              "flattering 显气质，高级说法"
+            ]
+          ],
+          "scenes": [
+            [
+              "陪同购物夸赞",
+              "This one suits you really well.",
+              "对方回 You think so? I'll take it."
+            ],
+            [
+              "试衣间外评价",
+              "That color really matches your skin tone.",
+              "夸颜色衬肤色"
+            ],
+            [
+              "劝别买",
+              "Honestly, the other one looks better on you.",
+              "委婉劝选另一件"
+            ]
+          ],
+          "grammar": "suit(v.) 适合（衣服合身/风格衬）；注意与 suit(n.) 西装区分。look + adj. + on somebody『穿在某人身上显得…』。match 配衬。",
+          "pron": "连读：This one→/ðɪs wʌn/；one suits→/wʌn suːts/（n 与 s）；suits you→/suːtʃu/（t+j 同化为 tʃ，关键！）；you really→/ju ˈrɪli/；really well→/ˈrɪli wɛl/。弱读：you→/jə/。同化：suits you→/suːtʃu/（t+j→tʃ）。浊化/失去爆破/缩读：无典型。"
         }
       }
     },
@@ -13960,11 +15236,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/kʊd juː ɡɪv miː ə ˈbɛtər praɪs ɪf aɪ baɪ tuː/",
+          "variants": [
+            [
+              "Could you give me a better price if I buy two?",
+              "标准"
+            ],
+            [
+              "Any discount if I buy two?",
+              "更简"
+            ],
+            [
+              "Is there a deal for buying two?",
+              "deal 口语"
+            ]
+          ],
+          "scenes": [
+            [
+              "讲价",
+              "Could you give me a better price if I buy two?",
+              "对方回 I can do 10% off for two."
+            ],
+            [
+              "市场砍价",
+              "What's your best price?",
+              "问最低价"
+            ],
+            [
+              "批发价",
+              "Do you give a bulk discount?",
+              "问批量折扣"
+            ]
+          ],
+          "grammar": "give me a better price『给个更优惠的价』；better price = discount。if I buy two 条件句（主句 could 表委婉请求）。bulk discount 批量折扣。",
+          "pron": "连读：Could you→/kʊ dʒu/（同化）；give me→/ɡɪv mi/；me a→/miə/（连读）；a better→/ə ˈbɛtər/；better price→/ˈbɛtər praɪs/；price if→/praɪ sɪf/（s 与 ɪ）；if I→/ɪ faɪ/；I buy→/aɪ baɪ/；buy two→/baɪ tu/（aɪ 与 t）。弱读：a→/ə/、if→/ɪf/、me→/mɪ/。同化：Could you→/kʊdʒu/（关键）。闪音：better 美式 /ˈbɛɾɚ/（t 闪音化，关键！）。失去爆破/缩读：无典型。"
         }
       }
     },
@@ -13992,11 +15297,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/ðæts ə bɪt ˈoʊvər maɪ ˈbʌdʒɪt ˈɑnɪstli/",
+          "variants": [
+            [
+              "That's a bit over my budget, honestly.",
+              "标准"
+            ],
+            [
+              "That's more than I wanted to spend.",
+              "更委婉"
+            ],
+            [
+              "It's a little pricey for me.",
+              "pricey 口语『贵』"
+            ]
+          ],
+          "scenes": [
+            [
+              "委婉拒绝",
+              "That's a bit over my budget, honestly.",
+              "对方回 I have something in a lower range."
+            ],
+            [
+              "请推荐平价",
+              "Could you show me something cheaper?",
+              "请推荐便宜的"
+            ],
+            [
+              "砍价铺垫",
+              "If you can bring it down a bit, I'll take it.",
+              "降价就买"
+            ]
+          ],
+          "grammar": "over my budget『超出我的预算』（over=超过）。honestly 句尾副词，表坦诚（软化拒绝）。pricey = expensive 的口语版。",
+          "pron": "缩读：That's = That is（/ðæts/）。连读：That's a→/ðæ(t) sə/；a bit→/ə bɪt/；bit over→/bɪ tˈoʊvər/（t 与 ə）；over my→/ˈoʊvər maɪ/；my budget→/maɪ ˈbʌdʒɪt/；budget honestly→/ˈbʌdʒɪ təˈɑnɪstli/（t 与 ə）。弱读：a→/ə/。失去爆破：That's /ðæ(t)s/；budget /ˈbʌdʒɪ(t)/。同化/浊化：无典型。"
         }
       }
     },
@@ -14024,11 +15358,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/kæn aɪ peɪ baɪ kɑːrd ɔr ɪz ɪt kæʃ ˈoʊnli/",
+          "variants": [
+            [
+              "Can I pay by card or is it cash only?",
+              "标准"
+            ],
+            [
+              "Do you take credit cards?",
+              "更简"
+            ],
+            [
+              "Card or cash only?",
+              "极简问法"
+            ]
+          ],
+          "scenes": [
+            [
+              "问支付方式",
+              "Can I pay by card or is it cash only?",
+              "对方回 Both work."
+            ],
+            [
+              "国外刷 Visa",
+              "Do you accept Visa or Mastercard?",
+              "问卡组织"
+            ],
+            [
+              "找零确认",
+              "Could I get a receipt?",
+              "要收据"
+            ]
+          ],
+          "grammar": "pay by card『刷卡支付』（by + 方式，不加 the）。cash only『只收现金』（only 后置修饰 cash）。accept = take 收（支付方式）。",
+          "pron": "连读：Can I→/kæn aɪ/；I pay→/aɪ peɪ/；pay by→/peɪ baɪ/；by card→/baɪ kɑːrd/；card or→/kɑːr dər/（r 与 ə）；or is→/ər ɪz/；is it→/ɪ zɪt/（z 与 ɪ）；it cash→/ɪ(t) kæʃ/；cash only→/kæʃ ˈoʊnli/。弱读：or→/ər/、is→/ɪz/、it→/ɪt/。失去爆破：it /ɪ(t)/。同化/浊化/缩读：无典型。"
         }
       }
     },
@@ -14056,11 +15419,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/duː juː teɪk ˈmoʊbəl ˈpeɪmənt laɪk ˈæləpeɪ/",
+          "variants": [
+            [
+              "Do you take mobile payment like Alipay?",
+              "标准"
+            ],
+            [
+              "Can I pay with Alipay or WeChat Pay?",
+              "具体点名更实用"
+            ],
+            [
+              "Do you accept QR code payment?",
+              "扫码支付"
+            ]
+          ],
+          "scenes": [
+            [
+              "问扫码支付",
+              "Do you take mobile payment like Alipay?",
+              "对方回 Sure, scan the QR code here."
+            ],
+            [
+              "境外使用",
+              "Does Alipay work here?",
+              "问境外能否用"
+            ],
+            [
+              "刷脸支付",
+              "Can I pay with face recognition?",
+              "刷脸"
+            ]
+          ],
+          "grammar": "take/accept + 支付方式『收…』。mobile payment 移动支付。like Alipay『像支付宝这类』（like 表举例）。pay with + 工具（with 接具体工具，by 接方式）。",
+          "pron": "缩读：Do you→/dʒə/。连读：take mobile→/teɪk ˈmoʊbəl/（k 与 m）；mobile payment→/ˈmoʊbəl ˈpeɪmənt/；payment like→/ˈpeɪmən(t) laɪk/；like Alipay→/laɪk ˈæləpeɪ/。弱读：无典型。同化：Do you→/dʒu/。失去爆破：payment /ˈpeɪmən(t)/；take /teɪ(k)/。浊化/缩读其他：无典型。"
         }
       }
     },
@@ -14088,11 +15480,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/kʊd aɪ ɡɛt ə tæks ˈrifʌnd fɔrm fɔr ðɪs/",
+          "variants": [
+            [
+              "Could I get a tax refund form for this?",
+              "标准"
+            ],
+            [
+              "Can I claim a tax refund on this?",
+              "claim 申领"
+            ],
+            [
+              "Do you do tax-free shopping?",
+              "问有无退税服务"
+            ]
+          ],
+          "scenes": [
+            [
+              "要退税单",
+              "Could I get a tax refund form for this?",
+              "对方回 Sure, may I see your passport?"
+            ],
+            [
+              "机场退税",
+              "Where's the tax refund counter at the airport?",
+              "问退税柜台"
+            ],
+            [
+              "退税条件",
+              "What's the minimum amount for a refund?",
+              "问起退金额"
+            ]
+          ],
+          "grammar": "tax refund 退税；refund form 退税单。claim a refund 申领退款。tax-free shopping 免税购物。minimum amount 起退金额。",
+          "pron": "连读：Could I→/kʊ d aɪ/；I get→/aɪ ɡɛt/；get a→/ɡɛ tə/；a tax→/ə tæks/；tax refund→/tæks ˈrifʌnd/（s 与 r）；refund form→/ˈrifʌnd fɔrm/（d 与 f）；form for→/fɔrm fər/；for this→/fər ðɪs/。弱读：a→/ə/、for→/fər/。同化：无典型。失去爆破：get /ɡɛ(t)/。浊化/缩读：无典型。"
         }
       }
     },
@@ -14120,11 +15541,40 @@
         "lastReviewed": null,
         "dueDate": null,
         "enh": {
-          "fullIpa": "",
-          "variants": [],
-          "scenes": [],
-          "grammar": "",
-          "pron": ""
+          "fullIpa": "/aɪd laɪk tə rɪˈtɜrn ðɪs ˈdʒækɪt wɪð ðə rɪˈsiːt/",
+          "variants": [
+            [
+              "I'd like to return this jacket with the receipt.",
+              "标准"
+            ],
+            [
+              "I want to return this — here's the receipt.",
+              "更直接"
+            ],
+            [
+              "Can I get a refund for this jacket?",
+              "直接要退款"
+            ]
+          ],
+          "scenes": [
+            [
+              "退货",
+              "I'd like to return this jacket with the receipt.",
+              "对方回 Any problem with it?"
+            ],
+            [
+              "换货",
+              "Could I exchange it for a larger size?",
+              "换大一号"
+            ],
+            [
+              "只退款不换",
+              "I'd just like a refund, please.",
+              "只要退款"
+            ]
+          ],
+          "grammar": "return 退回；exchange 换货；refund 退款（三个动词必分清）。with the receipt『凭收据』（凭凭证用 with）。get a refund 拿到退款。",
+          "pron": "同化/缩读：I'd = I would（/aɪd/）。连读：like to→/laɪk tə/；to return→/tə rɪˈtɜrn/；return this→/rɪˈtɜrn ðɪs/（n 与 ð）；this jacket→/ðɪs ˈdʒækɪt/；jacket with→/ˈdʒækɪ(t) wɪð/；with the→/wɪð ðə/；the receipt→/ðə rɪˈsiːt/。弱读：to→/tə/、the→/ðə/。浊化：like to 快读 t→d /laɪ də/。失去爆破：like /laɪ(k)/；jacket /ˈdʒækɪ(t)/。注意：receipt 的 p 不发音 /rɪˈsiːt/（关键！）。"
         }
       }
     },

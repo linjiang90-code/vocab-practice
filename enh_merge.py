@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
-"""把 enh_batch_101_125/126_150/151_175/176_200.py 的详细标注合并进 master.json learn.enh。
+"""把 enh_batch_101_125 … enh_batch_226_250.py 的详细标注合并进 master.json learn.enh。
 幂等：仅当该句 enh.fullIpa 为空时写入，已有标注不覆盖。"""
 import json, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import enh_batch_101_125, enh_batch_126_150, enh_batch_151_175, enh_batch_176_200
+import enh_batch_201_225, enh_batch_226_250
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 MASTER = os.path.join(BASE, "master.json")
@@ -13,7 +14,8 @@ with open(MASTER, encoding="utf-8") as f:
 S = {s["id"]: s for s in data["sentences"]}
 
 filled = skipped = missing = 0
-for mod in (enh_batch_101_125, enh_batch_126_150, enh_batch_151_175, enh_batch_176_200):
+for mod in (enh_batch_101_125, enh_batch_126_150, enh_batch_151_175, enh_batch_176_200,
+            enh_batch_201_225, enh_batch_226_250):
     for sid, enh in mod.ENH.items():
         if sid not in S:
             print("MISSING id", sid); missing += 1; continue
