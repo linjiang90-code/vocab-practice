@@ -46,6 +46,9 @@
   }
 
   var active = {};   // key -> { src, timer, stop }
+  // 代次令牌：解码是异步的，快速连点两句时旧的那句可能在新 stopAll 之后才起播，
+  // 用它把「已过期」的起播请求作废，彻底避免两句叠在一起。
+  var gen = 0;
   function stopKey(key){
     key = normId(key);              // 归一化：'1'/'s1' 都能命中
     var a = active[key];
@@ -57,12 +60,43 @@
       delete active[key];
     }
   }
-  function stopAll(){ Object.keys(active).forEach(stopKey); }
+  // 把页面上「⏹ 停止」的按钮复位（旧的日页没有这层逻辑，靠引擎兜住）
+  // keepId：正在开始循环的那一句要保留自己的按钮状态
+  function resetRunBtns(keepId){
+    var keep = keepId ? 'rb-' + normId(keepId) : null;
+    try{
+      var bs = document.querySelectorAll('.readBtn.run');
+      for(var i=0;i<bs.length;i++){
+        if(keep && bs[i].id === keep) continue;
+        bs[i].classList.remove('run');
+        bs[i].textContent = '▶ 开始';
+      }
+    }catch(e){}
+  }
+  function stopAll(keepId){
+    gen++;                            // 让还在解码中的旧请求作废
+    Object.keys(active).forEach(stopKey);
+    stopAllFallback(keepId);
+    resetRunBtns(keepId);
+  }
   function isActive(id){ return !!active[normId(id)]; }
 
+  // 回退路径（原生 <audio>）也要互斥：只保留 keepId 那条，其余暂停
+  function stopAllFallback(keepId){
+    try{
+      var els = document.querySelectorAll('audio[id^="va-"]');
+      for(var i=0;i<els.length;i++){
+        if(keepId && els[i].id === 'va-' + normId(keepId)) continue;
+        try{ els[i].pause(); els[i].currentTime = 0; }catch(e){}
+      }
+    }catch(e){}
+  }
+
   // 启动一次播放；onEnd 通过「onended + 时长兜底定时器」双保险触发（只触发一次）
-  function startSource(key, id, rate, onEnd){
+  function startSource(key, id, rate, onEnd, token){
     return decode(id).then(function(buf){
+      // 解码期间如果用户已经点了别的句子，这次起播请求直接作废
+      if(token !== undefined && token !== gen) return null;
       var c = ac();
       if(!c) throw new Error('no AudioContext');
       var src = c.createBufferSource();
@@ -87,6 +121,7 @@
 
   function fallbackPlay(id, rate){
     var realId = normId(id);
+    stopAllFallback(realId);            // 互斥：先停掉其它正在播的 <audio>
     var a = document.getElementById('va-' + realId);
     if(!a){
       a = document.createElement('audio');
@@ -104,10 +139,12 @@
   // 播放一次（可选 onEnd 回调，用于顺序播放）
   function play(id, rate, onEnd){
     var key = normId(id);
-    stopKey(key);
+    // 互斥播放：任何一句开始播放，都要先停掉其它正在播的句子（含循环中的）
+    stopAll();
+    var my = gen;
     ac();                              // 在用户手势内创建/恢复 AudioContext
     if(!AC) return fallbackPlay(id, rate);
-    return startSource(key, id, rate, onEnd).catch(function(){
+    return startSource(key, id, rate, onEnd, my).catch(function(){
       return fallbackPlay(id, rate);
     });
   }
@@ -119,15 +156,18 @@
     var key = normId(id);
     ac();
     if(!AC){ return fallbackPlay(id, rate); }   // 无 Web Audio 时退化为单次播放
-    stopKey(key);
+    // 互斥：开始循环前先停掉其它句子，避免两句混在一起（保留本句按钮状态）
+    stopAll(key);
+    var my = gen;
     var n = 0;
     function step(){
       startSource(key, id, rate, function(){
+        if(my !== gen) return;          // 已被别的播放取代，不再续读
         n++;
         if(cb && cb.onTick) cb.onTick(n);
         if(n < reps){ step(); }
         else { if(cb && cb.onEnd) cb.onEnd(); delete active[key]; }
-      }).catch(function(){ if(cb && cb.onEnd) cb.onEnd(); });
+      }, my).catch(function(){ if(cb && cb.onEnd) cb.onEnd(); });
     }
     step();
   }

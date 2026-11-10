@@ -1563,9 +1563,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 7,
-        "mastery": 3,
-        "reviewCount": 3,
-        "lastReviewed": "2026-10-06",
+        "mastery": 4,
+        "reviewCount": 4,
+        "lastReviewed": "2026-11-10",
         "dueDate": null,
         "enh": {
           "fullIpa": "/ɪz ðɛr ə ˈfɑrməsi ˈnɪrbaɪ/",
@@ -3411,9 +3411,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 58,
-        "mastery": 2,
-        "reviewCount": 2,
-        "lastReviewed": "2026-10-09",
+        "mastery": 3,
+        "reviewCount": 3,
+        "lastReviewed": "2026-11-10",
         "dueDate": "2026-10-10",
         "enh": {
           "fullIpa": "/dʌz ˈɛniwʌn hɪr spik ˈɪŋɡlɪʃ/",
@@ -7850,9 +7850,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 52,
-        "mastery": 3,
-        "reviewCount": 3,
-        "lastReviewed": "2026-10-05",
+        "mastery": 4,
+        "reviewCount": 4,
+        "lastReviewed": "2026-11-10",
         "dueDate": null,
         "enh": {
           "fullIpa": "/hɪrz maɪ kleɪm tæɡ fɔr ðə ˈmɪsɪŋ bæɡ/",
@@ -10593,11 +10593,11 @@
       ],
       "audio": "audio/s169.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
+        "introduced": true,
+        "introducedDay": 90,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-11-10",
         "dueDate": null,
         "enh": {
           "fullIpa": "/ɪz ɪt wɪˈðɪn ˈwɔːkɪŋ ˈdɪstəns frəm hɪr/",
@@ -11447,11 +11447,11 @@
       ],
       "audio": "audio/s183.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
+        "introduced": true,
+        "introducedDay": 90,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-11-10",
         "dueDate": null,
         "enh": {
           "fullIpa": "/ɪz ðɛr ə ˈdɪskaʊnt fɔr ˈsteɪɪŋ ə hoʊl wiːk/",

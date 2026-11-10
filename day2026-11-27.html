@@ -239,10 +239,11 @@ function mColor(v){ return v<=2?'#dc2626':(v<=4?'#d97706':'#16a34a'); }
 function setMbar(sid,v){ const bar=document.getElementById('mbar-'+sid);
   if(bar){ const f=bar.querySelector('.mfill'); f.style.width=(v*20)+'%'; f.style.background=mColor(v); }
   const b=document.getElementById('mb-'+sid); if(b) b.textContent=v+'/5'; }
-function playAudio(id, rate){ if(window.VocabAudio){ VocabAudio.play(id, rate || cardSpeed[id] || speed); } }
+function playAudio(id, rate){ stopAll(); if(window.VocabAudio){ VocabAudio.play(id, rate || cardSpeed[id] || speed); } }
 function loopSpeak(id){ const btn=document.getElementById('rb-'+id); if(!btn) return;
   if(btn.classList.contains('run')){ if(window.VocabAudio) VocabAudio.stopId(id); btn.classList.remove('run'); btn.textContent='▶ 开始'; return; }
   const reps=parseInt(document.getElementById('rp-'+id).value,10)||3;
+  stopAll();                                 // 互斥：点新句子先停掉上一句，避免两句同时响
   btn.classList.add('run'); btn.textContent='⏹ 停止';
   if(window.VocabAudio){ VocabAudio.loop(id, cardSpeed[id]||speed, reps, { onEnd: ()=>{ btn.classList.remove('run'); btn.textContent='▶ 开始'; } }); }
   else { btn.classList.remove('run'); btn.textContent='▶ 开始'; } }
