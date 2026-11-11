@@ -19,10 +19,10 @@
     "voiceRate": "-10%",
     "audioDir": "audio/",
     "audioPattern": "audio/s{id}.mp3",
-    "expansionsDone": 2,
-    "nextExpansionDay": 91,
+    "expansionsDone": 3,
+    "nextExpansionDay": 121,
     "cumulativeTargetNote": "100 -> (每30天+50) -> 150 -> 200 -> ... -> 1000；每日 5 句随机推送",
-    "activeCount": 200,
+    "activeCount": 250,
     "totalTarget": 1000
   },
   "sentences": [
@@ -1431,9 +1431,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 59,
-        "mastery": 2,
-        "reviewCount": 2,
-        "lastReviewed": "2026-10-10",
+        "mastery": 3,
+        "reviewCount": 3,
+        "lastReviewed": "2026-11-11",
         "dueDate": "2026-10-11",
         "enh": {
           "fullIpa": "/kæn ju ʃoʊ mi ɑn ðə mæp/",
@@ -2901,9 +2901,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 8,
-        "mastery": 3,
-        "reviewCount": 3,
-        "lastReviewed": "2026-09-10",
+        "mastery": 4,
+        "reviewCount": 4,
+        "lastReviewed": "2026-11-11",
         "dueDate": null,
         "enh": {
           "fullIpa": "/kæn aɪ teɪk ə ˈfoʊtoʊ hɪr/",
@@ -9556,11 +9556,11 @@
       ],
       "audio": "audio/s152.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
+        "introduced": true,
+        "introducedDay": 91,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-11-11",
         "dueDate": null,
         "enh": {
           "fullIpa": "/wɛr du aɪ ɡɛt ɔːf fɔr ðə oʊld taʊn/",
@@ -11022,9 +11022,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 69,
-        "mastery": 1,
-        "reviewCount": 1,
-        "lastReviewed": "2026-10-20",
+        "mastery": 2,
+        "reviewCount": 2,
+        "lastReviewed": "2026-11-11",
         "dueDate": null,
         "enh": {
           "fullIpa": "/ɪz ðə mjuːˈziːəm wɪˈðɪn ðɪs ˈdɪstrɪkt/",
@@ -15412,11 +15412,11 @@
       ],
       "audio": "audio/s248.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
+        "introduced": true,
+        "introducedDay": 91,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-11-11",
         "dueDate": null,
         "enh": {
           "fullIpa": "/duː juː teɪk ˈmoʊbəl ˈpeɪmənt laɪk ˈæləpeɪ/",

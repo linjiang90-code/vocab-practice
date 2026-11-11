@@ -1,7 +1,8 @@
 import json, os, asyncio, edge_tts
+import voice_config
 
-VOICE = "en-US-AndrewNeural"
-RATE = "-10%"   # 略放慢，便于跟读
+VOICE = voice_config.VOICE
+RATE = voice_config.RATE
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 with open("master.json", "r", encoding="utf-8") as f:

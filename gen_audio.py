@@ -1,10 +1,11 @@
 import asyncio, edge_tts, os
+import voice_config
 
 OUT = os.path.join(os.path.dirname(__file__), "audio")
 os.makedirs(OUT, exist_ok=True)
 
-VOICE = "en-US-AndrewNeural"
-RATE = "-10%"   # 略放慢，便于跟读
+VOICE = voice_config.VOICE
+RATE = voice_config.RATE
 
 SENTENCES = [
     ("s1",  "Where is the nearest subway station?"),
