@@ -223,7 +223,7 @@ PAGE = """<!DOCTYPE html>
   <div id="long"></div>
   <footer>每天 10:00 自动推送新一批（同款增强版）· 底部自评按钮实时回写掌握度 · 进度本地保存，不外传</footer>
 </div>
-<script src="audio-engine.js"></script>
+<script src="audio-engine.js?v=20261112c"></script>
 <script>
 const DATA = __DATA_JSON__;
 let slow=false;

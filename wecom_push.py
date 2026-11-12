@@ -63,6 +63,27 @@ def _site():
     return (cfg.get("site") or DEFAULT_SITE).rstrip("/")
 
 
+def _build_tag():
+    """读 serve.py 的 BUILD 作为页面版本戳。
+
+    企业微信内置浏览器（X5/CEF）会缓存 HTML 且无视 no-store —— 推送卡片里若给
+    裸链接 day2026-11-12.html，用户点开可能落到旧副本（旧引擎 -> 旧音色）。
+    链接带上 ?v=<BUILD> 即绕过 302 直接拿磁盘最新页面，换音色/改版后立刻生效。
+    """
+    try:
+        with open(os.path.join(BASE, "serve.py"), encoding="utf-8") as f:
+            m = re.search(r'^BUILD\s*=\s*"([0-9A-Za-z]+)"', f.read(), re.M)
+        return m.group(1) if m else ""
+    except Exception:
+        return ""
+
+
+def _day_link(date):
+    """当日练习页链接（带版本戳，破除内置浏览器 HTML 缓存）。"""
+    build = _build_tag()
+    return "%s/day%s.html%s" % (_site(), date, ("?v=" + build) if build else "")
+
+
 def _clip(text, limit=170):
     """截断过长的说明文字，保持单条推送轻量。"""
     text = (text or "").strip()
@@ -138,7 +159,7 @@ def _mode_overview(ids, by_id, day_index, date):
             terms = " · ".join("%s %s" % (k.get("term", ""), k.get("ipa", "")) for k in kv[:4])
             lines.append("　🔈 %s" % terms.strip())
         lines.append("")
-    lines.append("[👉 打开今日练习页（点读 / 跟读 / 自评掌握度）](%s/day%s.html)" % (_site(), date))
+    lines.append("[👉 打开今日练习页（点读 / 跟读 / 自评掌握度）](%s)" % _day_link(date))
     return lines
 
 
@@ -176,7 +197,7 @@ def _mode_focus(ids, by_id, day_index, date, hour):
         lines.append("**语法点**")
         lines.append("　%s" % _clip(enh["grammar"], 120))
         lines.append("")
-    lines.append("[👉 点开练习页听原声](%s/day%s.html)" % (_site(), date))
+    lines.append("[👉 点开练习页听原声](%s)" % _day_link(date))
     return lines
 
 
@@ -196,7 +217,7 @@ def _mode_quiz(ids, by_id, day_index, date):
         s = by_id.get(sid) or {}
         lines.append("%d. %s" % (i, s.get("en") or ""))
     lines.append("")
-    lines.append("[👉 逐句点读纠音](%s/day%s.html)" % (_site(), date))
+    lines.append("[👉 逐句点读纠音](%s)" % _day_link(date))
     return lines
 
 
@@ -211,7 +232,7 @@ def _mode_pron(ids, by_id, day_index, date):
         if enh.get("pron"):
             lines.append("　%s" % _clip(enh["pron"], 150))
         lines.append("")
-    lines.append("[👉 跟着原声跟读](%s/day%s.html)" % (_site(), date))
+    lines.append("[👉 跟着原声跟读](%s)" % _day_link(date))
     return lines
 
 

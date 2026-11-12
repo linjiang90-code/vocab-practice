@@ -23,20 +23,49 @@
     if(id.charAt(0) === 's') id = id.slice(1);
     return 's' + id;
   }
-  // 缓存戳：每次页面加载生成一次（同一页面内复用，换页/刷新即变）。
-  // 企业微信 X5 等内置内核会无视 no-store 缓存 mp3/JS —— 换音色后用户会一直听到旧声，
-  // 用变化的 query 强制任何内核每次打开页面都拿最新音频。
-  var BUST = 'v=' + Date.now().toString(36);
-  function urlOf(id){ return 'audio/' + normId(id) + '.mp3?' + BUST; }
+  // ===== 缓存击穿（2026-11-12 二次加固） =====
+  // 企业微信内置浏览器（X5/CEF）会无视 Cache-Control: no-store 缓存 mp3，换音色后
+  // 用户仍听到旧声。前一次只在 query 上加 ?v=xxx，实测仍被命中 —— 因为这类内核的
+  // 媒体缓存按 URL「路径」建键，query 常被忽略。
+  // 现改为**路径级版本段**：audio/b<版本>/s123.mp3。
+  //   · 路径与旧版完全不同 -> 任何缓存实现都不可能命中旧副本
+  //   · 版本目录在磁盘上真实存在（sync_audio_version.py 用硬链接生成），
+  //     所以即使服务端 serve.py 还是旧版、没重启，也能当普通静态文件取到音频
+  //   · 服务端新版还会把版本段剥掉映射回 audio/s123.mp3，双保险
+  // 版本号不在这里硬编码：直接读本文件 <script src="audio-engine.js?v=xxx"> 的 v 值，
+  // 「页面引用」是唯一事实来源，换音色只需 bump 页面上的 v 并生成同名目录。
+  var SELF_V = (function(){
+    try {
+      var s = document.currentScript;
+      if(!s || !/audio-engine\.js/.test(s.src || '')){
+        var ss = document.getElementsByTagName('script');
+        for(var i = ss.length - 1; i >= 0; i--){
+          if(/audio-engine\.js/.test(ss[i].src || '')){ s = ss[i]; break; }
+        }
+      }
+      var m = s && /[?&]v=([0-9A-Za-z]+)/.exec(s.src || '');
+      return m ? m[1] : '';
+    } catch(e){ return ''; }
+  })();
+  var SEG = 'b' + (SELF_V || 'dev');               // 路径版本段
+  var BUST = 'v=' + SEG + Date.now().toString(36); // query 戳（只认 query 的代理也能击穿）
+  function urlOf(id){ return 'audio/' + SEG + '/' + normId(id) + '.mp3?' + BUST; }
 
   var bufCache = {};
+  function fetchBuf(url){
+    return fetch(url).then(function(r){
+      if(!r.ok) throw new Error('HTTP ' + r.status);
+      return r.arrayBuffer();
+    });
+  }
   function decode(id){
     return new Promise(function(resolve, reject){
       if(bufCache[id]){ resolve(bufCache[id]); return; }
-      fetch(urlOf(id)).then(function(r){
-        if(!r.ok) throw new Error('HTTP ' + r.status);
-        return r.arrayBuffer();
-      }).then(function(ab){
+      // 先试带版本段的路径；若服务端还是旧版（无 /audio/<段>/ 路由 → 404），
+      // 自动回退到扁平路径。这样「页面先更新、服务后重启」的窗口期朗读不会全挂。
+      fetchBuf(urlOf(id))
+        .catch(function(){ return fetchBuf('audio/' + normId(id) + '.mp3?' + BUST); })
+      .then(function(ab){
         var c = ac();
         if(!c){ reject(new Error('no AudioContext')); return; }
         // 同时兼容 promise 与 callback 形式的 decodeAudioData（旧 Safari 仅支持 callback）
@@ -133,7 +162,8 @@
       a.preload = 'none';
       (document.body || document.documentElement).appendChild(a);
     }
-    a.src = urlOf(id);   // 每次都重设，带上最新缓存戳
+    // 回退路径用扁平 URL（一定存在，不依赖服务端版本段路由）；query 戳仍然生效
+    a.src = 'audio/' + realId + '.mp3?' + BUST;
     a.playbackRate = (rate && rate > 0) ? rate : 1;
     try { a.currentTime = 0; } catch(e){}
     a.play().catch(function(){});

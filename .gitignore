@@ -27,3 +27,8 @@ audio_backup_aria/
 # 企业微信机器人凭证与运行时状态（含 Secret / chatid，绝不入库）
 wecom_config.json
 wecom_state.json
+
+# 音频版本目录：audio/b<BUILD>/ 是音频的硬链接副本（不占额外磁盘），
+# 用于让企业微信内置内核（X5/CEF，按路径缓存 mp3）无法命中旧声。
+# 可再生：python sync_audio_version.py / bump_build.py，无需入库。
+audio/b*/

@@ -57,7 +57,7 @@ def _wecom_reply(body, bot):
 # 构建版本号：每次页面有大改或修复乱码后递增，serve.py 会对所有 *.html 请求
 # 302 跳转到带 ?v=BUILD 的 URL，强制浏览器 / 省流量代理重新拉取最新内容，
 # 彻底破除「8-20~8-22 期间缓存的坏副本」导致的整页中文乱码假象。
-BUILD = "20261112a"
+BUILD = "20261112c"
 
 # 2026 市售车型统计表：由「2026 成都车展」项目持续维护的活文档（在外部工作区）。
 # /cars-2026.html 动态读取该源文件返回 —— 源文件更新即站点同步最新，无需复制副本。
@@ -121,8 +121,21 @@ class H(SimpleHTTPRequestHandler):
         return super().do_HEAD()
 
     def do_GET(self):
-        # 缓存击穿：所有静态 HTML 请求强制带版本号，杜绝旧缓存副本（含代理缓存）
         p = self.path.split("?", 1)[0]
+        # ===== 音频路径级缓存击穿（2026-11-12）=====
+        # 企业微信内置浏览器（X5/CEF）的媒体缓存按 URL「路径」建键，会无视
+        # Cache-Control: no-store，也不认 ?v= query —— 表现为换了音色（Ava 女声），
+        # 内嵌浏览器里仍反复放旧的男声，外部浏览器却正常。
+        # 对策：前端把版本段写进路径 audio/b<每次加载随机>/s123.mp3，这里剥掉该段
+        # 映射回真实文件 audio/s123.mp3。路径每次都变 -> 任何缓存实现都无法命中。
+        if p.startswith("/audio/") and p.count("/") == 3:
+            seg, name = p[len("/audio/"):].split("/", 1)
+            if (seg and name and "/" not in name and ".." not in name
+                    and ".." not in seg and name.endswith(".mp3")):
+                q = "?" + self.path.split("?", 1)[1] if "?" in self.path else ""
+                self.path = "/audio/" + name + q
+                p = "/audio/" + name
+        # 缓存击穿：所有静态 HTML 请求强制带版本号，杜绝旧缓存副本（含代理缓存）
         if p.endswith(".html") and "v=" not in self.path:
             sep = "&" if "?" in self.path else "?"
             self.send_response(302)

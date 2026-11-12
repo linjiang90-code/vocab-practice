@@ -80,3 +80,14 @@ async def main():
 
 
 asyncio.run(main())
+
+# 换音色/换语速后的自动化收尾（2026-11-12）：必须同步「① serve.py 的 BUILD
+# ② 所有页面的 audio-engine.js?v= ③ 磁盘 audio/b<版本>/ 目录」，否则企业微信
+# 内置浏览器（X5/CEF）按路径缓存 mp3，你录了新声用户仍听到旧声。详见 bump_build.py
+if "--no-bump" not in sys.argv:
+    try:
+        import subprocess as _sp
+        _sp.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), "bump_build.py")],
+                check=False)
+    except Exception as _e:
+        print("bump_build 未执行（请手动跑一次 bump_build.py）：%r" % (_e,))

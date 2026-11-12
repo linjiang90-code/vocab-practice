@@ -88,7 +88,7 @@ REVIEW_TMPL = r"""<!DOCTYPE html>
   <div class="pstat" id="stat"><b id="nLearned">0</b><span>已学句式（按引入日期排列）</span></div>
   <div class="grid" id="grid"></div>
 </div>
-<script src="audio-engine.js?v=20261112a"></script>
+<script src="audio-engine.js?v=20261112c"></script>
 <script src="mastery.js"></script>
 <script src="cards.js"></script>
 <script>
@@ -158,7 +158,7 @@ CAL_TMPL = r"""<!DOCTYPE html>
   </div>
   <div class="daypanel" id="daypanel"></div>
 </div>
-<script src="audio-engine.js?v=20261112a"></script>
+<script src="audio-engine.js?v=20261112c"></script>
 <script src="mastery.js"></script>
 <script src="cards.js"></script>
 <script>
