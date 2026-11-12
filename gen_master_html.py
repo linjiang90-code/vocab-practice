@@ -302,7 +302,7 @@ html = f'''<!DOCTYPE html>
   </div>
 <div class="grid" id="grid">{cards}</div>
 <footer>共 {len(S)} 句 · 数据来自 master.json · 生词已注音标 · 发音详情随每日推送逐步补全</footer>
-<script src="audio-engine.js"></script>
+<script src="audio-engine.js?v=20261112a"></script>
 <script src="mastery.js"></script>
 <script>
   const grid = document.getElementById('grid');

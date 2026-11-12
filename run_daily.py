@@ -317,7 +317,7 @@ PAGE = """<!DOCTYPE html>
   <div id="long"></div>
   <footer>每天 9:00 自动推送新一批（同款增强版） · 进度本地保存，不外传</footer>
 </div>
-<script src="audio-engine.js"></script>
+<script src="audio-engine.js?v=20261112a"></script>
 <script>
 (function(){ const d=new Date().toISOString().slice(0,10); document.querySelectorAll('.today-nav').forEach(a=>a.href='day'+d+'.html'); })();
 const DATA = __DATA_JSON__;

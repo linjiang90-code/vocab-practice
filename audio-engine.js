@@ -23,7 +23,11 @@
     if(id.charAt(0) === 's') id = id.slice(1);
     return 's' + id;
   }
-  function urlOf(id){ return 'audio/' + normId(id) + '.mp3'; }
+  // 缓存戳：每次页面加载生成一次（同一页面内复用，换页/刷新即变）。
+  // 企业微信 X5 等内置内核会无视 no-store 缓存 mp3/JS —— 换音色后用户会一直听到旧声，
+  // 用变化的 query 强制任何内核每次打开页面都拿最新音频。
+  var BUST = 'v=' + Date.now().toString(36);
+  function urlOf(id){ return 'audio/' + normId(id) + '.mp3?' + BUST; }
 
   var bufCache = {};
   function decode(id){
@@ -127,9 +131,9 @@
       a = document.createElement('audio');
       a.id = 'va-' + realId;
       a.preload = 'none';
-      a.src = urlOf(id);
       (document.body || document.documentElement).appendChild(a);
     }
+    a.src = urlOf(id);   // 每次都重设，带上最新缓存戳
     a.playbackRate = (rate && rate > 0) ? rate : 1;
     try { a.currentTime = 0; } catch(e){}
     a.play().catch(function(){});

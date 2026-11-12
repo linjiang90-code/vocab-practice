@@ -6872,11 +6872,11 @@
       ],
       "audio": "audio/s108.mp3",
       "learn": {
-        "introduced": false,
-        "introducedDay": null,
-        "mastery": 0,
-        "reviewCount": 0,
-        "lastReviewed": null,
+        "introduced": true,
+        "introducedDay": 92,
+        "mastery": 1,
+        "reviewCount": 1,
+        "lastReviewed": "2026-11-12",
         "dueDate": null,
         "enh": {
           "fullIpa": "/ɪz ðə flaɪt ɑn ˈskɛdʒuːl təˈdeɪ/",
@@ -8399,9 +8399,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 46,
-        "mastery": 1,
-        "reviewCount": 1,
-        "lastReviewed": "2026-09-27",
+        "mastery": 2,
+        "reviewCount": 2,
+        "lastReviewed": "2026-11-12",
         "dueDate": null,
         "enh": {
           "fullIpa": "/wɛr ʃʊd aɪ ɡoʊ θruː ˈkʌstəmz/",
@@ -8887,9 +8887,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 48,
-        "mastery": 2,
-        "reviewCount": 2,
-        "lastReviewed": "2026-09-29",
+        "mastery": 3,
+        "reviewCount": 3,
+        "lastReviewed": "2026-11-12",
         "dueDate": "2026-09-30",
         "enh": {
           "fullIpa": "/du ju teɪk ˈkrɛdɪt kɑrdz ɔr kæʃ ˈoʊnli/",
@@ -9009,9 +9009,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 48,
-        "mastery": 3,
-        "reviewCount": 3,
-        "lastReviewed": "2026-11-06",
+        "mastery": 4,
+        "reviewCount": 4,
+        "lastReviewed": "2026-11-12",
         "dueDate": "2026-09-30",
         "enh": {
           "fullIpa": "/pliz drɑp mi ˈɔf ət ðə meɪn ˈɛntrəns/",
@@ -9131,9 +9131,9 @@
       "learn": {
         "introduced": true,
         "introducedDay": 73,
-        "mastery": 1,
-        "reviewCount": 1,
-        "lastReviewed": "2026-10-24",
+        "mastery": 2,
+        "reviewCount": 2,
+        "lastReviewed": "2026-11-12",
         "dueDate": null,
         "enh": {
           "fullIpa": "/kip ðə tʃeɪndʒ θæŋk ju/",
